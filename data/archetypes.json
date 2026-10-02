@@ -1,0 +1,91 @@
+[
+  {
+    "id": "couple",
+    "title": "Couple",
+    "icon": "favorite",
+    "color": "primary",
+    "accentHex": "#d31018",
+    "glowColor": "rgba(211, 16, 24, 0.4)",
+    "tagline": "Intimate, Romantic & Soulful",
+    "description": "Intimate pandal hopping, curated romantic dining experiences, and serene rituals.",
+    "recommendedRoute": [
+      "Bagbazar Sarbojanin (Morning Ghat walk)",
+      "6 Ballygunge Place (Royal Feast)",
+      "Maddox Square (Evening Twilight Adda)",
+      "Flurys (Midnight Hot Chocolate)"
+    ],
+    "highlights": [
+      "Tranquil early-morning darshan",
+      "Quiet rooftop eateries",
+      "Scenic photography spots",
+      "Romantic lighting corridors"
+    ]
+  },
+  {
+    "id": "friends",
+    "title": "Friends",
+    "icon": "groups",
+    "color": "secondary",
+    "accentHex": "#00e0ff",
+    "glowColor": "rgba(0, 224, 255, 0.4)",
+    "tagline": "High-Energy Midnight Hopping",
+    "description": "High-energy zones, street food crawls, and midnight madness routes.",
+    "recommendedRoute": [
+      "Santosh Mitra Square (Laser Show)",
+      "College Square (Lake Mirrors)",
+      "Kusum Rolls (Street Food Crawl)",
+      "Sreebhumi (03:00 AM Mega Structure)",
+      "Arsalan (04:30 AM Biryani)"
+    ],
+    "highlights": [
+      "All-night 10+ pandal sprint",
+      "Dhunuchi Naach competitions",
+      "Late-night street food joints",
+      "Real-time squad location sync"
+    ]
+  },
+  {
+    "id": "family",
+    "title": "Family",
+    "icon": "family_restroom",
+    "color": "tertiary",
+    "accentHex": "#ffd700",
+    "glowColor": "rgba(233, 196, 0, 0.4)",
+    "tagline": "Comfort, Heritage & Accessible",
+    "description": "Accessible pandal circuits, relaxed dining spaces, and culturally rich family experiences.",
+    "recommendedRoute": [
+      "Ballygunge Cultural (Traditional Sabeki)",
+      "Suruchi Sangha (Cultural Folk Pavilion)",
+      "Bhojohori Manna (Family Feast)",
+      "Maddox Square (Relaxed Garden Adda)"
+    ],
+    "highlights": [
+      "Accessible low-crowd hours",
+      "Traditional Bhog tasting",
+      "Minimal walking routes",
+      "Family photo zones"
+    ]
+  },
+  {
+    "id": "solo",
+    "title": "Solo",
+    "icon": "explore",
+    "color": "secondary",
+    "accentHex": "#a5eeff",
+    "glowColor": "rgba(165, 238, 255, 0.4)",
+    "tagline": "Photography, Artisans & Architecture",
+    "description": "Deep-dive architectural exploration, idol artisan workshops, and unhurried cultural immersion.",
+    "recommendedRoute": [
+      "Kumartuli Clay Studios",
+      "Chetla Agrani (Eco-Artisan Concept)",
+      "Deshapriya Park",
+      "Nakur Sweets (Jolbhora Tasting)"
+    ],
+    "highlights": [
+      "Artisan interview points",
+      "Cinematic photography angles",
+      "Audio guide commentary",
+      "Independent pace flex"
+    ]
+  }
+]

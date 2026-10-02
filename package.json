@@ -1,0 +1,17 @@
+{
+  "name": "sharodiya",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Sharodiya - Full-Stack Durga Puja Experience & Parikrama Planner",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "python server/server.py",
+    "dev": "python server/server.py",
+    "test": "python scratch/test_python_server.py"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2"
+  }
+}

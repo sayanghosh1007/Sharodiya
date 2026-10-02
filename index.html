@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sharodiya - Divine Festive Experience & Pandal Planner</title>
+  <meta name="description" content="Immerse yourself in the electric energy of the ultimate Durga Puja. Navigate majestic pandals, curate your gastronomic journey, and orchestrate a flawless celebration."/>
+  
+  <!-- Tailwind CSS with customized Sharodiya Neo-Festal Palette (Dark Grey Base) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#1a1c1e",
+            "surface": "#1a1c1e",
+            "surface-dim": "#16181a",
+            "surface-bright": "#383b40",
+            "surface-container-lowest": "#121416",
+            "surface-container-low": "#222529",
+            "surface-container": "#282b30",
+            "surface-container-high": "#32363c",
+            "surface-container-highest": "#3d4249",
+            "primary": "#ffb4ab",
+            "primary-container": "#d31018",
+            "on-primary": "#690004",
+            "on-primary-container": "#ffe5e1",
+            "secondary": "#b9f1ff",
+            "secondary-container": "#00e0ff",
+            "on-secondary": "#00363f",
+            "tertiary": "#ffd700",
+            "tertiary-container": "#c9a900",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#e7bdb7",
+            "outline": "#ad8883",
+            "outline-variant": "#5d3f3c"
+          },
+          fontFamily: {
+            "headline": ["Playfair Display", "Georgia", "serif"],
+            "body": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          },
+          maxWidth: {
+            "container-max": "1280px"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet & OpenStreetMap Styles & Library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Custom Stylesheet & Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-white/5 transition-all">
+    <div class="h-20 max-w-container-max mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Brand Logo (Sharodiya Divine Emblem) -->
+      <a href="#landing" data-path="landing" class="flex items-center gap-3.5 group">
+        <img alt="Sharodiya Logo" class="w-10 h-10 rounded-full object-contain drop-shadow-[0_0_12px_rgba(255,215,0,0.7)] group-hover:scale-105 transition-transform" src="assets/logo.png"/>
+        <div class="flex flex-col">
+          <span class="font-headline text-2xl lg:text-3xl text-white font-black tracking-tight leading-none group-hover:text-primary transition-colors">Sharodiya</span>
+          <span class="font-mono text-[10px] text-tertiary tracking-widest uppercase">Neo-Festal 2026</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links (Matches Stitch Nav Structure) -->
+      <nav class="hidden md:flex items-center gap-5 lg:gap-7">
+        <a href="#landing" data-path="landing" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">Landing</a>
+        <a href="#people" data-path="people" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">People</a>
+        <a href="#pandals" data-path="pandals" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">Pandals</a>
+        <a href="#eateries" data-path="eateries" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">Eateries</a>
+        <a href="#map" data-path="map" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-tertiary">map</span>
+          <span>Puja Map</span>
+        </a>
+        <a href="#planned" data-path="planned" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all flex items-center gap-1.5">
+          <span>Planned</span>
+          <span id="parikrama-count-badge" class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary-container text-white">5</span>
+        </a>
+      </nav>
+
+      <!-- Right Action Controls -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Theme Toggle (Dark / Light) -->
+        <button id="theme-toggle-btn" class="px-3 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold font-mono flex items-center gap-1.5 border border-white/10 shadow-sm transition-all" title="Toggle Dark / Light Theme (Syncs Map)">
+          <span class="material-symbols-outlined text-[18px] text-tertiary theme-icon">dark_mode</span>
+          <span class="theme-label hidden sm:inline">Dark</span>
+        </button>
+
+        <!-- Dhak Sound Ambient Toggle -->
+        <button id="dhak-audio-toggle" class="px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-tertiary text-xs font-bold font-mono flex items-center gap-2 border border-tertiary/20 shadow-sm transition-all" title="Toggle Bengali Dhak drum rhythm">
+          <span class="material-symbols-outlined text-[18px]">volume_off</span>
+          <span class="audio-label hidden sm:inline">Play Dhak</span>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-full bg-surface-container text-white flex items-center justify-center">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-[60] bg-black/85 backdrop-blur-xl hidden md:hidden flex flex-col p-6 space-y-6">
+    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <div class="flex items-center gap-3">
+        <img alt="Sharodiya Logo" class="w-9 h-9 rounded-full object-contain drop-shadow-[0_0_10px_rgba(255,215,0,0.7)]" src="assets/logo.png"/>
+        <span class="font-headline text-2xl text-white font-bold">Sharodiya</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="mobile-theme-toggle-btn" class="p-2 rounded-full bg-white/10 text-tertiary flex items-center justify-center" title="Toggle Dark/Light Mode">
+          <span class="material-symbols-outlined theme-icon">dark_mode</span>
+        </button>
+        <button id="close-drawer-btn" class="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+    <nav class="flex flex-col space-y-4 text-lg font-semibold">
+      <a href="#landing" data-path="landing" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">home</span>Landing (Countdown)</a>
+      <a href="#people" data-path="people" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">groups</span>People / Companionship</a>
+      <a href="#pandals" data-path="pandals" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">temple_hindu</span>Pandals Radar</a>
+      <a href="#eateries" data-path="eateries" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-secondary">restaurant</span>Eateries / Food</a>
+      <a href="#map" data-path="map" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">map</span>Puja Map Radar</a>
+      <a href="#planned" data-path="planned" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">route</span>Planned / Parikrama</a>
+    </nav>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-surface-container-highest border border-primary/40 text-white px-5 py-3 rounded-2xl shadow-2xl transition-all duration-300 transform opacity-0 translate-y-4 pointer-events-none flex items-center gap-3 text-sm font-semibold">
+    <span class="material-symbols-outlined text-primary">info</span>
+    <span>Notification</span>
+  </div>
+
+  <!-- Main Application Content Views -->
+  <main class="w-full min-h-screen pt-20 relative z-10">
+
+    <!-- VIEW 1: LANDING & COUNTDOWN (STRICT CONTAINER FOR SHIULI PARTICLES) -->
+    <div id="view-landing" class="page-view active-view flex flex-col w-full -mt-20">
+      
+      <!-- Hero Section with Authentic Stitch Autumn Sky Background -->
+      <section class="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-28 overflow-hidden">
+        
+        <!-- Stitch Autumn Sky Background Image -->
+        <img alt="Autumn Sky in Bengal" class="absolute inset-0 w-full h-full z-0 object-cover opacity-90 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY1xA2Gjhcvn217-e_h0fVPj1LZjldsAyCy5PLlbhz6v1HPYaMAnRwHZbIPylOgodDkLO0HrTrtiZohhqoxcMOQewJ_DA4xAKyBJ2o1zXQqZNgFooJ88Oe2FBPhE-TqRi0ecSHg2YP19hwRK70qPjMsgKU0WFNiRzLhM08ZeLFvJtn2x53Hubvk5TNTH5c4nddgPxPTQxbzapaRmUBYO1nWlqfyYL1CBmjVaKE9VDbtOC2DSzkUhh_hSEbi1gcBPEAvw"/>
+        
+        <!-- Falling Shiuli Flower Particles - ONLY ACTIVE ON LANDING PAGE -->
+        <div id="particle-container" class="absolute inset-0 w-full h-full pointer-events-none z-[5] overflow-hidden"></div>
+
+        <!-- Gradient Scrim for High Contrast & Smooth Blend into Dark Background -->
+        <div class="absolute inset-0 bg-gradient-to-b from-background/20 via-background/65 to-background z-10 pointer-events-none"></div>
+
+        <!-- Hero Ambient Card -->
+        <div class="relative z-20 flex flex-col items-center max-w-4xl mx-auto space-y-8 animate-float">
+          
+          <!-- Overline Badge -->
+          <div class="inline-flex items-center gap-2.5 bg-surface-container-high/60 px-5 py-2 rounded-full backdrop-blur-xl border border-white/10 shadow-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_10px_rgba(255,215,0,0.9)]"></span>
+            <span class="font-mono text-xs text-tertiary uppercase tracking-widest font-bold">Neo-Festal Edition 2026</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="font-headline text-6xl sm:text-8xl lg:text-9xl text-white font-black tracking-tight leading-none drop-shadow-[0_0_35px_rgba(211,16,24,0.4)]">
+            Sharodiya
+          </h1>
+
+          <!-- Tagline -->
+          <p class="font-body text-base sm:text-lg lg:text-xl text-on-surface max-w-2xl leading-relaxed bg-surface/40 p-5 sm:p-6 rounded-2xl backdrop-blur-md border border-white/5">
+            Immerse yourself in the electric energy of the ultimate Durga Puja 2026. Navigate majestic pandals, curate your gastronomic journey, and orchestrate a flawless celebration.
+          </p>
+
+          <!-- Live Countdown Timer (Transparent, Compact) -->
+          <div class="w-full max-w-xl text-center pt-2">
+            <span class="text-[11px] sm:text-xs font-mono text-tertiary uppercase tracking-widest block mb-3 font-bold">Countdown to Durga Puja 2026 (Maha Sasthi)</span>
+            <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+              <div class="flex flex-col items-center">
+                <span id="timer-days" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-tertiary font-bold leading-none">00</span>
+                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Days</span>
+              </div>
+              <div class="flex flex-col items-center border-l border-white/10">
+                <span id="timer-hours" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-tertiary font-bold leading-none">00</span>
+                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Hours</span>
+              </div>
+              <div class="flex flex-col items-center border-l border-white/10">
+                <span id="timer-minutes" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-tertiary font-bold leading-none">00</span>
+                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Mins</span>
+              </div>
+              <div class="flex flex-col items-center border-l border-white/10">
+                <span id="timer-seconds" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-primary font-bold leading-none">00</span>
+                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Secs</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Bento Grid Features Section -->
+      <section class="max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 space-y-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-3 max-w-xl">
+            <span class="text-xs font-mono text-tertiary uppercase tracking-widest font-bold">Unmatched Festive Experience</span>
+            <h2 class="font-headline text-3xl sm:text-5xl text-white font-bold">
+              Curate Your <span class="text-primary">Divine Experience</span>
+            </h2>
+            <p class="text-sm sm:text-base text-on-surface-variant">Everything you need to master the chaos and revel in the beauty of the festival, unified in one hyper-organized dashboard.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          
+          <!-- Bento 1: Pandal Radar (Large Span) -->
+          <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card relative min-h-[380px] p-8 flex flex-col justify-end group cursor-pointer" onclick="window.sharodiyaApp.navigateTo('pandals')">
+            <div class="absolute inset-0 z-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM" alt="Pandal Radar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+            </div>
+            <div class="relative z-10 space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center text-secondary shadow-lg">
+                <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">temple_hindu</span>
+              </div>
+              <h3 class="font-headline text-3xl text-white font-bold">Pandal Radar</h3>
+              <p class="text-sm text-on-surface-variant max-w-lg">Discover 141 top-rated and avant-garde installations across 4 zones of Kolkata (North, South, Central, Salt Lake &amp; New Town). Track crowd levels and transit in real-time.</p>
+              <span class="text-xs font-mono text-tertiary font-bold uppercase tracking-wider inline-flex items-center gap-1">
+                Explore 141 Pandals <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Bento 2: Schedule & Ritual Timings (Interactive Day Selector) -->
+          <div class="md:col-span-4 rounded-3xl glass-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-[22px]">calendar_today</span>
+                <h3 class="font-headline text-xl font-bold text-white">Schedule</h3>
+              </div>
+              <span class="text-[10px] font-mono text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20 font-bold">Oct 16 - 20, 2026</span>
+            </div>
+
+            <!-- Interactive Day Tabs: Sasthi, Saptami, Ashtami, Navami, Dashami -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="schedule-day-tabs">
+              <!-- Dynamically populated in app.js -->
+            </div>
+
+            <!-- Day's Detailed Schedule Timeline -->
+            <div id="ritual-schedule-container" class="space-y-2.5 flex-1 overflow-y-auto max-h-[260px] pr-1">
+              <!-- Dynamically populated with accurate step-by-step rituals -->
+            </div>
+
+            <button onclick="window.sharodiyaApp.openScheduleModal()" class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-tertiary text-xs font-bold font-mono uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5 border border-white/5 shadow-sm">
+              <span class="material-symbols-outlined text-[16px]">menu_book</span>
+              <span>Full 5-Day Ritual Guide</span>
+            </button>
+          </div>
+
+          <!-- Bento 3: Dedicated Live Puja Map Radar -->
+          <div class="md:col-span-4 rounded-3xl overflow-hidden glass-card relative min-h-[320px] p-8 flex flex-col justify-between group cursor-pointer border border-tertiary/20 hover:border-tertiary/60 transition-all" onclick="window.sharodiyaApp.navigateTo('map')">
+            <div class="absolute inset-0 z-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw" alt="Puja Map Radar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-transparent"></div>
+            </div>
+            <div class="relative z-10 flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-tertiary/20 flex items-center justify-center text-tertiary">
+                <span class="material-symbols-outlined text-2xl">map</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-tertiary/20 text-tertiary text-xs font-mono font-bold shadow-md border border-tertiary/30 animate-pulse">
+                Live Geospatial
+              </span>
+            </div>
+            <div class="relative z-10 space-y-2">
+              <h3 class="font-headline text-2xl text-white font-bold">Puja Map Radar</h3>
+              <p class="text-xs text-on-surface-variant">Full-screen geospatial map tracking 141 pandals, 250 eateries, metro stations, and your route trail.</p>
+              <span class="text-xs font-mono text-tertiary font-bold uppercase tracking-wider inline-flex items-center gap-1 pt-1">
+                Open Master Map <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Bento 4: Gastronomy -->
+          <div class="md:col-span-4 rounded-3xl overflow-hidden glass-card relative min-h-[320px] p-8 flex flex-col justify-between group cursor-pointer" onclick="window.sharodiyaApp.navigateTo('eateries')">
+            <div class="absolute inset-0 z-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8" alt="Gastronomy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent"></div>
+            </div>
+            <div class="relative z-10 self-end px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-mono font-bold shadow-md border border-secondary/30">
+              250+ Hotspots
+            </div>
+            <div class="relative z-10 space-y-2">
+              <h3 class="font-headline text-2xl text-white font-bold">Gastronomy</h3>
+              <p class="text-xs text-on-surface-variant">From midnight biryani institutions to heritage sweet cabins and 5-star feasts.</p>
+              <span class="text-xs font-mono text-secondary font-bold uppercase tracking-wider inline-flex items-center gap-1 pt-1">
+                Explore Flavours <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Bento 5: Squad & Companionship -->
+          <div class="md:col-span-4 rounded-3xl overflow-hidden glass-card relative min-h-[320px] p-8 flex flex-col justify-between group cursor-pointer" onclick="window.sharodiyaApp.navigateTo('people')">
+            <div class="absolute inset-0 z-0">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary-container/30 via-surface-container to-surface-container-high"></div>
+            </div>
+            <div class="relative z-10 space-y-2">
+              <span class="text-xs font-mono text-tertiary uppercase tracking-widest font-bold">Companionship</span>
+              <h3 class="font-headline text-2xl text-white font-bold">Planning with Squad?</h3>
+              <p class="text-xs text-on-surface-variant">Select a companion archetype to reveal specialized itineraries tailored to your squad.</p>
+            </div>
+            <div class="relative z-10 pt-4">
+              <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold text-white group-hover:bg-white/20 transition-colors inline-flex items-center gap-1.5">
+                Explore Archetypes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- VIEW 2: PANDALS (CLEAN FULL-WIDTH GRID WITH DIRECT MAP ACTIONS) -->
+    <div id="view-pandals" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 space-y-8 relative">
+      
+      <!-- Page Header & Filters -->
+      <section class="space-y-6 relative z-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-2 max-w-2xl">
+            <span class="font-mono text-xs text-tertiary uppercase tracking-widest font-bold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+              Live Exploration • 141 Curated Pandals
+            </span>
+            <h1 class="font-headline text-4xl sm:text-6xl text-white font-black leading-tight">
+              Discover the <br/><span class="text-primary mix-blend-screen drop-shadow-[0_0_12px_rgba(211,16,24,0.4)]">Divine Energy</span>
+            </h1>
+          </div>
+
+          <!-- Search Bar & Direct Map Action Button -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div class="w-full sm:w-80 relative">
+              <span class="material-symbols-outlined absolute left-4 top-3 text-on-surface-variant">search</span>
+              <input id="pandal-search-input" type="text" placeholder="Search pandals, zones, metro, theme..." class="w-full pl-12 pr-4 py-2.5 rounded-full bg-surface-container border border-white/10 text-white placeholder:text-on-surface-variant focus:outline-none focus:border-primary text-sm shadow-md"/>
+            </div>
+            
+            <button onclick="window.sharodiyaApp.navigateTo('map')" class="px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-tertiary/30 text-tertiary text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-md shrink-0 hover:scale-105">
+              <span class="material-symbols-outlined text-[18px]">map</span>
+              <span>Open in Puja Map</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ZONE SELECTOR TABS (Covers all 141 Pandals across 4 Zones) -->
+        <div class="space-y-2">
+          <span class="text-[11px] font-mono uppercase tracking-widest text-on-surface-variant font-semibold">Select Region / Zone</span>
+          <div class="flex items-center gap-2.5 overflow-x-auto pb-2" id="pandal-zone-filters">
+            <button class="zone-filter-btn px-5 py-2.5 rounded-full zone-btn-active-all text-xs font-bold flex items-center gap-2 whitespace-nowrap transition-all" data-zone="all">
+              <span class="material-symbols-outlined text-[16px]">travel_explore</span>
+              All Zones <span class="px-2 py-0.5 rounded-full bg-black/20 text-[10px]">141</span>
+            </button>
+            <button class="zone-filter-btn px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold flex items-center gap-2 whitespace-nowrap transition-all" data-zone="north">
+              North Kolkata <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[10px]">43</span>
+            </button>
+            <button class="zone-filter-btn px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold flex items-center gap-2 whitespace-nowrap transition-all" data-zone="south">
+              South Kolkata <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[10px]">58</span>
+            </button>
+            <button class="zone-filter-btn px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold flex items-center gap-2 whitespace-nowrap transition-all" data-zone="central">
+              Central &amp; East <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[10px]">20</span>
+            </button>
+            <button class="zone-filter-btn px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold flex items-center gap-2 whitespace-nowrap transition-all" data-zone="saltlake">
+              Salt Lake &amp; New Town <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[10px]">20</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-1 border-t border-white/5">
+          <div class="flex flex-wrap items-center gap-2.5" id="pandal-filters">
+            <button class="filter-btn px-4 py-1.5 rounded-full bg-primary text-black text-xs font-bold transition-all" data-filter="all">
+              All Types
+            </button>
+            <button class="filter-btn px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all text-xs font-bold flex items-center gap-1.5" data-filter="popular">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Popular
+            </button>
+            <button class="filter-btn px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all text-xs font-bold flex items-center gap-1.5" data-filter="traditional">
+              <span class="w-2 h-2 rounded-full bg-tertiary"></span>
+              Traditional / Sabeki
+            </button>
+            <button class="filter-btn px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all text-xs font-bold flex items-center gap-1.5" data-filter="theme">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              Theme-based
+            </button>
+          </div>
+
+          <!-- Live Result Count Indicator -->
+          <div id="pandal-results-indicator" class="text-xs font-mono text-tertiary flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+            <span id="pandal-results-count">Showing 141 pandals</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pandal Grid Section (Rendered dynamically by app.js matching Stitch card styles) -->
+      <section id="pandal-grid-container" class="space-y-8 relative z-10">
+        <div id="pandal-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically rendered -->
+        </div>
+
+        <!-- Load More / Expand Controls for Performance -->
+        <div id="pandal-load-more-container" class="flex justify-center pt-4">
+          <button id="pandal-load-more-btn" class="px-8 py-3 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-white font-bold text-xs border border-white/10 shadow-lg transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+            <span>Show More Pandals</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Curated Trails Banner -->
+      <article class="bg-surface-container rounded-2xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row my-8 border border-white/5">
+        <div class="md:w-1/3 p-8 flex flex-col justify-center gap-6 relative z-10 bg-surface-container/90 backdrop-blur-xl">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
+            <span class="material-symbols-outlined text-primary text-[28px]">route</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-2xl text-white font-bold">Curated Trails</h3>
+            <p class="text-sm text-on-surface-variant mt-2">Optimize your pandal hopping across North, South, Central, and Salt Lake with our AI-generated routes based on live crowd data and traffic flow.</p>
+          </div>
+          <button onclick="window.sharodiyaApp.navigateTo('map')" class="w-fit px-6 py-2 rounded-full bg-secondary text-black font-bold text-xs hover:shadow-[0_0_15px_rgba(0,218,248,0.5)] transition-all flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">map</span>
+            <span>Explore on Puja Map</span>
+          </button>
+        </div>
+        <div class="md:w-2/3 h-64 md:h-auto relative min-h-[260px]">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw')"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-surface-container via-surface-container/50 to-transparent hidden md:block"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/50 to-transparent block md:hidden"></div>
+          <!-- Route Nodes -->
+          <div class="absolute top-[30%] left-[40%] w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(211,16,24,0.8)] animate-pulse"></div>
+          <div class="absolute top-[60%] left-[60%] w-3 h-3 bg-tertiary rounded-full shadow-[0_0_15px_rgba(233,196,0,0.8)]"></div>
+          <div class="absolute top-[45%] left-[75%] w-3 h-3 bg-secondary rounded-full shadow-[0_0_15px_rgba(0,218,248,0.8)] animate-pulse"></div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- VIEW 3: EATERIES (FULL-WIDTH GASTRONOMY DIRECTORY) -->
+    <div id="view-eateries" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 space-y-12 relative">
+      
+      <!-- Categories Banner with Stitch Glow (From Stitch Eateries Screen) -->
+      <section class="mt-4 relative overflow-hidden rounded-2xl bg-surface-container-high/50 backdrop-blur-md shadow-xl border-l-[4px] border-l-secondary-container">
+        <div class="absolute inset-0 bg-gradient-to-r from-surface-container to-transparent opacity-80 mix-blend-multiply pointer-events-none"></div>
+        <!-- Decorative Glow -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        
+        <div class="relative p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 z-10">
+          <div class="space-y-3 max-w-lg">
+            <span class="font-mono text-xs text-secondary-container uppercase tracking-wider block font-bold">CURATED CULINARY TRAIL</span>
+            <h1 class="font-headline text-4xl sm:text-5xl text-white font-black">Flavors of the Fest</h1>
+            <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed">Navigate through the aromatic alleyways of Sharodiya. From sizzling street-side snacks to grand Bengali feasts, discover the culinary heart of the celebration.</p>
+          </div>
+
+          <!-- Category Chips Carousel -->
+          <div class="w-full md:w-auto flex-1 overflow-x-auto pb-2 md:pb-0 z-10" id="eatery-category-bar">
+            <div class="flex flex-wrap gap-2.5 md:justify-end">
+              <button class="eatery-category-btn px-4 py-2.5 rounded-full border-2 border-white bg-white/15 text-white text-xs font-bold transition-all whitespace-nowrap shadow-[0_0_15px_rgba(255,255,255,0.25)]" data-category="all">
+                All Flavours
+              </button>
+              <button id="nearest-food-joint-btn" class="eatery-category-btn px-4 py-2.5 rounded-full border border-secondary/50 bg-secondary/15 text-secondary hover:text-white text-xs font-bold transition-all flex items-center gap-2 whitespace-nowrap shadow-[0_0_15px_rgba(0,224,255,0.2)]" data-category="nearest">
+                <span class="material-symbols-outlined text-[16px]">near_me</span>
+                Nearest to Planned Pandals
+              </button>
+              <button class="eatery-category-btn px-4 py-2.5 rounded-full border border-white/10 bg-surface-container text-on-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-2 whitespace-nowrap" data-category="finedine">
+                <span class="w-2 h-2 rounded-full bg-purple-400"></span> Fine Dining &amp; Luxury
+              </button>
+              <button class="eatery-category-btn px-4 py-2.5 rounded-full border border-white/10 bg-surface-container text-on-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-2 whitespace-nowrap" data-category="traditional">
+                <span class="w-2 h-2 rounded-full bg-tertiary"></span> Traditional Bengali
+              </button>
+              <button class="eatery-category-btn px-4 py-2.5 rounded-full border border-white/10 bg-surface-container text-on-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-2 whitespace-nowrap" data-category="midnight">
+                <span class="w-2 h-2 rounded-full bg-primary"></span> Midnight Cravings
+              </button>
+              <button class="eatery-category-btn px-4 py-2.5 rounded-full border border-white/10 bg-surface-container text-on-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-2 whitespace-nowrap" data-category="street">
+                <span class="w-2 h-2 rounded-full bg-secondary"></span> Street Food &amp; Cabins
+              </button>
+              <button class="eatery-category-btn px-4 py-2.5 rounded-full border border-white/10 bg-surface-container text-on-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-2 whitespace-nowrap" data-category="cafes">
+                <span class="w-2 h-2 rounded-full bg-yellow-400"></span> Cafes &amp; Sweets
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nearest to Planned Pandals Smart Info Banner -->
+      <section id="nearest-pandals-info-banner" class="hidden glass-card rounded-2xl p-5 border border-secondary/30 bg-gradient-to-r from-secondary/15 via-surface-container-high to-primary/10 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+        <div class="space-y-1.5 max-w-xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+            <span class="font-mono text-xs text-secondary font-bold uppercase tracking-wider">Smart Proximity Matcher</span>
+          </div>
+          <h3 id="nearest-banner-headline" class="font-headline text-lg sm:text-xl font-bold text-white">Nearest Food Joints to Your Planned Pandals</h3>
+          <p id="nearest-banner-subtext" class="text-xs text-on-surface-variant leading-relaxed">Showing eateries sorted by exact walking and transit distance from your active Parikrama stops.</p>
+        </div>
+        <button onclick="window.sharodiyaApp.navigateTo('planned')" class="px-5 py-2.5 rounded-full bg-surface-container-highest hover:bg-surface-highest text-white text-xs font-bold flex items-center gap-2 shrink-0 border border-white/10 transition-all">
+          <span class="material-symbols-outlined text-[18px] text-primary">route</span>
+          View Parikrama Plan
+        </button>
+      </section>
+
+      <!-- Trending Eateries Dynamic Asymmetric Grid -->
+      <section class="space-y-6">
+        <div class="flex items-end justify-between border-b border-surface-container-high pb-4">
+          <h2 class="font-headline text-3xl text-tertiary flex items-center gap-3 font-bold">
+            <span class="material-symbols-outlined text-[32px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+            Trending Eateries
+          </h2>
+          <span id="trending-category-tag" class="text-xs font-mono text-secondary uppercase tracking-wider font-bold">Curated Icons</span>
+        </div>
+
+        <div id="trending-eateries-grid" class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <!-- Dynamically populated from 250 Eateries by app.js -->
+        </div>
+      </section>
+
+      <!-- Complete Eatery Directory Section -->
+      <section class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-surface-container-high pb-4">
+          <div>
+            <span class="text-xs font-mono text-secondary uppercase tracking-widest font-bold">Comprehensive Directory</span>
+            <h2 class="font-headline text-3xl text-white font-bold">All 250 Iconic Eateries &amp; Cabins</h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="relative w-full sm:w-72">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+              <input id="eatery-search-input" type="text" placeholder="Search biryani, fish fry, sweet, cabin..." class="w-full bg-surface-container border border-white/10 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-on-surface-variant focus:outline-none focus:border-secondary transition-colors" />
+            </div>
+            <button onclick="window.sharodiyaApp.navigateTo('map')" class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high border border-secondary/30 text-secondary text-xs font-bold transition-all flex items-center gap-1.5 shrink-0">
+              <span class="material-symbols-outlined text-[16px]">map</span>
+              <span>Open in Puja Map</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Eateries Cards Grid -->
+        <div id="eateries-full-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Eatery Load More Container -->
+        <div id="eatery-load-more-container" class="flex justify-center pt-4">
+          <button id="eatery-load-more-btn" class="px-8 py-3 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-white font-bold text-xs border border-white/10 shadow-lg transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+            <span>Show More Eateries</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- VIEW 4: DEDICATED SEPARATE PUJA MAP SECTION -->
+    <div id="view-map" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 space-y-6 relative">
+      
+      <!-- Header with Live Counters & Action Toolbar -->
+      <section class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 relative z-10">
+        <div class="space-y-2 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-ping"></span>
+            <span class="font-mono text-xs text-tertiary uppercase tracking-widest font-bold">
+              Live Map Radar • 141 Pandals &amp; 250 Eateries
+            </span>
+          </div>
+          <h1 class="font-headline text-3xl sm:text-5xl text-white font-black leading-tight">
+            Interactive <span class="text-primary">Puja &amp; Food Radar</span>
+          </h1>
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+            Real-time geospatial radar covering all 4 zones of Kolkata. Pinpoint pandal darshan queues, heritage sweet shops, midnight biryani hubs, Kolkata Metro corridors, and your synchronized Parikrama route trail.
+          </p>
+        </div>
+
+        <!-- Quick Action & Stats Header Badges -->
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <div class="px-4 py-2 rounded-2xl bg-surface-container border border-white/10 text-xs font-mono flex items-center gap-3 shadow-md">
+            <span class="flex items-center gap-1.5 text-primary font-bold"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> <span id="map-stat-pandals">141</span> Pandals</span>
+            <span class="text-white/20">|</span>
+            <span class="flex items-center gap-1.5 text-secondary font-bold"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> <span id="map-stat-eateries">250</span> Eateries</span>
+          </div>
+
+          <button id="map-locate-me-btn" class="px-5 py-2.5 rounded-full bg-secondary text-black font-bold text-xs shadow-lg hover:scale-105 transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">my_location</span>
+            <span>Near Me (GPS)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Map Layer Switches & Zone Filter Pills Bar -->
+      <section class="glass-card rounded-2xl p-4 border border-white/10 shadow-xl space-y-4 relative z-10">
+        
+        <!-- Mode Switcher: Planned Route Mode vs Full Kolkata Explorer -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-mono uppercase text-on-surface-variant font-bold">Map Mode:</span>
+            <div class="flex items-center p-1 rounded-full bg-surface-container-high border border-white/10">
+              <button id="mode-btn-plan" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 bg-primary text-black shadow-md">
+                <span class="material-symbols-outlined text-[16px]">route</span>
+                <span id="mode-plan-btn-text">My Planned Route</span>
+              </button>
+              <button id="mode-btn-all" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 text-on-surface-variant hover:text-white">
+                <span class="material-symbols-outlined text-[16px]">public</span>
+                <span>All Kolkata (141 Pandals &amp; 250 Eateries)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          
+          <!-- Layer Toggles -->
+          <div class="space-y-1.5">
+            <span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest font-semibold block">Map Layers</span>
+            <div class="flex flex-wrap items-center gap-2" id="map-layer-toggles">
+              <button id="layer-toggle-pandals" class="map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-primary/40 bg-primary/20 text-white shadow-sm" data-layer="pandals">
+                <span class="material-symbols-outlined text-[16px] text-primary">temple_hindu</span>
+                <span>Pandals</span>
+                <span class="px-1.5 py-0.2 rounded-full bg-primary/30 text-[10px] text-white font-mono">141</span>
+              </button>
+
+              <button id="layer-toggle-eateries" class="map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-secondary/40 bg-secondary/20 text-white shadow-sm" data-layer="eateries">
+                <span class="material-symbols-outlined text-[16px] text-secondary">restaurant</span>
+                <span>Eateries</span>
+                <span class="px-1.5 py-0.2 rounded-full bg-secondary/30 text-[10px] text-white font-mono">250</span>
+              </button>
+
+              <button id="layer-toggle-metro" class="map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-purple-400/40 bg-purple-400/20 text-white shadow-sm" data-layer="metro">
+                <span class="material-symbols-outlined text-[16px] text-purple-400">directions_subway</span>
+                <span>Metro Stations</span>
+              </button>
+
+              <button id="layer-toggle-trail" class="hidden map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-tertiary/40 bg-tertiary/20 text-white shadow-sm" data-layer="trail">
+                <span class="material-symbols-outlined text-[16px] text-tertiary">route</span>
+                <span>Parikrama Trail</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Zone Quick Selector -->
+          <div class="space-y-1.5" id="master-map-zone-filters-container">
+            <span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest font-semibold block">Focus Region / Zone</span>
+            <div class="flex items-center gap-2 overflow-x-auto pb-1" id="master-map-zone-filters">
+              <button class="map-zone-btn px-3.5 py-1.5 rounded-full bg-primary text-black text-xs font-bold transition-all whitespace-nowrap" data-zone="all">
+                🌐 All Kolkata
+              </button>
+              <button class="map-zone-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold transition-all whitespace-nowrap" data-zone="north">
+                🟡 North
+              </button>
+              <button class="map-zone-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold transition-all whitespace-nowrap" data-zone="south">
+                🔴 South
+              </button>
+              <button class="map-zone-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold transition-all whitespace-nowrap" data-zone="central">
+                🔵 Central
+              </button>
+              <button class="map-zone-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-bold transition-all whitespace-nowrap" data-zone="saltlake">
+                🟣 Salt Lake
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Plan Route Mode Active Banner (Only displayed when opened from a Plan) -->
+      <section id="map-plan-mode-banner" class="hidden glass-card rounded-2xl p-4 sm:p-5 border border-secondary/40 bg-gradient-to-r from-secondary/15 via-surface-container to-primary/10 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl relative z-10">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-2xl bg-secondary/20 border border-secondary/30 flex items-center justify-center text-secondary shrink-0 shadow-md">
+            <span class="material-symbols-outlined text-2xl animate-pulse">route</span>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-headline font-bold text-white text-base" id="map-plan-mode-title">Plan Route Mode: My Puja Plan 1</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/25 text-primary text-xs font-mono font-bold border border-primary/30" id="map-plan-mode-day">Maha Sasthi</span>
+            </div>
+            <p class="text-xs text-on-surface-variant" id="map-plan-mode-subtitle">Showing only planned pandals, planned eateries &amp; all Kolkata metro stations.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button id="exit-plan-map-mode-btn" class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/10 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all hover:scale-105">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">public</span>
+            <span>Show Full Kolkata Map</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Full-Canvas Interactive Master Map Container -->
+      <section class="rounded-3xl overflow-hidden bg-surface-container-low border border-white/10 shadow-2xl relative">
+        
+        <!-- Floating Live Map Search & Autocomplete -->
+        <div class="absolute top-4 left-4 z-[400] max-w-sm sm:w-80 w-[calc(100%-110px)]">
+          <div class="relative shadow-2xl">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-tertiary text-[20px]">search</span>
+            <input id="master-map-search-input" type="text" placeholder="Search any pandal, restaurant, metro..." class="w-full pl-11 pr-9 py-2.5 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-white/20 text-white placeholder:text-on-surface-variant text-xs shadow-2xl focus:outline-none focus:border-primary transition-all"/>
+            <button id="master-map-search-clear" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-white text-xs">
+              <span class="material-symbols-outlined text-[16px]">close</span>
+            </button>
+          </div>
+          <!-- Auto-Suggest Dropdown Results -->
+          <div id="master-map-search-results" class="hidden absolute top-full left-0 right-0 mt-1.5 max-h-60 overflow-y-auto rounded-2xl bg-surface-container-highest/95 backdrop-blur-xl border border-white/15 shadow-2xl divide-y divide-white/5 z-[500]">
+          </div>
+        </div>
+
+        <!-- Floating Map Action Group (Right Side) -->
+        <div class="absolute top-4 right-4 z-[400] flex flex-col gap-2">
+          <button id="master-map-theme-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-tertiary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Switch Map Theme (Dark / Light)">
+            <span class="material-symbols-outlined text-[20px] theme-icon">dark_mode</span>
+          </button>
+          <button id="master-map-reset-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-white flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Reset View to Kolkata Center">
+            <span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+          </button>
+          <button id="master-map-trail-zoom-btn" class="hidden w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-tertiary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Zoom to Fit Parikrama Stops">
+            <span class="material-symbols-outlined text-[20px]">route</span>
+          </button>
+          <button id="master-map-fullscreen-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-secondary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Toggle Fullscreen">
+            <span class="material-symbols-outlined text-[20px]">fullscreen</span>
+          </button>
+        </div>
+
+        <!-- Floating Legend & Real Road Route Stats Pill -->
+        <div class="absolute bottom-4 left-4 right-4 z-[400] flex flex-wrap items-center justify-between gap-3 pointer-events-none">
+          <div class="pointer-events-auto hidden sm:flex items-center gap-3 px-4 py-2 rounded-2xl bg-surface-container-high/90 backdrop-blur-md border border-white/10 text-[11px] font-mono shadow-2xl">
+            <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> South Pandal</span>
+            <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span> North Pandal</span>
+            <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> Central Pandal</span>
+            <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span> Salt Lake Pandal</span>
+            <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Eatery</span>
+          </div>
+
+          <!-- Dynamic Real Road Route Stats Badge -->
+          <div id="master-map-road-stats" class="pointer-events-auto flex items-center gap-2 px-4 py-2 rounded-2xl bg-primary-container/90 text-white backdrop-blur-md border border-white/20 text-xs font-mono font-bold shadow-2xl transition-all">
+            <span class="material-symbols-outlined text-[16px] text-tertiary animate-pulse">alt_route</span>
+            <span id="master-map-road-stats-text">🛣️ Street-Level Road Navigation</span>
+          </div>
+        </div>
+
+        <!-- The Master OpenStreetMap Leaflet Container -->
+        <div id="master-osm-map" class="w-full h-[640px] sm:h-[700px] z-0"></div>
+      </section>
+
+    </div>
+
+    <!-- VIEW 4: PLANNED (MULTI-PLAN DAY-BY-DAY ROUTE PLANNER) -->
+    <div id="view-planned" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 space-y-10 relative">
+
+      <!-- Header Section -->
+      <section class="flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10">
+        <div class="max-w-2xl space-y-3">
+          <span class="font-mono text-xs text-tertiary uppercase tracking-widest font-bold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            Multi-Plan Festive Itinerary Hub • 2026 Edition
+          </span>
+          <h1 class="font-headline text-4xl sm:text-6xl text-white font-black tracking-tight">Your Puja Parikrama</h1>
+          <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed">Create and manage multiple distinct plans for any day of Durga Puja 2026. Tailor separate circuits for morning pushpanjali, family feasts, and midnight squad hopping.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 no-print">
+          <!-- View Route On Map Button (Enters Plan Route Map Mode) -->
+          <button id="view-plan-on-map-btn" class="px-5 py-3 rounded-full bg-secondary text-black font-bold text-xs flex items-center gap-2 shadow-[0_0_15px_rgba(0,224,255,0.3)] hover:scale-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[18px]">map</span>
+            <span>View Route on Map</span>
+          </button>
+
+          <!-- Prominent Save Plan Button -->
+          <button id="save-plan-btn" class="px-6 py-3 rounded-full bg-primary text-black font-bold text-xs flex items-center gap-2 shadow-[0_2px_15px_rgba(255,180,171,0.4)] hover:scale-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[18px]">save</span>
+            <span id="save-plan-btn-text">Save Plan</span>
+          </button>
+
+          <!-- Create New Plan Button -->
+          <button id="create-new-plan-btn" class="px-5 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white font-bold text-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+            <span class="material-symbols-outlined text-[18px] text-secondary">add_circle</span>
+            <span>New Plan</span>
+          </button>
+
+          <!-- All Plans Overview Modal Trigger -->
+          <button id="open-all-plans-modal-btn" class="px-5 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-tertiary/30 text-tertiary font-bold text-xs flex items-center gap-2 transition-all hover:scale-105">
+            <span class="material-symbols-outlined text-[18px]">folder_open</span>
+            <span>All Plans (<span id="total-plans-count">1</span>)</span>
+          </button>
+
+          <!-- Share Parikrama -->
+          <button id="share-parikrama-btn" class="px-5 py-3 rounded-full bg-primary-container text-white font-bold text-xs flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[18px]">share</span> Share
+          </button>
+
+          <!-- Print / Export -->
+          <button id="print-parikrama-btn" class="px-5 py-3 rounded-full glass-card hover:bg-white/10 text-white font-bold text-xs border border-white/10 transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">print</span> Print / PDF
+          </button>
+        </div>
+      </section>
+
+      <!-- Active Plan Management Card & Day Assignment (Default: No Day Selected) -->
+      <section class="glass-card rounded-3xl p-6 sm:p-7 border border-white/10 space-y-6 relative shadow-2xl no-print">
+        
+        <!-- Row 1: Plan Switcher, Editable Plan Name & Quick Actions -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 pb-5 border-b border-white/10">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-3.5 flex-1">
+            <div class="space-y-1">
+              <label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant font-bold block">Switch Active Plan</label>
+              <select id="plan-selector-dropdown" class="bg-surface-container-high border border-white/15 rounded-xl px-3.5 py-2 text-xs text-white font-semibold focus:outline-none focus:border-primary transition-all max-w-xs">
+                <!-- Dynamically populated -->
+              </select>
+            </div>
+
+            <div class="space-y-1 flex-1">
+              <label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant font-bold block">Plan Title (Click to Edit)</label>
+              <div class="flex items-center gap-2">
+                <input id="active-plan-title-input" type="text" placeholder="Enter plan name (e.g. Morning Pushpanjali, Midnight Sprint)..." class="w-full bg-surface-container/70 hover:bg-surface-container border border-white/10 focus:border-primary rounded-xl px-3.5 py-2 text-sm font-headline font-bold text-white focus:outline-none transition-all" value="My Puja Plan 1" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Action Buttons -->
+          <div class="flex items-center gap-2 self-end lg:self-center">
+            <button id="duplicate-plan-btn" class="px-3.5 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs text-on-surface hover:text-white font-semibold border border-white/5 transition-all flex items-center gap-1.5" title="Duplicate this plan">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">content_copy</span>
+              <span>Duplicate</span>
+            </button>
+            <button id="delete-plan-btn" class="px-3.5 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-xs text-red-400 font-semibold border border-red-500/20 transition-all flex items-center gap-1.5" title="Delete this plan">
+              <span class="material-symbols-outlined text-[16px]">delete</span>
+              <span>Delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Row 2: Puja Day Plans -->
+        <div class="space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="space-y-0.5">
+              <span class="text-xs font-mono uppercase tracking-widest text-tertiary font-bold flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                <span>Puja Day Itineraries</span>
+              </span>
+              <p class="text-xs text-on-surface-variant">Switch days to create and view separate, dedicated parikrama plans for each day of Durga Puja.</p>
+            </div>
+
+            <!-- Current Assignment Status Pill (Default: Maha Sasthi) -->
+            <div id="plan-day-status-pill" class="self-start sm:self-auto px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-green-500/15 border border-green-500/30 text-green-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-green-400"></span>
+              <span id="plan-day-status-text">Assigned: <strong>Maha Sasthi</strong></span>
+            </div>
+          </div>
+
+          <!-- Day Selection Buttons (Maha Sasthi selected by default) -->
+          <div id="parikrama-days-bar" class="flex flex-wrap items-center gap-2 pt-1">
+            <button class="day-assign-btn px-4 py-2 rounded-full bg-primary text-black font-bold text-xs whitespace-nowrap transition-all border border-primary shadow-md" data-day="Maha Sasthi">
+              Maha Sasthi (Oct 16)
+            </button>
+            <button class="day-assign-btn px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-semibold whitespace-nowrap transition-all border border-white/5" data-day="Maha Saptami">
+              Maha Saptami (Oct 17)
+            </button>
+            <button class="day-assign-btn px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-semibold whitespace-nowrap transition-all border border-white/5" data-day="Maha Ashtami">
+              Maha Ashtami (Oct 18)
+            </button>
+            <button class="day-assign-btn px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-semibold whitespace-nowrap transition-all border border-white/5" data-day="Maha Navami">
+              Maha Navami (Oct 19)
+            </button>
+            <button class="day-assign-btn px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-semibold whitespace-nowrap transition-all border border-white/5" data-day="Bijoya Dashami">
+              Bijoya Dashami (Oct 20)
+            </button>
+            <button id="clear-day-assignment-btn" class="day-assign-btn px-3 py-2 rounded-full bg-white/5 hover:bg-white/10 text-on-surface-variant text-xs font-mono transition-all border border-white/5 flex items-center gap-1" data-day="null" title="Unassign Day (Draft Mode)">
+              <span class="material-symbols-outlined text-[14px]">close</span>
+              <span>Unassign Day</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Personalized Itinerary Recommendation Callout Banner -->
+      <section class="glass-card rounded-3xl p-6 sm:p-8 border border-secondary/30 bg-gradient-to-r from-secondary/10 via-surface-container-high to-primary/10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl no-print">
+        <div class="space-y-2 max-w-xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+            <span class="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-mono font-bold uppercase tracking-wider">
+              ✨ Personalized Itinerary Engine
+            </span>
+          </div>
+          <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white">Generate Your Tailored Puja Route</h2>
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">Instantly curate a seamless, timed circuit of pandals and iconic food stops matching your squad, preferred hours, and culinary tastes.</p>
+        </div>
+        <button id="open-itinerary-wizard-btn" class="px-7 py-3.5 rounded-full bg-secondary text-black font-bold text-xs sm:text-sm shadow-[0_0_25px_rgba(0,224,255,0.4)] hover:scale-105 transition-all flex items-center gap-2 shrink-0">
+          <span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+          Build Personalized Itinerary
+        </button>
+      </section>
+
+      <!-- Summary Metrics (From Stitch Planned Screen) -->
+      <section class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+        <div class="bg-surface-container-low backdrop-blur-xl p-6 rounded-2xl flex flex-col gap-1 relative overflow-hidden group border border-white/5">
+          <span class="material-symbols-outlined text-primary mb-2 text-2xl">temple_hindu</span>
+          <span id="metric-pandals" class="font-headline text-3xl sm:text-4xl font-bold text-white">05</span>
+          <span class="font-mono text-xs uppercase tracking-wider text-on-surface-variant">Pandals</span>
+        </div>
+        <div class="bg-surface-container-low backdrop-blur-xl p-6 rounded-2xl flex flex-col gap-1 relative overflow-hidden group border border-white/5">
+          <span class="material-symbols-outlined text-secondary mb-2 text-2xl">restaurant</span>
+          <span id="metric-eateries" class="font-headline text-3xl sm:text-4xl font-bold text-white">02</span>
+          <span class="font-mono text-xs uppercase tracking-wider text-on-surface-variant">Eateries</span>
+        </div>
+        <div class="bg-surface-container-low backdrop-blur-xl p-6 rounded-2xl flex flex-col gap-1 relative overflow-hidden group border border-white/5">
+          <span class="material-symbols-outlined text-tertiary mb-2 text-2xl">route</span>
+          <span class="font-headline text-3xl sm:text-4xl font-bold text-white">
+            <span id="metric-distance">12.5</span> <span class="text-sm font-body text-on-surface-variant font-normal">km</span>
+          </span>
+          <span class="font-mono text-xs uppercase tracking-wider text-on-surface-variant">Total Est. Distance</span>
+        </div>
+        <div class="bg-surface-container-low backdrop-blur-xl p-6 rounded-2xl flex flex-col gap-1 relative overflow-hidden group border border-white/5">
+          <span class="material-symbols-outlined text-primary mb-2 text-2xl">schedule</span>
+          <span class="font-headline text-3xl sm:text-4xl font-bold text-white">
+            <span id="metric-duration">6.5</span> <span class="text-sm font-body text-on-surface-variant font-normal">hrs</span>
+          </span>
+          <span class="font-mono text-xs uppercase tracking-wider text-on-surface-variant">Est. Duration</span>
+        </div>
+      </section>
+
+      <!-- Step-by-Step Route Timeline -->
+      <section class="space-y-6 relative z-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <h3 class="font-headline text-2xl font-bold text-white">Route Timeline &amp; Sequence</h3>
+            <span class="text-xs font-mono text-on-surface-variant">Step-by-step itinerary stops with walking &amp; transit sequence</span>
+          </div>
+          <button id="view-timeline-on-map-btn" class="px-4 py-2 rounded-xl bg-secondary/20 hover:bg-secondary/30 text-secondary border border-secondary/40 text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm hover:scale-105 active:scale-95 shrink-0" title="Open this Parikrama route on the Puja Map">
+            <span class="material-symbols-outlined text-[16px]">map</span>
+            <span>View Route on Map</span>
+          </button>
+        </div>
+        <div id="parikrama-timeline" class="space-y-2">
+          <!-- Dynamically rendered by app.js -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- VIEW 5: PEOPLE (EXACT STITCH BACKGROUND & LAYOUT) -->
+    <div id="view-people" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 space-y-12 relative overflow-hidden">
+
+      <!-- People Header (From Stitch People Screen) -->
+      <section class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-4">
+        <span class="font-mono text-xs text-tertiary uppercase tracking-[0.2em] font-bold">Personalized Itineraries &amp; Companionship</span>
+        <h1 class="font-headline text-4xl sm:text-6xl text-white font-black drop-shadow-[0_0_15px_rgba(255,180,171,0.3)]">Who are you planning with this year?</h1>
+        <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">Curate your neo-festal journey tailored to the dynamics of your group for 2026. Select a companion archetype below or customize your complete personalized itinerary.</p>
+        
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <button id="open-itinerary-wizard-btn-people" class="px-7 py-3 rounded-full bg-secondary text-black text-xs font-bold shadow-[0_0_20px_rgba(0,224,255,0.4)] inline-flex items-center gap-2 hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+            Launch Custom Itinerary Builder
+          </button>
+          <button id="squad-invite-btn" class="px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-lg inline-flex items-center gap-2 hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[18px]">group_add</span>
+            Generate Squad Code
+          </button>
+        </div>
+      </section>
+
+      <!-- Archetypes 4-Card Grid (From Stitch People Screen) -->
+      <section id="archetype-grid" class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <!-- Dynamically rendered by app.js -->
+      </section>
+
+      <!-- Selected Archetype Detailed Route Preview -->
+      <section id="archetype-details" class="relative z-10">
+        <!-- Dynamically rendered by app.js -->
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Personalized Itinerary Recommendation Builder Modal -->
+  <div id="itinerary-wizard-modal" class="fixed inset-0 z-[80] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto border border-white/15 shadow-2xl relative p-6 sm:p-8 space-y-6">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-secondary font-bold">Sharodiya Smart Curator</span>
+          </div>
+          <h3 class="font-headline text-2xl sm:text-3xl text-white font-bold">Personalized Itinerary Generator</h3>
+        </div>
+        <button id="close-itinerary-wizard-btn" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Step-by-Step Interactive Form -->
+      <form id="itinerary-wizard-form" class="space-y-6">
+        
+        <!-- 1. Companion Archetype -->
+        <div class="space-y-2.5">
+          <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">groups</span>
+            1. Who are you travelling with?
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="wizard-companion-group">
+            <label class="cursor-pointer">
+              <input type="radio" name="wizard-archetype" value="friends" checked class="hidden peer" />
+              <div class="p-3 rounded-xl bg-surface-container border border-white/10 peer-checked:border-secondary peer-checked:bg-secondary/15 text-center transition-all">
+                <span class="material-symbols-outlined text-secondary block mb-1 text-[22px]">groups</span>
+                <span class="text-xs font-bold text-white block">Friends Squad</span>
+                <span class="text-[10px] text-on-surface-variant">High Energy</span>
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="wizard-archetype" value="family" class="hidden peer" />
+              <div class="p-3 rounded-xl bg-surface-container border border-white/10 peer-checked:border-tertiary peer-checked:bg-tertiary/15 text-center transition-all">
+                <span class="material-symbols-outlined text-tertiary block mb-1 text-[22px]">family_restroom</span>
+                <span class="text-xs font-bold text-white block">Family &amp; Elders</span>
+                <span class="text-[10px] text-on-surface-variant">Accessible / Sabeki</span>
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="wizard-archetype" value="couple" class="hidden peer" />
+              <div class="p-3 rounded-xl bg-surface-container border border-white/10 peer-checked:border-primary peer-checked:bg-primary/15 text-center transition-all">
+                <span class="material-symbols-outlined text-primary block mb-1 text-[22px]">favorite</span>
+                <span class="text-xs font-bold text-white block">Couple</span>
+                <span class="text-[10px] text-on-surface-variant">Romantic / Aesthetic</span>
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="wizard-archetype" value="solo" class="hidden peer" />
+              <div class="p-3 rounded-xl bg-surface-container border border-white/10 peer-checked:border-purple-400 peer-checked:bg-purple-400/15 text-center transition-all">
+                <span class="material-symbols-outlined text-purple-400 block mb-1 text-[22px]">explore</span>
+                <span class="text-xs font-bold text-white block">Solo / Art Lover</span>
+                <span class="text-[10px] text-on-surface-variant">Architecture / Speed</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 2. Puja Day & Time Window -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">calendar_today</span>
+              2. Select Puja Day
+            </label>
+            <select id="wizard-day-select" class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-secondary transition-colors">
+              <option value="Maha Sasthi">Maha Sasthi (Bodhon &amp; Adhibas)</option>
+              <option value="Maha Saptami">Maha Saptami (Kola Bou Snan)</option>
+              <option value="Maha Ashtami" selected>Maha Ashtami (Pushpanjali &amp; Sandhi Puja)</option>
+              <option value="Maha Navami">Maha Navami (Dhunuchi &amp; Maha Bhog)</option>
+              <option value="Bijoya Dashami">Bijoya Dashami (Sindoor Khela &amp; Bisarjan)</option>
+            </select>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+              3. Time &amp; Duration Window
+            </label>
+            <select id="wizard-time-select" class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-secondary transition-colors">
+              <option value="midnight" selected>🌙 Midnight All-Nighter (11:00 PM - 05:00 AM)</option>
+              <option value="morning">🌅 Morning Devotion (07:30 AM - 12:30 PM)</option>
+              <option value="afternoon">☀️ Afternoon Culture (01:00 PM - 05:30 PM)</option>
+              <option value="evening">🌆 Evening Prime Time (05:00 PM - 10:30 PM)</option>
+              <option value="allday">🌟 Full Day Grand Tour (09:00 AM - 08:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 3. Geographic Zone & Dining Style -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">map</span>
+              4. Geographic Zone / Circuit
+            </label>
+            <select id="wizard-zone-select" class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-secondary transition-colors">
+              <option value="all" selected>🌐 All Kolkata (Metro Connected Corridor)</option>
+              <option value="north">North Kolkata (Bagbazar, Sovabazar, Hatibagan)</option>
+              <option value="south">South Kolkata (Ballygunge, Ekdalia, Deshapriya, Chetla)</option>
+              <option value="central">Central &amp; East (College Sq, Md Ali Park, Santosh Mitra)</option>
+              <option value="saltlake">Salt Lake &amp; New Town (Sreebhumi, FD Block)</option>
+            </select>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">restaurant</span>
+              5. Culinary / Food Stop Style
+            </label>
+            <select id="wizard-cuisine-select" class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-secondary transition-colors">
+              <option value="biryani" selected>🍗 Midnight Biryani &amp; Mughlai (Arsalan, Royal, Oudh)</option>
+              <option value="bengali">🐟 Traditional Bengali (6 Ballygunge, Bhojohori, Aaheli)</option>
+              <option value="street">🥟 Street Food &amp; Cabins (Mitra Cafe, Golbari, Phuchka)</option>
+              <option value="sweets">🍯 Sweets, Cafes &amp; Bakes (Flurys, Nakur, Balaram, Mouchak)</option>
+              <option value="finedine">🍸 5-Star Luxury Fine Dining (ITC Dum Pukht, Taj, JW)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 4. Pacing Selector -->
+        <div class="space-y-2">
+          <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">speed</span>
+            6. Pacing &amp; Intensity
+          </label>
+          <div class="flex gap-3">
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="wizard-pace" value="relaxed" class="hidden peer" />
+              <div class="p-2.5 rounded-xl bg-surface-container border border-white/10 peer-checked:border-secondary peer-checked:bg-secondary/15 text-center text-xs font-bold text-white transition-all">
+                🧘 Relaxed (3-4 Stops)
+              </div>
+            </label>
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="wizard-pace" value="balanced" checked class="hidden peer" />
+              <div class="p-2.5 rounded-xl bg-surface-container border border-white/10 peer-checked:border-secondary peer-checked:bg-secondary/15 text-center text-xs font-bold text-white transition-all">
+                ⚖️ Balanced (5-6 Stops)
+              </div>
+            </label>
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="wizard-pace" value="intense" class="hidden peer" />
+              <div class="p-2.5 rounded-xl bg-surface-container border border-white/10 peer-checked:border-secondary peer-checked:bg-secondary/15 text-center text-xs font-bold text-white transition-all">
+                ⚡ Hardcore Sprint (8-10 Stops)
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-secondary via-secondary-container to-primary text-black font-bold text-sm shadow-[0_0_25px_rgba(0,224,255,0.4)] hover:scale-[1.01] transition-transform flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+          Generate Tailored Itinerary Recommendation
+        </button>
+      </form>
+
+      <!-- Live Recommendation Results Preview -->
+      <div id="wizard-results-container" class="hidden space-y-6 pt-6 border-t border-white/10">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+    </div>
+  </div>
+
+  </main>
+
+  <!-- Pandal Details Modal -->
+  <div id="pandal-modal" class="fixed inset-0 z-[70] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div id="pandal-modal-content" class="glass-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10 shadow-2xl relative">
+      <!-- Dynamically filled by app.js -->
+    </div>
+  </div>
+
+  <!-- Eatery Details Modal -->
+  <div id="eatery-modal" class="fixed inset-0 z-[70] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div id="eatery-modal-content" class="glass-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10 shadow-2xl relative">
+      <!-- Dynamically filled by app.js -->
+    </div>
+  </div>
+
+  <!-- Full 5-Day Schedule Guide Modal -->
+  <div id="schedule-modal" class="fixed inset-0 z-[70] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div id="schedule-modal-content" class="glass-card rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-white/10 shadow-2xl relative">
+      <!-- Dynamically filled by app.js -->
+    </div>
+  </div>
+
+  <!-- Live Crowd Reporting Modal -->
+  <div id="crowd-report-modal" class="fixed inset-0 z-[85] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-md w-full border border-primary/30 shadow-2xl relative p-6 space-y-5">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+          <h4 class="font-headline text-lg font-bold text-white">Live Crowd &amp; Wait Report</h4>
+        </div>
+        <button id="close-crowd-modal-btn" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <p id="crowd-modal-pandal-name" class="text-xs font-mono text-tertiary font-bold">Reporting for Pandal</p>
+
+      <form id="crowd-report-form" class="space-y-4">
+        <input type="hidden" id="crowd-pandal-id" value="" />
+        
+        <div class="space-y-2">
+          <label class="text-xs font-mono text-on-surface-variant uppercase font-bold">Current Crowd Level</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="report-crowd-level" value="Low" class="hidden peer" />
+              <div class="p-2 rounded-xl bg-surface-container border border-white/10 peer-checked:border-green-400 peer-checked:text-green-400 text-center text-xs font-bold transition-all">
+                🟢 Low Rush
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="report-crowd-level" value="Moderate" checked class="hidden peer" />
+              <div class="p-2 rounded-xl bg-surface-container border border-white/10 peer-checked:border-yellow-400 peer-checked:text-yellow-400 text-center text-xs font-bold transition-all">
+                🟡 Moderate
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="report-crowd-level" value="High" class="hidden peer" />
+              <div class="p-2 rounded-xl bg-surface-container border border-white/10 peer-checked:border-orange-400 peer-checked:text-orange-400 text-center text-xs font-bold transition-all">
+                🟠 High Rush
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="report-crowd-level" value="Peak" class="hidden peer" />
+              <div class="p-2 rounded-xl bg-surface-container border border-white/10 peer-checked:border-red-400 peer-checked:text-red-400 text-center text-xs font-bold transition-all">
+                🔴 Peak Rush
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs font-mono text-on-surface-variant uppercase font-bold">Estimated Queue Wait (Minutes)</label>
+          <input id="report-wait-minutes" type="number" min="0" max="180" value="25" class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-primary" />
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs font-mono text-on-surface-variant uppercase font-bold">Quick Note / Queue Tip (Optional)</label>
+          <input id="report-note" type="text" placeholder="e.g. VIP line moving fast, main gate open" class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-2 text-xs text-white placeholder:text-on-surface-variant focus:outline-none focus:border-primary" />
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-primary text-black font-bold text-xs shadow-lg hover:scale-[1.02] transition-transform">
+          Submit Live Crowd Update
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Squad Room Modal -->
+  <div id="squad-room-modal" class="fixed inset-0 z-[85] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-md w-full border border-secondary/30 shadow-2xl relative p-6 space-y-5">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary">groups</span>
+          <h4 class="font-headline text-lg font-bold text-white">Puja Squad Hub</h4>
+        </div>
+        <button id="close-squad-modal-btn" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <div id="squad-info-section" class="space-y-4">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- All Saved Plans Overview Modal -->
+  <div id="all-plans-modal" class="fixed inset-0 z-[85] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-tertiary/30 shadow-2xl relative p-6 sm:p-8 space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-tertiary/20 flex items-center justify-center text-tertiary">
+            <span class="material-symbols-outlined text-2xl">folder_open</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-2xl font-bold text-white">All Saved Plans</h3>
+            <p class="text-xs font-mono text-tertiary">Organized by Puja Day • Multi-Plan Festive Scheduler</p>
+          </div>
+        </div>
+        <button id="close-all-plans-modal-btn" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Quick Action: Create New Plan in Modal -->
+      <div class="flex items-center justify-between p-4 rounded-2xl bg-surface-container border border-white/10">
+        <div class="space-y-0.5">
+          <h4 class="text-sm font-bold text-white">Need another plan?</h4>
+          <p class="text-xs text-on-surface-variant">Create multiple separate circuits for the same day or different days.</p>
+        </div>
+        <button id="modal-create-plan-btn" class="px-4 py-2 rounded-xl bg-secondary text-black font-bold text-xs flex items-center gap-1.5 shadow-md hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[16px]">add</span>
+          <span>Create New Plan</span>
+        </button>
+      </div>
+
+      <!-- Plans Grouped By Day Container -->
+      <div id="all-plans-list-container" class="space-y-6">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full border-t border-white/10 glass-nav mt-24 py-12 relative z-10">
+    <div class="max-w-container-max mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <img alt="Sharodiya Logo" class="w-8 h-8 rounded-full object-contain drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" src="assets/logo.png"/>
+        <span class="font-headline text-xl text-white font-bold">Sharodiya</span>
+        <span class="text-xs text-on-surface-variant">© 2026 Durga Puja Neo-Festal Companion • Full-Stack Edition</span>
+      </div>
+      <div class="flex items-center gap-6 text-xs text-on-surface-variant font-mono">
+        <span>Made with Divine Energy &amp; Cultural Heritage</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Bootstrapper -->
+  <script type="module" src="js/app.js?v=20260912_v3"></script>
+</body>
+</html>

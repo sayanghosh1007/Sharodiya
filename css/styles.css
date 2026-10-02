@@ -1,0 +1,738 @@
+/* Sharodiya Neo-Festal Design System & Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+  --color-primary: #ffb4ab;
+  --color-primary-container: #d31018;
+  --color-on-primary-container: #ffe5e1;
+  --color-secondary: #b9f1ff;
+  --color-secondary-container: #00e0ff;
+  --color-tertiary: #ffd700;
+  --color-tertiary-container: #c9a900;
+  --color-background: #1a1c1e;
+  --color-surface: #1a1c1e;
+  --color-surface-dim: #16181a;
+  --color-surface-low: #222529;
+  --color-surface-container: #282b30;
+  --color-surface-high: #32363c;
+  --color-surface-highest: #3d4249;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #e7bdb7;
+  --color-outline: #ad8883;
+  --color-outline-variant: #5d3f3c;
+
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1c1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d4249;
+  border-radius: 9999px;
+  border: 2px solid #1a1c1e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-container);
+}
+
+/* Keyframe Animations */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(211, 16, 24, 0.25), inset 0 0 15px rgba(211, 16, 24, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(211, 16, 24, 0.55), inset 0 0 20px rgba(211, 16, 24, 0.25);
+  }
+}
+
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(233, 196, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(233, 196, 0, 0.7);
+  }
+}
+
+@keyframes cyanGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 224, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 224, 255, 0.6);
+  }
+}
+
+@keyframes fallAndSway {
+  0% {
+    transform: translate(0, -60px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(var(--sway-dist, 40px), 115vh) rotate(var(--rot-dist, 360deg));
+    opacity: 0;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+.animate-gold-glow {
+  animation: goldGlow 2.5s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: floatSlow 4s infinite ease-in-out;
+}
+
+.flower-particle {
+  animation: fallAndSway var(--duration, 10s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  left: var(--left, 50%);
+  width: var(--size, 24px);
+  height: var(--size, 24px);
+  will-change: transform, opacity;
+}
+
+/* Glassmorphism Surface Tokens */
+.glass-card {
+  background: rgba(40, 43, 48, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(211, 16, 24, 0.45);
+  box-shadow: 0 12px 30px -10px rgba(211, 16, 24, 0.35);
+}
+
+.glass-nav {
+  background: rgba(26, 28, 30, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* View Transition effects */
+.page-view {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-view.active-view {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav Active Link */
+.nav-link.active {
+  color: var(--color-primary) !important;
+  border-bottom: 2px solid #d31018;
+  padding-bottom: 2px;
+  text-shadow: 0 0 12px rgba(211, 16, 24, 0.5);
+}
+
+/* Badge Indicator Styles */
+.crowd-badge-low {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+.crowd-badge-moderate {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+}
+.crowd-badge-high {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+}
+.crowd-badge-peak {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+/* Print Styles for Parikrama Plan */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, #particle-container, #shader-canvas, .no-print {
+    display: none !important;
+  }
+  .glass-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+  }
+  .page-view {
+    display: none !important;
+  }
+  #view-planned {
+    display: block !important;
+    opacity: 1 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* OpenStreetMap / Leaflet Custom Styling */
+.leaflet-container {
+  background-color: #1a1c1e !important;
+  font-family: var(--font-body) !important;
+}
+
+.leaflet-tile {
+  filter: brightness(0.85) contrast(1.1) saturate(0.85);
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 8px !important;
+}
+
+/* Zone Filter & Badge Styles */
+.zone-btn-active-all {
+  background: var(--color-primary) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(255, 180, 171, 0.4);
+}
+.zone-btn-active-north {
+  background: #ffd700 !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+.zone-btn-active-south {
+  background: #d31018 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(211, 16, 24, 0.5);
+}
+.zone-btn-active-central {
+  background: #00e0ff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.5);
+}
+.zone-btn-active-saltlake {
+  background: #c084fc !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
+}
+
+.zone-badge-north {
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+.zone-badge-south {
+  background: rgba(211, 16, 24, 0.15);
+  color: #ff8b8e;
+  border: 1px solid rgba(211, 16, 24, 0.3);
+}
+.zone-badge-central {
+  background: rgba(0, 224, 255, 0.15);
+  color: #b9f1ff;
+  border: 1px solid rgba(0, 224, 255, 0.3);
+}
+.zone-badge-saltlake {
+  background: rgba(192, 132, 252, 0.15);
+  color: #e9d5ff;
+  border: 1px solid rgba(192, 132, 252, 0.3);
+}
+
+/* Custom Pandal Map Pins (Normal Eye-Friendly Matte Finish) */
+.pandal-map-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.pandal-map-pin:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.65);
+  z-index: 1000 !important;
+}
+.pandal-pin-north {
+  background: #d97706;
+  color: #ffffff;
+}
+.pandal-pin-south {
+  background: #dc2626;
+  color: #ffffff;
+}
+.pandal-pin-central {
+  background: #0284c7;
+  color: #ffffff;
+}
+.pandal-pin-saltlake {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+.dark-pandal-popup .leaflet-popup-content-wrapper {
+  background: #282b30 !important;
+  color: #e5e2e1 !important;
+  border-radius: 16px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+}
+.dark-pandal-popup .leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+.dark-pandal-popup .leaflet-popup-tip {
+  background: #282b30 !important;
+}
+
+.leaflet-bar a {
+  background-color: #282b30 !important;
+  color: #e5e2e1 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #3d4249 !important;
+  color: var(--color-primary) !important;
+}
+
+/* Custom Unified Food Map Marker (Single Icon & Calming Eye-Friendly Finish) */
+.food-map-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ea580c;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.food-map-pin:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  z-index: 999 !important;
+}
+
+/* Custom Metro Station Pins (Subtle Normal Finish) */
+.metro-map-pin {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #6b21a8;
+  border: 1.5px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.metro-map-pin:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1000 !important;
+}
+
+/* Custom Parikrama Trail Waypoint Pin */
+.parikrama-waypoint-pin,
+.trail-map-pin {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f59e0b;
+  border: 2px solid #ffffff;
+  color: #1a1c1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 999 !important;
+}
+.parikrama-waypoint-pin:hover,
+.trail-map-pin:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* GPS User Location Pin */
+.user-gps-pin {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.user-gps-pin::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.3);
+  animation: gpsPulse 2s infinite ease-out;
+}
+@keyframes gpsPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Leaflet Dark Popup */
+.leaflet-popup-content-wrapper {
+  background: rgba(34, 37, 41, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #e5e2e1 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(34, 37, 41, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #ffffff !important;
+  padding: 8px !important;
+  font-size: 18px !important;
+  z-index: 10;
+}
+
+/* Map Layer Button Active States */
+.map-layer-btn {
+  background: rgba(40, 43, 48, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-on-surface-variant);
+  opacity: 0.65;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.map-layer-btn:hover {
+  opacity: 0.9;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.map-layer-btn.active {
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+.map-layer-btn.active[data-layer="pandals"] {
+  background: rgba(211, 16, 24, 0.25);
+  border-color: rgba(255, 180, 171, 0.5);
+  color: #ffffff;
+}
+.map-layer-btn.active[data-layer="eateries"] {
+  background: rgba(0, 224, 255, 0.2);
+  border-color: rgba(0, 224, 255, 0.5);
+  color: #ffffff;
+}
+.map-layer-btn.active[data-layer="metro"] {
+  background: rgba(147, 51, 234, 0.25);
+  border-color: rgba(192, 132, 252, 0.5);
+  color: #ffffff;
+}
+.map-layer-btn.active[data-layer="trail"] {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.5);
+  color: #ffffff;
+}
+
+/* ==========================================
+   LIGHT MODE OVERRIDES (html:not(.dark))
+   ========================================== */
+html:not(.dark) {
+  --color-background: #faf6f0;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f4eee4;
+  --color-surface-low: #f8f3ec;
+  --color-surface-container: #f0e8de;
+  --color-surface-high: #e5ddd2;
+  --color-surface-highest: #d9d0c4;
+  --color-on-surface: #1f1b1a;
+  --color-on-surface-variant: #534341;
+  --color-outline: #857371;
+  --color-outline-variant: #d7c2c0;
+  color-scheme: light;
+}
+
+html:not(.dark) body {
+  background-color: #faf6f0 !important;
+  color: #1f1b1a !important;
+}
+
+html:not(.dark) .glass-nav {
+  background: rgba(250, 246, 240, 0.94) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .glass-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not(.dark) .glass-card text,
+html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4 {
+  color: #1f1b1a !important;
+}
+
+html:not(.dark) .text-white {
+  color: #1f1b1a !important;
+}
+
+html:not(.dark) .text-on-surface-variant {
+  color: #6b6360 !important;
+}
+
+html:not(.dark) .bg-surface-container {
+  background-color: #f0e8de !important;
+}
+
+html:not(.dark) .bg-surface-container-low {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) .bg-surface-container-high {
+  background-color: #e8e1d7 !important;
+}
+
+html:not(.dark) .bg-surface-container-highest {
+  background-color: #ded6cc !important;
+}
+
+/* Map Theming in Light Mode */
+html:not(.dark) .leaflet-container {
+  background-color: #f4efe6 !important;
+}
+
+html:not(.dark) .leaflet-tile {
+  filter: none !important;
+}
+
+html:not(.dark) .dark-pandal-popup .leaflet-popup-content-wrapper,
+html:not(.dark) .dark-food-popup .leaflet-popup-content-wrapper,
+html:not(.dark) .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #1f1b1a !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) .dark-pandal-popup .leaflet-popup-tip,
+html:not(.dark) .dark-food-popup .leaflet-popup-tip,
+html:not(.dark) .leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+html:not(.dark) .leaflet-container a.leaflet-popup-close-button {
+  color: #1f1b1a !important;
+}
+
+html:not(.dark) .leaflet-bar a {
+  background-color: #ffffff !important;
+  color: #1f1b1a !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .leaflet-bar a:hover {
+  background-color: #f0e8de !important;
+  color: #d31018 !important;
+}
+
+html:not(.dark) #mobile-menu-drawer {
+  background: rgba(250, 246, 240, 0.96) !important;
+}
+
+html:not(.dark) #master-map-search-input {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1f1b1a !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) #master-map-search-results {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #1f1b1a !important;
+}
+
+/* ==========================================
+   OPENSTREETMAP ZERO-WATERMARK DARK THEME
+   ========================================== */
+.dark #master-osm-map .leaflet-tile {
+  filter: brightness(0.65) invert(100%) contrast(135%) hue-rotate(190deg) saturate(25%) brightness(0.85);
+}
+
+html:not(.dark) #master-osm-map .leaflet-tile {
+  filter: none !important;
+}
+
+/* ==========================================
+   REAL-ROAD PARIKRAMA NAVIGATION STYLES
+   ========================================== */
+.parikrama-road-glow {
+  opacity: 0.35;
+}
+
+.parikrama-road-path {
+  stroke-dasharray: 6, 6;
+  animation: roadPathFlow 25s linear infinite;
+}
+
+@keyframes roadPathFlow {
+  from {
+    stroke-dashoffset: 500;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.parikrama-route-tooltip {
+  background: rgba(26, 28, 30, 0.95) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 180, 171, 0.4) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  padding: 6px 10px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+html:not(.dark) .parikrama-route-tooltip {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1f1b1a !important;
+  border-color: rgba(211, 16, 24, 0.3) !important;
+}
+
+/* ==========================================
+   MULTI-PLAN FESTIVE SCHEDULER STYLES
+   ========================================== */
+.day-assign-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.day-assign-btn:active {
+  transform: scale(0.96);
+}
+
+#active-plan-title-input {
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#active-plan-title-input:focus {
+  background-color: rgba(40, 43, 48, 0.9);
+}
+
+html:not(.dark) #active-plan-title-input {
+  background-color: rgba(240, 232, 222, 0.8) !important;
+  color: #1f1b1a !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) #active-plan-title-input:focus {
+  background-color: #ffffff !important;
+  border-color: #d31018 !important;
+}
+
+html:not(.dark) #plan-selector-dropdown {
+  background-color: #f0e8de !important;
+  color: #1f1b1a !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) #all-plans-modal .glass-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: #1f1b1a !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
