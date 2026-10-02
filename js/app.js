@@ -2443,21 +2443,13 @@ class SharodiyaApp {
       }
     }
 
-    // Update Day Buttons Highlight (none active when activePlan.day is null)
+    // Update Day Buttons Highlight
     document.querySelectorAll('#parikrama-days-bar .day-assign-btn').forEach(btn => {
       const btnDay = btn.getAttribute('data-day');
-      if (btnDay === 'null') {
-        if (!activePlan.day) {
-          btn.className = 'day-assign-btn px-3 py-2 rounded-full bg-yellow-400/20 text-yellow-300 font-bold text-xs font-mono transition-all border border-yellow-400/40 flex items-center gap-1 shadow-sm';
-        } else {
-          btn.className = 'day-assign-btn px-3 py-2 rounded-full bg-white/5 hover:bg-white/10 text-on-surface-variant text-xs font-mono transition-all border border-white/5 flex items-center gap-1';
-        }
+      if (activePlan.day === btnDay) {
+        btn.className = 'day-assign-btn px-4 py-2 rounded-full bg-primary text-black font-bold text-xs whitespace-nowrap transition-all border border-primary shadow-md';
       } else {
-        if (activePlan.day === btnDay) {
-          btn.className = 'day-assign-btn px-4 py-2 rounded-full bg-primary text-black font-bold text-xs whitespace-nowrap transition-all border border-primary shadow-md';
-        } else {
-          btn.className = 'day-assign-btn px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-semibold whitespace-nowrap transition-all border border-white/5';
-        }
+        btn.className = 'day-assign-btn px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-white text-xs font-semibold whitespace-nowrap transition-all border border-white/5';
       }
     });
 
