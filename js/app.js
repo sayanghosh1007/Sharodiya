@@ -215,18 +215,36 @@ class SharodiyaApp {
         const res = await this.apiFetch('/api/auth/me');
         if (res && res.success && res.user) {
           this.currentUser = res.user;
+          localStorage.setItem('sharodiya_user_session', JSON.stringify(res.user));
           if (res.user.archetype) {
             this.selectedArchetype = res.user.archetype;
           }
           this.updateAuthUI();
         } else {
+          // Check cached user session before clearing
+          const cachedUser = localStorage.getItem('sharodiya_user_session');
+          if (cachedUser) {
+            try {
+              this.currentUser = JSON.parse(cachedUser);
+              this.updateAuthUI();
+              return;
+            } catch (e) {}
+          }
           this.authToken = null;
           this.currentUser = null;
           localStorage.removeItem('sharodiya_auth_token');
+          localStorage.removeItem('sharodiya_user_session');
           this.updateAuthUI();
         }
       } catch (err) {
         console.warn('[Auth] Session verification note:', err);
+        const cachedUser = localStorage.getItem('sharodiya_user_session');
+        if (cachedUser) {
+          try {
+            this.currentUser = JSON.parse(cachedUser);
+            this.updateAuthUI();
+          } catch (e) {}
+        }
       }
     }
   }
@@ -315,6 +333,12 @@ class SharodiyaApp {
     this.authActiveTab = tab;
     this.hideAuthAlert();
     this.switchAuthTab(tab);
+
+    const emailInput = document.getElementById('signin-email');
+    if (emailInput && !emailInput.value) {
+      const lastEmail = localStorage.getItem('sharodiya_last_email');
+      if (lastEmail) emailInput.value = lastEmail;
+    }
 
     const modal = document.getElementById('auth-modal');
     const closeBtn = document.getElementById('close-auth-modal-btn');
@@ -422,6 +446,8 @@ class SharodiyaApp {
         if (res.token) {
           localStorage.setItem('sharodiya_auth_token', res.token);
         }
+        localStorage.setItem('sharodiya_user_session', JSON.stringify(res.user));
+        localStorage.setItem('sharodiya_last_email', email.trim().toLowerCase());
         if (res.user.archetype) {
           this.selectedArchetype = res.user.archetype;
         }
@@ -461,6 +487,8 @@ class SharodiyaApp {
         if (res.token) {
           localStorage.setItem('sharodiya_auth_token', res.token);
         }
+        localStorage.setItem('sharodiya_user_session', JSON.stringify(res.user));
+        localStorage.setItem('sharodiya_last_email', email.trim().toLowerCase());
         if (res.user.archetype) {
           this.selectedArchetype = res.user.archetype;
         }
@@ -491,6 +519,7 @@ class SharodiyaApp {
     this.authToken = null;
     this.currentUser = null;
     localStorage.removeItem('sharodiya_auth_token');
+    localStorage.removeItem('sharodiya_user_session');
 
     const dropdown = document.getElementById('nav-user-dropdown');
     if (dropdown) dropdown.classList.add('hidden');

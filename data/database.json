@@ -179,6 +179,18 @@
       "savedPlans": [],
       "createdAt": "2026-10-03T22:36:54.104349",
       "updatedAt": "2026-10-03T22:37:00.582775"
+    },
+    "usr_4dd08348d6a2": {
+      "id": "usr_4dd08348d6a2",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791048120@kolkatapujo.in",
+      "salt": "ea0f2678e3f49c10e98c3ed45fe2dae7",
+      "passwordHash": "f18339ba9fcbf89cb782fae83fe1c82b76af5a15a4a035089449a558704f4d5989af12a410a4f8dc019d614ea022e271694485106bb4f769435ecb0c5ca3067a",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T22:52:02.554699",
+      "updatedAt": "2026-10-03T22:52:09.076866"
     }
   },
   "tokens": {
@@ -256,6 +268,11 @@
       "userId": "usr_e126ab12b3d4",
       "createdAt": "2026-10-03T22:36:58.495245",
       "expiresAt": "2026-11-02T22:36:58.495245"
+    },
+    "stk_eb1085ad2d0412e8cc368433a980c378e4383e284d7a74be": {
+      "userId": "usr_4dd08348d6a2",
+      "createdAt": "2026-10-03T22:52:06.896781",
+      "expiresAt": "2026-11-02T22:52:06.896781"
     }
   },
   "parikramas": {
@@ -1341,6 +1358,30 @@
       "shareUrl": "/parikrama/plan_c1eb5ece",
       "updatedAt": "2026-10-03T22:36:37.102305",
       "createdAt": "2026-10-03T22:36:37.102305"
+    },
+    "plan_3ebd1f3b": {
+      "id": "plan_3ebd1f3b",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_3ebd1f3b",
+      "updatedAt": "2026-10-03T22:51:45.562935",
+      "createdAt": "2026-10-03T22:51:45.562935"
     }
   },
   "squads": {
@@ -40315,6 +40356,30 @@
       "shareUrl": "/parikrama/plan_c1eb5ece",
       "updatedAt": "2026-10-03T22:36:37.102305",
       "createdAt": "2026-10-03T22:36:37.102305"
+    },
+    "plan_3ebd1f3b": {
+      "id": "plan_3ebd1f3b",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_3ebd1f3b",
+      "updatedAt": "2026-10-03T22:51:45.562935",
+      "createdAt": "2026-10-03T22:51:45.562935"
     }
   }
 }
