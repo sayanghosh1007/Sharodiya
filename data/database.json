@@ -23,6 +23,30 @@
       "savedPlans": [],
       "createdAt": "2026-10-03T23:32:21.555166",
       "updatedAt": "2026-10-03T23:32:21.555166"
+    },
+    "usr_078b2e6e9666": {
+      "id": "usr_078b2e6e9666",
+      "name": "Debolina Mukherjee",
+      "email": "test_devotee_1791054008@sharodiya.in",
+      "salt": "33e9efa600a7d988a249fd9a38c2e5dc",
+      "passwordHash": "eb7b739889a900f9f973baa023c7e4515fcc48ff9b286539950bfd36a3cd8560b27dc4f1111268e83f3add1a9f091829f1f81832b001c575ca0a6e66f2b7b670",
+      "archetype": "friends",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=usr_078b2e6e9666",
+      "savedPlans": [],
+      "createdAt": "2026-10-04T00:30:10.865779",
+      "updatedAt": "2026-10-04T00:30:10.865779"
+    },
+    "usr_e8bbf45033ea": {
+      "id": "usr_e8bbf45033ea",
+      "name": "Debolina Mukherjee",
+      "email": "test_devotee_1791054036@sharodiya.in",
+      "salt": "c84803bb895cdc55497462c7a2a37d20",
+      "passwordHash": "b0b47eb0057eaaea0a907dfa9ad9b7f416e459b741d86d014b34d1c507316bf63d5038b24574938a90cfe4b408aabcf6c2533b1e2fe8677de8c1d66b30ffe46c",
+      "archetype": "friends",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=usr_e8bbf45033ea",
+      "savedPlans": [],
+      "createdAt": "2026-10-04T00:30:38.951230",
+      "updatedAt": "2026-10-04T00:30:38.951230"
     }
   },
   "tokens": {
@@ -40,6 +64,26 @@
       "userId": "usr_8e3ad8789242",
       "createdAt": "2026-10-03T23:32:21.622108",
       "expiresAt": "2026-11-02T23:32:21.622108"
+    },
+    "stk_a59d6442f2f13e6b3bbe0c52ed46b9e712b2bcb82fd2e698": {
+      "userId": "usr_078b2e6e9666",
+      "createdAt": "2026-10-04T00:30:10.949299",
+      "expiresAt": "2026-11-03T00:30:10.949299"
+    },
+    "stk_abc8cd344789751caee53122317c825acf0ba1a36baa2629": {
+      "userId": "usr_078b2e6e9666",
+      "createdAt": "2026-10-04T00:30:13.069812",
+      "expiresAt": "2026-11-03T00:30:13.069812"
+    },
+    "stk_adb1653fd97c769756a74bdeab0504a4bffc0478dee73f46": {
+      "userId": "usr_e8bbf45033ea",
+      "createdAt": "2026-10-04T00:30:39.062498",
+      "expiresAt": "2026-11-03T00:30:39.062498"
+    },
+    "stk_125d1b865f5afe40c2b7c4629bce6190581875af52c3403d": {
+      "userId": "usr_e8bbf45033ea",
+      "createdAt": "2026-10-04T00:30:41.169932",
+      "expiresAt": "2026-11-03T00:30:41.169932"
     }
   },
   "parikramas": {
@@ -885,6 +929,30 @@
       "shareUrl": "/parikrama/plan_24405ff0",
       "updatedAt": "2026-10-04T00:05:04.540298",
       "createdAt": "2026-10-04T00:05:04.540298"
+    },
+    "plan_4940a6ee": {
+      "id": "plan_4940a6ee",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_4940a6ee",
+      "updatedAt": "2026-10-04T00:29:33.378245",
+      "createdAt": "2026-10-04T00:29:33.378245"
     }
   },
   "squads": {
@@ -39619,6 +39687,30 @@
       "shareUrl": "/parikrama/plan_24405ff0",
       "updatedAt": "2026-10-04T00:05:04.540298",
       "createdAt": "2026-10-04T00:05:04.540298"
+    },
+    "plan_4940a6ee": {
+      "id": "plan_4940a6ee",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_4940a6ee",
+      "updatedAt": "2026-10-04T00:29:33.378245",
+      "createdAt": "2026-10-04T00:29:33.378245"
     }
   }
 }
