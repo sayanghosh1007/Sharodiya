@@ -617,6 +617,34 @@ class SharodiyaApp {
     }
   }
 
+  async handleDeleteAccount() {
+    if (!this.currentUser) return;
+    const confirmed = window.confirm(
+      `⚠️ Are you sure you want to permanently delete your Sharodiya account (${this.currentUser.email || this.currentUser.name})?\n\nThis will remove your saved profile, credentials, and cloud data. This action cannot be undone.`
+    );
+    if (!confirmed) return;
+
+    try {
+      const email = this.currentUser.email;
+      if (this.supabaseAuth) {
+        await this.supabaseAuth.deleteAccount(email);
+      }
+      this.authToken = null;
+      this.currentUser = null;
+      localStorage.removeItem('sharodiya_auth_token');
+      localStorage.removeItem('sharodiya_user_session');
+      localStorage.removeItem('sharodiya_last_email');
+
+      this.closeProfileEditModal();
+      document.body.classList.add('auth-locked');
+      this.updateAuthUI();
+      this.showToast('🗑️ Your Sharodiya account has been permanently deleted.');
+      this.openAuthModal('signin', true);
+    } catch (err) {
+      this.showToast(`Error deleting account: ${err.message}`);
+    }
+  }
+
   setupAuthEventListeners() {
     // 1. Sign In Header Button
     document.getElementById('nav-signin-btn')?.addEventListener('click', () => {
@@ -797,6 +825,10 @@ class SharodiyaApp {
       const name = document.getElementById('profile-edit-name')?.value?.trim();
       const archetype = this.currentUser?.archetype || 'friends';
       this.handleProfileUpdate(name, archetype);
+    });
+
+    document.getElementById('delete-account-btn')?.addEventListener('click', () => {
+      this.handleDeleteAccount();
     });
   }
 

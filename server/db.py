@@ -348,6 +348,19 @@ class Database:
         self.save()
         return self.sanitize_user(user)
 
+    def delete_user(self, user_id):
+        if not user_id or "users" not in self.db or user_id not in self.db["users"]:
+            return False
+        # Remove user
+        del self.db["users"][user_id]
+        # Invalidate all user tokens
+        if "tokens" in self.db:
+            tokens_to_delete = [t for t, s in self.db["tokens"].items() if s.get("userId") == user_id]
+            for t in tokens_to_delete:
+                del self.db["tokens"][t]
+        self.save()
+        return True
+
     def sanitize_user(self, user):
         if not user:
             return None

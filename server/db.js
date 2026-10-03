@@ -300,6 +300,20 @@ class Database {
     return this.sanitizeUser(user);
   }
 
+  deleteUser(userId) {
+    if (!userId || !this.db.users || !this.db.users[userId]) return false;
+    delete this.db.users[userId];
+    if (this.db.tokens) {
+      for (const [token, session] of Object.entries(this.db.tokens)) {
+        if (session.userId === userId) {
+          delete this.db.tokens[token];
+        }
+      }
+    }
+    this.save();
+    return true;
+  }
+
   sanitizeUser(user) {
     if (!user) return null;
     const { salt, passwordHash, ...safe } = user;

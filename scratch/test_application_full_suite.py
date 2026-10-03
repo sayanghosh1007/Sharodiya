@@ -582,6 +582,38 @@ def run_tests():
     except Exception as e:
         record_fail("PBKDF2 SHA-512 Password Security & Salting", str(e))
 
+    # 6.7 Devotee Account Deletion (DELETE /api/auth/account)
+    try:
+        # Re-login to get active session token
+        login_req = urllib.request.Request(
+            f"{BASE_URL}/api/auth/login",
+            data=json.dumps({"email": test_email, "password": "devoteepassword2026"}).encode('utf-8'),
+            headers={'Content-Type': 'application/json'},
+            method='POST'
+        )
+        with urllib.request.urlopen(login_req) as resp:
+            login_res = json.loads(resp.read().decode('utf-8'))
+            active_token = login_res['token']
+
+        # Delete account
+        del_req = urllib.request.Request(
+            f"{BASE_URL}/api/auth/account",
+            headers={'Authorization': f'Bearer {active_token}'},
+            method='DELETE'
+        )
+        with urllib.request.urlopen(del_req) as resp:
+            del_res = json.loads(resp.read().decode('utf-8'))
+            assert del_res['success'] is True, f"Delete account failed: {del_res}"
+
+        # Verify user is deleted from database
+        with open("data/database.json", "r", encoding="utf-8") as f:
+            db_after = json.load(f)
+        users_after = db_after.get("users", {})
+        assert not any(u.get("email") == test_email for u in users_after.values()), f"User {test_email} still present after deletion"
+        record_pass("Devotee Account Deletion (DELETE /api/auth/account)", f"User {test_email} permanently removed and tokens revoked")
+    except Exception as e:
+        record_fail("Devotee Account Deletion", str(e))
+
     # ------------------------------------------------------------------
     # FINAL RESULTS SUMMARY
     # ------------------------------------------------------------------

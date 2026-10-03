@@ -1,278 +1,45 @@
 {
   "users": {
-    "usr_3a120fd3f650": {
-      "id": "usr_3a120fd3f650",
-      "name": "Anirban Mukherjee",
-      "email": "anirban_1791035210@kolkatapujo.in",
-      "salt": "6ad8884566639f395fe28aa9acd46e51",
-      "passwordHash": "52fe8ebf460690701230c576f118ccc84de070385a712d65d7bb1b01d82cd8c0b8bd94324b41501bd2de843074ed4760e5d194f281ddf38c2f80c89d8c9e3608",
+    "usr_54b211bad6d9": {
+      "id": "usr_54b211bad6d9",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791050102@kolkatapujo.in",
+      "salt": "3e797e163931e21007ad34edff54a480",
+      "passwordHash": "441e5b12181973761214bb64c8b83a38d80de1b0e0b8fe6356a89d6cbfd7f0ccf98c1c37ebb77fec0f5b5dcb8db7a03f86d30fe811d3ebfd446a7f0c0cc7fd9e",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T23:25:04.186665",
+      "updatedAt": "2026-10-03T23:25:10.729287"
+    },
+    "usr_8e3ad8789242": {
+      "id": "usr_8e3ad8789242",
+      "name": "Test Del",
+      "email": "deltest@kolkatapujo.in",
+      "salt": "52e3d796983708a2870e8f5bde7edaf6",
+      "passwordHash": "2e87b3c7f45f066dbbe41c82dbb5d65e84070eddbc0161401bee4e5be68d1bf8745266cd4ef0e8831ec2c5b8116f3426a4a82eed0230b44248481d5a6beaddb4",
       "archetype": "friends",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Anirban",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=usr_8e3ad8789242",
       "savedPlans": [],
-      "createdAt": "2026-10-03T19:16:52.831323",
-      "updatedAt": "2026-10-03T19:16:52.831323"
-    },
-    "usr_3be579d3913d": {
-      "id": "usr_3be579d3913d",
-      "name": "Anirban Mukherjee (VIP Guide)",
-      "email": "anirban_1791035222@kolkatapujo.in",
-      "salt": "549dcedc0e5642207b54ed582c2b2fe7",
-      "passwordHash": "b79122f6bdf3f1e95121df39eb784aed7c66e77ae3c39645aaac3751f59be759886da091854a4e5e00f252889d44d52cd68e6a97796e6e33625e829f9fd9a2b8",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Anirban",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T19:17:04.970245",
-      "updatedAt": "2026-10-03T19:17:09.223075"
-    },
-    "usr_c6dddbc7d43a": {
-      "id": "usr_c6dddbc7d43a",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791035604@kolkatapujo.in",
-      "salt": "3a1d0e643be08f41ab2117711249d2d5",
-      "passwordHash": "c52df07c74345c29031631aa05b5528a741940da96de1f8e01cc79bf4d87c0b13fa1a5fc383fee6aafc04d607a3d0f1a97c4275e264e8c8aadd2dfddd430afc5",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T19:23:27.041720",
-      "updatedAt": "2026-10-03T19:23:33.468811"
-    },
-    "usr_e0cd9e19fe4a": {
-      "id": "usr_e0cd9e19fe4a",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791035985@kolkatapujo.in",
-      "salt": "9346f981b8bf0fb8218d70295801313a",
-      "passwordHash": "f02bcb6a8c833d55f399ec907e96b222952a006277d8e4d0855982fd0457f7802308c71043ca8acfaaf5da04910ac40b5c6f82f15fabbb2b001b951410235a71",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T19:29:47.743831",
-      "updatedAt": "2026-10-03T19:29:54.147011"
-    },
-    "usr_1c19a51a3e31": {
-      "id": "usr_1c19a51a3e31",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791036047@kolkatapujo.in",
-      "salt": "dc5645a782af30f5beb10221d137af66",
-      "passwordHash": "4049e85767908d6d679f1c94602d17049fdccf860c57326356b58f3061f6d76893b536fa3ba75e697665b7935fe4c07e6516b85916739697a6a71544d9b48ad5",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T19:30:49.130498",
-      "updatedAt": "2026-10-03T19:30:55.523227"
-    },
-    "usr_578d79a4c716": {
-      "id": "usr_578d79a4c716",
-      "name": "Shounak Sen (Demo Devotee)",
-      "email": "devotee.kolkata@sharodiya.in",
-      "salt": "61a0fd2a8368e4126ec43a48e21e8e41",
-      "passwordHash": "4f38fc3e8435076a82d3edf1aa647200288127d025835128977c5f7a8718404b820ef71cc5d89770b507f7ee9dcf954dbce83d772b452030d7f99b93cf492782",
-      "archetype": "friends",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=SharodiyaVIP",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T19:33:18.554520",
-      "updatedAt": "2026-10-03T19:33:18.554520"
-    },
-    "usr_c2f58aedeb3e": {
-      "id": "usr_c2f58aedeb3e",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791040400@kolkatapujo.in",
-      "salt": "d4a68a59e270d26fd715fec8c64131b6",
-      "passwordHash": "57e2e41c19799bf05742a6d958ec97012ca55cfc155be788aa0aeb9fb69a89114321e55e9647d35bdbb6094b7b9a0b72cf3b3f6db80fdc3f9bbdc69674523526",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T20:43:22.656310",
-      "updatedAt": "2026-10-03T20:43:29.014427"
-    },
-    "usr_2c5a1f139664": {
-      "id": "usr_2c5a1f139664",
-      "name": "Sayan Ghosh",
-      "email": "sayanghosh.say@gmail.com",
-      "salt": "6899cbbd51ceb7ceba3ee497d184bf79",
-      "passwordHash": "1830480ab9246af71756277ea88d8aa3e9b6c07ae5300526afdd2b2b46e176a2ff90168c9186fd44ed21f3899792bf714465d41e3a64a0a6a194e071ab0816a7",
-      "archetype": "friends",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=sayanghosh.say%40gmail.com",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T20:58:20.612450",
-      "updatedAt": "2026-10-03T20:58:20.612450"
-    },
-    "usr_c87cbf7f59f7": {
-      "id": "usr_c87cbf7f59f7",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791041412@kolkatapujo.in",
-      "salt": "a730197b492f4e471ab83fa3ab8bc4ad",
-      "passwordHash": "41ee2d5f38abb9aeb83cfc17e5738beb0eaa4ab0c5148bd294035c74d353d7f1ed7384fc00e8517f78e91b7e8b069bff4b9aa25a06347794e8564d771f8de08d",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T21:00:14.387559",
-      "updatedAt": "2026-10-03T21:00:21.090601"
-    },
-    "usr_c032db0cebad": {
-      "id": "usr_c032db0cebad",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791041909@kolkatapujo.in",
-      "salt": "c395bef21af06744811abbce56250cff",
-      "passwordHash": "a1ac81c305cb9485f435daa41d689abcbe6d13224c47330d26f1ca87c437cccebaf54cdd0bbbfca0a2a0392b4004ab57e48384577cf91bb88cc4052fdab2c64d",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T21:08:31.990827",
-      "updatedAt": "2026-10-03T21:08:38.398726"
-    },
-    "usr_f440946a9307": {
-      "id": "usr_f440946a9307",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791042178@kolkatapujo.in",
-      "salt": "ce98633ee99f370ffd640627ccf11448",
-      "passwordHash": "96ed281f71049ac3b3bd77617b09619a4459254063b3ac48461b8017118d5fc92551169ca94d3b67f592d6a18ab5b3daa66d29844f0d4ffe556c1f99cfb1b4c3",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T21:13:00.487615",
-      "updatedAt": "2026-10-03T21:13:06.914081"
-    },
-    "usr_657950b1125b": {
-      "id": "usr_657950b1125b",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791042581@kolkatapujo.in",
-      "salt": "243c0d34970e6bb6ff60c2088cc4f0df",
-      "passwordHash": "ef66c2778fb35a0910eb69bb8c50c5c72e67ab4df5fe19b745de6d3d8cd346af70900dd5ee95b722c0fb5f3a57832644acbe3f66059327ce2b6b497a2dce560a",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T21:19:43.984754",
-      "updatedAt": "2026-10-03T21:19:50.387256"
-    },
-    "usr_e291f5d8ea9f": {
-      "id": "usr_e291f5d8ea9f",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791043276@kolkatapujo.in",
-      "salt": "4cfd128b9207868b61d333a6f4fe27a3",
-      "passwordHash": "552365c642087c40368e1897933775b571a1c9865cf487eeaca5550e1ffc31fbdbcd797559a165498c7ea57de3b8cbec3e40f3408984123268baf134038f95ac",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T21:31:18.279741",
-      "updatedAt": "2026-10-03T21:31:24.654200"
-    },
-    "usr_a985e9960976": {
-      "id": "usr_a985e9960976",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791045515@kolkatapujo.in",
-      "salt": "3dcc2ec651843fe19724d69a92e4f463",
-      "passwordHash": "f387514dcf6b89b3dcb713b3db3563c7ecd6051763858ef87773a0d9ed51c398a75b21158675c19fe67bfc0a81ffc56585fc5945755451dd3860f30107d999d4",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T22:08:37.655647",
-      "updatedAt": "2026-10-03T22:08:44.215375"
-    },
-    "usr_e126ab12b3d4": {
-      "id": "usr_e126ab12b3d4",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791047212@kolkatapujo.in",
-      "salt": "34cdfd2392b5dadb2f5828ff3b46abac",
-      "passwordHash": "72b1854b863267bc6cbc33985f691a631f97beabab168a006d6e39951794f10d5f26fecd7822a9aee4bd1983854a62561b25056c2c4aa70e8569438cb0a70d99",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T22:36:54.104349",
-      "updatedAt": "2026-10-03T22:37:00.582775"
-    },
-    "usr_4dd08348d6a2": {
-      "id": "usr_4dd08348d6a2",
-      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
-      "email": "devotee_1791048120@kolkatapujo.in",
-      "salt": "ea0f2678e3f49c10e98c3ed45fe2dae7",
-      "passwordHash": "f18339ba9fcbf89cb782fae83fe1c82b76af5a15a4a035089449a558704f4d5989af12a410a4f8dc019d614ea022e271694485106bb4f769435ecb0c5ca3067a",
-      "archetype": "photographers",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
-      "savedPlans": [],
-      "createdAt": "2026-10-03T22:52:02.554699",
-      "updatedAt": "2026-10-03T22:52:09.076866"
+      "createdAt": "2026-10-03T23:32:21.555166",
+      "updatedAt": "2026-10-03T23:32:21.555166"
     }
   },
   "tokens": {
-    "stk_732512d872a1e1dcaf0f8c396e4592e652a9a6f931c385f7": {
-      "userId": "usr_3a120fd3f650",
-      "createdAt": "2026-10-03T19:16:52.940747",
-      "expiresAt": "2026-11-02T19:16:52.940747"
+    "stk_c011b6cba494ba20744d0bec029ac135bd7ddbd850e7bc70": {
+      "userId": "usr_54b211bad6d9",
+      "createdAt": "2026-10-03T23:25:08.572122",
+      "expiresAt": "2026-11-02T23:25:08.572122"
     },
-    "stk_67e91ff2063876d17cfc68b4d72de4f497ea04c8d26ef6e5": {
-      "userId": "usr_3be579d3913d",
-      "createdAt": "2026-10-03T19:17:05.054495",
-      "expiresAt": "2026-11-02T19:17:05.054495"
+    "stk_bc305874c3d6e793a7395a42f349013f25fe5304f2ad76df": {
+      "userId": "usr_54b211bad6d9",
+      "createdAt": "2026-10-03T23:25:17.133391",
+      "expiresAt": "2026-11-02T23:25:17.133391"
     },
-    "stk_4dbfddde701ef34321f22a5d9cbd5f1afa235d995e187330": {
-      "userId": "usr_c6dddbc7d43a",
-      "createdAt": "2026-10-03T19:23:31.307630",
-      "expiresAt": "2026-11-02T19:23:31.307630"
-    },
-    "stk_28e47b14870ff83d97cfe900a8bbe269dcbfc80e51f8d8f0": {
-      "userId": "usr_e0cd9e19fe4a",
-      "createdAt": "2026-10-03T19:29:51.979203",
-      "expiresAt": "2026-11-02T19:29:51.979203"
-    },
-    "stk_ea3a73e66aa9a89e7e9f36ea3994b4201b85a56b3de19c02": {
-      "userId": "usr_1c19a51a3e31",
-      "createdAt": "2026-10-03T19:30:53.388621",
-      "expiresAt": "2026-11-02T19:30:53.388621"
-    },
-    "stk_2eaf17ef3a1ae445e291745df0a3e8f0ab116402d7269afc": {
-      "userId": "usr_578d79a4c716",
-      "createdAt": "2026-10-03T19:33:18.963549",
-      "expiresAt": "2026-11-02T19:33:18.963549"
-    },
-    "stk_2ba9293eee272bf438f1f5bff1113dfd9230f09a7fd2c6d7": {
-      "userId": "usr_c2f58aedeb3e",
-      "createdAt": "2026-10-03T20:43:26.868905",
-      "expiresAt": "2026-11-02T20:43:26.868905"
-    },
-    "stk_5a5c3d1b36cdbaa663120a925805d9e866b03bb484867900": {
-      "userId": "usr_c87cbf7f59f7",
-      "createdAt": "2026-10-03T21:00:18.951627",
-      "expiresAt": "2026-11-02T21:00:18.951627"
-    },
-    "stk_337bea5bca7651b777397ad7eb3f4fdd5731ed840fdd3cf7": {
-      "userId": "usr_c032db0cebad",
-      "createdAt": "2026-10-03T21:08:36.247220",
-      "expiresAt": "2026-11-02T21:08:36.247220"
-    },
-    "stk_83cef3cda857fb795d09e2252f6be372c8f243f89a482120": {
-      "userId": "usr_f440946a9307",
-      "createdAt": "2026-10-03T21:13:04.763439",
-      "expiresAt": "2026-11-02T21:13:04.763439"
-    },
-    "stk_a067b0e63df078315f547e7bd1041c027ea1da3bd30aff25": {
-      "userId": "usr_657950b1125b",
-      "createdAt": "2026-10-03T21:19:48.258447",
-      "expiresAt": "2026-11-02T21:19:48.258447"
-    },
-    "stk_83005441ffce7cf7c9a5295a63d1a567390e79571436bf82": {
-      "userId": "usr_e291f5d8ea9f",
-      "createdAt": "2026-10-03T21:31:22.518052",
-      "expiresAt": "2026-11-02T21:31:22.518052"
-    },
-    "stk_1fd3868f4dda0586fe828f8c9b94fa5ad840437d17e1410d": {
-      "userId": "usr_2c5a1f139664",
-      "createdAt": "2026-10-03T21:52:33.589470",
-      "expiresAt": "2026-11-02T21:52:33.589470"
-    },
-    "stk_80c9cdb293344accfd9950aee58f950f45f12bcbf70daaa0": {
-      "userId": "usr_a985e9960976",
-      "createdAt": "2026-10-03T22:08:42.070224",
-      "expiresAt": "2026-11-02T22:08:42.070224"
-    },
-    "stk_c4a69d1058c58954f6463a25fae6837af932f5102848fb5b": {
-      "userId": "usr_e126ab12b3d4",
-      "createdAt": "2026-10-03T22:36:58.495245",
-      "expiresAt": "2026-11-02T22:36:58.495245"
-    },
-    "stk_eb1085ad2d0412e8cc368433a980c378e4383e284d7a74be": {
-      "userId": "usr_4dd08348d6a2",
-      "createdAt": "2026-10-03T22:52:06.896781",
-      "expiresAt": "2026-11-02T22:52:06.896781"
+    "stk_0c4ff6b42db285b6425728627ecfc248cd6860690a7a88a6": {
+      "userId": "usr_8e3ad8789242",
+      "createdAt": "2026-10-03T23:32:21.622108",
+      "expiresAt": "2026-11-02T23:32:21.622108"
     }
   },
   "parikramas": {
@@ -891,6 +658,18 @@
       "updatedAt": "2026-09-13T08:42:38.986290",
       "createdAt": "2026-09-13T08:42:38.986290"
     },
+    "plan_1791029282128_7hz1": {
+      "id": "plan_1791029282128_7hz1",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791029282128_7hz1",
+      "updatedAt": "2026-10-03T17:38:02.235492",
+      "createdAt": "2026-10-03T17:38:02.235492"
+    },
     "plan_de96e098": {
       "id": "plan_de96e098",
       "name": "Automated Test Suite Parikrama",
@@ -1059,8 +838,8 @@
       "updatedAt": "2026-10-03T19:03:32.210569",
       "createdAt": "2026-10-03T19:03:32.210569"
     },
-    "plan_cc9a2b8d": {
-      "id": "plan_cc9a2b8d",
+    "plan_d0787656": {
+      "id": "plan_d0787656",
       "name": "Automated Test Suite Parikrama",
       "day": "Maha Saptami",
       "squad": "family",
@@ -1079,12 +858,12 @@
       ],
       "description": "",
       "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_cc9a2b8d",
-      "updatedAt": "2026-10-03T19:23:10.085655",
-      "createdAt": "2026-10-03T19:23:10.085655"
+      "shareUrl": "/parikrama/plan_d0787656",
+      "updatedAt": "2026-10-03T23:24:47.285601",
+      "createdAt": "2026-10-03T23:24:47.285601"
     },
-    "plan_fadc32da": {
-      "id": "plan_fadc32da",
+    "plan_24405ff0": {
+      "id": "plan_24405ff0",
       "name": "Automated Test Suite Parikrama",
       "day": "Maha Saptami",
       "squad": "family",
@@ -1103,285 +882,9 @@
       ],
       "description": "",
       "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_fadc32da",
-      "updatedAt": "2026-10-03T19:29:30.835817",
-      "createdAt": "2026-10-03T19:29:30.835817"
-    },
-    "plan_845c3bf6": {
-      "id": "plan_845c3bf6",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_845c3bf6",
-      "updatedAt": "2026-10-03T19:30:32.276811",
-      "createdAt": "2026-10-03T19:30:32.276811"
-    },
-    "plan_e6164e7c": {
-      "id": "plan_e6164e7c",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_e6164e7c",
-      "updatedAt": "2026-10-03T20:43:05.767366",
-      "createdAt": "2026-10-03T20:43:05.767366"
-    },
-    "plan_c87685a9": {
-      "id": "plan_c87685a9",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_c87685a9",
-      "updatedAt": "2026-10-03T20:59:57.279020",
-      "createdAt": "2026-10-03T20:59:57.279020"
-    },
-    "plan_de8aca92": {
-      "id": "plan_de8aca92",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_de8aca92",
-      "updatedAt": "2026-10-03T21:08:14.973611",
-      "createdAt": "2026-10-03T21:08:14.973611"
-    },
-    "plan_c4d1c6da": {
-      "id": "plan_c4d1c6da",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_c4d1c6da",
-      "updatedAt": "2026-10-03T21:12:43.688279",
-      "createdAt": "2026-10-03T21:12:43.688279"
-    },
-    "plan_1791042321396_3gvp": {
-      "id": "plan_1791042321396_3gvp",
-      "name": "My Maha Sasthi Plan",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791042321396_3gvp",
-      "updatedAt": "2026-10-03T21:15:21.400825",
-      "createdAt": "2026-10-03T21:15:21.400825"
-    },
-    "plan_b89236e6": {
-      "id": "plan_b89236e6",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_b89236e6",
-      "updatedAt": "2026-10-03T21:19:27.075787",
-      "createdAt": "2026-10-03T21:19:27.075787"
-    },
-    "plan_3917d83e": {
-      "id": "plan_3917d83e",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_3917d83e",
-      "updatedAt": "2026-10-03T21:31:01.366277",
-      "createdAt": "2026-10-03T21:31:01.366277"
-    },
-    "plan_ca3f18cf": {
-      "id": "plan_ca3f18cf",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_ca3f18cf",
-      "updatedAt": "2026-10-03T22:08:20.716802",
-      "createdAt": "2026-10-03T22:08:20.716802"
-    },
-    "plan_1791045859899_tz5n": {
-      "id": "plan_1791045859899_tz5n",
-      "name": "My Maha Sasthi Plan",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [
-        {
-          "id": "item_1791045900674",
-          "type": "pandal",
-          "itemId": "bagbazar-sarbojonin-north",
-          "name": "Bagbazar Sarbojonin",
-          "zone": "North Kolkata",
-          "timeSlot": "06:30 AM - 10:00 A",
-          "distanceFromPrev": "1.8 km",
-          "duration": "75 mins",
-          "notes": "Theme: Centurial Traditional Ekchala Protima & Sabeki Daker Saaj. Metro: Shyambazar."
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791045859899_tz5n",
-      "updatedAt": "2026-10-03T22:16:16.830934",
-      "createdAt": "2026-10-03T22:14:19.909708"
-    },
-    "plan_c1eb5ece": {
-      "id": "plan_c1eb5ece",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_c1eb5ece",
-      "updatedAt": "2026-10-03T22:36:37.102305",
-      "createdAt": "2026-10-03T22:36:37.102305"
-    },
-    "plan_3ebd1f3b": {
-      "id": "plan_3ebd1f3b",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_3ebd1f3b",
-      "updatedAt": "2026-10-03T22:51:45.562935",
-      "createdAt": "2026-10-03T22:51:45.562935"
+      "shareUrl": "/parikrama/plan_24405ff0",
+      "updatedAt": "2026-10-04T00:05:04.540298",
+      "createdAt": "2026-10-04T00:05:04.540298"
     }
   },
   "squads": {
@@ -39889,6 +39392,18 @@
       "updatedAt": "2026-09-13T08:42:38.986290",
       "createdAt": "2026-09-13T08:42:38.986290"
     },
+    "plan_1791029282128_7hz1": {
+      "id": "plan_1791029282128_7hz1",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791029282128_7hz1",
+      "updatedAt": "2026-10-03T17:38:02.235492",
+      "createdAt": "2026-10-03T17:38:02.235492"
+    },
     "plan_de96e098": {
       "id": "plan_de96e098",
       "name": "Automated Test Suite Parikrama",
@@ -40057,8 +39572,8 @@
       "updatedAt": "2026-10-03T19:03:32.210569",
       "createdAt": "2026-10-03T19:03:32.210569"
     },
-    "plan_cc9a2b8d": {
-      "id": "plan_cc9a2b8d",
+    "plan_d0787656": {
+      "id": "plan_d0787656",
       "name": "Automated Test Suite Parikrama",
       "day": "Maha Saptami",
       "squad": "family",
@@ -40077,12 +39592,12 @@
       ],
       "description": "",
       "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_cc9a2b8d",
-      "updatedAt": "2026-10-03T19:23:10.085655",
-      "createdAt": "2026-10-03T19:23:10.085655"
+      "shareUrl": "/parikrama/plan_d0787656",
+      "updatedAt": "2026-10-03T23:24:47.285601",
+      "createdAt": "2026-10-03T23:24:47.285601"
     },
-    "plan_fadc32da": {
-      "id": "plan_fadc32da",
+    "plan_24405ff0": {
+      "id": "plan_24405ff0",
       "name": "Automated Test Suite Parikrama",
       "day": "Maha Saptami",
       "squad": "family",
@@ -40101,285 +39616,9 @@
       ],
       "description": "",
       "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_fadc32da",
-      "updatedAt": "2026-10-03T19:29:30.835817",
-      "createdAt": "2026-10-03T19:29:30.835817"
-    },
-    "plan_845c3bf6": {
-      "id": "plan_845c3bf6",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_845c3bf6",
-      "updatedAt": "2026-10-03T19:30:32.276811",
-      "createdAt": "2026-10-03T19:30:32.276811"
-    },
-    "plan_e6164e7c": {
-      "id": "plan_e6164e7c",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_e6164e7c",
-      "updatedAt": "2026-10-03T20:43:05.767366",
-      "createdAt": "2026-10-03T20:43:05.767366"
-    },
-    "plan_c87685a9": {
-      "id": "plan_c87685a9",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_c87685a9",
-      "updatedAt": "2026-10-03T20:59:57.279020",
-      "createdAt": "2026-10-03T20:59:57.279020"
-    },
-    "plan_de8aca92": {
-      "id": "plan_de8aca92",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_de8aca92",
-      "updatedAt": "2026-10-03T21:08:14.973611",
-      "createdAt": "2026-10-03T21:08:14.973611"
-    },
-    "plan_c4d1c6da": {
-      "id": "plan_c4d1c6da",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_c4d1c6da",
-      "updatedAt": "2026-10-03T21:12:43.688279",
-      "createdAt": "2026-10-03T21:12:43.688279"
-    },
-    "plan_1791042321396_3gvp": {
-      "id": "plan_1791042321396_3gvp",
-      "name": "My Maha Sasthi Plan",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791042321396_3gvp",
-      "updatedAt": "2026-10-03T21:15:21.400825",
-      "createdAt": "2026-10-03T21:15:21.400825"
-    },
-    "plan_b89236e6": {
-      "id": "plan_b89236e6",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_b89236e6",
-      "updatedAt": "2026-10-03T21:19:27.075787",
-      "createdAt": "2026-10-03T21:19:27.075787"
-    },
-    "plan_3917d83e": {
-      "id": "plan_3917d83e",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_3917d83e",
-      "updatedAt": "2026-10-03T21:31:01.366277",
-      "createdAt": "2026-10-03T21:31:01.366277"
-    },
-    "plan_ca3f18cf": {
-      "id": "plan_ca3f18cf",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_ca3f18cf",
-      "updatedAt": "2026-10-03T22:08:20.716802",
-      "createdAt": "2026-10-03T22:08:20.716802"
-    },
-    "plan_1791045859899_tz5n": {
-      "id": "plan_1791045859899_tz5n",
-      "name": "My Maha Sasthi Plan",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [
-        {
-          "id": "item_1791045900674",
-          "type": "pandal",
-          "itemId": "bagbazar-sarbojonin-north",
-          "name": "Bagbazar Sarbojonin",
-          "zone": "North Kolkata",
-          "timeSlot": "06:30 AM - 10:00 A",
-          "distanceFromPrev": "1.8 km",
-          "duration": "75 mins",
-          "notes": "Theme: Centurial Traditional Ekchala Protima & Sabeki Daker Saaj. Metro: Shyambazar."
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791045859899_tz5n",
-      "updatedAt": "2026-10-03T22:16:16.830934",
-      "createdAt": "2026-10-03T22:14:19.909708"
-    },
-    "plan_c1eb5ece": {
-      "id": "plan_c1eb5ece",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_c1eb5ece",
-      "updatedAt": "2026-10-03T22:36:37.102305",
-      "createdAt": "2026-10-03T22:36:37.102305"
-    },
-    "plan_3ebd1f3b": {
-      "id": "plan_3ebd1f3b",
-      "name": "Automated Test Suite Parikrama",
-      "day": "Maha Saptami",
-      "squad": "family",
-      "items": [
-        {
-          "id": "test_item_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club",
-          "timeSlot": "06:00 PM - 07:30 PM",
-          "coordinates": {
-            "lat": 22.5975,
-            "lng": 88.4011
-          }
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_3ebd1f3b",
-      "updatedAt": "2026-10-03T22:51:45.562935",
-      "createdAt": "2026-10-03T22:51:45.562935"
+      "shareUrl": "/parikrama/plan_24405ff0",
+      "updatedAt": "2026-10-04T00:05:04.540298",
+      "createdAt": "2026-10-04T00:05:04.540298"
     }
   }
 }

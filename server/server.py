@@ -413,6 +413,17 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
                 db.invalidate_token(token)
             return self._send_json_response({'success': True, 'message': 'Signed out successfully.'})
 
+        if path == '/api/auth/delete-account' or path == '/api/auth/account':
+            auth_header = self.headers.get('Authorization', '')
+            token = auth_header.replace('Bearer ', '').strip() if 'Bearer ' in auth_header else auth_header.strip()
+            user = db.get_user_by_token(token)
+            if not user:
+                return self._send_json_response({'success': False, 'error': 'Authentication required or session expired'}, 401)
+            deleted = db.delete_user(user['id'])
+            if not deleted:
+                return self._send_json_response({'success': False, 'error': 'Failed to delete account'}, 400)
+            return self._send_json_response({'success': True, 'message': 'Account deleted successfully.'})
+
         # 0. Real Road Navigation Route POST
         if path == '/api/route':
             waypoints = body.get('waypoints', [])
@@ -798,6 +809,17 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
     def do_DELETE(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
+
+        if path == '/api/auth/account' or path == '/api/auth/delete-account':
+            auth_header = self.headers.get('Authorization', '')
+            token = auth_header.replace('Bearer ', '').strip() if 'Bearer ' in auth_header else auth_header.strip()
+            user = db.get_user_by_token(token)
+            if not user:
+                return self._send_json_response({'success': False, 'error': 'Authentication required or session expired'}, 401)
+            deleted = db.delete_user(user['id'])
+            if not deleted:
+                return self._send_json_response({'success': False, 'error': 'Failed to delete account'}, 400)
+            return self._send_json_response({'success': True, 'message': 'Account deleted successfully.'})
 
         if path.startswith('/api/parikramas/') or path.startswith('/api/plans/'):
             par_id = path.replace('/api/parikramas/', '').replace('/api/plans/', '').strip()

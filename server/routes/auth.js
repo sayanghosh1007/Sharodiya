@@ -246,5 +246,35 @@ router.put('/profile', (req, res) => {
   }
 });
 
+// DELETE /api/auth/account & POST /api/auth/delete-account
+const handleAccountDeletion = (req, res) => {
+  try {
+    const token = getBearerToken(req);
+    if (!token) {
+      return res.status(401).json({ success: false, error: 'Authentication token required.' });
+    }
+
+    const user = db.getUserByToken(token);
+    if (!user) {
+      return res.status(401).json({ success: false, error: 'Session expired or invalid token.' });
+    }
+
+    const deleted = db.deleteUser(user.id);
+    if (!deleted) {
+      return res.status(400).json({ success: false, error: 'Failed to delete user account.' });
+    }
+
+    return res.json({
+      success: true,
+      message: 'Your account has been deleted successfully.'
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+};
+
+router.delete('/account', handleAccountDeletion);
+router.post('/delete-account', handleAccountDeletion);
+
 export default router;
 

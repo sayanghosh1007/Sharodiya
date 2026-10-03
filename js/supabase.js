@@ -387,6 +387,51 @@ class SupabaseAuthManager {
     }
   }
 
+  // 6.1 Delete Devotee Account Permanently
+  async deleteAccount(userEmail = null) {
+    const token = localStorage.getItem('sharodiya_auth_token');
+    
+    // 1. Remove from local accounts registry
+    try {
+      const email = userEmail || localStorage.getItem('sharodiya_last_email');
+      if (email) {
+        const accounts = this.getLocalAccounts();
+        delete accounts[email.toLowerCase().trim()];
+        localStorage.setItem('sharodiya_local_accounts', JSON.stringify(accounts));
+      }
+    } catch (e) {}
+
+    // 2. Call backend deletion API
+    if (token) {
+      try {
+        await fetch('/api/auth/account', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+      } catch (e) {
+        try {
+          await fetch('/api/auth/delete-account', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          });
+        } catch (err) {}
+      }
+    }
+
+    // 3. Clean up client local storage & sign out
+    await this.signOut();
+    localStorage.removeItem('sharodiya_auth_token');
+    localStorage.removeItem('sharodiya_user_session');
+    localStorage.removeItem('sharodiya_last_email');
+    return { success: true, message: 'Account deleted successfully.' };
+  }
+
   // 7. Subscribe to Auth State Changes
   onAuthStateChange(callback) {
     if (this.client) {
