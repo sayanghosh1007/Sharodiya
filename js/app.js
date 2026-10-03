@@ -5586,6 +5586,34 @@ class SharodiyaApp {
       });
     }
 
+    // 12.1 People View Manual Plan Creation Controls
+    const peopleManualPlanBtn = document.getElementById('people-create-manual-plan-btn');
+    if (peopleManualPlanBtn) {
+      peopleManualPlanBtn.addEventListener('click', () => {
+        const input = document.getElementById('people-manual-plan-name');
+        if (input) {
+          input.focus();
+          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    const peopleManualPlanForm = document.getElementById('people-manual-plan-form');
+    if (peopleManualPlanForm) {
+      peopleManualPlanForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!this.requireAuth('create custom Parikrama plans')) return;
+        const nameInput = document.getElementById('people-manual-plan-name');
+        const daySelect = document.getElementById('people-manual-plan-day');
+        const day = daySelect?.value || 'Maha Sasthi';
+        const name = nameInput?.value?.trim() || `My ${day} Plan`;
+        const newPlan = this.createNewPlan(name, day, true);
+        if (nameInput) nameInput.value = '';
+        this.showToast(`✨ Created "${newPlan.name}"! Opening Pandals to add stops.`);
+        this.navigateTo('pandals');
+      });
+    }
+
     // 13. Crowd Reporting Modal Controls
     const crowdModal = document.getElementById('crowd-report-modal');
     const closeCrowdBtn = document.getElementById('close-crowd-modal-btn');

@@ -1044,11 +1044,64 @@
         <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">Curate your festive journey tailored to the dynamics of your group for 2026. Select a companion archetype below or customize your complete personalized itinerary.</p>
         
         <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <button id="people-create-manual-plan-btn" class="px-6 py-3 rounded-full bg-primary text-black font-bold text-xs shadow-[0_0_20px_rgba(255,215,0,0.4)] inline-flex items-center gap-2 hover:scale-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[18px]">add_circle</span>
+            Create Manual Plan
+          </button>
           <button id="squad-invite-btn" class="px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-lg inline-flex items-center gap-2 hover:scale-105 transition-transform">
             <span class="material-symbols-outlined text-[18px]">group_add</span>
             Generate Squad Code
           </button>
         </div>
+      </section>
+
+      <!-- Manual Plan Creation Studio Card in People -->
+      <section class="relative z-10 glass-card rounded-3xl p-6 sm:p-8 border border-white/15 shadow-2xl space-y-5 bg-gradient-to-br from-surface-container-high/70 via-surface-container to-surface-container-lowest">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary shadow-md">
+              <span class="material-symbols-outlined text-2xl">edit_calendar</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-xl sm:text-2xl font-bold text-white">Manual Plan Creation</h3>
+              <p class="text-xs text-on-surface-variant">Build your custom Parikrama from scratch for any Puja day</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-primary/20 text-primary border border-primary/30 self-start md:self-auto">
+            Custom Route Builder
+          </span>
+        </div>
+
+        <form id="people-manual-plan-form" class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+          <div class="md:col-span-5 space-y-1.5">
+            <label for="people-manual-plan-name" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">edit_note</span>
+              Plan Name / Title
+            </label>
+            <input id="people-manual-plan-name" type="text" placeholder="e.g. Maha Saptami Heritage Walk" class="w-full bg-surface-container border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-all" />
+          </div>
+
+          <div class="md:col-span-4 space-y-1.5">
+            <label for="people-manual-plan-day" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">calendar_today</span>
+              Select Puja Day
+            </label>
+            <select id="people-manual-plan-day" class="w-full bg-surface-container border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-primary transition-all">
+              <option value="Maha Sasthi">Maha Sasthi (Oct 16 - Bodhon)</option>
+              <option value="Maha Saptami">Maha Saptami (Oct 17 - Snan)</option>
+              <option value="Maha Ashtami" selected>Maha Ashtami (Oct 18 - Sandhi Puja)</option>
+              <option value="Maha Navami">Maha Navami (Oct 19 - Dhunuchi)</option>
+              <option value="Vijaya Dashami">Vijaya Dashami (Oct 20 - Bisarjan)</option>
+            </select>
+          </div>
+
+          <div class="md:col-span-3 flex gap-2">
+            <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-primary text-black font-bold text-xs sm:text-sm shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]">add_circle</span>
+              <span>Create Plan</span>
+            </button>
+          </div>
+        </form>
       </section>
 
       <!-- Archetypes 4-Card Grid (From Stitch People Screen) -->
