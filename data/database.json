@@ -167,6 +167,18 @@
       "savedPlans": [],
       "createdAt": "2026-10-03T22:08:37.655647",
       "updatedAt": "2026-10-03T22:08:44.215375"
+    },
+    "usr_e126ab12b3d4": {
+      "id": "usr_e126ab12b3d4",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791047212@kolkatapujo.in",
+      "salt": "34cdfd2392b5dadb2f5828ff3b46abac",
+      "passwordHash": "72b1854b863267bc6cbc33985f691a631f97beabab168a006d6e39951794f10d5f26fecd7822a9aee4bd1983854a62561b25056c2c4aa70e8569438cb0a70d99",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T22:36:54.104349",
+      "updatedAt": "2026-10-03T22:37:00.582775"
     }
   },
   "tokens": {
@@ -239,6 +251,11 @@
       "userId": "usr_a985e9960976",
       "createdAt": "2026-10-03T22:08:42.070224",
       "expiresAt": "2026-11-02T22:08:42.070224"
+    },
+    "stk_c4a69d1058c58954f6463a25fae6837af932f5102848fb5b": {
+      "userId": "usr_e126ab12b3d4",
+      "createdAt": "2026-10-03T22:36:58.495245",
+      "expiresAt": "2026-11-02T22:36:58.495245"
     }
   },
   "parikramas": {
@@ -1205,18 +1222,6 @@
       "updatedAt": "2026-10-03T21:15:21.400825",
       "createdAt": "2026-10-03T21:15:21.400825"
     },
-    "plan_1791042482284_b9k4": {
-      "id": "plan_1791042482284_b9k4",
-      "name": "Maha Sasthi - Family Circuit",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791042482284_b9k4",
-      "updatedAt": "2026-10-03T21:18:02.288911",
-      "createdAt": "2026-10-03T21:18:02.288911"
-    },
     "plan_b89236e6": {
       "id": "plan_b89236e6",
       "name": "Automated Test Suite Parikrama",
@@ -1288,6 +1293,54 @@
       "shareUrl": "/parikrama/plan_ca3f18cf",
       "updatedAt": "2026-10-03T22:08:20.716802",
       "createdAt": "2026-10-03T22:08:20.716802"
+    },
+    "plan_1791045859899_tz5n": {
+      "id": "plan_1791045859899_tz5n",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [
+        {
+          "id": "item_1791045900674",
+          "type": "pandal",
+          "itemId": "bagbazar-sarbojonin-north",
+          "name": "Bagbazar Sarbojonin",
+          "zone": "North Kolkata",
+          "timeSlot": "06:30 AM - 10:00 A",
+          "distanceFromPrev": "1.8 km",
+          "duration": "75 mins",
+          "notes": "Theme: Centurial Traditional Ekchala Protima & Sabeki Daker Saaj. Metro: Shyambazar."
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791045859899_tz5n",
+      "updatedAt": "2026-10-03T22:16:16.830934",
+      "createdAt": "2026-10-03T22:14:19.909708"
+    },
+    "plan_c1eb5ece": {
+      "id": "plan_c1eb5ece",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_c1eb5ece",
+      "updatedAt": "2026-10-03T22:36:37.102305",
+      "createdAt": "2026-10-03T22:36:37.102305"
     }
   },
   "squads": {
@@ -40143,18 +40196,6 @@
       "updatedAt": "2026-10-03T21:15:21.400825",
       "createdAt": "2026-10-03T21:15:21.400825"
     },
-    "plan_1791042482284_b9k4": {
-      "id": "plan_1791042482284_b9k4",
-      "name": "Maha Sasthi - Family Circuit",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791042482284_b9k4",
-      "updatedAt": "2026-10-03T21:18:02.288911",
-      "createdAt": "2026-10-03T21:18:02.288911"
-    },
     "plan_b89236e6": {
       "id": "plan_b89236e6",
       "name": "Automated Test Suite Parikrama",
@@ -40226,6 +40267,54 @@
       "shareUrl": "/parikrama/plan_ca3f18cf",
       "updatedAt": "2026-10-03T22:08:20.716802",
       "createdAt": "2026-10-03T22:08:20.716802"
+    },
+    "plan_1791045859899_tz5n": {
+      "id": "plan_1791045859899_tz5n",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [
+        {
+          "id": "item_1791045900674",
+          "type": "pandal",
+          "itemId": "bagbazar-sarbojonin-north",
+          "name": "Bagbazar Sarbojonin",
+          "zone": "North Kolkata",
+          "timeSlot": "06:30 AM - 10:00 A",
+          "distanceFromPrev": "1.8 km",
+          "duration": "75 mins",
+          "notes": "Theme: Centurial Traditional Ekchala Protima & Sabeki Daker Saaj. Metro: Shyambazar."
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791045859899_tz5n",
+      "updatedAt": "2026-10-03T22:16:16.830934",
+      "createdAt": "2026-10-03T22:14:19.909708"
+    },
+    "plan_c1eb5ece": {
+      "id": "plan_c1eb5ece",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_c1eb5ece",
+      "updatedAt": "2026-10-03T22:36:37.102305",
+      "createdAt": "2026-10-03T22:36:37.102305"
     }
   }
 }

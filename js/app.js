@@ -101,7 +101,7 @@ class SharodiyaApp {
           day: 'Maha Sasthi', // by default Maha Sasthi will be selected!
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
-          items: [...INITIAL_PARIKRAMA]
+          items: []
         };
         this.plans.push(plan);
       } else {
@@ -900,14 +900,14 @@ class SharodiyaApp {
       
       // Legacy storage fallback/migration
       const legacy = localStorage.getItem('sharodiya_parikrama');
-      const initialItems = legacy ? JSON.parse(legacy) : [...INITIAL_PARIKRAMA];
+      const initialItems = legacy ? JSON.parse(legacy) : [];
       return [{
         id: 'plan_default_1',
         name: 'My Puja Plan 1',
         day: 'Maha Sasthi', // by default Maha Sasthi is selected!
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        items: initialItems
+        items: Array.isArray(initialItems) ? initialItems : []
       }];
     } catch (e) {
       return [{
@@ -916,7 +916,7 @@ class SharodiyaApp {
         day: 'Maha Sasthi',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        items: [...INITIAL_PARIKRAMA]
+        items: []
       }];
     }
   }

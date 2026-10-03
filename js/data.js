@@ -12524,63 +12524,7 @@ export const COMPANION_ARCHETYPES = [
   }
 ];
 
-export const INITIAL_PARIKRAMA = [
-  {
-    "id": "p1",
-    "type": "pandal",
-    "itemId": "sreebhumi",
-    "name": "Sreebhumi Sporting",
-    "zone": "Lake Town, VIP Road",
-    "timeSlot": "07:00 PM - 08:30 PM",
-    "distanceFromPrev": "0 km",
-    "duration": "90 mins",
-    "notes": "Enter via VIP Fast-Track queue near Gate 2."
-  },
-  {
-    "id": "e1",
-    "type": "eatery",
-    "itemId": "kusum-rolls",
-    "name": "Kusum Rolls",
-    "zone": "Park Street",
-    "timeSlot": "08:50 PM - 09:40 PM",
-    "distanceFromPrev": "5.2 km (Metro / Cab)",
-    "duration": "50 mins",
-    "notes": "Iconic kathi rolls with extra kasundi."
-  },
-  {
-    "id": "p2",
-    "type": "pandal",
-    "itemId": "deshapriya-park",
-    "name": "Deshapriya Park",
-    "zone": "Rashbehari",
-    "timeSlot": "10:00 PM - 11:30 PM",
-    "distanceFromPrev": "3.1 km",
-    "duration": "90 mins",
-    "notes": "Monumental installations and cyber-neon gateways."
-  },
-  {
-    "id": "p3",
-    "type": "pandal",
-    "itemId": "ballygunge-cultural",
-    "name": "Ballygunge Cultural",
-    "zone": "South Kolkata",
-    "timeSlot": "12:00 AM - 01:30 AM",
-    "distanceFromPrev": "1.8 km",
-    "duration": "90 mins",
-    "notes": "Sabeki Ekchala Heritage Protima."
-  },
-  {
-    "id": "e2",
-    "type": "eatery",
-    "itemId": "arsalan-park-circus",
-    "name": "Arsalan",
-    "zone": "Park Circus 7-Point",
-    "timeSlot": "02:00 AM - 03:15 AM",
-    "distanceFromPrev": "3.4 km",
-    "duration": "75 mins",
-    "notes": "Midnight special Mutton Biryani + Firni."
-  }
-];
+export const INITIAL_PARIKRAMA = [];
 
 export const METRO_STATIONS_DATA = [
   {
