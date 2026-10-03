@@ -26,8 +26,10 @@ const SHIULI_SVG = `
 </svg>
 `;
 
+const STITCH_FLOWER_URL = 'https://lh3.googleusercontent.com/aida/AEtjO1W5qy_9hgI5-QZRK-MCFnwGVYg5WwZ3I-_7q2s_prdqGb60If1Eaiqko9eTrL9dkAbjs6jp4J62YqXkfSaAgGFerndIS6lL9txfrcmgT9rlWqH1LxHu8PrCX-GtmhCmUtgzc2XO4HqRUOxOCFAHY2RQ2T_9ZEBPeRMlXBwfiLb7x9l5lUMK47_cwTOdqyow2RiAZ9kDhYZI9N3Ra3ejM1gyD_XKIdgNdSXC8FHmRbn1Y2HxsDDMZKk6DHw';
+
 export class ShiuliParticleSystem {
-  constructor(containerId = 'particle-container', count = 24) {
+  constructor(containerId = 'particle-container', count = 28) {
     this.container = document.getElementById(containerId);
     this.count = count;
     this.particles = [];
@@ -48,17 +50,25 @@ export class ShiuliParticleSystem {
   createParticle(initial = false) {
     if (!this.container || !this.isEnabled) return;
 
-    const el = document.createElement('div');
-    el.className = 'flower-particle absolute pointer-events-none select-none';
-    el.innerHTML = SHIULI_SVG;
+    const img = document.createElement('img');
+    img.className = 'flower-particle absolute pointer-events-none select-none object-contain';
+    img.src = STITCH_FLOWER_URL;
+    img.alt = 'Shiuli';
+    img.onerror = () => {
+      const fallbackDiv = document.createElement('div');
+      fallbackDiv.className = img.className;
+      fallbackDiv.innerHTML = SHIULI_SVG;
+      fallbackDiv.style.cssText = img.style.cssText;
+      if (img.parentNode) img.parentNode.replaceChild(fallbackDiv, img);
+    };
 
-    const size = Math.floor(Math.random() * 22) + 16; // 16px to 38px
+    const size = Math.floor(Math.random() * 20) + 16; // 16px to 36px
     const left = Math.random() * 100; // 0% to 100%
-    const duration = (Math.random() * 8 + 8).toFixed(1); // 8s to 16s
-    const delay = initial ? (Math.random() * 12).toFixed(1) : '0';
-    const swayDist = `${(Math.random() * 140 - 70).toFixed(0)}px`;
+    const duration = (Math.random() * 7 + 7).toFixed(1); // 7s to 14s
+    const delay = initial ? (Math.random() * 10).toFixed(1) : '0';
+    const swayDist = `${(Math.random() * 160 - 80).toFixed(0)}px`;
     const rotDist = `${(Math.random() * 720 - 360).toFixed(0)}deg`;
-    const opacity = (Math.random() * 0.4 + 0.6).toFixed(2);
+    const opacity = (Math.random() * 0.35 + 0.65).toFixed(2);
 
     el.style.setProperty('--size', `${size}px`);
     el.style.setProperty('--left', `${left}%`);

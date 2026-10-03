@@ -527,134 +527,11 @@ body {
 }
 
 /* ==========================================
-   LIGHT MODE OVERRIDES (html:not(.dark))
-   ========================================== */
-html:not(.dark) {
-  --color-background: #faf6f0;
-  --color-surface: #ffffff;
-  --color-surface-dim: #f4eee4;
-  --color-surface-low: #f8f3ec;
-  --color-surface-container: #f0e8de;
-  --color-surface-high: #e5ddd2;
-  --color-surface-highest: #d9d0c4;
-  --color-on-surface: #1f1b1a;
-  --color-on-surface-variant: #534341;
-  --color-outline: #857371;
-  --color-outline-variant: #d7c2c0;
-  color-scheme: light;
-}
-
-html:not(.dark) body {
-  background-color: #faf6f0 !important;
-  color: #1f1b1a !important;
-}
-
-html:not(.dark) .glass-nav {
-  background: rgba(250, 246, 240, 0.94) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-html:not(.dark) .glass-card {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
-}
-
-html:not(.dark) .glass-card text,
-html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4 {
-  color: #1f1b1a !important;
-}
-
-html:not(.dark) .text-white {
-  color: #1f1b1a !important;
-}
-
-html:not(.dark) .text-on-surface-variant {
-  color: #6b6360 !important;
-}
-
-html:not(.dark) .bg-surface-container {
-  background-color: #f0e8de !important;
-}
-
-html:not(.dark) .bg-surface-container-low {
-  background-color: #ffffff !important;
-  border-color: rgba(0, 0, 0, 0.08) !important;
-}
-
-html:not(.dark) .bg-surface-container-high {
-  background-color: #e8e1d7 !important;
-}
-
-html:not(.dark) .bg-surface-container-highest {
-  background-color: #ded6cc !important;
-}
-
-/* Map Theming in Light Mode */
-html:not(.dark) .leaflet-container {
-  background-color: #f4efe6 !important;
-}
-
-html:not(.dark) .leaflet-tile {
-  filter: none !important;
-}
-
-html:not(.dark) .dark-pandal-popup .leaflet-popup-content-wrapper,
-html:not(.dark) .dark-food-popup .leaflet-popup-content-wrapper,
-html:not(.dark) .leaflet-popup-content-wrapper {
-  background: #ffffff !important;
-  color: #1f1b1a !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
-}
-
-html:not(.dark) .dark-pandal-popup .leaflet-popup-tip,
-html:not(.dark) .dark-food-popup .leaflet-popup-tip,
-html:not(.dark) .leaflet-popup-tip {
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-}
-
-html:not(.dark) .leaflet-container a.leaflet-popup-close-button {
-  color: #1f1b1a !important;
-}
-
-html:not(.dark) .leaflet-bar a {
-  background-color: #ffffff !important;
-  color: #1f1b1a !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-html:not(.dark) .leaflet-bar a:hover {
-  background-color: #f0e8de !important;
-  color: #d31018 !important;
-}
-
-html:not(.dark) #mobile-menu-drawer {
-  background: rgba(250, 246, 240, 0.96) !important;
-}
-
-html:not(.dark) #master-map-search-input {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  color: #1f1b1a !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-html:not(.dark) #master-map-search-results {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
-  color: #1f1b1a !important;
-}
-
-/* ==========================================
    OPENSTREETMAP ZERO-WATERMARK DARK THEME
    ========================================== */
-.dark #master-osm-map .leaflet-tile {
+#master-osm-map .leaflet-tile,
+#metro-network-osm-map .leaflet-tile {
   filter: brightness(0.65) invert(100%) contrast(135%) hue-rotate(190deg) saturate(25%) brightness(0.85);
-}
-
-html:not(.dark) #master-osm-map .leaflet-tile {
-  filter: none !important;
 }
 
 /* ==========================================
@@ -689,12 +566,6 @@ html:not(.dark) #master-osm-map .leaflet-tile {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
 }
 
-html:not(.dark) .parikrama-route-tooltip {
-  background: rgba(255, 255, 255, 0.95) !important;
-  color: #1f1b1a !important;
-  border-color: rgba(211, 16, 24, 0.3) !important;
-}
-
 /* ==========================================
    MULTI-PLAN FESTIVE SCHEDULER STYLES
    ========================================== */
@@ -714,25 +585,287 @@ html:not(.dark) .parikrama-route-tooltip {
   background-color: rgba(40, 43, 48, 0.9);
 }
 
-html:not(.dark) #active-plan-title-input {
-  background-color: rgba(240, 232, 222, 0.8) !important;
-  color: #1f1b1a !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
+/* ==========================================
+   KOLKATA PUJA METRO NETWORK COLOR SYSTEM & STYLES
+   ========================================== */
+:root {
+  --metro-blue: #0057B7;
+  --metro-green: #009A44;
+  --metro-purple: #7F2B87;
+  --metro-orange: #FF7300;
+  --metro-interchange-gold: #FFD700;
 }
 
-html:not(.dark) #active-plan-title-input:focus {
-  background-color: #ffffff !important;
-  border-color: #d31018 !important;
+/* Line Badges */
+.metro-badge-blue {
+  background: rgba(0, 87, 183, 0.2);
+  color: #5ba3ff;
+  border: 1px solid rgba(0, 87, 183, 0.45);
+}
+.metro-badge-green {
+  background: rgba(0, 154, 68, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(0, 154, 68, 0.45);
+}
+.metro-badge-purple {
+  background: rgba(127, 43, 135, 0.25);
+  color: #d8b4fe;
+  border: 1px solid rgba(127, 43, 135, 0.5);
+}
+.metro-badge-orange {
+  background: rgba(255, 115, 0, 0.2);
+  color: #fdba74;
+  border: 1px solid rgba(255, 115, 0, 0.45);
+}
+.metro-badge-interchange {
+  background: linear-gradient(135deg, rgba(0, 87, 183, 0.3), rgba(0, 154, 68, 0.3));
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.5);
 }
 
-html:not(.dark) #plan-selector-dropdown {
-  background-color: #f0e8de !important;
-  color: #1f1b1a !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
+/* Metro Station Map Markers */
+.metro-station-node {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #121416;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.metro-station-node:hover {
+  transform: scale(1.3);
+  z-index: 1200 !important;
 }
 
-html:not(.dark) #all-plans-modal .glass-card {
-  background: rgba(255, 255, 255, 0.96) !important;
-  color: #1f1b1a !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
+.metro-station-node.selected-station-node {
+  transform: scale(1.4);
+  animation: stationSelectPulse 1.8s infinite;
+  z-index: 1500 !important;
 }
+
+@keyframes stationSelectPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 215, 0, 0.2), 0 0 30px rgba(255, 215, 0, 0.8);
+  }
+}
+
+.metro-station-node-blue {
+  border-color: #0057B7 !important;
+  color: #5ba3ff;
+}
+.metro-station-node-green {
+  border-color: #009A44 !important;
+  color: #4ade80;
+}
+.metro-station-node-purple {
+  border-color: #7F2B87 !important;
+  color: #d8b4fe;
+}
+.metro-station-node-orange {
+  border-color: #FF7300 !important;
+  color: #fdba74;
+}
+
+/* Genuine Interchange Station Marker (Dual/Multi Concentric Rings) */
+.metro-interchange-node {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #121416;
+  border: 3.5px solid #0057B7;
+  outline: 3px solid #009A44;
+  outline-offset: 1.5px;
+  box-shadow: 0 0 16px rgba(0, 224, 255, 0.6), 0 4px 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.metro-interchange-node:hover {
+  transform: scale(1.35);
+  z-index: 1300 !important;
+}
+.metro-interchange-node-orange {
+  border-color: #0057B7 !important;
+  outline-color: #FF7300 !important;
+}
+
+/* Separate Distinct Puja Pandal Marker on Metro Map */
+.metro-pandal-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #d31018, #990008);
+  border: 2px solid #ffd700;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(211, 16, 24, 0.6), 0 3px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.metro-pandal-marker:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  z-index: 1250 !important;
+}
+
+/* Active Line Filter Buttons */
+.line-filter-btn {
+  transition: all 0.2s ease;
+}
+.line-filter-btn.active-filter-all {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.line-filter-btn.active-filter-blue {
+  background: #0057B7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 18px rgba(0, 87, 183, 0.7);
+}
+.line-filter-btn.active-filter-green {
+  background: #009A44 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 18px rgba(0, 154, 68, 0.7);
+}
+.line-filter-btn.active-filter-purple {
+  background: #7F2B87 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 18px rgba(127, 43, 135, 0.7);
+}
+.line-filter-btn.active-filter-orange {
+  background: #FF7300 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 18px rgba(255, 115, 0, 0.7);
+}
+.line-filter-btn.active-filter-interchange {
+  background: linear-gradient(135deg, #0057B7, #009A44) !important;
+  color: #ffd700 !important;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+}
+
+/* Station Information Panel & Bottom Sheet */
+#metro-station-info-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #3d4249 #1a1c1e;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.custom-metro-node-wrapper,
+.custom-metro-pandal-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* ==========================================
+   PUJO MAP: PANDAL SELECTION & NEAREST FOOD JOINTS
+   ========================================== */
+.pandal-map-pin.selected-pandal-pin {
+  transform: scale(1.35) !important;
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.9) !important;
+  z-index: 1200 !important;
+}
+
+/* Nearest Food Joint Map Pin with Emerald/Cyan Glow */
+.food-map-pin.nearest-food-pin {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
+  border-color: #ffd700 !important;
+  border-width: 2.5px !important;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.5), 0 0 16px rgba(14, 165, 233, 0.8) !important;
+  transform: scale(1.15);
+  animation: foodPinPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 1100 !important;
+}
+
+@keyframes foodPinPop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Animated Flowing Dashed Connector Line between Pandal and Nearest Eateries */
+.pandal-food-connector-line {
+  stroke-dasharray: 6, 6;
+  animation: foodLineDash 1.2s linear infinite;
+}
+
+@keyframes foodLineDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* Rich Dark Pandal Food Popup Styling */
+.dark-pandal-food-popup .leaflet-popup-content-wrapper {
+  background: #1e2024 !important;
+  color: #f1f5f9 !important;
+  border-radius: 20px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75) !important;
+}
+.dark-pandal-food-popup .leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+.dark-pandal-food-popup .leaflet-popup-tip {
+  background: #1e2024 !important;
+}
+
+/* Authentication & Devotee Profile UI Styles */
+.auth-alert-error {
+  display: flex !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #fca5a5 !important;
+}
+
+.auth-alert-success {
+  display: flex !important;
+  background: rgba(34, 197, 94, 0.15) !important;
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  color: #86efac !important;
+}
+
+#nav-user-dropdown {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform-origin: top right;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#nav-user-dropdown:not(.hidden) {
+  animation: dropdownPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropdownPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+

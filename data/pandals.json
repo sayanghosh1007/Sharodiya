@@ -19,7 +19,7 @@
     "description": "The undisputed epicenter of colossal architectural grandeur in North Kolkata, renowned for breathtaking monument replicas and royal gold illumination.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Lake Town, VIP Road",
-    "nearestMetro": "Belgachia / Ultadanga Station",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -91,7 +91,7 @@
     "description": "Nestled in the birthplace of Kolkata’s clay artisans, presenting visionary conceptual installations fused with pure traditional idol artistry.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Kumartuli, North Kolkata",
-    "nearestMetro": "Sovabazar Sutanuti",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -127,7 +127,7 @@
     "description": "A storied North Kolkata heavyweight by the ghats, celebrated for thought-provoking socio-cultural installations and heritage idol sculpting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Ahiritola Street",
-    "nearestMetro": "Sovabazar Sutanuti",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -162,7 +162,7 @@
     "description": "Steeped in authentic North Kolkata lane culture, Beniyatola preserves classical Bengali puja customs and soulful dhaki rhythms.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Beniatola Lane, Sovabazar",
-    "nearestMetro": "Sovabazar Sutanuti",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -233,7 +233,7 @@
     "description": "Located at the heart of North Kolkata shopping and food alleyways, drawing energetic crowds with traditional festive charm.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Hatibagan Crossing",
-    "nearestMetro": "Shyambazar",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -269,7 +269,7 @@
     "description": "Globally recognized for boundary-pushing contemporary fine art installations that transform spatial design into transcendent philosophical experiences.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Tala Park, North Kolkata",
-    "nearestMetro": "Belgachia / Shyambazar",
+    "nearestMetro": "Belgachia",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -304,7 +304,7 @@
     "description": "One of the oldest community barowari pujas in the northern suburbs, celebrated for its warmth, community bhog, and peaceful darshan.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Tala, North Kolkata",
-    "nearestMetro": "Belgachia",
+    "nearestMetro": "Shyambazar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -340,7 +340,7 @@
     "description": "A perennial powerhouse of thematic brilliance in the Dum Dum Park circuit with jaw-dropping textures and ambient soundscapes.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Dum Dum Park",
-    "nearestMetro": "Dum Dum / Belgachia",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -376,7 +376,7 @@
     "description": "Masterfully crafted geometric structures blending traditional terracotta, brass bells, and hypnotic folk motifs.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Dum Dum Park Tank 3",
-    "nearestMetro": "Dum Dum",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -412,7 +412,7 @@
     "description": "Completes the iconic Dum Dum Park trifecta with intricate threadwork, reflective mirrors, and dynamic lighting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Dum Dum Park",
-    "nearestMetro": "Dum Dum",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -448,7 +448,7 @@
     "description": "A massive North Kolkata attraction consistently delivering thought-provoking thematic narratives with immaculate spatial craft.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Kashi Bose Lane, Manicktala",
-    "nearestMetro": "Girish Park / Shyambazar",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -484,7 +484,7 @@
     "description": "Famous across the country for electrifying Dhunuchi Naach performances, grand glass craftsmanship, and royal festive atmosphere.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Raja Rammohan Sarani",
-    "nearestMetro": "Girish Park / MG Road",
+    "nearestMetro": "Girish Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -520,7 +520,7 @@
     "description": "A pioneer of theme pujas in North Kolkata, renowned for ingenious use of eco-friendly materials like bamboo, shells, and clay.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Ultadanga Main Road",
-    "nearestMetro": "Belgachia / Shobhabazar",
+    "nearestMetro": "Belgachia",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -591,7 +591,7 @@
     "description": "The historic royal palace where Lord Clive attended celebrations in 1757. Majestic Natmandir pillars, traditional Chandni Thakur, and pure aristocratic rituals.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Raja Nabakrishna Street",
-    "nearestMetro": "Sovabazar Sutanuti",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -626,7 +626,7 @@
     "description": "Famous for innovative structural surprises, kinetic installations, and detailed thematic idol crafting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Jagat Mukherjee Park, Sovabazar",
-    "nearestMetro": "Shyambazar",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -731,7 +731,7 @@
     "description": "Energetic northern gateway hub boasting dazzling light arches and vibrant youth volunteer spirit.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Dum Dum Road",
-    "nearestMetro": "Belgachia",
+    "nearestMetro": "Dum Dum",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -766,7 +766,7 @@
     "description": "Northern heritage puja on the historic Cossipore bank, rich in nostalgia and traditional bhog offerings.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Cossipore Road",
-    "nearestMetro": "Dum Dum / Shyambazar",
+    "nearestMetro": "Baranagar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -801,7 +801,7 @@
     "description": "Known for its spacious park setting, family-friendly atmosphere, and vibrant handicraft-inspired pandal design.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Ultadanga Bidhan Sishu Udyan",
-    "nearestMetro": "Shyambazar / Belgachia",
+    "nearestMetro": "Belgachia",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -942,7 +942,7 @@
     "description": "An inspiring showcase of inter-community harmony, authentic sabeki idol, and joyous festive celebrations.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Narkeldanga Main Road",
-    "nearestMetro": "Phoolbagan / Sealdah",
+    "nearestMetro": "Phoolbagan",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -978,7 +978,7 @@
     "description": "Renowned for evocative thematic concepts rooted in vintage Bengal nostalgia, retro vehicles, and sustainable handcrafts.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Beleghata Main Road",
-    "nearestMetro": "Phoolbagan / Sealdah",
+    "nearestMetro": "Phoolbagan",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -1084,7 +1084,7 @@
     "description": "Deeply intimate sabeki puja with historic family connections and traditional pushpanjali chanting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Nebutola, Bowbazar border",
-    "nearestMetro": "Central / MG Road",
+    "nearestMetro": "Mahatma Gandhi Road",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1119,7 +1119,7 @@
     "description": "High spirited youth hub next to the river ghats with live dhak performances and buzzing street snacks.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "BK Pal Avenue, Ahiritola",
-    "nearestMetro": "Sovabazar Sutanuti",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -1155,7 +1155,7 @@
     "description": "Located amid majestic colonial mansions, featuring artisan metalwork and heritage idol aesthetics.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Pathuriaghata Street",
-    "nearestMetro": "Girish Park / MG Road",
+    "nearestMetro": "Girish Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1225,7 +1225,7 @@
     "description": "Peaceful traditional oasis with classical dhol and bell chimes during Sandhi Puja.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Girish Avenue",
-    "nearestMetro": "Shyambazar",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1260,7 +1260,7 @@
     "description": "Celebrated for innovative use of living plants, pottery, and organic materials crafting a serene natural sanctuary.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Lala Bagan, Maniktala",
-    "nearestMetro": "Belgachia",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -1295,7 +1295,7 @@
     "description": "Local community hub preserving close-knit family spirit, bhog distribution, and cultural evenings.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Kar Bagan, Daspara",
-    "nearestMetro": "Shyambazar",
+    "nearestMetro": "Belgachia",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1330,7 +1330,7 @@
     "description": "Greets VIP road travelers with shimmering illumination tunnels and grand festival gates.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Golaghata, VIP Road",
-    "nearestMetro": "Belgachia",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -1400,7 +1400,7 @@
     "description": "A glimpse into 19th-century merchant Kolkata with antique chandeliers and timeless rituals.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Darpanarayan Tagore St",
-    "nearestMetro": "MG Road / Girish Park",
+    "nearestMetro": "Girish Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1435,7 +1435,7 @@
     "description": "Steps away from the Ganga riverbanks, combining the sacred breeze with pure devotional rites.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Beniatola Ghat",
-    "nearestMetro": "Sovabazar Sutanuti",
+    "nearestMetro": "Shobhabazar Sutanuti",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1470,7 +1470,7 @@
     "description": "A beloved family stop in the Lake Town circuit with colorful rides, games, and illuminated pathways.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Lake Town Block B",
-    "nearestMetro": "Belgachia",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -1506,7 +1506,7 @@
     "description": "Remarkable tribal and folk art installations celebrating Bengal’s indigenous culture and musical heritage.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Lake Town Block A",
-    "nearestMetro": "Belgachia",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -1542,7 +1542,7 @@
     "description": "South Kolkata’s most iconic temple replica, preserving classical idol saaj under colossal chandeliers and electric light galleries.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Gariahat, South Kolkata",
-    "nearestMetro": "Gariahat / Kalighat",
+    "nearestMetro": "Jatin Das Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1578,7 +1578,7 @@
     "description": "Renowned nationwide for depicting a different Indian state or culture every year with authentic folk materials and original music.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Block M, New Alipore",
-    "nearestMetro": "Majerhat / Kalighat",
+    "nearestMetro": "Taratala",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -1613,7 +1613,7 @@
     "description": "A serene historical puja nestled near ancient temple roots with intimate devotional atmosphere.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Buro Shibtala, South Kolkata",
-    "nearestMetro": "Behala Chowrasta / Taratala",
+    "nearestMetro": "Rabindra Sarobar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1649,7 +1649,7 @@
     "description": "Consistently tops aesthetic rankings with avant-garde conceptual art installations incorporating handcrafted sustainable materials.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Peary Mohan Roy Rd, Chetla",
-    "nearestMetro": "Kalighat / Jatin Das Park",
+    "nearestMetro": "Kalighat",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -1756,7 +1756,7 @@
     "description": "Partner to Ekdalia in the Dover Lane corridor, renowned for flawless temple replicas and heritage Ekchala idols.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Dover Lane, Gariahat",
-    "nearestMetro": "Kalighat / Gariahat",
+    "nearestMetro": "Jatin Das Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1792,7 +1792,7 @@
     "description": "South Kolkata’s trendsetting conceptual powerhouse, where raw industrial elements harmoniously merge with high spiritual art.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Monoharpukur Road",
-    "nearestMetro": "Kalighat / Jatin Das Park",
+    "nearestMetro": "Kalighat",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -1828,7 +1828,7 @@
     "description": "Legendary for pristine idol aesthetics, radiant golden ornaments, and spotless management along Southern Avenue.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Mudiali, Southern Avenue",
-    "nearestMetro": "Kalighat / Rabindra Sarobar",
+    "nearestMetro": "Rabindra Sarobar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1935,7 +1935,7 @@
     "description": "Gracious community celebration on Sarat Bose Road highlighting classic Bengali heritage and warm festive vibes.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Sarat Bose Road",
-    "nearestMetro": "Kalighat / Netaji Bhavan",
+    "nearestMetro": "Kalighat",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -1971,7 +1971,7 @@
     "description": "Preserves centuries of artistic devotion, famous for serene morning pushpanjali, classic daker saaj, and cultural aristocracy.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Lake Road, Southern Avenue",
-    "nearestMetro": "Kalighat / Jatin Das Park",
+    "nearestMetro": "Rabindra Sarobar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2007,7 +2007,7 @@
     "description": "Sprawling park puja celebrated for massive installations combining robotics, bio-materials, and cultural spectacles.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Jodhpur Park Ground",
-    "nearestMetro": "Dhakuria / Rabindra Sarobar",
+    "nearestMetro": "Mahanayak Uttam Kumar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2043,7 +2043,7 @@
     "description": "Famed for jaw-dropping replicas constructed from vintage coins, stamps, and heritage architectural artifacts.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Dhakuria, South Kolkata",
-    "nearestMetro": "Dhakuria / Kalighat",
+    "nearestMetro": "Rabindra Sarobar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2114,7 +2114,7 @@
     "description": "Intimate neighborhood aesthetic pavilion surrounded by green residential avenues.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Jodhpur Park 95 Pally",
-    "nearestMetro": "Rabindra Sarobar / Dhakuria",
+    "nearestMetro": "Mahanayak Uttam Kumar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2150,7 +2150,7 @@
     "description": "The cultural heartbeat of Durga Puja youth and families alike. Vast grassy park filled with joyful Adda, soulful lighting, and unmatched festive vibe.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Ritchie Road, Ballygunge",
-    "nearestMetro": "Netaji Bhavan / Jatin Das Park",
+    "nearestMetro": "Jatin Das Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2186,7 +2186,7 @@
     "description": "The legend that redefined Kolkata theme pujas with pathbreaking terracotta and earthen-craft installations.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Bosepukur, Kasba",
-    "nearestMetro": "Ballygunge / Kalighat",
+    "nearestMetro": "Hemanta Mukhopadhyay",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2222,7 +2222,7 @@
     "description": "Dynamic Kasba powerhouse recognized for creative sustainable materials and grand structural arches.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Rajdanga, Kasba",
-    "nearestMetro": "Hemanta Mukherjee / Kalighat",
+    "nearestMetro": "Hemanta Mukhopadhyay",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2258,7 +2258,7 @@
     "description": "Renowned for mind-boggling micro-craftsmanship using unusual everyday materials to create wondrous palaces.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Santoshpur Avenue",
-    "nearestMetro": "Kavi Subhash / Garia",
+    "nearestMetro": "Jyotirindra Nandi",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2293,7 +2293,7 @@
     "description": "Beloved neighborhood barowari celebrating decades of family togetherness and traditional arati.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Santoshpur Main Road",
-    "nearestMetro": "Kavi Subhash",
+    "nearestMetro": "Jyotirindra Nandi",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2328,7 +2328,7 @@
     "description": "Charming park setting buzzing with food stalls, music shows, and warm community bonding.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Santoshpur Trikon Park",
-    "nearestMetro": "Santoshpur / Jadavpur",
+    "nearestMetro": "Jyotirindra Nandi",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -2363,7 +2363,7 @@
     "description": "Tranquil traditional puja preserving pristine devotional ceremonies and community bhog.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Tollygunge / Jadavpur",
-    "nearestMetro": "Jadavpur / Rabindra Sarobar",
+    "nearestMetro": "Netaji (Kudghat)",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2399,7 +2399,7 @@
     "description": "A perennial favorite in the Dhakuria circuit boasting delicate woodwork and philosophical themes.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Selimpur Road, Dhakuria",
-    "nearestMetro": "Dhakuria / Rabindra Sarobar",
+    "nearestMetro": "Mahanayak Uttam Kumar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2470,7 +2470,7 @@
     "description": "Celebrates the nine avatars of Devi Durga with exquisite spiritual iconography.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Chetla Central Road",
-    "nearestMetro": "Rabindra Sarobar",
+    "nearestMetro": "Kalighat",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2505,7 +2505,7 @@
     "description": "Intimate neighborhood celebration focused on classical rituals and soulful pushpanjali.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Panchadurga, Chetla",
-    "nearestMetro": "Kavi Nazrul",
+    "nearestMetro": "Majerhat",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2541,7 +2541,7 @@
     "description": "The flagship blockbuster of Behala, producing mind-bending structural installations that draw citywide acclaim.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Behala Nutan Dal Ground",
-    "nearestMetro": "Behala Chowrasta / Taratala",
+    "nearestMetro": "Behala Bazar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2577,7 +2577,7 @@
     "description": "Key stop in the Behala hopping circuit with innovative eco-materials and hypnotic lighting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Behala Friends Club, James Long Sarani",
-    "nearestMetro": "Behala Chowrasta",
+    "nearestMetro": "Behala Bazar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2612,7 +2612,7 @@
     "description": "Charming atmospheric pandal themed on mystical deodar trees and organic forest shrines.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Arya Samiti Road, Behala",
-    "nearestMetro": "Taratala",
+    "nearestMetro": "Behala Bazar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2647,7 +2647,7 @@
     "description": "Warm community hub on Behala Bazar approach with joyful cultural shows.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Behala Shree Sangha",
-    "nearestMetro": "Kalighat",
+    "nearestMetro": "Behala Bazar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2682,7 +2682,7 @@
     "description": "Quiet, classical celebration ideal for peaceful family pushpanjali.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Behala Pally Sharadiya",
-    "nearestMetro": "Netaji Bhavan",
+    "nearestMetro": "Behala Bazar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -2788,7 +2788,7 @@
     "description": "Creative installation focusing on color theory and emotive idol expressions.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Bhowanipore Nabarag",
-    "nearestMetro": "Kalighat",
+    "nearestMetro": "Jatin Das Park",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2823,7 +2823,7 @@
     "description": "Lively youth celebration overlooking scenic lake promenades.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Southern Avenue Yubak Sangha",
-    "nearestMetro": "Mahanayak Uttam Kumar (Tollygunge)",
+    "nearestMetro": "Rabindra Sarobar",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -2893,7 +2893,7 @@
     "description": "Vibrant local community festival welcoming all with open arms.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Tollygunge Circular Road",
-    "nearestMetro": "Kavi Nazrul",
+    "nearestMetro": "Netaji (Kudghat)",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -2929,7 +2929,7 @@
     "description": "Created global headlines with the iconic Migrant Mother idol, continuing to lead high-concept social art.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Diamond Harbour Road, Barisha",
-    "nearestMetro": "Sakherbazar / Behala Chowrasta",
+    "nearestMetro": "Sakherbazar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -2964,7 +2964,7 @@
     "description": "Aristocratic celebration near the National Library with regal sabeki pratima.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Alipore Judges Court Rd",
-    "nearestMetro": "Jatin Das Park / Kalighat",
+    "nearestMetro": "Majerhat",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3000,7 +3000,7 @@
     "description": "Famous for authentic tribal wood craft, earthen motifs, and haunting ambient music.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Haridevpur 41 Pally Rd",
-    "nearestMetro": "Mahanayak Uttam Kumar",
+    "nearestMetro": "Netaji (Kudghat)",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3036,7 +3036,7 @@
     "description": "Leading Haridevpur crowd puller presenting awe-inspiring visual illusions and sculptural mastery.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Haridevpur Main Road",
-    "nearestMetro": "Mahanayak Uttam Kumar (Tollygunge)",
+    "nearestMetro": "Netaji (Kudghat)",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3072,7 +3072,7 @@
     "description": "Captivating folk craft pandal known for warm colors and handcrafted village artifacts.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Haridevpur 41 Pally",
-    "nearestMetro": "Mahanayak Uttam Kumar",
+    "nearestMetro": "Netaji (Kudghat)",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3107,7 +3107,7 @@
     "description": "Energetic local neighborhood festival with nightly cultural events.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Haridevpur Crossing",
-    "nearestMetro": "Mahanayak Uttam Kumar",
+    "nearestMetro": "Masterda Surya Sen",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -3177,7 +3177,7 @@
     "description": "Bustling adda and food hub right off Gariahat crossing.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Cornfield Road, Gariahat",
-    "nearestMetro": "Kalighat / Gariahat",
+    "nearestMetro": "Jatin Das Park",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -3247,7 +3247,7 @@
     "description": "Peaceful southern gem near Patuli floating market.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Patuli / Kendua",
-    "nearestMetro": "Kavi Nazrul / Garia",
+    "nearestMetro": "Shahid Khudiram (Briji)",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3283,7 +3283,7 @@
     "description": "Resonant with hundreds of traditional brass bells and earthen diyas.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Kasba Bosepukur Road",
-    "nearestMetro": "Ballygunge / Hemanta Mukherjee",
+    "nearestMetro": "Hemanta Mukhopadhyay",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3318,7 +3318,7 @@
     "description": "Charming neighborhood pandal with authentic home-cooked bhog.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Garia Pallisree",
-    "nearestMetro": "Jadavpur",
+    "nearestMetro": "Kavi Nazrul (Garia Bazar)",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3424,7 +3424,7 @@
     "description": "Devotional haven known for serene morning arati chanting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Bhowanipore Abasar",
-    "nearestMetro": "Netaji Bhavan / Jatin Das Park",
+    "nearestMetro": "Jatin Das Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3459,7 +3459,7 @@
     "description": "Tranquil green colony setting with tasteful modern themes.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "SBI Officers Colony, Behala",
-    "nearestMetro": "Thakurpukur / Behala Chowrasta",
+    "nearestMetro": "Sakherbazar",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3530,7 +3530,7 @@
     "description": "Unmissable Southern Avenue gem set by historic Shiva temple and serene lake water.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Lake Temple Road, Mudiali",
-    "nearestMetro": "Rabindra Sarobar / Kalighat",
+    "nearestMetro": "Rabindra Sarobar",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3565,7 +3565,7 @@
     "description": "Vibrant local puja rich in camaraderie and festive spirit.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Chetla Talbagan Lane",
-    "nearestMetro": "Gitanjali",
+    "nearestMetro": "Kalighat",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -3601,7 +3601,7 @@
     "description": "Central Kolkata’s biggest crowd puller, famed for its 3D volumetric laser shows, breathtaking dynamic structural shells, and cinematic visual spectacles.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Lebutala, Bowbazar",
-    "nearestMetro": "Central / Sealdah",
+    "nearestMetro": "Sealdah",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -3637,7 +3637,7 @@
     "description": "A towering royal palace replica rising above central Kolkata, renowned for mesmerizing lighting gates and monumental idol craft.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "MG Road, Central Kolkata",
-    "nearestMetro": "MG Road / Central",
+    "nearestMetro": "Mahatma Gandhi Road",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3673,7 +3673,7 @@
     "description": "Perched over a historic water reservoir, famous worldwide for shimmering reflections of millions of miniature LED bulbs creating radiant glowing palaces on water.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "College Street, Boi Para",
-    "nearestMetro": "Central / MG Road",
+    "nearestMetro": "Central",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3744,7 +3744,7 @@
     "description": "Historic central neighborhood puja noted for traditional warmth and delicious khichuri bhog.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Convent Road, Entally",
-    "nearestMetro": "Sealdah / Central",
+    "nearestMetro": "Sealdah",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3779,7 +3779,7 @@
     "description": "Celebrates traditional pottery and terracotta craft in East-Central corridor.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Beleghata Central Road",
-    "nearestMetro": "Sealdah / Phoolbagan",
+    "nearestMetro": "Phoolbagan",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3849,7 +3849,7 @@
     "description": "A peaceful, intimate oasis in central Kolkata steeped in neighborhood warmth.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Taltala Lane",
-    "nearestMetro": "Central / Chandni Chowk",
+    "nearestMetro": "Chandni Chowk",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3884,7 +3884,7 @@
     "description": "Bustling city-center celebration with vibrant lighting and community performances.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "Subodh Mullick Square Area",
-    "nearestMetro": "Central / Chandni Chowk",
+    "nearestMetro": "Chandni Chowk",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -3920,7 +3920,7 @@
     "description": "Vast, open maidan celebration celebrated for communal harmony and proximity to legendary biryani spots.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "Park Circus Maidan",
-    "nearestMetro": "Park Circus / Rabindra Sadan",
+    "nearestMetro": "Maidan",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -3955,7 +3955,7 @@
     "description": "A wonderful testament to Kolkata’s diverse multicultural fabric.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Ripon Street, Central Kolkata",
-    "nearestMetro": "Park Street / Chandni Chowk",
+    "nearestMetro": "Park Street",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4095,7 +4095,7 @@
     "description": "Radiant festival gate illuminating the central thoroughfare of Chittaranjan Avenue.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "CR Avenue, Central",
-    "nearestMetro": "MG Road / Central",
+    "nearestMetro": "Central",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -4165,7 +4165,7 @@
     "description": "Surrounded by colonial-era bookshops and historic residences on Amherst Street.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Rammohan Sarani, Amherst St",
-    "nearestMetro": "MG Road",
+    "nearestMetro": "Mahatma Gandhi Road",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4236,7 +4236,7 @@
     "description": "Lively parkside setting renowned for classical sitar and vocal performances during Puja.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "Subodh Mullick Square Park",
-    "nearestMetro": "Central / Chandni Chowk",
+    "nearestMetro": "Central",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4271,7 +4271,7 @@
     "description": "Heartwarming old-quarter celebration offering pure spiritual charm.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Baburchi Lane, Bowbazar",
-    "nearestMetro": "Sealdah",
+    "nearestMetro": "Central",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4307,7 +4307,7 @@
     "description": "The indisputable monarch of Salt Lake Durga Puja, famed for colossal palace replicas, expansive food pavilions, and record-breaking family crowds.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
     "location": "FD Block Park, Sector 3, Salt Lake",
-    "nearestMetro": "Karunamoyee / Central Park",
+    "nearestMetro": "Central Park",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -4343,7 +4343,7 @@
     "description": "A major standout in Sector 2, featuring futuristic architectural arches and kinetic lighting.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "AJ Block, Sector 2, Salt Lake",
-    "nearestMetro": "Karunamoyee",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -4379,7 +4379,7 @@
     "description": "Pulls massive crowds in Salt Lake with authentic folk craftsmanship, large open lawn addas, and stunning traditional idols.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "BJ Block Park, Sector 2, Salt Lake",
-    "nearestMetro": "Karunamoyee",
+    "nearestMetro": "Central Park",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -4484,7 +4484,7 @@
     "description": "Graceful park setting near City Centre 1 with serene morning pushpanjali and warm bhog distribution.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "CF Block, Sector 1, Salt Lake",
-    "nearestMetro": "City Centre / Bengal Chemical",
+    "nearestMetro": "City Centre",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4555,7 +4555,7 @@
     "description": "Popular community hub brimming with joyous food stalls, family carnivals, and dazzling illumination.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "CK Block, Sector 2, Salt Lake",
-    "nearestMetro": "Karunamoyee",
+    "nearestMetro": "Central Park",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -4591,7 +4591,7 @@
     "description": "One of the oldest housing society pujas in Salt Lake, famed for electrifying dhak beats and grand festive camaraderie.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "Labony Housing Estate, Salt Lake",
-    "nearestMetro": "Central Park / City Centre",
+    "nearestMetro": "Central Park",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4626,7 +4626,7 @@
     "description": "Showcases the timeless metalcraft of Dokra artisans with rustic lighting and earthen idols.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "Purbachal, Salt Lake Sector 3",
-    "nearestMetro": "Salt Lake Stadium",
+    "nearestMetro": "Bengal Chemical",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -4662,7 +4662,7 @@
     "description": "The flagship mega-puja of modern New Town, set in an expansive plaza with cutting-edge lighting, colossal art, and global cultural pavilions.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "New Town City Square, Action Area 1",
-    "nearestMetro": "Sector V / New Town Bus Terminus",
+    "nearestMetro": "Salt Lake Sector V",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -4697,7 +4697,7 @@
     "description": "Vibrant cosmopolitan celebration surrounded by modern high-rises, gourmet food trucks, and lively crowds.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
     "location": "Action Area 1 Ground, New Town",
-    "nearestMetro": "New Town / Sector V",
+    "nearestMetro": "Salt Lake Sector V",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -4802,7 +4802,7 @@
     "description": "Warm community celebration with brightly lit tree canopies and children’s cultural competitions.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
     "location": "GC Block, Sector 3, Salt Lake",
-    "nearestMetro": "Central Park",
+    "nearestMetro": "Karunamoyee",
     "highlights": [
       "Festive Illumination",
       "Cultural Stage",
@@ -4837,7 +4837,7 @@
     "description": "Exquisite cool cane-weave pandal walls paired with soulful Bengali folk instruments.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
     "location": "HA Block, Sector 3, Salt Lake",
-    "nearestMetro": "Central Park / Karunamoyee",
+    "nearestMetro": "Karunamoyee",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",
@@ -4872,7 +4872,7 @@
     "description": "Peaceful parkside sanctuary ideal for seniors and families seeking tranquil pushpanjali.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
     "location": "IB Block, Sector 3, Salt Lake",
-    "nearestMetro": "Salt Lake Stadium",
+    "nearestMetro": "Bengal Chemical",
     "highlights": [
       "Sabeki Ekchala Idol",
       "Classical Daker Saaj",
@@ -4977,7 +4977,7 @@
     "description": "A serene lotus pond installation surrounded by thousands of fragrant marigold garlands.",
     "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
     "location": "LA Block, Sector 3, Salt Lake",
-    "nearestMetro": "Central Park / City Centre",
+    "nearestMetro": "Karunamoyee",
     "highlights": [
       "Thematic Architecture",
       "Ambient Soundscape",

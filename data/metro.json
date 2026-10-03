@@ -1,37 +1,4029 @@
 [
-  { "id": "metro-dakshineswar", "name": "Dakshineswar", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.6534, "lng": 88.3575 }, "landmark": "Dakshineswar Kali Temple / Bally Bridge corridor" },
-  { "id": "metro-baranagar", "name": "Baranagar", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.6417, "lng": 88.3688 }, "landmark": "BT Road / Dunlop Crossing" },
-  { "id": "metro-noapara", "name": "Noapara", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.6375, "lng": 88.3888 }, "landmark": "North Kolkata Rail & Metro Interchange" },
-  { "id": "metro-dumdum", "name": "Dum Dum", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.6217, "lng": 88.3934 }, "landmark": "Dum Dum Park & Tarun Sangha Hub" },
-  { "id": "metro-belgachia", "name": "Belgachia", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.6067, "lng": 88.3850 }, "landmark": "Gateway to Sreebhumi & Lake Town" },
-  { "id": "metro-shyambazar", "name": "Shyambazar", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.6022, "lng": 88.3711 }, "landmark": "5-Point Crossing, Bagbazar Sarbojonin, Jagat Mukherjee Park" },
-  { "id": "metro-shobhabazar", "name": "Shobhabazar Sutanuti", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5982, "lng": 88.3662 }, "landmark": "Kumartuli Artisans Quarter, Shovabazar Rajbari" },
-  { "id": "metro-girish-park", "name": "Girish Park", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5857, "lng": 88.3607 }, "landmark": "Chaltabagan, Simla Bayam Samity, Vivekananda Ancestral Home" },
-  { "id": "metro-mg-road", "name": "Mahatma Gandhi Road", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5815, "lng": 88.3605 }, "landmark": "College Street Book Market, Mohammad Ali Park" },
-  { "id": "metro-central", "name": "Central", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5684, "lng": 88.3607 }, "landmark": "Bowbazar, Calcutta Medical College, Santosh Mitra Square" },
-  { "id": "metro-chandni", "name": "Chandni Chowk", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5658, "lng": 88.3562 }, "landmark": "Electronics Hub & Central Kolkata Heritage" },
-  { "id": "metro-esplanade", "name": "Esplanade", "line": "Blue & Green Line Interchange", "coordinates": { "lat": 22.5639, "lng": 88.3516 }, "landmark": "Grand Central Transit Hub, Dharmatala, New Market" },
-  { "id": "metro-park-street", "name": "Park Street", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5539, "lng": 88.3513 }, "landmark": "Park Street Dining Corridor, Mocambo, Peter Cat, Flurys" },
-  { "id": "metro-maidan", "name": "Maidan", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5463, "lng": 88.3496 }, "landmark": "Victoria Memorial & Brigade Parade Ground" },
-  { "id": "metro-netaji-bhavan", "name": "Netaji Bhavan", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5350, "lng": 88.3477 }, "landmark": "Bhawanipore Pandals, 75 Palli, Bakulbagan, Paddapukur" },
-  { "id": "metro-jatin-das-park", "name": "Jatin Das Park", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5273, "lng": 88.3471 }, "landmark": "Maddox Square, Hazra Park, Chakraberia Sarbojonin" },
-  { "id": "metro-kalighat", "name": "Kalighat", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5186, "lng": 88.3458 }, "landmark": "Kalighat Temple, Deshapriya Park, Badamtala Ashar Sangha, 66 Palli" },
-  { "id": "metro-rabindra-sarobar", "name": "Rabindra Sarobar", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.5085, "lng": 88.3457 }, "landmark": "Mudiali Club, Shib Mandir, Southern Avenue Lakes" },
-  { "id": "metro-uttam-kumar", "name": "Mahanayak Uttam Kumar (Tollygunge)", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.4988, "lng": 88.3454 }, "landmark": "Suruchi Sangha, Haridevpur, Tollygunge Golf Club" },
-  { "id": "metro-netaji", "name": "Netaji (Kudghat)", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.4891, "lng": 88.3468 }, "landmark": "Kudghat, Ranikuthi, Haridevpur Pandals" },
-  { "id": "metro-surya-sen", "name": "Masterda Surya Sen (Bansdroni)", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.4789, "lng": 88.3503 }, "landmark": "Bansdroni & South Suburbs" },
-  { "id": "metro-gitanjali", "name": "Gitanjali (Naktala)", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.4705, "lng": 88.3572 }, "landmark": "Naktala Udayan Sangha epicenter" },
-  { "id": "metro-kavi-nazrul", "name": "Kavi Nazrul (Garia Bazar)", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.4632, "lng": 88.3697 }, "landmark": "Garia, Mahamayatala, Baishnabghata Patuli" },
-  { "id": "metro-shahid-khudiram", "name": "Shahid Khudiram (Briji)", "line": "Blue Line (North-South)", "coordinates": { "lat": 22.4630, "lng": 88.3842 }, "landmark": "EM Bypass Garia Link" },
-  { "id": "metro-kavi-subhash", "name": "Kavi Subhash (New Garia)", "line": "Blue & Orange Line Interchange", "coordinates": { "lat": 22.4634, "lng": 88.3976 }, "landmark": "New Garia Junction & Airport Metro Corridor" },
-  { "id": "metro-sector-v", "name": "Salt Lake Sector V", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5802, "lng": 88.4357 }, "landmark": "FD Block, BJ Block, Sector V Tech Corridor" },
-  { "id": "metro-karunamoyee", "name": "Karunamoyee", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5867, "lng": 88.4208 }, "landmark": "Central Park, Salt Lake Bus Terminus, EE Block" },
-  { "id": "metro-central-park", "name": "Central Park", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5901, "lng": 88.4137 }, "landmark": "Salt Lake Mela Ground & Central Park" },
-  { "id": "metro-city-centre", "name": "City Centre", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5898, "lng": 88.4069 }, "landmark": "City Centre 1, Labony Estate, Salt Lake AJ/BJ blocks" },
-  { "id": "metro-bengal-chemical", "name": "Bengal Chemical", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5768, "lng": 88.4019 }, "landmark": "EM Bypass & Maniktala Main Road junction" },
-  { "id": "metro-stadium", "name": "Salt Lake Stadium", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5694, "lng": 88.4057 }, "landmark": "Yuba Bharati Krirangan & Beleghata Link" },
-  { "id": "metro-phoolbagan", "name": "Phoolbagan", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5714, "lng": 88.3905 }, "landmark": "Phoolbagan Crossing, Kankurgachi Mitali Sangha" },
-  { "id": "metro-sealdah", "name": "Sealdah", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5675, "lng": 88.3712 }, "landmark": "Sealdah Railway Junction, Jagat Mukherjee Park" },
-  { "id": "metro-howrah", "name": "Howrah", "line": "Green Line (Underwater Metro)", "coordinates": { "lat": 22.5855, "lng": 88.3426 }, "landmark": "Howrah Railway Station & Under-River Ganga Tunnel" },
-  { "id": "metro-howrah-maidan", "name": "Howrah Maidan", "line": "Green Line (East-West)", "coordinates": { "lat": 22.5878, "lng": 88.3308 }, "landmark": "Howrah District Court & Maidan Terminus" }
+  {
+    "id": "metro-dakshineswar",
+    "stationName": "Dakshineswar",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.6534,
+      "lng": 88.3575
+    },
+    "landmark": "Dakshineswar Kali Temple / Bally Bridge corridor",
+    "name": "Dakshineswar",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-baranagar",
+    "stationName": "Baranagar",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.6417,
+      "lng": 88.3688
+    },
+    "landmark": "BT Road / Dunlop Crossing",
+    "name": "Baranagar",
+    "nearbyPandals": [
+      {
+        "id": "cossipore-sarbojonin-north",
+        "pandalId": "cossipore-sarbojonin-north",
+        "pandalName": "Cossipore Sarbojonin",
+        "name": "Cossipore Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.72,
+        "theme": "Ganga-Side Sabeki Devotion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 1977,
+        "distanceText": "2.0 km",
+        "walkMinutes": 25,
+        "walkText": "25 min walk",
+        "coordinates": {
+          "lat": 22.6241,
+          "lng": 88.3715
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-noapara",
+    "stationName": "Noapara",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.6375,
+      "lng": 88.3888
+    },
+    "landmark": "North Kolkata Rail & Metro Interchange",
+    "name": "Noapara",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-dumdum",
+    "stationName": "Dum Dum",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.6217,
+      "lng": 88.3934
+    },
+    "landmark": "Dum Dum Park & Tarun Sangha Hub",
+    "name": "Dum Dum",
+    "nearbyPandals": [
+      {
+        "id": "vivekananda-sporting-club-north",
+        "pandalId": "vivekananda-sporting-club-north",
+        "pandalName": "Vivekananda Sporting Club",
+        "name": "Vivekananda Sporting Club",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.74,
+        "theme": "Illuminated Dynamic Temple Concept",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 608,
+        "distanceText": "608 m",
+        "walkMinutes": 8,
+        "walkText": "8 min walk",
+        "coordinates": {
+          "lat": 22.6185,
+          "lng": 88.3982
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-belgachia",
+    "stationName": "Belgachia",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.6067,
+      "lng": 88.385
+    },
+    "landmark": "Gateway to Sreebhumi & Lake Town",
+    "name": "Belgachia",
+    "nearbyPandals": [
+      {
+        "id": "pallysree-sarbojonin-north",
+        "pandalId": "pallysree-sarbojonin-north",
+        "pandalName": "Pallysree Sarbojonin",
+        "name": "Pallysree Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.7,
+        "theme": "Traditional Matri Vandana",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 496,
+        "distanceText": "496 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.6045,
+          "lng": 88.3892
+        }
+      },
+      {
+        "id": "tala-prattoy-north",
+        "pandalId": "tala-prattoy-north",
+        "pandalName": "Tala Prattoy",
+        "name": "Tala Prattoy",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.93,
+        "theme": "Monumental Concept Art & Immersive Spatial Architecture",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 863,
+        "distanceText": "863 m",
+        "walkMinutes": 11,
+        "walkText": "11 min walk",
+        "coordinates": {
+          "lat": 22.6102,
+          "lng": 88.3775
+        }
+      },
+      {
+        "id": "kar-bagan-north",
+        "pandalId": "kar-bagan-north",
+        "pandalName": "Kar Bagan",
+        "name": "Kar Bagan",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.72,
+        "theme": "Authentic Neighborhood Barowari Heritage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1294,
+        "distanceText": "1.3 km",
+        "walkMinutes": 16,
+        "walkText": "16 min walk",
+        "coordinates": {
+          "lat": 22.5952,
+          "lng": 88.3831
+        }
+      },
+      {
+        "id": "telengabagan-sarbojonin-north",
+        "pandalId": "telengabagan-sarbojonin-north",
+        "pandalName": "Telengabagan Sarbojonin",
+        "name": "Telengabagan Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.8,
+        "theme": "Eco-Artisan Installations from Natural Elements",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 1435,
+        "distanceText": "1.4 km",
+        "walkMinutes": 18,
+        "walkText": "18 min walk",
+        "coordinates": {
+          "lat": 22.5938,
+          "lng": 88.3845
+        }
+      },
+      {
+        "id": "ultadanga-sangrami-north",
+        "pandalId": "ultadanga-sangrami-north",
+        "pandalName": "Ultadanga Sangrami",
+        "name": "Ultadanga Sangrami",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.77,
+        "theme": "Handicraft Panorama & Folk Melodies",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 1738,
+        "distanceText": "1.7 km",
+        "walkMinutes": 22,
+        "walkText": "22 min walk",
+        "coordinates": {
+          "lat": 22.5912,
+          "lng": 88.3872
+        }
+      }
+    ],
+    "nearbyPandalCount": 5
+  },
+  {
+    "id": "metro-shyambazar",
+    "stationName": "Shyambazar",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.6022,
+      "lng": 88.3711
+    },
+    "landmark": "5-Point Crossing, Bagbazar Sarbojonin, Jagat Mukherjee Park",
+    "name": "Shyambazar",
+    "nearbyPandals": [
+      {
+        "id": "shyampukur-sarbojonin-north",
+        "pandalId": "shyampukur-sarbojonin-north",
+        "pandalName": "Shyampukur Sarbojonin",
+        "name": "Shyampukur Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.73,
+        "theme": "Classic Bengali Heritage & Dhaki Beats",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 199,
+        "distanceText": "199 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.6005,
+          "lng": 88.3705
+        }
+      },
+      {
+        "id": "bagbazar-sarbojonin-north",
+        "pandalId": "bagbazar-sarbojonin-north",
+        "pandalName": "Bagbazar Sarbojonin",
+        "name": "Bagbazar Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.88,
+        "theme": "Centurial Traditional Ekchala Protima & Sabeki Daker Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 287,
+        "distanceText": "287 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.6022,
+          "lng": 88.3683
+        }
+      },
+      {
+        "id": "nalin-sarkar-street-north",
+        "pandalId": "nalin-sarkar-street-north",
+        "pandalName": "Nalin Sarkar Street",
+        "name": "Nalin Sarkar Street",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.82,
+        "theme": "Nature Harmony & Handcrafted Sustainable Installations",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 436,
+        "distanceText": "436 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5989,
+          "lng": 88.3734
+        }
+      },
+      {
+        "id": "sikdar-bagan-sadharan-north",
+        "pandalId": "sikdar-bagan-sadharan-north",
+        "pandalName": "Sikdar Bagan Sadharan",
+        "name": "Sikdar Bagan Sadharan",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.76,
+        "theme": "110+ Years of Sabeki Devotion in Traditional Alleyways",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 484,
+        "distanceText": "484 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5979,
+          "lng": 88.3718
+        }
+      },
+      {
+        "id": "nabin-pally-north",
+        "pandalId": "nabin-pally-north",
+        "pandalName": "Nabin Pally",
+        "name": "Nabin Pally",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.73,
+        "theme": "Color Spectrum Illumination & Festive Adda",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 514,
+        "distanceText": "514 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5985,
+          "lng": 88.3741
+        }
+      },
+      {
+        "id": "tala-barowari-north",
+        "pandalId": "tala-barowari-north",
+        "pandalName": "Tala Barowari",
+        "name": "Tala Barowari",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Centenary Community Devotion and Classic Rites",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 817,
+        "distanceText": "817 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.6085,
+          "lng": 88.3752
+        }
+      },
+      {
+        "id": "raja-dinendra-street-sarbojonin-north",
+        "pandalId": "raja-dinendra-street-sarbojonin-north",
+        "pandalName": "Raja Dinendra Street Sarbojonin",
+        "name": "Raja Dinendra Street Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Century Old Lane Sabeki Puja",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 1042,
+        "distanceText": "1.0 km",
+        "walkMinutes": 13,
+        "walkText": "13 min walk",
+        "coordinates": {
+          "lat": 22.5941,
+          "lng": 88.3762
+        }
+      },
+      {
+        "id": "gouriberia-sarbojonin-north",
+        "pandalId": "gouriberia-sarbojonin-north",
+        "pandalName": "Gouriberia Sarbojonin",
+        "name": "Gouriberia Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.78,
+        "theme": "Clay Sculptures & Traditional Pandal Architecture",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1356,
+        "distanceText": "1.4 km",
+        "walkMinutes": 17,
+        "walkText": "17 min walk",
+        "coordinates": {
+          "lat": 22.5925,
+          "lng": 88.3791
+        }
+      }
+    ],
+    "nearbyPandalCount": 8
+  },
+  {
+    "id": "metro-shobhabazar",
+    "stationName": "Shobhabazar Sutanuti",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5982,
+      "lng": 88.3662
+    },
+    "landmark": "Kumartuli Artisans Quarter, Shovabazar Rajbari",
+    "name": "Shobhabazar Sutanuti",
+    "nearbyPandals": [
+      {
+        "id": "jagat-mukherjee-park-north",
+        "pandalId": "jagat-mukherjee-park-north",
+        "pandalName": "Jagat Mukherjee Park",
+        "name": "Jagat Mukherjee Park",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.78,
+        "theme": "Dynamic Moving Installations & Kinetic Art",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 145,
+        "distanceText": "145 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.5992,
+          "lng": 88.3671
+        }
+      },
+      {
+        "id": "bayan-samity-north",
+        "pandalId": "bayan-samity-north",
+        "pandalName": "Bayan Samity",
+        "name": "Bayan Samity",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.71,
+        "theme": "Traditional Ekchala & Sandhi Puja Rites",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 161,
+        "distanceText": "161 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.5995,
+          "lng": 88.3655
+        }
+      },
+      {
+        "id": "kumartuli-park-north",
+        "pandalId": "kumartuli-park-north",
+        "pandalName": "Kumartuli Park",
+        "name": "Kumartuli Park",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.84,
+        "theme": "Sculptural Fusion of Clay, Myth, and Modern Illumination",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 211,
+        "distanceText": "211 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.6001,
+          "lng": 88.3662
+        }
+      },
+      {
+        "id": "beniyatola-sarbojonin-north",
+        "pandalId": "beniyatola-sarbojonin-north",
+        "pandalName": "Beniyatola Sarbojonin",
+        "name": "Beniyatola Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Traditional Zamindari Sabeki Devotion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 236,
+        "distanceText": "236 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.5982,
+          "lng": 88.3639
+        }
+      },
+      {
+        "id": "sovabazar-rajbari-north",
+        "pandalId": "sovabazar-rajbari-north",
+        "pandalName": "Sovabazar Rajbari",
+        "name": "Sovabazar Rajbari",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.94,
+        "theme": "1757 Historic Aristocratic Courtyard (Natmandir) Puja",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 265,
+        "distanceText": "265 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.5962,
+          "lng": 88.3648
+        }
+      },
+      {
+        "id": "beniatola-north",
+        "pandalId": "beniatola-north",
+        "pandalName": "Beniatola",
+        "name": "Beniatola",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Holy Riverfront Ablutions and Divine Idol Rites",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 321,
+        "distanceText": "321 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.5978,
+          "lng": 88.3631
+        }
+      },
+      {
+        "id": "ahiritola-sarbojonin-north",
+        "pandalId": "ahiritola-sarbojonin-north",
+        "pandalName": "Ahiritola Sarbojonin",
+        "name": "Ahiritola Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.81,
+        "theme": "Riverfront Cultural Heritage & Classical Clay Symphony",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 449,
+        "distanceText": "449 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5968,
+          "lng": 88.3621
+        }
+      },
+      {
+        "id": "ahiritola-yubak-brinda-north",
+        "pandalId": "ahiritola-yubak-brinda-north",
+        "pandalName": "Ahiritola Yubak Brinda",
+        "name": "Ahiritola Yubak Brinda",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.76,
+        "theme": "Energetic Youth Festival & Ghat Illumination",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 495,
+        "distanceText": "495 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5972,
+          "lng": 88.3615
+        }
+      },
+      {
+        "id": "hatibagan-sarbojanin-north",
+        "pandalId": "hatibagan-sarbojanin-north",
+        "pandalName": "Hatibagan Sarbojanin",
+        "name": "Hatibagan Sarbojanin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular",
+          "traditional"
+        ],
+        "rating": 4.79,
+        "theme": "Vibrant Street Carnival & Sabeki Elegance",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 547,
+        "distanceText": "547 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5965,
+          "lng": 88.3712
+        }
+      },
+      {
+        "id": "kashi-bose-lane-north",
+        "pandalId": "kashi-bose-lane-north",
+        "pandalName": "Kashi Bose Lane",
+        "name": "Kashi Bose Lane",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.89,
+        "theme": "Socio-Cultural Allegory & Architectural Storytelling",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1004,
+        "distanceText": "1.0 km",
+        "walkMinutes": 13,
+        "walkText": "13 min walk",
+        "coordinates": {
+          "lat": 22.5898,
+          "lng": 88.3698
+        }
+      },
+      {
+        "id": "lala-bagan-north",
+        "pandalId": "lala-bagan-north",
+        "pandalName": "Lala Bagan",
+        "name": "Lala Bagan",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.81,
+        "theme": "Living Flora, Terracotta, and Eco-Sanctuary",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1440,
+        "distanceText": "1.4 km",
+        "walkMinutes": 18,
+        "walkText": "18 min walk",
+        "coordinates": {
+          "lat": 22.5885,
+          "lng": 88.3755
+        }
+      }
+    ],
+    "nearbyPandalCount": 11
+  },
+  {
+    "id": "metro-girish-park",
+    "stationName": "Girish Park",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5857,
+      "lng": 88.3607
+    },
+    "landmark": "Chaltabagan, Simla Bayam Samity, Vivekananda Ancestral Home",
+    "name": "Girish Park",
+    "nearbyPandals": [
+      {
+        "id": "shimla-street-north",
+        "pandalId": "shimla-street-north",
+        "pandalName": "Shimla Street",
+        "name": "Shimla Street",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.77,
+        "theme": "Centuries of Swami Vivekananda Ancestral Heritage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 370,
+        "distanceText": "370 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5865,
+          "lng": 88.3642
+        }
+      },
+      {
+        "id": "darpanarayan-street-north",
+        "pandalId": "darpanarayan-street-north",
+        "pandalName": "Darpanarayan Street",
+        "name": "Darpanarayan Street",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.73,
+        "theme": "Zamindari Architecture & Sabeki Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 408,
+        "distanceText": "408 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5891,
+          "lng": 88.3592
+        }
+      },
+      {
+        "id": "pathuriaghata-pancher-pally-north",
+        "pandalId": "pathuriaghata-pancher-pally-north",
+        "pandalName": "Pathuriaghata Pancher Pally",
+        "name": "Pathuriaghata Pancher Pally",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "traditional"
+        ],
+        "rating": 4.79,
+        "theme": "Colonial Kolkata Heritage & Brass Art",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 683,
+        "distanceText": "683 m",
+        "walkMinutes": 9,
+        "walkText": "9 min walk",
+        "coordinates": {
+          "lat": 22.5915,
+          "lng": 88.3585
+        }
+      },
+      {
+        "id": "bethune-row-sarbojonin-north",
+        "pandalId": "bethune-row-sarbojonin-north",
+        "pandalName": "Bethune Row Sarbojonin",
+        "name": "Bethune Row Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.71,
+        "theme": "Sabeki Ekchala Protima with Daker Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 834,
+        "distanceText": "834 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5878,
+          "lng": 88.3685
+        }
+      },
+      {
+        "id": "maniktala-chaltabagan-lohapatty-north",
+        "pandalId": "maniktala-chaltabagan-lohapatty-north",
+        "pandalName": "Maniktala Chaltabagan Lohapatty",
+        "name": "Maniktala Chaltabagan Lohapatty",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular",
+          "traditional"
+        ],
+        "rating": 4.83,
+        "theme": "Glass Artistry & Legendary Dhunuchi Naach Arena",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1172,
+        "distanceText": "1.2 km",
+        "walkMinutes": 15,
+        "walkText": "15 min walk",
+        "coordinates": {
+          "lat": 22.5852,
+          "lng": 88.3721
+        }
+      }
+    ],
+    "nearbyPandalCount": 5
+  },
+  {
+    "id": "metro-mg-road",
+    "stationName": "Mahatma Gandhi Road",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5815,
+      "lng": 88.3605
+    },
+    "landmark": "College Street Book Market, Mohammad Ali Park",
+    "name": "Mahatma Gandhi Road",
+    "nearbyPandals": [
+      {
+        "id": "mohammad-ali-park-central",
+        "pandalId": "mohammad-ali-park-central",
+        "pandalName": "Mohammad Ali Park",
+        "name": "Mohammad Ali Park",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular",
+          "traditional"
+        ],
+        "rating": 4.89,
+        "theme": "Monumental Royal Palace Replica & Chandannagar Dynamic Lights",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 392,
+        "distanceText": "392 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5781,
+          "lng": 88.3615
+        }
+      },
+      {
+        "id": "nebutola-sarbojonin-north",
+        "pandalId": "nebutola-sarbojonin-north",
+        "pandalName": "Nebutola Sarbojonin",
+        "name": "Nebutola Sarbojonin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.71,
+        "theme": "Heritage Ekchala Devi Vandana",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 913,
+        "distanceText": "913 m",
+        "walkMinutes": 11,
+        "walkText": "11 min walk",
+        "coordinates": {
+          "lat": 22.5832,
+          "lng": 88.3692
+        }
+      },
+      {
+        "id": "rammohan-sarani-sarbojonin-central",
+        "pandalId": "rammohan-sarani-sarbojonin-central",
+        "pandalName": "Rammohan Sarani Sarbojonin",
+        "name": "Rammohan Sarani Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Historic 19th-Century Sabeki Heritage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 953,
+        "distanceText": "953 m",
+        "walkMinutes": 12,
+        "walkText": "12 min walk",
+        "coordinates": {
+          "lat": 22.5762,
+          "lng": 88.3678
+        }
+      }
+    ],
+    "nearbyPandalCount": 3
+  },
+  {
+    "id": "metro-central",
+    "stationName": "Central",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5684,
+      "lng": 88.3607
+    },
+    "landmark": "Bowbazar, Calcutta Medical College, Santosh Mitra Square",
+    "name": "Central",
+    "nearbyPandals": [
+      {
+        "id": "bb-ganguly-street-puja-central",
+        "pandalId": "bb-ganguly-street-puja-central",
+        "pandalName": "BB Ganguly Street Puja",
+        "name": "BB Ganguly Street Puja",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.77,
+        "theme": "Intricate Gold Filigree & Classical Daker Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 158,
+        "distanceText": "158 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.5681,
+          "lng": 88.3592
+        }
+      },
+      {
+        "id": "bowbazar-yubak-brinda-central",
+        "pandalId": "bowbazar-yubak-brinda-central",
+        "pandalName": "Bowbazar Yubak Brinda",
+        "name": "Bowbazar Yubak Brinda",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Sabeki Saaj & Goldsmith Artistry",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 362,
+        "distanceText": "362 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5712,
+          "lng": 88.3625
+        }
+      },
+      {
+        "id": "khengrapukur-sarbojonin-central",
+        "pandalId": "khengrapukur-sarbojonin-central",
+        "pandalName": "Khengrapukur Sarbojonin",
+        "name": "Khengrapukur Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.71,
+        "theme": "Centurial Lane Puja Devotion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 390,
+        "distanceText": "390 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5685,
+          "lng": 88.3645
+        }
+      },
+      {
+        "id": "subodh-mullick-square-puja-central",
+        "pandalId": "subodh-mullick-square-puja-central",
+        "pandalName": "Subodh Mullick Square Puja",
+        "name": "Subodh Mullick Square Puja",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.81,
+        "theme": "Lush Parkside Pandal & Musical Evenings",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 437,
+        "distanceText": "437 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5645,
+          "lng": 88.3612
+        }
+      },
+      {
+        "id": "central-avenue-friends-central",
+        "pandalId": "central-avenue-friends-central",
+        "pandalName": "Central Avenue Friends",
+        "name": "Central Avenue Friends",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.76,
+        "theme": "Grand Avenue Lighting Gateway",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 456,
+        "distanceText": "456 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5725,
+          "lng": 88.3605
+        }
+      },
+      {
+        "id": "baburchi-sarbojonin-central",
+        "pandalId": "baburchi-sarbojonin-central",
+        "pandalName": "Baburchi Sarbojonin",
+        "name": "Baburchi Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.7,
+        "theme": "Old Bowbazar Lane Devotion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 495,
+        "distanceText": "495 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5668,
+          "lng": 88.3652
+        }
+      },
+      {
+        "id": "college-square-central",
+        "pandalId": "college-square-central",
+        "pandalName": "College Square",
+        "name": "College Square",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.9,
+        "theme": "Water Reflection Lake Palace Illumination on Historic College Square Tank",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 744,
+        "distanceText": "744 m",
+        "walkMinutes": 9,
+        "walkText": "9 min walk",
+        "coordinates": {
+          "lat": 22.5744,
+          "lng": 88.3639
+        }
+      }
+    ],
+    "nearbyPandalCount": 7
+  },
+  {
+    "id": "metro-chandni",
+    "stationName": "Chandni Chowk",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5658,
+      "lng": 88.3562
+    },
+    "landmark": "Electronics Hub & Central Kolkata Heritage",
+    "name": "Chandni Chowk",
+    "nearbyPandals": [
+      {
+        "id": "wellington-citizens-club-central",
+        "pandalId": "wellington-citizens-club-central",
+        "pandalName": "Wellington Citizens Club",
+        "name": "Wellington Citizens Club",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.76,
+        "theme": "Illuminated Urban Garden Pavilion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 445,
+        "distanceText": "445 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5632,
+          "lng": 88.3595
+        }
+      },
+      {
+        "id": "taltala-sarbojonin-central",
+        "pandalId": "taltala-sarbojonin-central",
+        "pandalName": "Taltala Sarbojonin",
+        "name": "Taltala Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.73,
+        "theme": "Century-Old Heritage Puja of Taltala",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 730,
+        "distanceText": "730 m",
+        "walkMinutes": 9,
+        "walkText": "9 min walk",
+        "coordinates": {
+          "lat": 22.5595,
+          "lng": 88.3582
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-esplanade",
+    "stationName": "Esplanade",
+    "line": [
+      "Blue",
+      "Green"
+    ],
+    "lineName": "Blue Line ↔ Green Line Interchange",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": true,
+    "interchangeLines": [
+      "Blue",
+      "Green"
+    ],
+    "coordinates": {
+      "lat": 22.5639,
+      "lng": 88.3516
+    },
+    "landmark": "Grand Central Transit Hub, Dharmatala, New Market",
+    "name": "Esplanade",
+    "nearbyPandals": [
+      {
+        "id": "sn-banerjee-road-puja-central",
+        "pandalId": "sn-banerjee-road-puja-central",
+        "pandalName": "SN Banerjee Road Puja",
+        "name": "SN Banerjee Road Puja",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.75,
+        "theme": "Esplanade Downtown Festive Sparkle",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 423,
+        "distanceText": "423 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5612,
+          "lng": 88.3545
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-park-street",
+    "stationName": "Park Street",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5539,
+      "lng": 88.3513
+    },
+    "landmark": "Park Street Dining Corridor, Mocambo, Peter Cat, Flurys",
+    "name": "Park Street",
+    "nearbyPandals": [
+      {
+        "id": "free-school-street-puja-central",
+        "pandalId": "free-school-street-puja-central",
+        "pandalName": "Free School Street Puja",
+        "name": "Free School Street Puja",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Vintage Central Kolkata Heritage Rites",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 433,
+        "distanceText": "433 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5542,
+          "lng": 88.3555
+        }
+      },
+      {
+        "id": "ripon-street-sarbojonin-central",
+        "pandalId": "ripon-street-sarbojonin-central",
+        "pandalName": "Ripon Street Sarbojonin",
+        "name": "Ripon Street Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.72,
+        "theme": "Cosmopolitan Harmony & Sabeki Idol",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 1036,
+        "distanceText": "1.0 km",
+        "walkMinutes": 13,
+        "walkText": "13 min walk",
+        "coordinates": {
+          "lat": 22.5521,
+          "lng": 88.3612
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-maidan",
+    "stationName": "Maidan",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5463,
+      "lng": 88.3496
+    },
+    "landmark": "Victoria Memorial & Brigade Parade Ground",
+    "name": "Maidan",
+    "nearbyPandals": [
+      {
+        "id": "park-circus-sarbojonin-central",
+        "pandalId": "park-circus-sarbojonin-central",
+        "pandalName": "Park Circus Sarbojonin",
+        "name": "Park Circus Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular",
+          "traditional"
+        ],
+        "rating": 4.84,
+        "theme": "Spacious Cosmopolitan Festive Pavilion & Food Fair",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 1951,
+        "distanceText": "2.0 km",
+        "walkMinutes": 24,
+        "walkText": "24 min walk",
+        "coordinates": {
+          "lat": 22.5445,
+          "lng": 88.3685
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-rabindra-sadan",
+    "stationName": "Rabindra Sadan",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5401,
+      "lng": 88.3483
+    },
+    "landmark": "Nandan Cultural Complex, Academy of Fine Arts & Exide Crossing",
+    "name": "Rabindra Sadan",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-netaji-bhavan",
+    "stationName": "Netaji Bhavan",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.535,
+      "lng": 88.3477
+    },
+    "landmark": "Bhawanipore Pandals, 75 Palli, Bakulbagan, Paddapukur",
+    "name": "Netaji Bhavan",
+    "nearbyPandals": [
+      {
+        "id": "bhawanipuri-rupchand-south",
+        "pandalId": "bhawanipuri-rupchand-south",
+        "pandalName": "Bhawanipuri Rupchand",
+        "name": "Bhawanipuri Rupchand",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Heritage Lane Puja with Intricate Daker Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 187,
+        "distanceText": "187 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.5342,
+          "lng": 88.3461
+        }
+      },
+      {
+        "id": "75-pally-south",
+        "pandalId": "75-pally-south",
+        "pandalName": "75 Pally",
+        "name": "75 Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.86,
+        "theme": "Artisan Handicraft Revival & Terracotta Architecture",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 378,
+        "distanceText": "378 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5325,
+          "lng": 88.3452
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-jatin-das-park",
+    "stationName": "Jatin Das Park",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5273,
+      "lng": 88.3471
+    },
+    "landmark": "Maddox Square, Hazra Park, Chakraberia Sarbojonin",
+    "name": "Jatin Das Park",
+    "nearbyPandals": [
+      {
+        "id": "25-pally-south",
+        "pandalId": "25-pally-south",
+        "pandalName": "25 Pally",
+        "name": "25 Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Aristocratic Bhowanipore Heritage Rites",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 137,
+        "distanceText": "137 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.5285,
+          "lng": 88.3468
+        }
+      },
+      {
+        "id": "nabarag-south",
+        "pandalId": "nabarag-south",
+        "pandalName": "Nabarag",
+        "name": "Nabarag",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.78,
+        "theme": "Color Harmonics & Modern Clay Sculpting",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 189,
+        "distanceText": "189 m",
+        "walkMinutes": 2,
+        "walkText": "2 min walk",
+        "coordinates": {
+          "lat": 22.5262,
+          "lng": 88.3485
+        }
+      },
+      {
+        "id": "jatin-das-park-south",
+        "pandalId": "jatin-das-park-south",
+        "pandalName": "Jatin Das Park",
+        "name": "Jatin Das Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "traditional"
+        ],
+        "rating": 4.8,
+        "theme": "Hazra Crossing Landmark Sabeki Pandal",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 312,
+        "distanceText": "312 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.5245,
+          "lng": 88.3472
+        }
+      },
+      {
+        "id": "abasar-sarbojonin-south",
+        "pandalId": "abasar-sarbojonin-south",
+        "pandalName": "Abasar Sarbojonin",
+        "name": "Abasar Sarbojonin",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.76,
+        "theme": "Classic Ekchala Pratima & Morning Arati",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 471,
+        "distanceText": "471 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5305,
+          "lng": 88.3441
+        }
+      },
+      {
+        "id": "maddox-square-south",
+        "pandalId": "maddox-square-south",
+        "pandalName": "Maddox Square",
+        "name": "Maddox Square",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.96,
+        "theme": "The Grand Bengali Adda & Classic Sabeki Pandal",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1159,
+        "distanceText": "1.2 km",
+        "walkMinutes": 14,
+        "walkText": "14 min walk",
+        "coordinates": {
+          "lat": 22.5292,
+          "lng": 88.3582
+        }
+      },
+      {
+        "id": "singhi-park-south",
+        "pandalId": "singhi-park-south",
+        "pandalName": "Singhi Park",
+        "name": "Singhi Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.89,
+        "theme": "Architectural Wonder Replica & Grand Traditional Pratima",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1792,
+        "distanceText": "1.8 km",
+        "walkMinutes": 22,
+        "walkText": "22 min walk",
+        "coordinates": {
+          "lat": 22.5218,
+          "lng": 88.3635
+        }
+      },
+      {
+        "id": "gariahat-yubak-brinda-south",
+        "pandalId": "gariahat-yubak-brinda-south",
+        "pandalName": "Gariahat Yubak Brinda",
+        "name": "Gariahat Yubak Brinda",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.76,
+        "theme": "Gariahat Shopping Heartbeat & Street Lights",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1937,
+        "distanceText": "1.9 km",
+        "walkMinutes": 24,
+        "walkText": "24 min walk",
+        "coordinates": {
+          "lat": 22.5235,
+          "lng": 88.3655
+        }
+      },
+      {
+        "id": "ekdalia-evergreen-club-south",
+        "pandalId": "ekdalia-evergreen-club-south",
+        "pandalName": "Ekdalia Evergreen Club",
+        "name": "Ekdalia Evergreen Club",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.95,
+        "theme": "Temple Architecture Replica with World-Famous Chandannagar Illumination",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 2132,
+        "distanceText": "2.1 km",
+        "walkMinutes": 27,
+        "walkText": "27 min walk",
+        "coordinates": {
+          "lat": 22.5225,
+          "lng": 88.3672
+        }
+      }
+    ],
+    "nearbyPandalCount": 8
+  },
+  {
+    "id": "metro-kalighat",
+    "stationName": "Kalighat",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5186,
+      "lng": 88.3458
+    },
+    "landmark": "Kalighat Temple, Deshapriya Park, Badamtala Ashar Sangha, 66 Palli",
+    "name": "Kalighat",
+    "nearbyPandals": [
+      {
+        "id": "66-pally-south",
+        "pandalId": "66-pally-south",
+        "pandalName": "66 Pally",
+        "name": "66 Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.82,
+        "theme": "Progressive Social Narrative & Female Priest Consecration",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 301,
+        "distanceText": "301 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.5208,
+          "lng": 88.3475
+        }
+      },
+      {
+        "id": "nepal-bhattachariy-street-south",
+        "pandalId": "nepal-bhattachariy-street-south",
+        "pandalName": "Nepal Bhattachariy Street",
+        "name": "Nepal Bhattachariy Street",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.78,
+        "theme": "Boutique Installation Art in Narrow Alleys",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 330,
+        "distanceText": "330 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.5215,
+          "lng": 88.3465
+        }
+      },
+      {
+        "id": "badamtala-ashar-sangha-south",
+        "pandalId": "badamtala-ashar-sangha-south",
+        "pandalName": "Badamtala Ashar Sangha",
+        "name": "Badamtala Ashar Sangha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.89,
+        "theme": "Avant-Garde Architectural Concept & Minimalist Idol",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 380,
+        "distanceText": "380 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5212,
+          "lng": 88.3482
+        }
+      },
+      {
+        "id": "tridhara-sammilani-south",
+        "pandalId": "tridhara-sammilani-south",
+        "pandalName": "Tridhara Sammilani",
+        "name": "Tridhara Sammilani",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.92,
+        "theme": "Philosophical Tri-Confluence of Clay, Metal, and Spirit",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 559,
+        "distanceText": "559 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5192,
+          "lng": 88.3512
+        }
+      },
+      {
+        "id": "akal-bodhan-south",
+        "pandalId": "akal-bodhan-south",
+        "pandalName": "Akal Bodhan",
+        "name": "Akal Bodhan",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.77,
+        "theme": "Lord Rama’s Akal Bodhan Awakening & Classical Iconography",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 575,
+        "distanceText": "575 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5185,
+          "lng": 88.3402
+        }
+      },
+      {
+        "id": "chetla-agrani-club-south",
+        "pandalId": "chetla-agrani-club-south",
+        "pandalName": "Chetla Agrani Club",
+        "name": "Chetla Agrani Club",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.93,
+        "theme": "Eco-Harmonic Sculptural Sanctuary & Acoustic Soundscapes",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 668,
+        "distanceText": "668 m",
+        "walkMinutes": 8,
+        "walkText": "8 min walk",
+        "coordinates": {
+          "lat": 22.5204,
+          "lng": 88.3396
+        }
+      },
+      {
+        "id": "deshapriya-park-south",
+        "pandalId": "deshapriya-park-south",
+        "pandalName": "Deshapriya Park",
+        "name": "Deshapriya Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.88,
+        "theme": "Massive Structural Installations & Cybernetic Light Arcs",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 775,
+        "distanceText": "775 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5178,
+          "lng": 88.3533
+        }
+      },
+      {
+        "id": "nabadurga-south",
+        "pandalId": "nabadurga-south",
+        "pandalName": "Nabadurga",
+        "name": "Nabadurga",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Nine Divine Forms of Shakti Representation",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 831,
+        "distanceText": "831 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5175,
+          "lng": 88.3378
+        }
+      },
+      {
+        "id": "talbagan-south",
+        "pandalId": "talbagan-south",
+        "pandalName": "Talbagan",
+        "name": "Talbagan",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.74,
+        "theme": "Chetla Neighborhood Festive Carnival",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 840,
+        "distanceText": "840 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5152,
+          "lng": 88.3385
+        }
+      },
+      {
+        "id": "vivekananda-park-athletic-south",
+        "pandalId": "vivekananda-park-athletic-south",
+        "pandalName": "Vivekananda Park Athletic",
+        "name": "Vivekananda Park Athletic",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.77,
+        "theme": "Parkside Sabeki Ekchala Devotion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 1203,
+        "distanceText": "1.2 km",
+        "walkMinutes": 15,
+        "walkText": "15 min walk",
+        "coordinates": {
+          "lat": 22.5142,
+          "lng": 88.3565
+        }
+      },
+      {
+        "id": "hindusthan-club-south",
+        "pandalId": "hindusthan-club-south",
+        "pandalName": "Hindusthan Club",
+        "name": "Hindusthan Club",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.78,
+        "theme": "Aristocratic Sabeki Elegance & Daker Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1418,
+        "distanceText": "1.4 km",
+        "walkMinutes": 18,
+        "walkText": "18 min walk",
+        "coordinates": {
+          "lat": 22.5202,
+          "lng": 88.3595
+        }
+      },
+      {
+        "id": "hindusthan-park-south",
+        "pandalId": "hindusthan-park-south",
+        "pandalName": "Hindusthan Park",
+        "name": "Hindusthan Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.84,
+        "theme": "Soulful Handcrafted Textures & Artistic Narratives",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1573,
+        "distanceText": "1.6 km",
+        "walkMinutes": 20,
+        "walkText": "20 min walk",
+        "coordinates": {
+          "lat": 22.5181,
+          "lng": 88.3611
+        }
+      }
+    ],
+    "nearbyPandalCount": 12
+  },
+  {
+    "id": "metro-rabindra-sarobar",
+    "stationName": "Rabindra Sarobar",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5085,
+      "lng": 88.3457
+    },
+    "landmark": "Mudiali Club, Shib Mandir, Southern Avenue Lakes",
+    "name": "Rabindra Sarobar",
+    "nearbyPandals": [
+      {
+        "id": "mudiali-club-south",
+        "pandalId": "mudiali-club-south",
+        "pandalName": "Mudiali Club",
+        "name": "Mudiali Club",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.87,
+        "theme": "Purity of Traditional Rites with Royal Golden Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 414,
+        "distanceText": "414 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5105,
+          "lng": 88.3491
+        }
+      },
+      {
+        "id": "buro-shibtala-south",
+        "pandalId": "buro-shibtala-south",
+        "pandalName": "Buro Shibtala",
+        "name": "Buro Shibtala",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.76,
+        "theme": "Devotional Serenity & Heritage Rites",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 566,
+        "distanceText": "566 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5052,
+          "lng": 88.3415
+        }
+      },
+      {
+        "id": "shib-mandir-south",
+        "pandalId": "shib-mandir-south",
+        "pandalName": "Shib Mandir",
+        "name": "Shib Mandir",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.88,
+        "theme": "Temple Shrine by Lake Waters with Serene Pratima",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 683,
+        "distanceText": "683 m",
+        "walkMinutes": 9,
+        "walkText": "9 min walk",
+        "coordinates": {
+          "lat": 22.5115,
+          "lng": 88.3515
+        }
+      },
+      {
+        "id": "kabi-tirtha-south",
+        "pandalId": "kabi-tirtha-south",
+        "pandalName": "Kabi Tirtha",
+        "name": "Kabi Tirtha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.79,
+        "theme": "Tribute to Bengal’s Great Poets & Calligraphy Art",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 788,
+        "distanceText": "788 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5042,
+          "lng": 88.3518
+        }
+      },
+      {
+        "id": "yubak-sangha-south",
+        "pandalId": "yubak-sangha-south",
+        "pandalName": "Yubak Sangha",
+        "name": "Yubak Sangha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.76,
+        "theme": "Southern Avenue Illumination & Street Carnival",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 947,
+        "distanceText": "947 m",
+        "walkMinutes": 12,
+        "walkText": "12 min walk",
+        "coordinates": {
+          "lat": 22.5118,
+          "lng": 88.3542
+        }
+      },
+      {
+        "id": "ballygunge-cultural-association-south",
+        "pandalId": "ballygunge-cultural-association-south",
+        "pandalName": "Ballygunge Cultural Association",
+        "name": "Ballygunge Cultural Association",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.9,
+        "theme": "Timeless Ekchala Heritage Protima & Pushpanjali Sanctum",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1419,
+        "distanceText": "1.4 km",
+        "walkMinutes": 18,
+        "walkText": "18 min walk",
+        "coordinates": {
+          "lat": 22.5133,
+          "lng": 88.3585
+        }
+      },
+      {
+        "id": "babubagan-south",
+        "pandalId": "babubagan-south",
+        "pandalName": "Babubagan",
+        "name": "Babubagan",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.87,
+        "theme": "Historical Coin & Stamp Heritage Temple Architecture",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 2353,
+        "distanceText": "2.4 km",
+        "walkMinutes": 29,
+        "walkText": "29 min walk",
+        "coordinates": {
+          "lat": 22.5065,
+          "lng": 88.3685
+        }
+      }
+    ],
+    "nearbyPandalCount": 7
+  },
+  {
+    "id": "metro-uttam-kumar",
+    "stationName": "Mahanayak Uttam Kumar",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4988,
+      "lng": 88.3454
+    },
+    "landmark": "Suruchi Sangha, Haridevpur, Tollygunge Golf Club",
+    "name": "Mahanayak Uttam Kumar",
+    "nearbyPandals": [
+      {
+        "id": "tollygunge-agragami-south",
+        "pandalId": "tollygunge-agragami-south",
+        "pandalName": "Tollygunge Agragami",
+        "name": "Tollygunge Agragami",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.78,
+        "theme": "Tollywood Cinema Legacy & Grand Illumination",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 407,
+        "distanceText": "407 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.4952,
+          "lng": 88.3461
+        }
+      },
+      {
+        "id": "jodhpur-park-south",
+        "pandalId": "jodhpur-park-south",
+        "pandalName": "Jodhpur Park",
+        "name": "Jodhpur Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.88,
+        "theme": "Innovative Technology & Monumental Interactive Concept",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 1892,
+        "distanceText": "1.9 km",
+        "walkMinutes": 24,
+        "walkText": "24 min walk",
+        "coordinates": {
+          "lat": 22.4995,
+          "lng": 88.3638
+        }
+      },
+      {
+        "id": "95-pally-south",
+        "pandalId": "95-pally-south",
+        "pandalName": "95 Pally",
+        "name": "95 Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.79,
+        "theme": "Handcrafted Folk Textiles & Terracotta Panels",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 2035,
+        "distanceText": "2.0 km",
+        "walkMinutes": 25,
+        "walkText": "25 min walk",
+        "coordinates": {
+          "lat": 22.4982,
+          "lng": 88.3652
+        }
+      },
+      {
+        "id": "selimpur-pally-south",
+        "pandalId": "selimpur-pally-south",
+        "pandalName": "Selimpur Pally",
+        "name": "Selimpur Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.86,
+        "theme": "Intricate Woodcraft, Brass, and Sculptural Panels",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 2515,
+        "distanceText": "2.5 km",
+        "walkMinutes": 31,
+        "walkText": "31 min walk",
+        "coordinates": {
+          "lat": 22.5028,
+          "lng": 88.3695
+        }
+      }
+    ],
+    "nearbyPandalCount": 4
+  },
+  {
+    "id": "metro-netaji",
+    "stationName": "Netaji (Kudghat)",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4891,
+      "lng": 88.3468
+    },
+    "landmark": "Kudghat, Ranikuthi, Haridevpur Pandals",
+    "name": "Netaji (Kudghat)",
+    "nearbyPandals": [
+      {
+        "id": "yuba-gosthi-south",
+        "pandalId": "yuba-gosthi-south",
+        "pandalName": "Yuba Gosthi",
+        "name": "Yuba Gosthi",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.73,
+        "theme": "Neighborhood Light Festival",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 244,
+        "distanceText": "244 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.4912,
+          "lng": 88.3475
+        }
+      },
+      {
+        "id": "ajeyo-sanghati-south",
+        "pandalId": "ajeyo-sanghati-south",
+        "pandalName": "Ajeyo Sanghati",
+        "name": "Ajeyo Sanghati",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.87,
+        "theme": "Hypnotic Optical Illusions & Sculptural Geometry",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1044,
+        "distanceText": "1.0 km",
+        "walkMinutes": 13,
+        "walkText": "13 min walk",
+        "coordinates": {
+          "lat": 22.4841,
+          "lng": 88.3382
+        }
+      },
+      {
+        "id": "haridevpur-adeebasi-brinda-south",
+        "pandalId": "haridevpur-adeebasi-brinda-south",
+        "pandalName": "Haridevpur Adeebasi Brinda",
+        "name": "Haridevpur Adeebasi Brinda",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.84,
+        "theme": "Tribal Wood Carvings & Forest God Aesthetics",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1288,
+        "distanceText": "1.3 km",
+        "walkMinutes": 16,
+        "walkText": "16 min walk",
+        "coordinates": {
+          "lat": 22.4825,
+          "lng": 88.3365
+        }
+      },
+      {
+        "id": "41-pally-south",
+        "pandalId": "41-pally-south",
+        "pandalName": "41 Pally",
+        "name": "41 Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.82,
+        "theme": "Rural Heritage Weaving & Clay Sculptures",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 1546,
+        "distanceText": "1.5 km",
+        "walkMinutes": 19,
+        "walkText": "19 min walk",
+        "coordinates": {
+          "lat": 22.4815,
+          "lng": 88.3342
+        }
+      },
+      {
+        "id": "pally-mangal-samity-south",
+        "pandalId": "pally-mangal-samity-south",
+        "pandalName": "Pally Mangal Samity",
+        "name": "Pally Mangal Samity",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.73,
+        "theme": "Classic Sabeki Idol & Dhaki Rhythm",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1671,
+        "distanceText": "1.7 km",
+        "walkMinutes": 21,
+        "walkText": "21 min walk",
+        "coordinates": {
+          "lat": 22.4942,
+          "lng": 88.3621
+        }
+      }
+    ],
+    "nearbyPandalCount": 5
+  },
+  {
+    "id": "metro-surya-sen",
+    "stationName": "Masterda Surya Sen",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4789,
+      "lng": 88.3503
+    },
+    "landmark": "Bansdroni & South Suburbs",
+    "name": "Masterda Surya Sen",
+    "nearbyPandals": [
+      {
+        "id": "vivekananda-sporting-south",
+        "pandalId": "vivekananda-sporting-south",
+        "pandalName": "Vivekananda Sporting",
+        "name": "Vivekananda Sporting",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.74,
+        "theme": "Community Illumination & Cultural Stage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 1358,
+        "distanceText": "1.4 km",
+        "walkMinutes": 17,
+        "walkText": "17 min walk",
+        "coordinates": {
+          "lat": 22.4795,
+          "lng": 88.3371
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-gitanjali",
+    "stationName": "Gitanjali (Naktala)",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4705,
+      "lng": 88.3572
+    },
+    "landmark": "Naktala Udayan Sangha epicenter",
+    "name": "Gitanjali (Naktala)",
+    "nearbyPandals": [
+      {
+        "id": "naktala-udayan-sangha-south",
+        "pandalId": "naktala-udayan-sangha-south",
+        "pandalName": "Naktala Udayan Sangha",
+        "name": "Naktala Udayan Sangha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.94,
+        "theme": "Colossal Avant-Garde Kinetic Architecture & Global Art Installation",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 586,
+        "distanceText": "586 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.4715,
+          "lng": 88.3628
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-kavi-nazrul",
+    "stationName": "Kavi Nazrul (Garia Bazar)",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4632,
+      "lng": 88.3697
+    },
+    "landmark": "Garia, Mahamayatala, Baishnabghata Patuli",
+    "name": "Kavi Nazrul (Garia Bazar)",
+    "nearbyPandals": [
+      {
+        "id": "pallisree-abasar-south",
+        "pandalId": "pallisree-abasar-south",
+        "pandalName": "Pallisree Abasar",
+        "name": "Pallisree Abasar",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.72,
+        "theme": "Traditional Garia Community Puja",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 817,
+        "distanceText": "817 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.4685,
+          "lng": 88.3752
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-shahid-khudiram",
+    "stationName": "Shahid Khudiram (Briji)",
+    "line": "Blue",
+    "lineName": "Blue Line (North-South)",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.463,
+      "lng": 88.3842
+    },
+    "landmark": "EM Bypass Garia Link",
+    "name": "Shahid Khudiram (Briji)",
+    "nearbyPandals": [
+      {
+        "id": "kendua-shanti-sangha-south",
+        "pandalId": "kendua-shanti-sangha-south",
+        "pandalName": "Kendua Shanti Sangha",
+        "name": "Kendua Shanti Sangha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.79,
+        "theme": "Peace & Harmony Handcrafted Shrine",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1390,
+        "distanceText": "1.4 km",
+        "walkMinutes": 17,
+        "walkText": "17 min walk",
+        "coordinates": {
+          "lat": 22.4755,
+          "lng": 88.3845
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-kavi-subhash",
+    "stationName": "Kavi Subhash",
+    "line": [
+      "Blue",
+      "Orange"
+    ],
+    "lineName": "Blue Line ↔ Orange Line Interchange",
+    "lineColor": "#0057B7",
+    "operationalStatus": "operational",
+    "interchange": true,
+    "interchangeLines": [
+      "Blue",
+      "Orange"
+    ],
+    "coordinates": {
+      "lat": 22.4634,
+      "lng": 88.3976
+    },
+    "landmark": "New Garia Junction & EM Bypass Orange Corridor",
+    "name": "Kavi Subhash",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-howrah-maidan",
+    "stationName": "Howrah Maidan",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5878,
+      "lng": 88.3308
+    },
+    "landmark": "Howrah District Court & Maidan Terminus",
+    "name": "Howrah Maidan",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-howrah",
+    "stationName": "Howrah Railway Station",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5855,
+      "lng": 88.3426
+    },
+    "landmark": "Howrah Railway Station & Under-River Ganga Tunnel",
+    "name": "Howrah Railway Station",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-mahakaran",
+    "stationName": "Mahakaran",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5714,
+      "lng": 88.3486
+    },
+    "landmark": "Writers' Building, BBD Bagh & Heritage Business District",
+    "name": "Mahakaran",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-sealdah",
+    "stationName": "Sealdah",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5675,
+      "lng": 88.3712
+    },
+    "landmark": "Sealdah Railway Junction, Baithakkhana & Jagat Mukherjee Park",
+    "name": "Sealdah",
+    "nearbyPandals": [
+      {
+        "id": "sealdah-athletic-club-central",
+        "pandalId": "sealdah-athletic-club-central",
+        "pandalName": "Sealdah Athletic Club",
+        "name": "Sealdah Athletic Club",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.82,
+        "theme": "Historic Indian Monument Replica & Railway Heritage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 33,
+        "distanceText": "33 m",
+        "walkMinutes": 1,
+        "walkText": "1 min walk",
+        "coordinates": {
+          "lat": 22.5672,
+          "lng": 88.3712
+        }
+      },
+      {
+        "id": "santosh-mitra-square-central",
+        "pandalId": "santosh-mitra-square-central",
+        "pandalName": "Santosh Mitra Square",
+        "name": "Santosh Mitra Square",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.94,
+        "theme": "Sphere of Lasers, Neo-Futuristic Sphere & Massive Architectural Replica",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 574,
+        "distanceText": "574 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5698,
+          "lng": 88.3662
+        }
+      },
+      {
+        "id": "entally-sporting-club-central",
+        "pandalId": "entally-sporting-club-central",
+        "pandalName": "Entally Sporting Club",
+        "name": "Entally Sporting Club",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Sabeki Ekchala Devotion in Old Entally",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 1043,
+        "distanceText": "1.0 km",
+        "walkMinutes": 13,
+        "walkText": "13 min walk",
+        "coordinates": {
+          "lat": 22.5582,
+          "lng": 88.3725
+        }
+      },
+      {
+        "id": "sreejani-sarbojonin-central",
+        "pandalId": "sreejani-sarbojonin-central",
+        "pandalName": "Sreejani Sarbojonin",
+        "name": "Sreejani Sarbojonin",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.78,
+        "theme": "Handcrafted Jute Textiles & Terracotta Murals",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1269,
+        "distanceText": "1.3 km",
+        "walkMinutes": 16,
+        "walkText": "16 min walk",
+        "coordinates": {
+          "lat": 22.5565,
+          "lng": 88.3745
+        }
+      }
+    ],
+    "nearbyPandalCount": 4
+  },
+  {
+    "id": "metro-phoolbagan",
+    "stationName": "Phoolbagan",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5714,
+      "lng": 88.3905
+    },
+    "landmark": "Phoolbagan Crossing, Kankurgachi Mitali Sangha",
+    "name": "Phoolbagan",
+    "nearbyPandals": [
+      {
+        "id": "phoolbagan-swadhin-sangha-north",
+        "pandalId": "phoolbagan-swadhin-sangha-north",
+        "pandalName": "Phoolbagan Swadhin Sangha",
+        "name": "Phoolbagan Swadhin Sangha",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.79,
+        "theme": "Festive Illumination and Cultural Stage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 391,
+        "distanceText": "391 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5742,
+          "lng": 88.3928
+        }
+      },
+      {
+        "id": "narkeldanga-suruchi-sangha-north",
+        "pandalId": "narkeldanga-suruchi-sangha-north",
+        "pandalName": "Narkeldanga Suruchi Sangha",
+        "name": "Narkeldanga Suruchi Sangha",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.72,
+        "theme": "Sabeki Protima and Local Harmony",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 448,
+        "distanceText": "448 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5721,
+          "lng": 88.3862
+        }
+      },
+      {
+        "id": "beleghata-33-palli-north",
+        "pandalId": "beleghata-33-palli-north",
+        "pandalName": "Beleghata 33 Palli",
+        "name": "Beleghata 33 Palli",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.84,
+        "theme": "Vintage Nostalgia & Handcrafted Artifacts",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 478,
+        "distanceText": "478 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5692,
+          "lng": 88.3945
+        }
+      },
+      {
+        "id": "kankurgachi-mitali-sangha-north",
+        "pandalId": "kankurgachi-mitali-sangha-north",
+        "pandalName": "Kankurgachi Mitali Sangha",
+        "name": "Kankurgachi Mitali Sangha",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.87,
+        "theme": "Innovative Architectural Sculptures & Audio Ambience",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 793,
+        "distanceText": "793 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5785,
+          "lng": 88.3912
+        }
+      },
+      {
+        "id": "beleghata-central-road-central",
+        "pandalId": "beleghata-central-road-central",
+        "pandalName": "Beleghata Central Road",
+        "name": "Beleghata Central Road",
+        "zone": "Central & Central-East",
+        "zoneKey": "central",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.77,
+        "theme": "Bengal Earthen Pottery & Traditional Idols",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 921,
+        "distanceText": "921 m",
+        "walkMinutes": 12,
+        "walkText": "12 min walk",
+        "coordinates": {
+          "lat": 22.5655,
+          "lng": 88.3842
+        }
+      }
+    ],
+    "nearbyPandalCount": 5
+  },
+  {
+    "id": "metro-stadium",
+    "stationName": "Salt Lake Stadium",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5694,
+      "lng": 88.4057
+    },
+    "landmark": "Yuba Bharati Krirangan & Beleghata Link",
+    "name": "Salt Lake Stadium",
+    "nearbyPandals": [
+      {
+        "id": "jb-block-saltlake",
+        "pandalId": "jb-block-saltlake",
+        "pandalName": "JB Block",
+        "name": "JB Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.78,
+        "theme": "Abstract Paper Craft & Recycled Artistry",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1171,
+        "distanceText": "1.2 km",
+        "walkMinutes": 15,
+        "walkText": "15 min walk",
+        "coordinates": {
+          "lat": 22.5761,
+          "lng": 88.4145
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-bengal-chemical",
+    "stationName": "Bengal Chemical",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5768,
+      "lng": 88.4019
+    },
+    "landmark": "EM Bypass & Maniktala Main Road junction",
+    "name": "Bengal Chemical",
+    "nearbyPandals": [
+      {
+        "id": "purbachal-shakti-sangha-saltlake",
+        "pandalId": "purbachal-shakti-sangha-saltlake",
+        "pandalName": "Purbachal Shakti Sangha",
+        "name": "Purbachal Shakti Sangha",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.8,
+        "theme": "Bengal Dokra Metalcraft & Terracotta Panels",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 465,
+        "distanceText": "465 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5755,
+          "lng": 88.4062
+        }
+      },
+      {
+        "id": "ib-block-saltlake",
+        "pandalId": "ib-block-saltlake",
+        "pandalName": "IB Block",
+        "name": "IB Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Classic Sabeki Devotion in Leafy Surroundings",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1089,
+        "distanceText": "1.1 km",
+        "walkMinutes": 14,
+        "walkText": "14 min walk",
+        "coordinates": {
+          "lat": 22.5772,
+          "lng": 88.4125
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-city-centre",
+    "stationName": "City Centre",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5898,
+      "lng": 88.4069
+    },
+    "landmark": "City Centre 1, Labony Estate, Salt Lake AJ/BJ blocks",
+    "name": "City Centre",
+    "nearbyPandals": [
+      {
+        "id": "ab-block-saltlake",
+        "pandalId": "ab-block-saltlake",
+        "pandalName": "AB Block",
+        "name": "AB Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.79,
+        "theme": "Festive Illumination and Classical Cultural Stage",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 212,
+        "distanceText": "212 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.5912,
+          "lng": 88.4055
+        }
+      },
+      {
+        "id": "cf-block-saltlake",
+        "pandalId": "cf-block-saltlake",
+        "pandalName": "CF Block",
+        "name": "CF Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.76,
+        "theme": "Traditional Sabeki Idol in Suburban Elegance",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 490,
+        "distanceText": "490 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5935,
+          "lng": 88.4095
+        }
+      },
+      {
+        "id": "ce-block-saltlake",
+        "pandalId": "ce-block-saltlake",
+        "pandalName": "CE Block",
+        "name": "CE Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Sabeki Ekchala Protima with Fine Silver Saaj",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 608,
+        "distanceText": "608 m",
+        "walkMinutes": 8,
+        "walkText": "8 min walk",
+        "coordinates": {
+          "lat": 22.5952,
+          "lng": 88.4078
+        }
+      },
+      {
+        "id": "aj-block-saltlake",
+        "pandalId": "aj-block-saltlake",
+        "pandalName": "AJ Block",
+        "name": "AJ Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.83,
+        "theme": "Contemporary Architectural Geometry & Atmospheric Light Tunnel",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 644,
+        "distanceText": "644 m",
+        "walkMinutes": 8,
+        "walkText": "8 min walk",
+        "coordinates": {
+          "lat": 22.5842,
+          "lng": 88.4085
+        }
+      },
+      {
+        "id": "ak-block-saltlake",
+        "pandalId": "ak-block-saltlake",
+        "pandalName": "AK Block",
+        "name": "AK Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.81,
+        "theme": "Living Botany, Bamboo Weaving, and Eco-Sanctuary",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 812,
+        "distanceText": "812 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5825,
+          "lng": 88.4072
+        }
+      },
+      {
+        "id": "sreebhumi-sporting-club-lake-town-north",
+        "pandalId": "sreebhumi-sporting-club-lake-town-north",
+        "pandalName": "Sreebhumi Sporting Club (Lake Town)",
+        "name": "Sreebhumi Sporting Club (Lake Town)",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.92,
+        "theme": "Grand Vatican & Venetian Architectural Replica with Chandannagar Gold Lights",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1043,
+        "distanceText": "1.0 km",
+        "walkMinutes": 13,
+        "walkText": "13 min walk",
+        "coordinates": {
+          "lat": 22.5975,
+          "lng": 88.4011
+        }
+      },
+      {
+        "id": "lake-town-netaji-sporting-north",
+        "pandalId": "lake-town-netaji-sporting-north",
+        "pandalName": "Lake Town Netaji Sporting",
+        "name": "Lake Town Netaji Sporting",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.78,
+        "theme": "Modern Festive Pavilion with Family Carnival",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1355,
+        "distanceText": "1.4 km",
+        "walkMinutes": 17,
+        "walkText": "17 min walk",
+        "coordinates": {
+          "lat": 22.6015,
+          "lng": 88.4032
+        }
+      },
+      {
+        "id": "golaghata-sarbojanin-north",
+        "pandalId": "golaghata-sarbojanin-north",
+        "pandalName": "Golaghata Sarbojanin",
+        "name": "Golaghata Sarbojanin",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.75,
+        "theme": "Spectacular VIP Road Light Gateways",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1463,
+        "distanceText": "1.5 km",
+        "walkMinutes": 18,
+        "walkText": "18 min walk",
+        "coordinates": {
+          "lat": 22.5988,
+          "lng": 88.3965
+        }
+      },
+      {
+        "id": "lake-town-adibashi-brinda-north",
+        "pandalId": "lake-town-adibashi-brinda-north",
+        "pandalName": "Lake Town Adibashi Brinda",
+        "name": "Lake Town Adibashi Brinda",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.82,
+        "theme": "Indigenous Folk Heritage & Tribal Mask Art",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 1527,
+        "distanceText": "1.5 km",
+        "walkMinutes": 19,
+        "walkText": "19 min walk",
+        "coordinates": {
+          "lat": 22.6028,
+          "lng": 88.4021
+        }
+      },
+      {
+        "id": "dum-dum-park-tarun-dal-north",
+        "pandalId": "dum-dum-park-tarun-dal-north",
+        "pandalName": "Dum Dum Park Tarun Dal",
+        "name": "Dum Dum Park Tarun Dal",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.85,
+        "theme": "Harmonic Geometry & Handcrafted Tribal Sculptures",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 1702,
+        "distanceText": "1.7 km",
+        "walkMinutes": 21,
+        "walkText": "21 min walk",
+        "coordinates": {
+          "lat": 22.6051,
+          "lng": 88.4075
+        }
+      },
+      {
+        "id": "dum-dum-park-tarun-sangha-north",
+        "pandalId": "dum-dum-park-tarun-sangha-north",
+        "pandalName": "Dum Dum Park Tarun Sangha",
+        "name": "Dum Dum Park Tarun Sangha",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.86,
+        "theme": "Surrealist Folk Textures & Futuristic Chromatic Lighting",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 1824,
+        "distanceText": "1.8 km",
+        "walkMinutes": 23,
+        "walkText": "23 min walk",
+        "coordinates": {
+          "lat": 22.6062,
+          "lng": 88.4068
+        }
+      },
+      {
+        "id": "dum-dum-park-bharat-chakra-north",
+        "pandalId": "dum-dum-park-bharat-chakra-north",
+        "pandalName": "Dum Dum Park Bharat Chakra",
+        "name": "Dum Dum Park Bharat Chakra",
+        "zone": "North Kolkata",
+        "zoneKey": "north",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.83,
+        "theme": "Cosmic Mandala & Intricate Thread Artistry",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1962,
+        "distanceText": "2.0 km",
+        "walkMinutes": 25,
+        "walkText": "25 min walk",
+        "coordinates": {
+          "lat": 22.6074,
+          "lng": 88.4055
+        }
+      }
+    ],
+    "nearbyPandalCount": 12
+  },
+  {
+    "id": "metro-central-park",
+    "stationName": "Central Park",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5901,
+      "lng": 88.4137
+    },
+    "landmark": "Salt Lake Mela Ground & Central Park",
+    "name": "Central Park",
+    "nearbyPandals": [
+      {
+        "id": "ck-block-saltlake",
+        "pandalId": "ck-block-saltlake",
+        "pandalName": "CK Block",
+        "name": "CK Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.78,
+        "theme": "Color Kaleidoscope & Vibrant Street Food Plaza",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 84,
+        "distanceText": "84 m",
+        "walkMinutes": 1,
+        "walkText": "1 min walk",
+        "coordinates": {
+          "lat": 22.5895,
+          "lng": 88.4132
+        }
+      },
+      {
+        "id": "labony-estate-saltlake",
+        "pandalId": "labony-estate-saltlake",
+        "pandalName": "Labony Estate",
+        "name": "Labony Estate",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "traditional",
+          "popular"
+        ],
+        "rating": 4.86,
+        "theme": "Sprawling Estate Sabeki Grandeur & Dhunuchi Arena",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 228,
+        "distanceText": "228 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.5921,
+          "lng": 88.4142
+        }
+      },
+      {
+        "id": "bj-block-saltlake",
+        "pandalId": "bj-block-saltlake",
+        "pandalName": "BJ Block",
+        "name": "BJ Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.9,
+        "theme": "Tribal Mask Heritage & Earthen Sculptural Pavilion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 312,
+        "distanceText": "312 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.5885,
+          "lng": 88.4112
+        }
+      },
+      {
+        "id": "fd-block-saltlake",
+        "pandalId": "fd-block-saltlake",
+        "pandalName": "FD Block",
+        "name": "FD Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.95,
+        "theme": "Spectacular Global Heritage Monument Replica with Vast Food Grounds",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 441,
+        "distanceText": "441 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5862,
+          "lng": 88.4145
+        }
+      }
+    ],
+    "nearbyPandalCount": 4
+  },
+  {
+    "id": "metro-karunamoyee",
+    "stationName": "Karunamoyee",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5867,
+      "lng": 88.4208
+    },
+    "landmark": "Central Park, Salt Lake Bus Terminus, EE Block",
+    "name": "Karunamoyee",
+    "nearbyPandals": [
+      {
+        "id": "ee-block-saltlake",
+        "pandalId": "ee-block-saltlake",
+        "pandalName": "EE Block",
+        "name": "EE Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.82,
+        "theme": "Handcrafted Wooden Toys & Chhau Mask Aesthetics",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 267,
+        "distanceText": "267 m",
+        "walkMinutes": 3,
+        "walkText": "3 min walk",
+        "coordinates": {
+          "lat": 22.5868,
+          "lng": 88.4182
+        }
+      },
+      {
+        "id": "la-block-saltlake",
+        "pandalId": "la-block-saltlake",
+        "pandalName": "LA Block",
+        "name": "LA Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.81,
+        "theme": "Living Flower Sculptures & Radiant Lotus Pond",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 363,
+        "distanceText": "363 m",
+        "walkMinutes": 5,
+        "walkText": "5 min walk",
+        "coordinates": {
+          "lat": 22.5835,
+          "lng": 88.4215
+        }
+      },
+      {
+        "id": "fe-block-saltlake",
+        "pandalId": "fe-block-saltlake",
+        "pandalName": "FE Block",
+        "name": "FE Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.84,
+        "theme": "Rajasthan Fort Architecture Replica & Puppet Artistry",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 462,
+        "distanceText": "462 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5848,
+          "lng": 88.4168
+        }
+      },
+      {
+        "id": "gc-block-saltlake",
+        "pandalId": "gc-block-saltlake",
+        "pandalName": "GC Block",
+        "name": "GC Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.77,
+        "theme": "Neighborhood Harmony & Illumination Pathway",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 529,
+        "distanceText": "529 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5821,
+          "lng": 88.4195
+        }
+      },
+      {
+        "id": "kb-block-saltlake",
+        "pandalId": "kb-block-saltlake",
+        "pandalName": "KB Block",
+        "name": "KB Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.73,
+        "theme": "Traditional Bengali Rituals & Community Bhog Feast",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 902,
+        "distanceText": "902 m",
+        "walkMinutes": 11,
+        "walkText": "11 min walk",
+        "coordinates": {
+          "lat": 22.5788,
+          "lng": 88.4188
+        }
+      },
+      {
+        "id": "ha-block-saltlake",
+        "pandalId": "ha-block-saltlake",
+        "pandalName": "HA Block",
+        "name": "HA Block",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.83,
+        "theme": "Earthen Pottery, Shitalpati Weaves, and Folk Melodies",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 930,
+        "distanceText": "930 m",
+        "walkMinutes": 12,
+        "walkText": "12 min walk",
+        "coordinates": {
+          "lat": 22.5795,
+          "lng": 88.4162
+        }
+      }
+    ],
+    "nearbyPandalCount": 6
+  },
+  {
+    "id": "metro-sector-v",
+    "stationName": "Salt Lake Sector V",
+    "line": "Green",
+    "lineName": "Green Line (East-West)",
+    "lineColor": "#009A44",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5802,
+      "lng": 88.4357
+    },
+    "landmark": "FD Block, BJ Block, Sector V Tech Corridor",
+    "name": "Salt Lake Sector V",
+    "nearbyPandals": [
+      {
+        "id": "action-area-1-puja-saltlake",
+        "pandalId": "action-area-1-puja-saltlake",
+        "pandalName": "Action Area 1 Puja",
+        "name": "Action Area 1 Puja",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.81,
+        "theme": "Modern Contemporary Pavilion & Street Food Boulevard",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 2274,
+        "distanceText": "2.3 km",
+        "walkMinutes": 28,
+        "walkText": "28 min walk",
+        "coordinates": {
+          "lat": 22.5815,
+          "lng": 88.4578
+        }
+      },
+      {
+        "id": "new-town-sarbojonin-saltlake",
+        "pandalId": "new-town-sarbojonin-saltlake",
+        "pandalName": "New Town Sarbojonin",
+        "name": "New Town Sarbojonin",
+        "zone": "Salt Lake & New Town",
+        "zoneKey": "saltlake",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.92,
+        "theme": "Grand Neo-Festal Installation & Global Bengali Diaspora Arena",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 2928,
+        "distanceText": "2.9 km",
+        "walkMinutes": 37,
+        "walkText": "37 min walk",
+        "coordinates": {
+          "lat": 22.5892,
+          "lng": 88.4625
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-joka",
+    "stationName": "Joka",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4497,
+      "lng": 88.3039
+    },
+    "landmark": "IIM Calcutta, Diamond Harbour Road & Joka Terminus",
+    "name": "Joka",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-thakurpukur",
+    "stationName": "Thakurpukur",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4619,
+      "lng": 88.3082
+    },
+    "landmark": "Thakurpukur 3A Bus Stand & Barisha South",
+    "name": "Thakurpukur",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-sakherbazar",
+    "stationName": "Sakherbazar",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4754,
+      "lng": 88.3128
+    },
+    "landmark": "Sakherbazar, Barisha Club & Natun Sangha",
+    "name": "Sakherbazar",
+    "nearbyPandals": [
+      {
+        "id": "barisha-club-south",
+        "pandalId": "barisha-club-south",
+        "pandalName": "Barisha Club",
+        "name": "Barisha Club",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.91,
+        "theme": "Pathbreaking Migrant Mother & Social Empathy Concept",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 483,
+        "distanceText": "483 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.4782,
+          "lng": 88.3092
+        }
+      },
+      {
+        "id": "sbi-park-south",
+        "pandalId": "sbi-park-south",
+        "pandalName": "SBI Park",
+        "name": "SBI Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.77,
+        "theme": "Green Garden Pavilion & Creative Idol",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 717,
+        "distanceText": "717 m",
+        "walkMinutes": 9,
+        "walkText": "9 min walk",
+        "coordinates": {
+          "lat": 22.4712,
+          "lng": 88.3075
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-behala-chowrasta",
+    "stationName": "Behala Chowrasta",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4867,
+      "lng": 88.3168
+    },
+    "landmark": "Behala Chowrasta, Behala Natun Dal & Barisha Club",
+    "name": "Behala Chowrasta",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-behala-bazar",
+    "stationName": "Behala Bazar",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4972,
+      "lng": 88.3204
+    },
+    "landmark": "Behala Tram Depot & Behala Club",
+    "name": "Behala Bazar",
+    "nearbyPandals": [
+      {
+        "id": "behala-friends-club-south",
+        "pandalId": "behala-friends-club-south",
+        "pandalName": "Behala Friends Club",
+        "name": "Behala Friends Club",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.82,
+        "theme": "Tribal Geometry & Earthen Textures",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM",
+        "distanceMeters": 289,
+        "distanceText": "289 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.4982,
+          "lng": 88.3178
+        }
+      },
+      {
+        "id": "pally-sharadiya-south",
+        "pandalId": "pally-sharadiya-south",
+        "pandalName": "Pally Sharadiya",
+        "name": "Pally Sharadiya",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.71,
+        "theme": "Traditional Daker Saaj Ekchala Devotion",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 314,
+        "distanceText": "314 m",
+        "walkMinutes": 4,
+        "walkText": "4 min walk",
+        "coordinates": {
+          "lat": 22.4945,
+          "lng": 88.3195
+        }
+      },
+      {
+        "id": "debdaru-fatak-south",
+        "pandalId": "debdaru-fatak-south",
+        "pandalName": "Debdaru Fatak",
+        "name": "Debdaru Fatak",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme"
+        ],
+        "rating": 4.8,
+        "theme": "Deodar Forest Canopy & Nature Shrine",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 459,
+        "distanceText": "459 m",
+        "walkMinutes": 6,
+        "walkText": "6 min walk",
+        "coordinates": {
+          "lat": 22.5012,
+          "lng": 88.3215
+        }
+      },
+      {
+        "id": "behala-nutan-dal-south",
+        "pandalId": "behala-nutan-dal-south",
+        "pandalName": "Behala Nutan Dal",
+        "name": "Behala Nutan Dal",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular",
+          "theme"
+        ],
+        "rating": 4.91,
+        "theme": "Monolithic Architectural Sculpture & Sonic Landscape",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 540,
+        "distanceText": "540 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.4965,
+          "lng": 88.3152
+        }
+      },
+      {
+        "id": "shree-sangha-south",
+        "pandalId": "shree-sangha-south",
+        "pandalName": "Shree Sangha",
+        "name": "Shree Sangha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.74,
+        "theme": "Sabeki Matri Protima & Family Adda",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 802,
+        "distanceText": "802 m",
+        "walkMinutes": 10,
+        "walkText": "10 min walk",
+        "coordinates": {
+          "lat": 22.5035,
+          "lng": 88.3242
+        }
+      }
+    ],
+    "nearbyPandalCount": 5
+  },
+  {
+    "id": "metro-taratala",
+    "stationName": "Taratala",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5118,
+      "lng": 88.3242
+    },
+    "landmark": "Taratala Crossing, Hyde Road & South Port Corridor",
+    "name": "Taratala",
+    "nearbyPandals": [
+      {
+        "id": "suruchi-sangha-new-alipore-south",
+        "pandalId": "suruchi-sangha-new-alipore-south",
+        "pandalName": "Suruchi Sangha (New Alipore)",
+        "name": "Suruchi Sangha (New Alipore)",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.91,
+        "theme": "Celebration of Indian State Folk Artistry & Custom Festive Anthems",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 578,
+        "distanceText": "578 m",
+        "walkMinutes": 7,
+        "walkText": "7 min walk",
+        "coordinates": {
+          "lat": 22.5113,
+          "lng": 88.3298
+        }
+      }
+    ],
+    "nearbyPandalCount": 1
+  },
+  {
+    "id": "metro-majerhat",
+    "stationName": "Majerhat",
+    "line": "Purple",
+    "lineName": "Purple Line (South-West)",
+    "lineColor": "#7F2B87",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5205,
+      "lng": 88.3283
+    },
+    "landmark": "Majerhat Rail-Over-Bridge & Alipore Link",
+    "name": "Majerhat",
+    "nearbyPandals": [
+      {
+        "id": "panchadurga-south",
+        "pandalId": "panchadurga-south",
+        "pandalName": "Panchadurga",
+        "name": "Panchadurga",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.72,
+        "theme": "Five Elemental Goddess Manifestation",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 937,
+        "distanceText": "937 m",
+        "walkMinutes": 12,
+        "walkText": "12 min walk",
+        "coordinates": {
+          "lat": 22.5168,
+          "lng": 88.3365
+        }
+      },
+      {
+        "id": "alipore-sarbajanin-south",
+        "pandalId": "alipore-sarbajanin-south",
+        "pandalName": "Alipore Sarbajanin",
+        "name": "Alipore Sarbajanin",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.8,
+        "theme": "Sabeki Zamindari Courtly Splendor",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 1297,
+        "distanceText": "1.3 km",
+        "walkMinutes": 16,
+        "walkText": "16 min walk",
+        "coordinates": {
+          "lat": 22.5315,
+          "lng": 88.3325
+        }
+      }
+    ],
+    "nearbyPandalCount": 2
+  },
+  {
+    "id": "metro-satyajit-ray",
+    "stationName": "Satyajit Ray",
+    "line": "Orange",
+    "lineName": "Orange Line (EM Bypass Corridor)",
+    "lineColor": "#FF7300",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.4795,
+      "lng": 88.3989
+    },
+    "landmark": "Hiland Park, SRFTI & Ajoy Nagar",
+    "name": "Satyajit Ray",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-jyotirindra-nandi",
+    "stationName": "Jyotirindra Nandi",
+    "line": "Orange",
+    "lineName": "Orange Line (EM Bypass Corridor)",
+    "lineColor": "#FF7300",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.495,
+      "lng": 88.4005
+    },
+    "landmark": "Mukundapur Hospital Corridor & Santoshpur link",
+    "name": "Jyotirindra Nandi",
+    "nearbyPandals": [
+      {
+        "id": "santoshpur-south",
+        "pandalId": "santoshpur-south",
+        "pandalName": "Santoshpur",
+        "name": "Santoshpur",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "traditional"
+        ],
+        "rating": 4.75,
+        "theme": "Traditional Sabeki Idol & Neighborhood Festivities",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8",
+        "distanceMeters": 1857,
+        "distanceText": "1.9 km",
+        "walkMinutes": 23,
+        "walkText": "23 min walk",
+        "coordinates": {
+          "lat": 22.4935,
+          "lng": 88.3825
+        }
+      },
+      {
+        "id": "santoshpur-lake-pally-south",
+        "pandalId": "santoshpur-lake-pally-south",
+        "pandalName": "Santoshpur Lake Pally",
+        "name": "Santoshpur Lake Pally",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.85,
+        "theme": "Mirror Art, Sugar Crystals, and Micro-Art Installations",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V",
+        "distanceMeters": 2009,
+        "distanceText": "2.0 km",
+        "walkMinutes": 25,
+        "walkText": "25 min walk",
+        "coordinates": {
+          "lat": 22.4921,
+          "lng": 88.3812
+        }
+      },
+      {
+        "id": "trikon-park-south",
+        "pandalId": "trikon-park-south",
+        "pandalName": "Trikon Park",
+        "name": "Trikon Park",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "popular"
+        ],
+        "rating": 4.76,
+        "theme": "Vibrant Triangular Park Illumination",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw",
+        "distanceMeters": 2215,
+        "distanceText": "2.2 km",
+        "walkMinutes": 28,
+        "walkText": "28 min walk",
+        "coordinates": {
+          "lat": 22.4905,
+          "lng": 88.3795
+        }
+      }
+    ],
+    "nearbyPandalCount": 3
+  },
+  {
+    "id": "metro-kavi-sukanta",
+    "stationName": "Kavi Sukanta",
+    "line": "Orange",
+    "lineName": "Orange Line (EM Bypass Corridor)",
+    "lineColor": "#FF7300",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5065,
+      "lng": 88.4018
+    },
+    "landmark": "Kalikapur Crossing & Prince Anwar Shah Connector",
+    "name": "Kavi Sukanta",
+    "nearbyPandals": [],
+    "nearbyPandalCount": 0
+  },
+  {
+    "id": "metro-hemanta-mukhopadhyay",
+    "stationName": "Hemanta Mukhopadhyay",
+    "line": "Orange",
+    "lineName": "Orange Line (EM Bypass Corridor)",
+    "lineColor": "#FF7300",
+    "operationalStatus": "operational",
+    "interchange": false,
+    "coordinates": {
+      "lat": 22.5161,
+      "lng": 88.4032
+    },
+    "landmark": "Ruby Hospital, Kasba Connector & Acropolis Mall",
+    "name": "Hemanta Mukhopadhyay",
+    "nearbyPandals": [
+      {
+        "id": "rajdanga-naba-uday-sangha-south",
+        "pandalId": "rajdanga-naba-uday-sangha-south",
+        "pandalName": "Rajdanga Naba Uday Sangha",
+        "name": "Rajdanga Naba Uday Sangha",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.83,
+        "theme": "Eco-Artisan Fibers & Mythological Concept",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 1415,
+        "distanceText": "1.4 km",
+        "walkMinutes": 18,
+        "walkText": "18 min walk",
+        "coordinates": {
+          "lat": 22.5148,
+          "lng": 88.3895
+        }
+      },
+      {
+        "id": "kasba-new-alipore-suruchi-south",
+        "pandalId": "kasba-new-alipore-suruchi-south",
+        "pandalName": "Kasba New Alipore Suruchi",
+        "name": "Kasba New Alipore Suruchi",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.81,
+        "theme": "Terracotta Bell Chimes & Brass Lamps",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs",
+        "distanceMeters": 1717,
+        "distanceText": "1.7 km",
+        "walkMinutes": 21,
+        "walkText": "21 min walk",
+        "coordinates": {
+          "lat": 22.5155,
+          "lng": 88.3865
+        }
+      },
+      {
+        "id": "bosepukur-sitala-mandir-south",
+        "pandalId": "bosepukur-sitala-mandir-south",
+        "pandalName": "Bosepukur Sitala Mandir",
+        "name": "Bosepukur Sitala Mandir",
+        "zone": "South Kolkata",
+        "zoneKey": "south",
+        "category": [
+          "theme",
+          "popular"
+        ],
+        "rating": 4.87,
+        "theme": "Historic Clay Tea-Cup & Terracotta Craft Innovations",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW",
+        "distanceMeters": 1952,
+        "distanceText": "2.0 km",
+        "walkMinutes": 24,
+        "walkText": "24 min walk",
+        "coordinates": {
+          "lat": 22.5162,
+          "lng": 88.3842
+        }
+      }
+    ],
+    "nearbyPandalCount": 3
+  }
 ]

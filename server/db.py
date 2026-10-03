@@ -1,13 +1,17 @@
 import os
 import json
 import time
-from datetime import datetime
+import hashlib
+import secrets
+from datetime import datetime, timedelta
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(CURRENT_DIR, '..', 'data')
 DB_FILE = os.path.join(DATA_DIR, 'database.json')
 
 DEFAULT_DB = {
+    "users": {},
+    "tokens": {},
     "parikramas": {},
     "squads": {},
     "crowdReports": {},
@@ -24,7 +28,13 @@ class Database:
         try:
             if os.path.exists(DB_FILE):
                 with open(DB_FILE, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    parsed = json.load(f)
+                    return {
+                        **DEFAULT_DB,
+                        **parsed,
+                        "users": parsed.get("users", {}),
+                        "tokens": parsed.get("tokens", {})
+                    }
         except Exception as err:
             print(f"[DB] Failed to load database file, initializing default: {err}")
         initial = dict(DEFAULT_DB)
@@ -225,6 +235,126 @@ class Database:
         self.db["routes"][route_hash] = route_data
         self.save()
         return route_data
+
+    # --- USER AUTHENTICATION METHODS ---
+    def hash_password(self, password, salt):
+        return hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'), salt.encode('utf-8'), 1000).hex()
+
+    def create_user(self, data):
+        email = str(data.get("email", "")).lower().strip()
+        if not email or "@" not in email:
+            raise ValueError("Please provide a valid email address.")
+        if self.get_user_by_email(email):
+            raise ValueError("An account with this email already exists.")
+        
+        name = str(data.get("name", "Devotee")).strip()
+        password = str(data.get("password", ""))
+        if len(password) < 6:
+            raise ValueError("Password must be at least 6 characters long.")
+
+        user_id = f"usr_{secrets.token_hex(6)}"
+        salt = secrets.token_hex(16)
+        password_hash = self.hash_password(password, salt)
+        now = datetime.now().isoformat()
+
+        user = {
+            "id": user_id,
+            "name": name,
+            "email": email,
+            "salt": salt,
+            "passwordHash": password_hash,
+            "archetype": data.get("archetype", "friends"),
+            "avatar": data.get("avatar") or f"https://api.dicebear.com/7.x/bottts/svg?seed={user_id}",
+            "savedPlans": [],
+            "createdAt": now,
+            "updatedAt": now
+        }
+
+        if "users" not in self.db:
+            self.db["users"] = {}
+        self.db["users"][user_id] = user
+        self.save()
+        return self.sanitize_user(user)
+
+    def get_user_by_email(self, email):
+        if not email or "users" not in self.db:
+            return None
+        normalized = str(email).lower().strip()
+        return next((u for u in self.db["users"].values() if u.get("email") == normalized), None)
+
+    def get_user_by_id(self, user_id):
+        if not user_id or "users" not in self.db:
+            return None
+        return self.db["users"].get(user_id)
+
+    def verify_user_password(self, email, password):
+        user = self.get_user_by_email(email)
+        if not user:
+            return None
+        pwd_hash = self.hash_password(password, user.get("salt", ""))
+        if pwd_hash != user.get("passwordHash"):
+            return None
+        return self.sanitize_user(user)
+
+    def create_session_token(self, user):
+        token = f"stk_{secrets.token_hex(24)}"
+        now = datetime.now()
+        expires_at = (now + timedelta(days=30)).isoformat()
+        if "tokens" not in self.db:
+            self.db["tokens"] = {}
+        self.db["tokens"][token] = {
+            "userId": user["id"],
+            "createdAt": now.isoformat(),
+            "expiresAt": expires_at
+        }
+        self.save()
+        return token
+
+    def get_user_by_token(self, token):
+        if not token or "tokens" not in self.db:
+            return None
+        session = self.db["tokens"].get(token)
+        if not session:
+            return None
+        try:
+            exp = datetime.fromisoformat(session.get("expiresAt", ""))
+            if exp < datetime.now():
+                del self.db["tokens"][token]
+                self.save()
+                return None
+        except Exception:
+            pass
+        user = self.get_user_by_id(session.get("userId"))
+        return self.sanitize_user(user) if user else None
+
+    def invalidate_token(self, token):
+        if token and "tokens" in self.db and token in self.db["tokens"]:
+            del self.db["tokens"][token]
+            self.save()
+            return True
+        return False
+
+    def update_user_profile(self, user_id, updates):
+        user = self.get_user_by_id(user_id)
+        if not user:
+            return None
+        if "name" in updates:
+            user["name"] = str(updates["name"]).strip()
+        if "archetype" in updates:
+            user["archetype"] = updates["archetype"]
+        if "avatar" in updates:
+            user["avatar"] = updates["avatar"]
+        user["updatedAt"] = datetime.now().isoformat()
+        self.save()
+        return self.sanitize_user(user)
+
+    def sanitize_user(self, user):
+        if not user:
+            return None
+        safe = dict(user)
+        safe.pop("salt", None)
+        safe.pop("passwordHash", None)
+        return safe
 
 db = Database()
 

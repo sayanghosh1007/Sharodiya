@@ -2,6 +2,7 @@
 import { PANDALS_DATA, EATERIES_DATA, RITUAL_SCHEDULE, COMPANION_ARCHETYPES, INITIAL_PARIKRAMA, METRO_STATIONS_DATA } from './data.js';
 import { ShiuliParticleSystem } from './flowers.js';
 import { DhakAudioEngine } from './audio.js';
+import { supabaseAuth } from './supabase.js';
 
 // Bounding Box for Kolkata & Outskirts Metropolitan Region (Barrackpore/Kalyani to Baruipur/Sonarpur & Howrah to New Town/Barasat)
 const KOLKATA_OUTSKIRTS_BOUNDS = [
@@ -15,6 +16,7 @@ class SharodiyaApp {
     this.pandals = [...PANDALS_DATA];
     this.eateries = [...EATERIES_DATA];
     this.metroStations = [...METRO_STATIONS_DATA];
+    this.supabaseAuth = supabaseAuth;
     
     // Multi-Plan Architecture (Multiple plans for any single day, default day: Maha Sasthi)
     this.plans = this.loadPlans();
@@ -31,26 +33,36 @@ class SharodiyaApp {
     this.pandalPageSize = 18;
     this.pandalCurrentLimit = 18;
 
-    // Theme State (Dark / Light)
-    this.currentTheme = localStorage.getItem('sharodiya_theme') || 'dark';
+    // Permanent Festive Dark Theme
+    this.currentTheme = 'dark';
 
     // Dedicated Master Puja Map State
     this.masterMap = null;
     this.masterTileLayer = null;
-    this.masterLayers = { pandals: null, eateries: null, metro: null, trail: null };
-    this.activeLayers = { pandals: true, eateries: true, metro: true, trail: true };
+    this.masterLayers = { pandals: null, eateries: null, trail: null, foodLines: null };
+    this.activeLayers = { pandals: true, eateries: true, trail: true };
+    this.selectedMapPandalId = null;
     this.isPlanMapMode = false; // Only true when explicitly opened from a Plan
     this.mapZoneFilter = 'all';
     this.mapSearchQuery = '';
     this.mapPandalMarkers = new Map();
     this.mapEateryMarkers = new Map();
-    this.mapMetroMarkers = new Map();
     this.mapTrailPolyline = null;
     this.mapTrailCasing = null;
     this.mapTrailMarkers = [];
     this.mapRoadCoordinates = [];
     this._trailReqToken = 0;
     this.userLocationMarker = null;
+
+    // Dedicated Kolkata Puja Metro Network State
+    this.metroMap = null;
+    this.metroTileLayer = null;
+    this.metroLayers = { lines: null, stations: null, interchanges: null };
+    this.metroActiveLineFilter = 'all'; // 'all', 'Blue', 'Green', 'Purple', 'Orange', 'interchange'
+    this.metroSearchQuery = '';
+    this.selectedMetroStationId = null;
+    this.metroStationMarkers = new Map();
+    this.metroRoutePlanner = { startStationId: null, destStationId: null, selectedPandalIds: [], day: 'Maha Sasthi' };
 
     // Eatery Filters & State
     this.activeEateryFilter = 'all';
@@ -62,6 +74,11 @@ class SharodiyaApp {
 
     this.audioEngine = new DhakAudioEngine();
     this.flowerSystem = null;
+
+    // Devotee Authentication State
+    this.currentUser = null;
+    this.authToken = localStorage.getItem('sharodiya_auth_token') || null;
+    this.authActiveTab = 'signin';
 
     this.init();
   }
@@ -99,15 +116,22 @@ class SharodiyaApp {
 
   async apiFetch(endpoint, options = {}) {
     try {
+      const headers = { 'Content-Type': 'application/json', ...(options.headers || {}) };
+      if (this.authToken && !headers['Authorization']) {
+        headers['Authorization'] = `Bearer ${this.authToken}`;
+      }
       const res = await fetch(endpoint, {
-        headers: { 'Content-Type': 'application/json' },
-        ...options
+        ...options,
+        headers
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        return { success: false, error: errorData.error || `HTTP ${res.status}` };
+      }
       return await res.json();
     } catch (err) {
       console.warn(`[API] Network call to ${endpoint} failed, continuing with local engine:`, err.message);
-      return null;
+      return { success: false, error: err.message };
     }
   }
 
@@ -126,6 +150,10 @@ class SharodiyaApp {
       const metroRes = await this.apiFetch('/api/metro');
       if (metroRes && metroRes.success && Array.isArray(metroRes.metroStations) && metroRes.metroStations.length > 0) {
         this.metroStations = metroRes.metroStations;
+        if (this.metroMap) {
+          this.updateMetroNetworkMap();
+        }
+        this.renderMetroStationInfoPanel();
       }
       if (this.masterMap) {
         this.updateMasterMap();
@@ -135,9 +163,560 @@ class SharodiyaApp {
     }
   }
 
+  // ==========================================
+  // DEVOTEE AUTHENTICATION & PROFILE ENGINE (SUPABASE)
+  // ==========================================
+  async initAuth() {
+    this.updateAuthUI();
+
+    // 1. Listen to Supabase Auth State Changes in Real-Time
+    if (this.supabaseAuth) {
+      this.supabaseAuth.onAuthStateChange((event, session) => {
+        if (event === 'SIGNED_IN' || event === 'USER_UPDATED' || event === 'TOKEN_REFRESHED') {
+          if (session && session.user) {
+            const u = session.user;
+            this.currentUser = {
+              id: u.id,
+              name: u.user_metadata?.name || u.user_metadata?.full_name || 'Devotee',
+              email: u.email,
+              archetype: u.user_metadata?.archetype || 'friends',
+              avatar: u.user_metadata?.avatar || u.user_metadata?.avatar_url || 'assets/logo.png'
+            };
+            this.authToken = session.access_token;
+            localStorage.setItem('sharodiya_auth_token', session.access_token);
+            this.updateAuthUI();
+          }
+        } else if (event === 'SIGNED_OUT') {
+          this.currentUser = null;
+          this.authToken = null;
+          localStorage.removeItem('sharodiya_auth_token');
+          this.updateAuthUI();
+        }
+      });
+    }
+
+    // 2. Check Active Supabase Session or Bearer Token
+    if (this.supabaseAuth) {
+      const sbSession = await this.supabaseAuth.getSession();
+      if (sbSession && sbSession.user) {
+        this.currentUser = sbSession.user;
+        this.authToken = sbSession.token;
+        if (sbSession.user.archetype) {
+          this.selectedArchetype = sbSession.user.archetype;
+        }
+        this.updateAuthUI();
+        return;
+      }
+    }
+
+    // 3. Fallback verification with local/hybrid backend
+    if (this.authToken) {
+      try {
+        const res = await this.apiFetch('/api/auth/me');
+        if (res && res.success && res.user) {
+          this.currentUser = res.user;
+          if (res.user.archetype) {
+            this.selectedArchetype = res.user.archetype;
+          }
+          this.updateAuthUI();
+        } else {
+          this.authToken = null;
+          this.currentUser = null;
+          localStorage.removeItem('sharodiya_auth_token');
+          this.updateAuthUI();
+        }
+      } catch (err) {
+        console.warn('[Auth] Session verification note:', err);
+      }
+    }
+  }
+
+  updateAuthUI() {
+    const navSigninBtn = document.getElementById('nav-signin-btn');
+    const navUserProfile = document.getElementById('nav-user-profile');
+    const navUserAvatar = document.getElementById('nav-user-avatar');
+    const navUserName = document.getElementById('nav-user-name');
+
+    const dropdownAvatar = document.getElementById('dropdown-user-avatar');
+    const dropdownName = document.getElementById('dropdown-user-name');
+    const dropdownEmail = document.getElementById('dropdown-user-email');
+    const dropdownArchetype = document.getElementById('dropdown-user-archetype');
+
+    const mobileAvatar = document.getElementById('mobile-user-avatar');
+    const mobileName = document.getElementById('mobile-user-name');
+    const mobileStatus = document.getElementById('mobile-user-status');
+    const mobileActionBtn = document.getElementById('mobile-auth-action-btn');
+
+    const archetypeLabels = {
+      friends: 'Friends Adda',
+      family: 'Family & Elders',
+      foodies: 'Foodies & Bhog',
+      photographers: 'Visual Seekers',
+      heritage: 'Heritage & Bonedi',
+      couple: 'Romantic Strolls'
+    };
+
+    if (this.currentUser) {
+      // User is logged in
+      if (navSigninBtn) navSigninBtn.classList.add('hidden');
+      if (navUserProfile) navUserProfile.classList.remove('hidden');
+
+      const avatarSrc = this.currentUser.avatar || 'assets/logo.png';
+      const displayName = this.currentUser.name || 'Devotee';
+      const archetypeText = archetypeLabels[this.currentUser.archetype] || 'Devotee';
+
+      if (navUserAvatar) navUserAvatar.src = avatarSrc;
+      if (navUserName) navUserName.textContent = displayName;
+
+      if (dropdownAvatar) dropdownAvatar.src = avatarSrc;
+      if (dropdownName) dropdownName.textContent = displayName;
+      if (dropdownEmail) dropdownEmail.textContent = this.currentUser.email || '';
+      if (dropdownArchetype) dropdownArchetype.textContent = archetypeText;
+
+      if (mobileAvatar) mobileAvatar.src = avatarSrc;
+      if (mobileName) mobileName.textContent = displayName;
+      if (mobileStatus) mobileStatus.textContent = `Devotee (${archetypeText})`;
+      if (mobileActionBtn) {
+        mobileActionBtn.textContent = 'Profile';
+        mobileActionBtn.className = 'px-3.5 py-1.5 rounded-full bg-surface-container-high border border-primary/40 text-white font-bold text-xs shadow-md';
+      }
+    } else {
+      // Logged out
+      if (navSigninBtn) navSigninBtn.classList.remove('hidden');
+      if (navUserProfile) navUserProfile.classList.add('hidden');
+
+      const dropdown = document.getElementById('nav-user-dropdown');
+      if (dropdown) dropdown.classList.add('hidden');
+
+      if (mobileAvatar) mobileAvatar.src = 'assets/logo.png';
+      if (mobileName) mobileName.textContent = 'Devotee Guest';
+      if (mobileStatus) mobileStatus.textContent = 'Sign in to sync parikramas';
+      if (mobileActionBtn) {
+        mobileActionBtn.textContent = 'Sign In';
+        mobileActionBtn.className = 'px-3.5 py-1.5 rounded-full bg-primary text-black font-bold text-xs shadow-md';
+      }
+    }
+  }
+
+  openAuthModal(tab = 'signin') {
+    this.authActiveTab = tab;
+    this.hideAuthAlert();
+    this.switchAuthTab(tab);
+
+    const modal = document.getElementById('auth-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  closeAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    this.hideAuthAlert();
+  }
+
+  switchAuthTab(tab) {
+    this.authActiveTab = tab;
+    this.hideAuthAlert();
+
+    const signinTabBtn = document.getElementById('auth-tab-signin-btn');
+    const signupTabBtn = document.getElementById('auth-tab-signup-btn');
+    const signinForm = document.getElementById('auth-signin-form');
+    const signupForm = document.getElementById('auth-signup-form');
+    const modalTitle = document.getElementById('auth-modal-title');
+
+    if (tab === 'signin') {
+      if (signinTabBtn) {
+        signinTabBtn.className = 'flex-1 py-2.5 rounded-xl transition-all duration-200 text-white bg-primary shadow-md flex items-center justify-center gap-1.5';
+      }
+      if (signupTabBtn) {
+        signupTabBtn.className = 'flex-1 py-2.5 rounded-xl transition-all duration-200 text-on-surface-variant hover:text-white flex items-center justify-center gap-1.5';
+      }
+      if (signinForm) signinForm.classList.remove('hidden');
+      if (signupForm) signupForm.classList.add('hidden');
+      if (modalTitle) modalTitle.textContent = 'Devotee Sign In';
+    } else {
+      if (signinTabBtn) {
+        signinTabBtn.className = 'flex-1 py-2.5 rounded-xl transition-all duration-200 text-on-surface-variant hover:text-white flex items-center justify-center gap-1.5';
+      }
+      if (signupTabBtn) {
+        signupTabBtn.className = 'flex-1 py-2.5 rounded-xl transition-all duration-200 text-white bg-primary shadow-md flex items-center justify-center gap-1.5';
+      }
+      if (signinForm) signinForm.classList.add('hidden');
+      if (signupForm) signupForm.classList.remove('hidden');
+      if (modalTitle) modalTitle.textContent = 'Join Devotee Sangha (Supabase)';
+    }
+  }
+
+  showAuthAlert(message, type = 'error') {
+    const alertEl = document.getElementById('auth-alert-banner');
+    const iconEl = document.getElementById('auth-alert-icon');
+    const msgEl = document.getElementById('auth-alert-message');
+    if (!alertEl || !msgEl) return;
+
+    alertEl.className = type === 'error'
+      ? 'p-3.5 rounded-2xl border text-xs font-semibold items-center gap-2.5 auth-alert-error flex'
+      : 'p-3.5 rounded-2xl border text-xs font-semibold items-center gap-2.5 auth-alert-success flex';
+
+    if (iconEl) iconEl.textContent = type === 'error' ? 'error' : 'check_circle';
+    msgEl.textContent = message;
+    alertEl.classList.remove('hidden');
+  }
+
+  hideAuthAlert() {
+    const alertEl = document.getElementById('auth-alert-banner');
+    if (alertEl) alertEl.classList.add('hidden');
+  }
+
+  async handleSignIn(email, password) {
+    if (!email || !password) {
+      this.showAuthAlert('Please enter both email and password.');
+      return;
+    }
+
+    try {
+      const res = await this.supabaseAuth.signIn({ email, password });
+
+      if (res && res.success && res.user) {
+        this.authToken = res.token;
+        this.currentUser = res.user;
+        if (res.token) {
+          localStorage.setItem('sharodiya_auth_token', res.token);
+        }
+        if (res.user.archetype) {
+          this.selectedArchetype = res.user.archetype;
+        }
+        this.updateAuthUI();
+        this.closeAuthModal();
+        this.showToast(res.message || `Welcome back, ${res.user.name}! 🪔`);
+      } else {
+        this.showAuthAlert(res?.error || 'Invalid credentials. Please verify your email & password.');
+      }
+    } catch (err) {
+      this.showAuthAlert(err.message || 'Login failed. Please check your credentials.');
+    }
+  }
+
+  async handleSignUp(name, email, password, archetype) {
+    if (!name || name.trim().length < 2) {
+      this.showAuthAlert('Please enter your full name (at least 2 characters).');
+      return;
+    }
+    if (!email || !email.includes('@')) {
+      this.showAuthAlert('Please provide a valid email address.');
+      return;
+    }
+    if (!password || password.length < 6) {
+      this.showAuthAlert('Password must be at least 6 characters long.');
+      return;
+    }
+
+    try {
+      const res = await this.supabaseAuth.signUp({ name, email, password, archetype });
+
+      if (res && res.success && res.user) {
+        this.authToken = res.token;
+        this.currentUser = res.user;
+        if (res.token) {
+          localStorage.setItem('sharodiya_auth_token', res.token);
+        }
+        if (res.user.archetype) {
+          this.selectedArchetype = res.user.archetype;
+        }
+        this.updateAuthUI();
+        this.closeAuthModal();
+        this.showToast(res.message || `Welcome to Sharodiya, ${res.user.name}! 🌺`);
+      } else {
+        this.showAuthAlert(res?.error || 'Registration failed. Please try a different email.');
+      }
+    } catch (err) {
+      this.showAuthAlert(err.message || 'Registration failed. Please try again.');
+    }
+  }
+
+  async handleSignOut() {
+    await this.supabaseAuth.signOut();
+    this.authToken = null;
+    this.currentUser = null;
+    localStorage.removeItem('sharodiya_auth_token');
+
+    const dropdown = document.getElementById('nav-user-dropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+
+    this.updateAuthUI();
+    this.showToast('🌸 Signed out successfully. Shubho Sharodiya!');
+  }
+
+  async quickDemoLogin() {
+    const demoEmail = 'devotee.kolkata@sharodiya.in';
+    const demoPassword = 'pujopassword123';
+
+    // Try logging in via Supabase / local bridge
+    let res = await this.supabaseAuth.signIn({ email: demoEmail, password: demoPassword });
+
+    if (!res || !res.success) {
+      res = await this.supabaseAuth.signUp({
+        name: 'Shounak Sen (Demo Devotee)',
+        email: demoEmail,
+        password: demoPassword,
+        archetype: 'friends',
+        avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=SharodiyaVIP'
+      });
+    }
+
+    if (res && res.success && res.user) {
+      this.authToken = res.token;
+      this.currentUser = res.user;
+      if (res.token) {
+        localStorage.setItem('sharodiya_auth_token', res.token);
+      }
+      this.updateAuthUI();
+      this.closeAuthModal();
+      this.showToast(`🪔 Logged in as ${res.user.name}! (Supabase Auth)`);
+    } else {
+      this.showAuthAlert('Demo login unavailable. Please create an account.');
+    }
+  }
+
+  openProfileEditModal() {
+    if (!this.currentUser) {
+      this.openAuthModal('signin');
+      return;
+    }
+
+    const nameInput = document.getElementById('profile-edit-name');
+    const archetypeSelect = document.getElementById('profile-edit-archetype');
+    const avatarPreview = document.getElementById('profile-modal-avatar-preview');
+    const modal = document.getElementById('profile-edit-modal');
+
+    if (nameInput) nameInput.value = this.currentUser.name || '';
+    if (archetypeSelect) archetypeSelect.value = this.currentUser.archetype || 'friends';
+    if (avatarPreview) avatarPreview.src = this.currentUser.avatar || 'assets/logo.png';
+
+    const dropdown = document.getElementById('nav-user-dropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  closeProfileEditModal() {
+    const modal = document.getElementById('profile-edit-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  async handleProfileUpdate(name, archetype) {
+    if (!name || name.trim().length < 2) {
+      this.showToast('Please enter a valid name.');
+      return;
+    }
+
+    try {
+      const res = await this.supabaseAuth.updateProfile({ name: name.trim(), archetype });
+
+      if (res && res.success && res.user) {
+        this.currentUser = res.user;
+        this.selectedArchetype = archetype;
+        this.updateAuthUI();
+        this.closeProfileEditModal();
+        this.showToast('✨ Devotee profile updated in Supabase successfully!');
+      } else {
+        this.showToast(`Error: ${res?.error || 'Could not update profile'}`);
+      }
+    } catch (err) {
+      this.showToast(`Error: ${err.message}`);
+    }
+  }
+
+  setupAuthEventListeners() {
+    // 1. Sign In Header Button
+    document.getElementById('nav-signin-btn')?.addEventListener('click', () => {
+      this.openAuthModal('signin');
+    });
+
+    // 2. Mobile Auth Action Button
+    document.getElementById('mobile-auth-action-btn')?.addEventListener('click', () => {
+      const mobileDrawer = document.getElementById('mobile-menu-drawer');
+      if (mobileDrawer) mobileDrawer.classList.add('hidden');
+      if (this.currentUser) {
+        this.openProfileEditModal();
+      } else {
+        this.openAuthModal('signin');
+      }
+    });
+
+    // 3. User Avatar Pill Dropdown Toggle
+    const navUserBtn = document.getElementById('nav-user-btn');
+    const navDropdown = document.getElementById('nav-user-dropdown');
+
+    if (navUserBtn && navDropdown) {
+      navUserBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navDropdown.classList.toggle('hidden');
+      });
+
+      // Close dropdown on click outside
+      document.addEventListener('click', (e) => {
+        if (!navDropdown.classList.contains('hidden') && !navUserBtn.contains(e.target) && !navDropdown.contains(e.target)) {
+          navDropdown.classList.add('hidden');
+        }
+      });
+    }
+
+    // 4. Dropdown Menu Items
+    document.getElementById('dropdown-my-plans-btn')?.addEventListener('click', () => {
+      navDropdown?.classList.add('hidden');
+      this.navigateTo('planned');
+    });
+
+    document.getElementById('dropdown-my-squad-btn')?.addEventListener('click', () => {
+      navDropdown?.classList.add('hidden');
+      this.navigateTo('people');
+    });
+
+    document.getElementById('dropdown-edit-profile-btn')?.addEventListener('click', () => {
+      this.openProfileEditModal();
+    });
+
+    document.getElementById('dropdown-signout-btn')?.addEventListener('click', () => {
+      this.handleSignOut();
+    });
+
+    // 5. Auth Modal Controls
+    document.getElementById('close-auth-modal-btn')?.addEventListener('click', () => {
+      this.closeAuthModal();
+    });
+
+    const authModal = document.getElementById('auth-modal');
+    if (authModal) {
+      authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) this.closeAuthModal();
+      });
+    }
+
+    document.getElementById('auth-tab-signin-btn')?.addEventListener('click', () => {
+      this.switchAuthTab('signin');
+    });
+
+    document.getElementById('auth-tab-signup-btn')?.addEventListener('click', () => {
+      this.switchAuthTab('signup');
+    });
+
+    // 6. Form Submissions
+    document.getElementById('auth-signin-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signin-email')?.value?.trim();
+      const password = document.getElementById('signin-password')?.value;
+      this.handleSignIn(email, password);
+    });
+
+    document.getElementById('auth-signup-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('signup-name')?.value?.trim();
+      const email = document.getElementById('signup-email')?.value?.trim();
+      const password = document.getElementById('signup-password')?.value;
+      const archetype = document.getElementById('signup-archetype')?.value || 'friends';
+      this.handleSignUp(name, email, password, archetype);
+    });
+
+    document.getElementById('quick-demo-login-btn')?.addEventListener('click', () => {
+      this.quickDemoLogin();
+    });
+
+    // 6.1 Supabase Social OAuth (Google)
+    document.getElementById('supabase-google-login-btn')?.addEventListener('click', async () => {
+      try {
+        await this.supabaseAuth.signInWithOAuth('google');
+      } catch (err) {
+        this.showAuthAlert(err.message || 'Supabase Google OAuth requires configuring custom project keys below.');
+      }
+    });
+
+    // 6.2 Supabase Custom Project Configuration
+    const supabaseUrlInput = document.getElementById('supabase-custom-url-input');
+    const supabaseKeyInput = document.getElementById('supabase-custom-key-input');
+    const saveSupabaseBtn = document.getElementById('save-supabase-keys-btn');
+    const resetSupabaseBtn = document.getElementById('reset-supabase-keys-btn');
+    const supabaseBadge = document.getElementById('supabase-status-badge');
+
+    if (supabaseUrlInput && supabaseKeyInput) {
+      supabaseUrlInput.value = localStorage.getItem('sharodiya_supabase_url') || '';
+      supabaseKeyInput.value = localStorage.getItem('sharodiya_supabase_anon_key') || '';
+      if (this.supabaseAuth.isCustomConfigured && supabaseBadge) {
+        supabaseBadge.textContent = 'Connected (Custom)';
+        supabaseBadge.className = 'px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-500/30 text-emerald-200 border border-emerald-400 font-bold';
+      }
+    }
+
+    if (saveSupabaseBtn) {
+      saveSupabaseBtn.addEventListener('click', () => {
+        const urlVal = supabaseUrlInput?.value?.trim();
+        const keyVal = supabaseKeyInput?.value?.trim();
+        if (!urlVal || !keyVal) {
+          this.showToast('⚠️ Please provide both Supabase URL and Anon Key.');
+          return;
+        }
+        this.supabaseAuth.setCustomCredentials(urlVal, keyVal);
+        if (supabaseBadge) {
+          supabaseBadge.textContent = 'Connected (Custom)';
+          supabaseBadge.className = 'px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-500/30 text-emerald-200 border border-emerald-400 font-bold';
+        }
+        this.showToast('⚡ Custom Supabase project credentials saved!');
+      });
+    }
+
+    if (resetSupabaseBtn) {
+      resetSupabaseBtn.addEventListener('click', () => {
+        this.supabaseAuth.setCustomCredentials('', '');
+        if (supabaseUrlInput) supabaseUrlInput.value = '';
+        if (supabaseKeyInput) supabaseKeyInput.value = '';
+        if (supabaseBadge) {
+          supabaseBadge.textContent = 'Active (Default)';
+          supabaseBadge.className = 'px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+        }
+        this.showToast('🔄 Supabase config reset to default.');
+      });
+    }
+
+    // 7. Profile Edit Modal Controls
+    document.getElementById('close-profile-modal-btn')?.addEventListener('click', () => {
+      this.closeProfileEditModal();
+    });
+    document.getElementById('close-profile-modal-cancel-btn')?.addEventListener('click', () => {
+      this.closeProfileEditModal();
+    });
+
+    const profileModal = document.getElementById('profile-edit-modal');
+    if (profileModal) {
+      profileModal.addEventListener('click', (e) => {
+        if (e.target === profileModal) this.closeProfileEditModal();
+      });
+    }
+
+    document.getElementById('profile-edit-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('profile-edit-name')?.value?.trim();
+      const archetype = document.getElementById('profile-edit-archetype')?.value;
+      this.handleProfileUpdate(name, archetype);
+    });
+  }
+
   init() {
     // 0. Initialize & Sync Theme
     this.initTheme();
+
+    // 0.1 Initialize Devotee Authentication & Session
+    this.initAuth();
+    this.setupAuthEventListeners();
 
     // 1. Initialize Visual Effects (Flower system strictly initialized for landing container)
     try {
@@ -166,63 +745,29 @@ class SharodiyaApp {
   }
 
   // ==========================================
-  // THEME MANAGEMENT & MAP SYNCHRONIZATION
+  // PERMANENT FESTIVE DARK MODE ENGINE
   // ==========================================
   initTheme() {
-    this.applyTheme(this.currentTheme, false);
+    this.applyTheme('dark', false);
   }
 
   toggleTheme() {
-    const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-    this.applyTheme(newTheme, true);
+    // Permanent dark mode enforced
+    this.applyTheme('dark', false);
   }
 
-  applyTheme(theme, showNotification = true) {
-    this.currentTheme = theme;
+  applyTheme(theme = 'dark', showNotification = false) {
+    this.currentTheme = 'dark';
     try {
-      localStorage.setItem('sharodiya_theme', theme);
+      localStorage.setItem('sharodiya_theme', 'dark');
     } catch (e) {}
 
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.colorScheme = 'dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.colorScheme = 'light';
-    }
+    document.documentElement.classList.add('dark');
+    document.documentElement.style.colorScheme = 'dark';
 
-    // Update Theme Toggle Buttons
-    const themeBtns = [
-      document.getElementById('theme-toggle-btn'),
-      document.getElementById('mobile-theme-toggle-btn'),
-      document.getElementById('master-map-theme-btn')
-    ];
-
-    themeBtns.forEach(btn => {
-      if (!btn) return;
-      const icon = btn.querySelector('.theme-icon') || btn.querySelector('.material-symbols-outlined');
-      const label = btn.querySelector('.theme-label');
-      if (theme === 'dark') {
-        if (icon) icon.textContent = 'dark_mode';
-        if (label) label.textContent = 'Dark';
-        btn.setAttribute('title', 'Switch to Light Mode (Syncs Map to Daylight)');
-      } else {
-        if (icon) icon.textContent = 'light_mode';
-        if (label) label.textContent = 'Light';
-        btn.setAttribute('title', 'Switch to Dark Mode (Syncs Map to Dark Matter)');
-      }
-    });
-
-    // Synchronize Map Layer
+    // Synchronize Map Layers
     this.updateMapTheme();
-
-    if (showNotification) {
-      if (theme === 'dark') {
-        this.showToast('🌙 Dark Mode active • Map synced to Dark Matter radar');
-      } else {
-        this.showToast('☀️ Light Mode active • Map synced to Daylight Voyager');
-      }
-    }
+    this.updateMetroMapTheme();
   }
 
   updateMapTheme() {
@@ -258,6 +803,7 @@ class SharodiyaApp {
     this.renderParikrama();
     this.renderArchetypes();
     this.renderSchedule();
+    this.renderMetroStationInfoPanel();
     this.updateParikramaBadge();
   }
 
@@ -681,7 +1227,7 @@ class SharodiyaApp {
 
   handleRoute() {
     const rawHash = window.location.hash.replace('#', '').trim();
-    const validViews = ['landing', 'pandals', 'eateries', 'planned', 'people', 'map'];
+    const validViews = ['landing', 'pandals', 'eateries', 'planned', 'people', 'map', 'metro'];
     this.currentView = validViews.includes(rawHash) ? rawHash : 'landing';
 
     // Toggle active view visibility
@@ -731,6 +1277,19 @@ class SharodiyaApp {
       } else {
         this.masterMap.invalidateSize();
         this.updateMasterMap();
+      }
+    }
+    if (this.currentView === 'metro') {
+      this.renderMetroStationInfoPanel();
+      if (!this.metroMap) {
+        this.initMetroNetworkMap();
+      } else {
+        setTimeout(() => {
+          if (this.metroMap) {
+            this.metroMap.invalidateSize();
+            this.updateMetroNetworkMap();
+          }
+        }, 100);
       }
     }
 
@@ -1179,12 +1738,11 @@ class SharodiyaApp {
 
         <div class="bg-surface-container-high/60 p-5 rounded-2xl flex items-start gap-3.5 border-l-4 border-primary">
           <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
-            <span class="material-symbols-outlined text-2xl">palette</span>
+            <span class="material-symbols-outlined text-2xl">location_on</span>
           </div>
           <div class="space-y-1">
-            <h4 class="text-xs font-mono uppercase tracking-wider font-bold text-white">Artisans &amp; Sculptors of this Year</h4>
-            <p class="text-sm md:text-base text-white font-medium">${p.artisan}</p>
-            <p class="text-xs text-on-surface-variant font-mono">Location: ${p.location}</p>
+            <h4 class="text-xs font-mono uppercase tracking-wider font-bold text-white">Location &amp; Landmark</h4>
+            <p class="text-sm md:text-base text-white font-medium">${p.location}</p>
           </div>
         </div>
 
@@ -1219,6 +1777,17 @@ class SharodiyaApp {
       modal.classList.remove('flex');
       this.focusPandalOnMap(p.id);
     });
+  }
+
+  // Helper: Geodesic Haversine Distance in Meters
+  calculateDistanceMeters(lat1, lon1, lat2, lon2) {
+    const R = 6371000;
+    const phi1 = (lat1 * Math.PI) / 180;
+    const phi2 = (lat2 * Math.PI) / 180;
+    const dphi = ((lat2 - lat1) * Math.PI) / 180;
+    const dlambda = ((lon2 - lon1) * Math.PI) / 180;
+    const a = Math.sin(dphi / 2) ** 2 + Math.cos(phi1) * Math.cos(phi2) * Math.sin(dlambda / 2) ** 2;
+    return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   }
 
   // ==========================================
@@ -1256,11 +1825,24 @@ class SharodiyaApp {
       // Apply initial theme tiles (Dark Matter or Voyager - Free, Zero API Key needed)
       this.updateMapTheme();
 
-      // Initialize layer groups and add to map
+      // Initialize layer groups and add to map (Metro removed from Pujo Map, foodLines added)
       this.masterLayers.pandals = window.L.layerGroup().addTo(this.masterMap);
+      this.masterLayers.foodLines = window.L.layerGroup().addTo(this.masterMap);
       this.masterLayers.eateries = window.L.layerGroup().addTo(this.masterMap);
-      this.masterLayers.metro = window.L.layerGroup().addTo(this.masterMap);
       this.masterLayers.trail = window.L.layerGroup().addTo(this.masterMap);
+
+      // Deselect pandal food focus if user clicks outside on map canvas
+      this.masterMap.on('click', (e) => {
+        const isMarkerClick = e.originalEvent && (e.originalEvent.target.closest('.leaflet-marker-icon') || e.originalEvent.target.closest('.leaflet-popup'));
+        if (!isMarkerClick && this.selectedMapPandalId) {
+          this.clearPandalFoodFocus();
+        }
+      });
+
+      // Clear pandal focus pill button
+      document.getElementById('map-clear-pandal-focus-btn')?.addEventListener('click', () => {
+        this.clearPandalFoodFocus();
+      });
 
       this.updateMasterMap();
 
@@ -1310,7 +1892,7 @@ class SharodiyaApp {
 
       if (planTitle) planTitle.textContent = `Plan Route: ${plan.name}`;
       if (planDay) planDay.textContent = plan.day || 'Maha Sasthi';
-      if (planSubtitle) planSubtitle.textContent = `Showing ${plannedPandals.length} planned pandals, ${plannedEateries.length} planned eateries & all 38 Kolkata metro stations.`;
+      if (planSubtitle) planSubtitle.textContent = `Showing ${plannedPandals.length} planned pandals, ${plannedEateries.length} planned eateries & your custom Parikrama trail.`;
     } else {
       if (modeBtnPlan) {
         modeBtnPlan.className = 'px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 text-on-surface-variant hover:text-white bg-transparent';
@@ -1391,7 +1973,6 @@ class SharodiyaApp {
     this.syncPlanMapModeUI();
     this.updateMapPandals();
     this.updateMapEateries();
-    this.updateMapMetro();
     this.updateMapTrail();
 
     // Update Counter Badges
@@ -1439,11 +2020,12 @@ class SharodiyaApp {
     filtered.forEach(pandal => {
       if (!pandal.coordinates) return;
 
+      const isSelected = pandal.id === this.selectedMapPandalId;
       const pinClass = `pandal-pin-${pandal.zoneKey || 'north'}`;
       const customIcon = window.L.divIcon({
         className: 'custom-pandal-pin-container',
         html: `
-          <div class="pandal-map-pin ${pinClass}" title="${pandal.name}">
+          <div class="pandal-map-pin ${pinClass} ${isSelected ? 'selected-pandal-pin' : ''}" title="${pandal.name}">
             <span class="material-symbols-outlined text-[16px]">temple_hindu</span>
           </div>
         `,
@@ -1454,43 +2036,239 @@ class SharodiyaApp {
 
       const isBookmarked = this.isPandalBookmarked(pandal.id);
 
-      const popupContent = `
-        <div class="w-64 overflow-hidden rounded-xl bg-surface-container font-body">
-          <div class="h-28 w-full bg-cover bg-center relative" style="background-image: url('${pandal.image}')">
-            <div class="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent"></div>
-            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-surface/80 text-[10px] font-mono text-tertiary font-bold">Est. ${pandal.estYear}</span>
-            <span class="absolute bottom-2 left-2 text-[10px] font-mono uppercase text-secondary font-bold truncate max-w-[180px]">${pandal.zone}</span>
-          </div>
-          <div class="p-3 space-y-2">
-            <h4 class="font-headline text-base font-bold text-white leading-tight">${pandal.name}</h4>
-            <div class="text-[11px] font-mono text-secondary flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">directions_subway</span> Metro: ${pandal.nearestMetro}
-            </div>
-            <div class="text-[11px] font-mono text-tertiary flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">schedule</span> ${pandal.bestTime}
-            </div>
-            <div class="pt-2 border-t border-white/10 flex items-center justify-between gap-2">
-              <button onclick="window.sharodiyaApp.openPandalModal('${pandal.id}')" class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-white text-[10px] font-bold transition-all">
-                Details &amp; History
-              </button>
-              <button onclick="window.sharodiyaApp.togglePandalBookmark('${pandal.id}')" class="px-2.5 py-1 rounded ${isBookmarked ? 'bg-primary text-black' : 'bg-primary-container text-white'} text-[10px] font-bold transition-all">
-                ${isBookmarked ? 'In Plan' : '+ Add'}
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
+      const marker = window.L.marker([pandal.coordinates.lat, pandal.coordinates.lng], { icon: customIcon });
 
-      const marker = window.L.marker([pandal.coordinates.lat, pandal.coordinates.lng], { icon: customIcon })
-        .bindPopup(popupContent, { maxWidth: 280, className: 'dark-pandal-popup' });
+      // Click on pandal selects it and displays its nearest food joints
+      marker.on('click', () => {
+        this.selectPandalOnMasterMap(pandal.id, true);
+      });
+
+      // Quick hover tooltip
+      marker.bindTooltip(`
+        <div class="p-1 font-mono text-xs font-bold text-white flex items-center gap-1">
+          <span>🛕</span> <span>${pandal.name}</span>
+        </div>
+      `, {
+        direction: 'top',
+        offset: [0, -15],
+        className: 'glass-card border border-white/20 text-white rounded-xl shadow-lg'
+      });
 
       this.masterLayers.pandals.addLayer(marker);
       this.mapPandalMarkers.set(pandal.id, marker);
     });
   }
 
+  selectPandalOnMasterMap(pandalId, autoZoom = true) {
+    this.selectedMapPandalId = pandalId;
+    const p = this.findPandal(pandalId);
+    if (!p || !p.coordinates) return;
+
+    // 1. Calculate distance from this pandal to all food joints & sort ascending
+    const sortedEateries = this.eateries.map(e => {
+      if (!e.coordinates) return null;
+      const d = this.calculateDistanceMeters(p.coordinates.lat, p.coordinates.lng, e.coordinates.lat, e.coordinates.lng);
+      return {
+        ...e,
+        distanceMeters: Math.round(d),
+        distanceText: d < 1000 ? `${Math.round(d)} m` : `${(d / 1000).toFixed(1)} km`,
+        walkMinutes: Math.max(1, Math.round(d / 80)),
+        walkText: `${Math.max(1, Math.round(d / 80))} min walk`
+      };
+    }).filter(Boolean).sort((a, b) => a.distanceMeters - b.distanceMeters);
+
+    // Pick top 4-6 closest food joints
+    const nearestEateries = sortedEateries.slice(0, 5);
+
+    // 2. Clear old lines and eateries
+    if (this.masterLayers.foodLines) this.masterLayers.foodLines.clearLayers();
+    if (this.masterLayers.eateries) this.masterLayers.eateries.clearLayers();
+    this.mapEateryMarkers.clear();
+
+    // 3. Render ONLY these nearest food joints on the map
+    nearestEateries.forEach(eatery => {
+      const foodIcon = window.L.divIcon({
+        className: 'custom-osm-pin-container',
+        html: `
+          <div class="food-map-pin nearest-food-pin" title="${eatery.name} (${eatery.cuisine || 'Food'}) - ${eatery.distanceText}">
+            <span class="material-symbols-outlined text-[16px]">restaurant</span>
+          </div>
+        `,
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -17]
+      });
+
+      const isBookmarked = this.parikrama.some(item => item.itemId === eatery.id);
+
+      const eateryPopup = `
+        <div class="w-64 overflow-hidden rounded-2xl bg-[#1e2024] font-body text-white shadow-2xl">
+          <div class="h-28 w-full bg-cover bg-center relative" style="background-image: url('${eatery.image}')">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1e2024] via-[#1e2024]/40 to-transparent"></div>
+            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/70 text-[10px] font-mono text-tertiary font-bold">★ ${eatery.rating}</span>
+            <span class="absolute bottom-2 left-2 text-[10px] font-mono uppercase text-secondary font-bold truncate max-w-[170px]">${eatery.tag || eatery.cuisine}</span>
+          </div>
+          <div class="p-3 space-y-2">
+            <h4 class="font-headline text-sm font-bold text-white leading-tight">${eatery.name}</h4>
+            <div class="text-xs text-yellow-300 font-mono font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">directions_walk</span>
+              <span>📍 ${eatery.distanceText} · ${eatery.walkText}</span>
+            </div>
+            <div class="text-[11px] text-on-surface-variant font-mono">
+              <strong>Must-Try:</strong> ${(eatery.mustTry || []).slice(0, 2).join(', ')}
+            </div>
+            <div class="pt-2 border-t border-white/10 flex items-center justify-between gap-2">
+              <button onclick="window.sharodiyaApp.openEateryModal('${eatery.id}')" class="px-2.5 py-1 rounded-xl bg-surface-container-high hover:bg-white/15 text-white text-[11px] font-bold transition-all">
+                Details
+              </button>
+              <a href="https://www.google.com/maps/dir/?api=1&origin=${p.coordinates.lat},${p.coordinates.lng}&destination=${eatery.coordinates.lat},${eatery.coordinates.lng}&travelmode=walking" target="_blank" rel="noopener" class="px-2.5 py-1 rounded-xl bg-secondary/20 text-secondary border border-secondary/30 text-[11px] font-bold transition-all flex items-center gap-1">
+                <span>Walk Route</span>
+                <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const marker = window.L.marker([eatery.coordinates.lat, eatery.coordinates.lng], { icon: foodIcon })
+        .bindPopup(eateryPopup, { maxWidth: 280, className: 'dark-pandal-food-popup' });
+
+      marker.bindTooltip(`
+        <div class="p-1 font-mono text-xs font-bold text-white">
+          🍽️ ${eatery.name}<br/>
+          <span class="text-yellow-300 text-[10px]">📍 ${eatery.distanceText} · ${eatery.walkText}</span>
+        </div>
+      `, {
+        direction: 'top',
+        offset: [0, -16],
+        className: 'glass-card border border-white/20 text-white rounded-xl'
+      });
+
+      this.masterLayers.eateries.addLayer(marker);
+      this.mapEateryMarkers.set(eatery.id, marker);
+
+      // 4. Draw glowing dashed connector line from pandal to this eatery
+      const connectorLine = window.L.polyline([
+        [p.coordinates.lat, p.coordinates.lng],
+        [eatery.coordinates.lat, eatery.coordinates.lng]
+      ], {
+        color: '#00e0ff',
+        weight: 2.5,
+        opacity: 0.75,
+        dashArray: '6, 6',
+        className: 'pandal-food-connector-line'
+      });
+
+      connectorLine.bindTooltip(`📍 ${eatery.distanceText} walk to ${eatery.name}`, { sticky: true, className: 'font-mono text-[10px]' });
+      this.masterLayers.foodLines.addLayer(connectorLine);
+    });
+
+    // 5. Update selected pandal pin style
+    document.querySelectorAll('.pandal-map-pin').forEach(pin => pin.classList.remove('selected-pandal-pin'));
+    const pandalMarker = this.mapPandalMarkers.get(p.id);
+    if (pandalMarker && pandalMarker._icon) {
+      const pinEl = pandalMarker._icon.querySelector('.pandal-map-pin');
+      if (pinEl) pinEl.classList.add('selected-pandal-pin');
+    }
+
+    // 6. Build Rich Pandal Popup with Nearest Food Joints list
+    const isBookmarked = this.isPandalBookmarked(p.id);
+    const popupContent = `
+      <div class="w-72 overflow-hidden rounded-2xl bg-[#1a1c1e] font-body text-white shadow-2xl">
+        <div class="h-32 w-full bg-cover bg-center relative" style="background-image: url('${p.image}')">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1a1c1e] via-[#1a1c1e]/40 to-transparent"></div>
+          <span class="absolute top-2 right-2 px-2.5 py-0.5 rounded-full bg-surface/80 text-[10px] font-mono text-tertiary font-bold">Est. ${p.estYear}</span>
+          <span class="absolute bottom-2 left-3 text-[11px] font-mono uppercase text-secondary font-bold truncate max-w-[190px]">${p.zone}</span>
+        </div>
+        <div class="p-3.5 space-y-3">
+          <div>
+            <h4 class="font-headline text-base font-bold text-white leading-tight">${p.name}</h4>
+            <div class="text-[11px] font-mono text-tertiary flex items-center gap-1 mt-0.5">
+              <span class="material-symbols-outlined text-[14px]">schedule</span> ${p.bestTime}
+            </div>
+          </div>
+
+          <!-- Nearest Food Joints List -->
+          <div class="space-y-2 pt-2 border-t border-white/10">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono uppercase text-secondary font-bold flex items-center gap-1">
+                <span>🍽️</span> Nearest Food Joints (${nearestEateries.length})
+              </span>
+              <span class="text-[9px] font-mono text-on-surface-variant">Walking Distance</span>
+            </div>
+
+            <div class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+              ${nearestEateries.map(e => `
+                <div class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all flex items-center justify-between gap-2 cursor-pointer" onclick="window.sharodiyaApp.openEateryModal('${e.id}')">
+                  <div class="overflow-hidden">
+                    <div class="text-xs font-bold text-white truncate hover:text-secondary">${e.name}</div>
+                    <div class="text-[10px] text-yellow-300 font-mono flex items-center gap-1">
+                      <span>📍 ${e.distanceText}</span>
+                      <span class="text-white/30">•</span>
+                      <span>${e.walkText}</span>
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-black/40 text-tertiary shrink-0">★ ${e.rating}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="pt-2 border-t border-white/10 flex items-center justify-between gap-2">
+            <button onclick="window.sharodiyaApp.openPandalModal('${p.id}')" class="px-3 py-1.5 rounded-xl bg-surface-container-high hover:bg-white/15 text-white text-[11px] font-bold transition-all">
+              Details &amp; History
+            </button>
+            <button onclick="window.sharodiyaApp.togglePandalBookmark('${p.id}')" class="px-3 py-1.5 rounded-xl ${isBookmarked ? 'bg-primary text-black' : 'bg-primary-container text-white'} text-[11px] font-bold transition-all">
+              ${isBookmarked ? 'In Plan' : '+ Add'}
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    if (pandalMarker) {
+      pandalMarker.bindPopup(popupContent, { maxWidth: 300, className: 'dark-pandal-food-popup' });
+      pandalMarker.openPopup();
+    }
+
+    // 7. Update floating focus pill on map
+    const focusPill = document.getElementById('map-pandal-food-focus-pill');
+    const focusPandalName = document.getElementById('map-focused-pandal-name');
+    if (focusPill && focusPandalName) {
+      focusPandalName.textContent = p.name;
+      focusPill.classList.remove('hidden');
+    }
+
+    // 8. Smoothly fly camera to encompass pandal and its closest eateries
+    if (autoZoom && this.masterMap) {
+      const allCoords = [[p.coordinates.lat, p.coordinates.lng], ...nearestEateries.map(e => [e.coordinates.lat, e.coordinates.lng])];
+      const bounds = window.L.latLngBounds(allCoords);
+      this.masterMap.fitBounds(bounds, { padding: [60, 60], maxZoom: 16, duration: 1.0 });
+    }
+  }
+
+  clearPandalFoodFocus() {
+    this.selectedMapPandalId = null;
+    if (this.masterLayers.foodLines) this.masterLayers.foodLines.clearLayers();
+
+    const focusPill = document.getElementById('map-pandal-food-focus-pill');
+    if (focusPill) focusPill.classList.add('hidden');
+
+    document.querySelectorAll('.pandal-map-pin').forEach(pin => pin.classList.remove('selected-pandal-pin'));
+    this.updateMapPandals();
+    this.updateMapEateries();
+  }
+
   updateMapEateries() {
     if (!this.masterLayers.eateries) return;
+
+    // If a specific pandal is selected, maintain its nearest food joints
+    if (this.selectedMapPandalId) {
+      this.selectPandalOnMasterMap(this.selectedMapPandalId, false);
+      return;
+    }
+
     this.masterLayers.eateries.clearLayers();
     this.mapEateryMarkers.clear();
 
@@ -1556,49 +2334,6 @@ class SharodiyaApp {
 
       this.masterLayers.eateries.addLayer(marker);
       this.mapEateryMarkers.set(eatery.id, marker);
-    });
-  }
-
-  updateMapMetro() {
-    if (!this.masterLayers.metro) return;
-    this.masterLayers.metro.clearLayers();
-    this.mapMetroMarkers.clear();
-
-    if (!this.activeLayers.metro) return;
-
-    this.metroStations.forEach(station => {
-      if (!station.coordinates) return;
-
-      const customIcon = window.L.divIcon({
-        className: 'custom-metro-pin-container',
-        html: `
-          <div class="metro-map-pin" title="Metro: ${station.name}">
-            <span class="material-symbols-outlined text-[14px]">directions_subway</span>
-          </div>
-        `,
-        iconSize: [24, 24],
-        iconAnchor: [12, 12],
-        popupAnchor: [0, -13]
-      });
-
-      const popupContent = `
-        <div class="w-60 p-3 rounded-xl bg-surface-container font-body space-y-2">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-purple-400 text-xl">directions_subway</span>
-            <div>
-              <h4 class="font-headline text-sm font-bold text-white leading-tight">${station.name}</h4>
-              <span class="text-[10px] font-mono text-purple-300">${station.line}</span>
-            </div>
-          </div>
-          <p class="text-xs text-on-surface-variant font-mono leading-tight">✦ ${station.landmark}</p>
-        </div>
-      `;
-
-      const marker = window.L.marker([station.coordinates.lat, station.coordinates.lng], { icon: customIcon })
-        .bindPopup(popupContent, { maxWidth: 260, className: 'dark-pandal-popup' });
-
-      this.masterLayers.metro.addLayer(marker);
-      this.mapMetroMarkers.set(station.id, marker);
     });
   }
 
@@ -1759,20 +2494,18 @@ class SharodiyaApp {
       setTimeout(() => {
         if (this.masterMap) {
           this.masterMap.invalidateSize();
-          this.masterMap.flyTo([lat, lng], zoom, { duration: 1.2 });
 
-          setTimeout(() => {
-            if (entityType === 'pandal') {
-              const marker = this.mapPandalMarkers.get(entityId);
-              if (marker) marker.openPopup();
-            } else if (entityType === 'eatery') {
-              const marker = this.mapEateryMarkers.get(entityId);
-              if (marker) marker.openPopup();
-            } else if (entityType === 'metro') {
-              const marker = this.mapMetroMarkers.get(entityId);
-              if (marker) marker.openPopup();
-            }
-          }, 800);
+          if (entityType === 'pandal' && entityId) {
+            this.selectPandalOnMasterMap(entityId, true);
+          } else {
+            this.masterMap.flyTo([lat, lng], zoom, { duration: 1.2 });
+            setTimeout(() => {
+              if (entityType === 'eatery') {
+                const marker = this.mapEateryMarkers.get(entityId);
+                if (marker) marker.openPopup();
+              }
+            }, 700);
+          }
         }
       }, 200);
     }, 100);
@@ -2569,6 +3302,890 @@ class SharodiyaApp {
   }
 
   // ==========================================
+  // PUJA METRO NETWORK ENGINE (OFFICIAL TRANSIT & PANDAL DISCOVERY LAYER)
+  // ==========================================
+  initMetroNetworkMap() {
+    const mapContainer = document.getElementById('metro-network-osm-map');
+    if (!mapContainer || typeof window.L === 'undefined') return;
+
+    if (this.metroMap) {
+      setTimeout(() => {
+        if (this.metroMap) {
+          this.metroMap.invalidateSize();
+          this.updateMetroNetworkMap();
+        }
+      }, 150);
+      return;
+    }
+
+    try {
+      // Center focused on Kolkata Metro span (North-South & East-West corridor)
+      this.metroMap = window.L.map('metro-network-osm-map', {
+        center: [22.5650, 88.3650],
+        zoom: 12,
+        minZoom: 11,
+        maxZoom: 19,
+        maxBounds: KOLKATA_OUTSKIRTS_BOUNDS,
+        maxBoundsViscosity: 1.0,
+        zoomSnap: 0.5,
+        zoomDelta: 0.5,
+        zoomControl: true,
+        scrollWheelZoom: true
+      });
+
+      // Synchronize tile layer with current theme
+      this.updateMetroMapTheme();
+
+      // Initialize Metro Leaflet Layer Groups
+      this.metroLayers.lines = window.L.layerGroup().addTo(this.metroMap);
+      this.metroLayers.stations = window.L.layerGroup().addTo(this.metroMap);
+      this.metroLayers.interchanges = window.L.layerGroup().addTo(this.metroMap);
+
+      // Draw permanent Metro Track Geometries
+      this.drawMetroLineTracks();
+
+      // Render Stations and Interchanges
+      this.updateMetroNetworkMap();
+
+      setTimeout(() => {
+        if (this.metroMap) this.metroMap.invalidateSize();
+      }, 200);
+
+    } catch (err) {
+      console.error('Metro Network OpenStreetMap initialization error:', err);
+    }
+  }
+
+  updateMetroMapTheme() {
+    if (!this.metroMap || typeof window.L === 'undefined') return;
+    const osmTileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+    if (this.metroTileLayer) {
+      try {
+        this.metroMap.removeLayer(this.metroTileLayer);
+      } catch (e) {}
+    }
+
+    try {
+      this.metroTileLayer = window.L.tileLayer(osmTileUrl, {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        minZoom: 11,
+        maxZoom: 19,
+        crossOrigin: true
+      });
+      this.metroTileLayer.addTo(this.metroMap);
+      this.metroTileLayer.bringToBack();
+    } catch (e) {
+      console.warn('[Metro Map] Tile layer note:', e);
+    }
+  }
+
+  drawMetroLineTracks(filter = 'all') {
+    if (!this.metroMap || !this.metroLayers.lines) return;
+    this.metroLayers.lines.clearLayers();
+
+    // Official Real Operational Kolkata Metro Track Geometry
+    const METRO_LINE_TRACKS = {
+      Blue: [
+        [22.6534, 88.3575], // Dakshineswar
+        [22.6417, 88.3688], // Baranagar
+        [22.6391, 88.3892], // Noapara
+        [22.6212, 88.3934], // Dum Dum
+        [22.6062, 88.3846], // Belgachia
+        [22.6015, 88.3712], // Shyambazar
+        [22.5974, 88.3662], // Shobhabazar Sutanuti
+        [22.5855, 88.3601], // Girish Park
+        [22.5802, 88.3608], // Mahatma Gandhi Road
+        [22.5694, 88.3582], // Central
+        [22.5658, 88.3551], // Chandni Chowk
+        [22.5639, 88.3516], // Esplanade (Interchange)
+        [22.5521, 88.3508], // Park Street
+        [22.5457, 88.3496], // Maidan
+        [22.5367, 88.3477], // Rabindra Sadan
+        [22.5312, 88.3468], // Netaji Bhavan
+        [22.5238, 88.3466], // Jatin Das Park
+        [22.5175, 88.3462], // Kalighat
+        [22.5085, 88.3461], // Rabindra Sarobar
+        [22.4975, 88.3458], // Mahanayak Uttam Kumar
+        [22.4871, 88.3467], // Netaji
+        [22.4764, 88.3533], // Masterda Surya Sen
+        [22.4719, 88.3615], // Gitanjali
+        [22.4665, 88.3752], // Kavi Nazrul
+        [22.4632, 88.3871], // Shahid Khudiram
+        [22.4722, 88.3986]  // Kavi Subhash (Interchange)
+      ],
+      Green_West: [
+        [22.5878, 88.3283], // Howrah Maidan
+        [22.5842, 88.3411], // Howrah Railway Station
+        [22.5728, 88.3472], // Mahakaran
+        [22.5639, 88.3516]  // Esplanade (Interchange)
+      ],
+      Green_East: [
+        [22.5672, 88.3718], // Sealdah
+        [22.5714, 88.3912], // Phoolbagan
+        [22.5718, 88.4042], // Salt Lake Stadium
+        [22.5772, 88.4069], // Bengal Chemical
+        [22.5861, 88.4093], // City Centre
+        [22.5889, 88.4167], // Central Park
+        [22.5833, 88.4239], // Karunamoyee
+        [22.5806, 88.4319]  // Salt Lake Sector V
+      ],
+      Purple: [
+        [22.4502, 88.3056], // Joka
+        [22.4638, 88.3082], // Thakurpukur
+        [22.4761, 88.3117], // Sakherbazar
+        [22.4892, 88.3164], // Behala Chowrasta
+        [22.4989, 88.3211], // Behala Bazar
+        [22.5108, 88.3242], // Taratala
+        [22.5186, 88.3267]  // Majerhat
+      ],
+      Orange: [
+        [22.4722, 88.3986], // Kavi Subhash (Interchange)
+        [22.4852, 88.3989], // Satyajit Ray
+        [22.4965, 88.3995], // Jyotirindra Nandy
+        [22.5062, 88.4001], // Kavi Sukanta
+        [22.5147, 88.4008]  // Hemanta Mukhopadhyay (Ruby)
+      ]
+    };
+
+    let LINE_CONFIG = [
+      { key: 'Blue', coords: METRO_LINE_TRACKS.Blue, color: '#0057B7', name: 'Blue Line (North-South Corridor)' },
+      { key: 'Green', coords: METRO_LINE_TRACKS.Green_West, color: '#009A44', name: 'Green Line (Howrah Maidan - Esplanade Under-River)' },
+      { key: 'Green', coords: METRO_LINE_TRACKS.Green_East, color: '#009A44', name: 'Green Line (Sealdah - Salt Lake Sector V)' },
+      { key: 'Purple', coords: METRO_LINE_TRACKS.Purple, color: '#7F2B87', name: 'Purple Line (Joka - Majerhat Corridor)' },
+      { key: 'Orange', coords: METRO_LINE_TRACKS.Orange, color: '#FF7300', name: 'Orange Line (Kavi Subhash - Ruby Corridor)' }
+    ];
+
+    // Filter tracks: When any line is selected, all others disappear
+    if (filter && filter !== 'all' && filter !== 'interchange') {
+      LINE_CONFIG = LINE_CONFIG.filter(cfg => cfg.key === filter);
+    }
+
+    LINE_CONFIG.forEach(cfg => {
+      // Outer Casing Glow Track
+      window.L.polyline(cfg.coords, {
+        color: '#000000',
+        weight: 9,
+        opacity: 0.6,
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(this.metroLayers.lines);
+
+      // Core Official Color Metro Track
+      const linePoly = window.L.polyline(cfg.coords, {
+        color: cfg.color,
+        weight: 5.5,
+        opacity: 0.95,
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(this.metroLayers.lines);
+
+      linePoly.bindTooltip(cfg.name, {
+        sticky: true,
+        className: 'font-mono text-xs font-bold'
+      });
+    });
+  }
+
+  updateMetroNetworkMap() {
+    if (!this.metroMap || typeof window.L === 'undefined') return;
+
+    const filter = this.metroActiveLineFilter;
+    const query = (this.metroSearchQuery || '').toLowerCase().trim();
+
+    // Redraw line tracks: When a line is selected, all other tracks disappear
+    this.drawMetroLineTracks(filter);
+
+    // Clear dynamic station and interchange layers
+    if (this.metroLayers.stations) this.metroLayers.stations.clearLayers();
+    if (this.metroLayers.interchanges) this.metroLayers.interchanges.clearLayers();
+
+    this.metroStationMarkers.clear();
+
+    // 1. Filter operational stations strictly for this selected line
+    const operationalStations = this.metroStations.filter(s => {
+      if (s.operationalStatus !== 'operational') return false;
+
+      // Line Filter: Only show stations belonging to the selected line
+      if (filter === 'interchange') {
+        if (!s.interchange) return false;
+      } else if (filter !== 'all') {
+        if (Array.isArray(s.line)) {
+          if (!s.line.includes(filter)) return false;
+        } else if (s.line !== filter) {
+          return false;
+        }
+      }
+
+      // Search Query Filter
+      if (query) {
+        const nameMatch = (s.stationName || s.name || '').toLowerCase().includes(query);
+        const landmarkMatch = (s.landmark || '').toLowerCase().includes(query);
+        const pandalMatch = (s.nearbyPandals || []).some(p => (p.pandalName || p.name || '').toLowerCase().includes(query));
+        if (!nameMatch && !landmarkMatch && !pandalMatch) return false;
+      }
+
+      return true;
+    });
+
+    // 2. Render Station & Interchange Markers
+    operationalStations.forEach(st => {
+      const isSelected = st.id === this.selectedMetroStationId;
+      const isInterchange = st.interchange === true;
+
+      let iconHtml = '';
+      let markerClass = 'metro-station-node';
+
+      if (isInterchange) {
+        const interchangeTypeClass = st.id.includes('kavi-subhash') ? 'metro-interchange-node-orange' : '';
+        markerClass = `metro-interchange-node ${interchangeTypeClass} ${isSelected ? 'selected-station-node' : ''}`;
+        iconHtml = `<div class="${markerClass}" title="${st.stationName} (Interchange)">
+          <span class="material-symbols-outlined text-[15px] text-yellow-300 font-bold">swap_horiz</span>
+        </div>`;
+      } else {
+        const lineKey = typeof st.line === 'string' ? st.line.toLowerCase() : 'blue';
+        markerClass = `metro-station-node metro-station-node-${lineKey} ${isSelected ? 'selected-station-node' : ''}`;
+        iconHtml = `<div class="${markerClass}" title="${st.stationName} (Operational Station)">
+          <span class="material-symbols-outlined text-[13px] text-white">train</span>
+        </div>`;
+      }
+
+      const icon = window.L.divIcon({
+        className: 'custom-metro-node-wrapper',
+        html: iconHtml,
+        iconSize: isInterchange ? [38, 38] : [28, 28],
+        iconAnchor: isInterchange ? [19, 19] : [14, 14]
+      });
+
+      const marker = window.L.marker([st.coordinates.lat, st.coordinates.lng], { icon });
+
+      // Station Click Handler
+      marker.on('click', () => {
+        this.selectMetroStation(st.id, true);
+      });
+
+      // Tooltip
+      const lineNameBadge = Array.isArray(st.line) ? st.line.join(' ↔ ') + ' Line' : `${st.line} Line`;
+      marker.bindTooltip(`
+        <div class="p-1.5 font-mono text-xs">
+          <div class="font-bold text-white flex items-center gap-1">
+            <span>🚇</span> <span>${st.stationName}</span>
+          </div>
+          <div class="text-[10px] text-cyan-300 font-semibold">${isInterchange ? '⚡ METRO INTERCHANGE' : lineNameBadge}</div>
+          <div class="text-[10px] text-on-surface-variant">${(st.nearbyPandals || []).length} Connected Pandals</div>
+        </div>
+      `, {
+        direction: 'top',
+        offset: [0, -14],
+        className: 'glass-card border border-white/20 p-0 text-white rounded-xl shadow-xl'
+      });
+
+      if (isInterchange) {
+        marker.addTo(this.metroLayers.interchanges);
+      } else {
+        marker.addTo(this.metroLayers.stations);
+      }
+
+      this.metroStationMarkers.set(st.id, marker);
+    });
+  }
+
+  selectMetroStation(stationId, zoom = true) {
+    this.selectedMetroStationId = stationId;
+    const station = this.metroStations.find(s => s.id === stationId);
+    if (!station) return;
+
+    // Update map markers
+    this.updateMetroNetworkMap();
+
+    // Pan / Zoom map smoothly to station
+    if (zoom && this.metroMap) {
+      this.metroMap.flyTo([station.coordinates.lat, station.coordinates.lng], 14.5, { duration: 1 });
+    }
+
+    // Render Right Information Panel
+    this.renderMetroStationInfoPanel();
+
+    // Update bottom map hint text
+    const hintText = document.getElementById('metro-map-hint-text');
+    if (hintText) {
+      hintText.innerHTML = `Selected <strong>${station.stationName}</strong> • ${(station.nearbyPandals || []).length} Nearest Puja Pandals Connected.`;
+    }
+  }
+
+  fitMetroBounds() {
+    if (!this.metroMap || typeof window.L === 'undefined') return;
+    const allCoords = this.metroStations.filter(s => s.operationalStatus === 'operational').map(s => [s.coordinates.lat, s.coordinates.lng]);
+    if (allCoords.length > 0) {
+      const bounds = window.L.latLngBounds(allCoords);
+      this.metroMap.fitBounds(bounds, { padding: [40, 40], animate: true, duration: 1 });
+    }
+  }
+
+  renderMetroStationInfoPanel() {
+    const panel = document.getElementById('metro-station-info-panel');
+    if (!panel) return;
+
+    if (!this.selectedMetroStationId) {
+      // Default Welcome View when no station is active
+      const totalStations = this.metroStations.filter(s => s.operationalStatus === 'operational').length;
+      const blueStations = this.metroStations.filter(s => s.line === 'Blue' || (Array.isArray(s.line) && s.line.includes('Blue'))).length;
+      const greenStations = this.metroStations.filter(s => s.line === 'Green' || (Array.isArray(s.line) && s.line.includes('Green'))).length;
+      const purpleStations = this.metroStations.filter(s => s.line === 'Purple').length;
+      const orangeStations = this.metroStations.filter(s => s.line === 'Orange' || (Array.isArray(s.line) && s.line.includes('Orange'))).length;
+
+      panel.innerHTML = `
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span class="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">Metro Station Navigator</span>
+            </div>
+            <h3 class="font-headline text-2xl font-bold text-white">Select an Operational Station</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              Click any operational station marker on the map to inspect connected puja pandals, calculate walking times, and create transit circuits.
+            </p>
+          </div>
+
+          <!-- Quick Metro Line Navigation Shortcuts -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-mono uppercase text-tertiary font-bold flex items-center gap-1.5">
+              <span>🚇</span> Operational Line Terminals &amp; Hubs
+            </h4>
+            
+            <div class="space-y-2 text-xs">
+              <!-- Blue Line -->
+              <div class="p-3 rounded-2xl bg-surface-container border border-[#0057B7]/40 space-y-2">
+                <div class="flex items-center justify-between font-bold text-[#5ba3ff]">
+                  <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#0057B7]"></span> Blue Line</span>
+                  <span class="font-mono text-[10px] bg-[#0057B7]/20 px-2 py-0.5 rounded-full">${blueStations} Stations</span>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-shyambazar')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Shyambazar</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-shobhabazar-sutanuti')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Shobhabazar</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-kalighat')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Kalighat</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-esplanade')" class="px-2.5 py-1 rounded-lg bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-300 text-[11px] font-mono font-bold transition-colors">⚡ Esplanade</button>
+                </div>
+              </div>
+
+              <!-- Green Line -->
+              <div class="p-3 rounded-2xl bg-surface-container border border-[#009A44]/40 space-y-2">
+                <div class="flex items-center justify-between font-bold text-[#4ade80]">
+                  <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#009A44]"></span> Green Line</span>
+                  <span class="font-mono text-[10px] bg-[#009A44]/20 px-2 py-0.5 rounded-full">${greenStations} Stations</span>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-howrah-railway-station')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Howrah Rly Stn</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-sealdah')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Sealdah</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-salt-lake-sector-v')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Sector V</button>
+                </div>
+              </div>
+
+              <!-- Purple & Orange -->
+              <div class="grid grid-cols-2 gap-2">
+                <div class="p-3 rounded-2xl bg-surface-container border border-[#7F2B87]/40 space-y-2">
+                  <div class="font-bold text-[#d8b4fe] flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#7F2B87]"></span> Purple Line</div>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-behala-chowrasta')" class="w-full text-left px-2 py-1 rounded-lg bg-surface-container-high text-white text-[11px] font-mono hover:bg-[#7F2B87]/30 transition-colors truncate">Behala Chowrasta</button>
+                </div>
+                <div class="p-3 rounded-2xl bg-surface-container border border-[#FF7300]/40 space-y-2">
+                  <div class="font-bold text-[#fdba74] flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#FF7300]"></span> Orange Line</div>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-hemanta-mukhopadhyay-ruby')" class="w-full text-left px-2 py-1 rounded-lg bg-surface-container-high text-white text-[11px] font-mono hover:bg-[#FF7300]/30 transition-colors truncate">Ruby Crossing</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-cyan-950/40 border border-cyan-500/20 text-xs text-on-surface-variant flex items-center gap-3">
+            <span class="material-symbols-outlined text-cyan-400 text-2xl shrink-0">info</span>
+            <span>All ${totalStations} stations shown on this map are verified and in active revenue service for Durga Puja 2026.</span>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const station = this.metroStations.find(s => s.id === this.selectedMetroStationId);
+    if (!station) return;
+
+    const isInterchange = station.interchange === true;
+    const pandals = station.nearbyPandals || [];
+
+    // Line Badges
+    let lineBadgesHtml = '';
+    if (isInterchange) {
+      const lines = Array.isArray(station.interchangeLines || station.line) ? (station.interchangeLines || station.line) : ['Blue', 'Green'];
+      lineBadgesHtml = `
+        <div class="p-3 rounded-2xl bg-gradient-to-r from-blue-900/40 via-green-900/30 to-yellow-900/30 border border-yellow-400/50 space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-yellow-300 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+              METRO INTERCHANGE
+            </span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-yellow-400/20 text-yellow-300 border border-yellow-400/40">Dual Line Transfer</span>
+          </div>
+          <div class="text-xs font-bold text-white flex items-center gap-2">
+            ${lines.map(l => `<span class="px-2 py-0.5 rounded-lg metro-badge-${l.toLowerCase()} font-mono font-bold">${l} Line</span>`).join('<span class="text-yellow-400">↔</span>')}
+          </div>
+        </div>
+      `;
+    } else {
+      const lineKey = typeof station.line === 'string' ? station.line.toLowerCase() : 'blue';
+      lineBadgesHtml = `
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-xl metro-badge-${lineKey} text-xs font-mono font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[var(--metro-${lineKey})]"></span>
+            ${station.lineName || `${station.line} Line`}
+          </span>
+          <span class="px-2.5 py-1 rounded-xl bg-surface-container border border-white/10 text-on-surface-variant text-[11px] font-mono">Operational</span>
+        </div>
+      `;
+    }
+
+    panel.innerHTML = `
+      <div class="space-y-5 animate-fadeIn">
+        
+        <!-- Station Header -->
+        <div class="space-y-3 border-b border-white/10 pb-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-cyan-400 flex items-center gap-1">
+                <span>🚇</span> Operational Metro Station
+              </span>
+              <h3 class="font-headline text-2xl font-black text-white mt-0.5">${station.stationName}</h3>
+            </div>
+            <button onclick="window.sharodiyaApp.selectedMetroStationId = null; window.sharodiyaApp.updateMetroNetworkMap(); window.sharodiyaApp.renderMetroStationInfoPanel();" class="p-1.5 rounded-full bg-white/10 text-on-surface-variant hover:text-white transition-colors" title="Close Station details">
+              <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+          </div>
+
+          ${lineBadgesHtml}
+
+          <div class="text-xs text-on-surface-variant flex items-center gap-2 pt-1">
+            <span class="material-symbols-outlined text-[16px] text-cyan-400 shrink-0">location_on</span>
+            <span>${station.landmark || 'Kolkata Metropolitan Area'}</span>
+          </div>
+        </div>
+
+        <!-- Nearest Puja Pandals List (Exclusively Closest) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="text-xs font-mono uppercase text-tertiary font-bold flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">temple_hindu</span>
+                Closest Puja Pandals (${pandals.length})
+              </h4>
+              <p class="text-[10px] text-on-surface-variant font-mono">Exclusively mapped to this station (shortest walk)</p>
+            </div>
+            <span class="px-2 py-0.5 rounded-md text-[10px] font-mono bg-primary/10 text-primary border border-primary/20 font-bold shrink-0">Closest Gateway</span>
+          </div>
+
+          ${pandals.length === 0 ? `
+            <div class="p-4 rounded-2xl bg-surface-container border border-white/10 text-center space-y-1">
+              <p class="text-xs text-white font-bold">No Major Pandals Closest to This Station</p>
+              <p class="text-[11px] text-on-surface-variant">Pandals in this corridor are closer to adjacent stations or further along the line.</p>
+            </div>
+          ` : `
+            <div class="space-y-3">
+              ${pandals.map(pandal => `
+                <div class="p-3.5 rounded-2xl bg-surface-container border border-white/10 hover:border-yellow-400/40 transition-all space-y-2.5">
+                  <div class="flex items-start justify-between gap-2">
+                    <div class="space-y-1">
+                      <h5 class="text-sm font-bold text-white flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.openPandalModal('${pandal.id}')">
+                        <span>🛕</span> <span>${pandal.name || pandal.pandalName}</span>
+                      </h5>
+                      <div class="text-xs text-yellow-300 font-mono font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[15px] text-yellow-400">directions_walk</span>
+                        <span>📍 ${pandal.distanceText} · ${pandal.walkText}</span>
+                        <span class="text-[10px] text-green-400 font-normal ml-1">✓ Closest Stn</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white/10 text-tertiary shrink-0">★ ${pandal.rating || '4.85'}</span>
+                  </div>
+
+                  <p class="text-[11px] text-on-surface-variant line-clamp-2 leading-relaxed">
+                    ${pandal.theme || pandal.zone || 'Authentic Durga Puja Celebration'}
+                  </p>
+
+                  <div class="flex items-center gap-2 pt-1 border-t border-white/5">
+                    <button class="px-2.5 py-1.5 rounded-xl bg-surface-container-high hover:bg-white/15 text-white text-[11px] font-bold transition-all flex items-center gap-1" onclick="window.sharodiyaApp.openPandalModal('${pandal.id}')">
+                      <span class="material-symbols-outlined text-[14px] text-primary">visibility</span>
+                      <span>Explore</span>
+                    </button>
+                    <button class="px-2.5 py-1.5 rounded-xl bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 text-[11px] font-bold transition-all flex items-center gap-1" onclick="window.sharodiyaApp.addMetroPandalToPlan('${pandal.id}', '${station.stationName}')">
+                      <span class="material-symbols-outlined text-[14px]">add</span>
+                      <span>Add to Pujo Route</span>
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=${station.coordinates.lat},${station.coordinates.lng}&destination=${pandal.coordinates.lat},${pandal.coordinates.lng}&travelmode=walking" target="_blank" rel="noopener" class="px-2.5 py-1.5 rounded-xl bg-surface-container-high hover:bg-white/15 text-cyan-300 text-[11px] font-bold transition-all flex items-center gap-1 ml-auto" title="Open Walking Directions in Google Maps">
+                      <span class="material-symbols-outlined text-[14px]">directions</span>
+                    </a>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+
+        <!-- Station Footer Actions -->
+        <div class="pt-4 border-t border-white/10 flex flex-col gap-2.5">
+          <button onclick="window.sharodiyaApp.openMetroPlannerModal('${station.id}')" class="w-full py-3 rounded-2xl bg-primary text-black font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] active:scale-95 transition-transform">
+            <span class="material-symbols-outlined text-[18px]">alt_route</span>
+            <span>Plan Pujo Route via ${station.stationName}</span>
+          </button>
+          <a href="https://www.google.com/maps/search/?api=1&query=${station.coordinates.lat},${station.coordinates.lng}" target="_blank" rel="noopener" class="w-full py-2.5 rounded-2xl bg-surface-container hover:bg-surface-container-high text-white text-xs font-bold text-center border border-white/10 transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-cyan-400">near_me</span>
+            <span>Open Station in Google Maps</span>
+          </a>
+        </div>
+
+      </div>
+    `;
+  }
+
+  addMetroPandalToPlan(pandalId, fromStationName) {
+    const p = this.findPandal(pandalId);
+    if (!p) return;
+
+    const activePlan = this.getActivePlan();
+    const existingIndex = activePlan.items.findIndex(item => item.type === 'pandal' && item.itemId === p.id);
+
+    if (existingIndex >= 0) {
+      this.showToast(`"${p.name}" is already in active plan "${activePlan.name}".`);
+      return;
+    }
+
+    activePlan.items.push({
+      id: 'item_' + Date.now(),
+      type: 'pandal',
+      itemId: p.id,
+      name: p.name,
+      zone: p.zone || p.location,
+      timeSlot: p.bestTime ? p.bestTime.slice(0, 18) : '06:00 PM - 07:30 PM',
+      distanceFromPrev: 'Near ' + (fromStationName || p.nearestMetro),
+      note: `Connected via Metro: ${fromStationName || p.nearestMetro}`,
+      coordinates: p.coordinates
+    });
+
+    this.savePlans();
+    this.updateParikramaBadge();
+    this.showToast(`Added "${p.name}" (via ${fromStationName}) to "${activePlan.name}"! 🛕`);
+  }
+
+  openMetroPlannerModal(preselectedStationId = null) {
+    const modal = document.getElementById('pujo-metro-planner-modal');
+    if (!modal) return;
+
+    const operationalStations = this.metroStations.filter(s => s.operationalStatus === 'operational');
+
+    // Populate Start and Destination Selectors grouped by line
+    const startSelect = document.getElementById('route-start-station-select');
+    const destSelect = document.getElementById('route-dest-station-select');
+
+    const lines = ['Blue', 'Green', 'Purple', 'Orange'];
+    let optionsHtml = '<option value="">-- Select Station --</option>';
+
+    lines.forEach(line => {
+      const lineStations = operationalStations.filter(s => {
+        if (Array.isArray(s.line)) return s.line.includes(line);
+        return s.line === line;
+      });
+      if (lineStations.length > 0) {
+        optionsHtml += `<optgroup label="${line} Line">`;
+        lineStations.forEach(st => {
+          const isInterchange = st.interchange ? ' ⚡ Interchange' : '';
+          optionsHtml += `<option value="${st.id}">${st.stationName}${isInterchange}</option>`;
+        });
+        optionsHtml += `</optgroup>`;
+      }
+    });
+
+    if (startSelect) {
+      startSelect.innerHTML = optionsHtml;
+      if (preselectedStationId) {
+        startSelect.value = preselectedStationId;
+      } else if (!startSelect.value) {
+        startSelect.value = 'metro-shyambazar';
+      }
+    }
+
+    if (destSelect) {
+      destSelect.innerHTML = optionsHtml;
+      if (!destSelect.value || destSelect.value === startSelect.value) {
+        destSelect.value = 'metro-kalighat';
+      }
+    }
+
+    // Set active day
+    const daySelect = document.getElementById('route-target-day-select');
+    if (daySelect) {
+      daySelect.value = this.getActivePlan().day || this.currentDay || 'Maha Sasthi';
+    }
+
+    this.updateMetroPlannerRoutePreview();
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  closeMetroPlannerModal() {
+    const modal = document.getElementById('pujo-metro-planner-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  updateMetroPlannerRoutePreview() {
+    const startSelect = document.getElementById('route-start-station-select');
+    const destSelect = document.getElementById('route-dest-station-select');
+    const pandalListContainer = document.getElementById('route-pandal-selection-list');
+    const timelineContainer = document.getElementById('route-timeline-steps-list');
+    const pandalCountLabel = document.getElementById('route-available-pandals-count');
+
+    if (!startSelect || !destSelect || !timelineContainer) return;
+
+    const startStation = this.metroStations.find(s => s.id === startSelect.value);
+    const destStation = this.metroStations.find(s => s.id === destSelect.value);
+
+    if (!startStation || !destStation) {
+      timelineContainer.innerHTML = '<div class="text-on-surface-variant italic p-3">Select starting and destination metro stations to generate route.</div>';
+      return;
+    }
+
+    // Gather available pandals near start station, dest station, and interchange if applicable
+    const availablePandals = [];
+    const seenPandalIds = new Set();
+
+    (startStation.nearbyPandals || []).forEach(p => {
+      if (!seenPandalIds.has(p.id)) {
+        seenPandalIds.add(p.id);
+        availablePandals.push({ ...p, nearStation: startStation.stationName, stationRole: 'start' });
+      }
+    });
+
+    (destStation.nearbyPandals || []).forEach(p => {
+      if (!seenPandalIds.has(p.id)) {
+        seenPandalIds.add(p.id);
+        availablePandals.push({ ...p, nearStation: destStation.stationName, stationRole: 'dest' });
+      }
+    });
+
+    if (pandalCountLabel) {
+      pandalCountLabel.textContent = `${availablePandals.length} pandals available along stations`;
+    }
+
+    // Render Pandal checkboxes
+    if (pandalListContainer) {
+      if (availablePandals.length === 0) {
+        pandalListContainer.innerHTML = '<div class="col-span-2 text-xs text-on-surface-variant italic p-2">No direct pandals registered at selected terminals.</div>';
+      } else {
+        // Retain selected pandals in state
+        const selectedIds = new Set(this.metroRoutePlanner.selectedPandalIds || []);
+
+        pandalListContainer.innerHTML = availablePandals.map(p => {
+          const isChecked = selectedIds.has(p.id);
+          return `
+            <label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/10 cursor-pointer transition-colors">
+              <input type="checkbox" class="metro-pandal-checkbox rounded text-primary focus:ring-primary h-4 w-4 bg-surface-container-highest border-white/20" value="${p.id}" ${isChecked ? 'checked' : ''} />
+              <div class="overflow-hidden">
+                <div class="text-xs font-bold text-white truncate">🛕 ${p.name || p.pandalName}</div>
+                <div class="text-[10px] text-yellow-300 font-mono">📍 ${p.distanceText} · ${p.walkText} (Near ${p.nearStation})</div>
+              </div>
+            </label>
+          `;
+        }).join('');
+
+        // Bind checkbox changes
+        pandalListContainer.querySelectorAll('.metro-pandal-checkbox').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const checkedBoxes = pandalListContainer.querySelectorAll('.metro-pandal-checkbox:checked');
+            this.metroRoutePlanner.selectedPandalIds = Array.from(checkedBoxes).map(c => c.value);
+            this.renderMetroRouteTimeline(startStation, destStation);
+          });
+        });
+      }
+    }
+
+    this.renderMetroRouteTimeline(startStation, destStation);
+  }
+
+  renderMetroRouteTimeline(startStation, destStation) {
+    const timelineContainer = document.getElementById('route-timeline-steps-list');
+    if (!timelineContainer) return;
+
+    const startLine = Array.isArray(startStation.line) ? startStation.line[0] : startStation.line;
+    const destLine = Array.isArray(destStation.line) ? destStation.line[0] : destStation.line;
+    const isTransferNeeded = startLine !== destLine;
+
+    // Detect genuine operational interchange
+    let interchangeStation = null;
+    if (isTransferNeeded) {
+      if ((startLine === 'Blue' && destLine === 'Green') || (startLine === 'Green' && destLine === 'Blue')) {
+        interchangeStation = this.metroStations.find(s => s.id === 'metro-esplanade');
+      } else if ((startLine === 'Blue' && destLine === 'Orange') || (startLine === 'Orange' && destLine === 'Blue')) {
+        interchangeStation = this.metroStations.find(s => s.id === 'metro-kavi-subhash');
+      }
+    }
+
+    const selectedPandalIds = new Set(this.metroRoutePlanner.selectedPandalIds || []);
+    const selectedPandalsNearStart = (startStation.nearbyPandals || []).filter(p => selectedPandalIds.has(p.id));
+    const selectedPandalsNearDest = (destStation.nearbyPandals || []).filter(p => selectedPandalIds.has(p.id));
+
+    let timelineHtml = `
+      <!-- Step 1: Start Station -->
+      <div class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container border border-white/5">
+        <span class="w-7 h-7 rounded-full bg-green-500/20 text-green-400 border border-green-500/40 flex items-center justify-center text-xs font-bold shrink-0">1</span>
+        <div class="space-y-0.5">
+          <div class="text-xs font-bold text-white flex items-center gap-2">
+            <span>🚇 Board Metro at ${startStation.stationName}</span>
+            <span class="px-2 py-0.2 rounded metro-badge-${startLine.toLowerCase()} text-[10px]">${startLine} Line</span>
+          </div>
+          <div class="text-[11px] text-on-surface-variant font-mono">Platform 1 / 2 • Operational Revenue Service</div>
+        </div>
+      </div>
+    `;
+
+    // Start Station Connected Pandals
+    if (selectedPandalsNearStart.length > 0) {
+      selectedPandalsNearStart.forEach(p => {
+        timelineHtml += `
+          <div class="flex items-start gap-3 p-2.5 rounded-xl bg-yellow-950/30 border border-yellow-400/20 ml-4">
+            <span class="w-6 h-6 rounded-full bg-yellow-400/20 text-yellow-300 flex items-center justify-center text-xs shrink-0">🚶</span>
+            <div class="space-y-0.5">
+              <div class="text-xs font-bold text-yellow-300">🛕 Visit: ${p.name || p.pandalName}</div>
+              <div class="text-[10px] text-on-surface-variant font-mono">📍 ${p.distanceText} walk (${p.walkText}) from ${startStation.stationName} • ~45 min Darshan</div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Metro Transit / Transfer Step
+    if (isTransferNeeded && interchangeStation) {
+      timelineHtml += `
+        <!-- Interchange Transfer Step -->
+        <div class="flex items-start gap-3 p-2.5 rounded-xl bg-gradient-to-r from-blue-950/40 via-yellow-950/40 to-green-950/40 border border-yellow-400/30">
+          <span class="w-7 h-7 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/50 flex items-center justify-center text-xs font-bold shrink-0">⚡</span>
+          <div class="space-y-0.5">
+            <div class="text-xs font-bold text-yellow-300 flex items-center gap-2">
+              <span>Transfer at ${interchangeStation.stationName}</span>
+              <span class="text-[10px] text-white">(${startLine} Line ↔ ${destLine} Line)</span>
+            </div>
+            <div class="text-[11px] text-on-surface-variant font-mono">~3 min Underpass Walking Transfer • Retain Ticket / Smart Card</div>
+          </div>
+        </div>
+      `;
+    } else {
+      timelineHtml += `
+        <!-- Direct Metro Transit -->
+        <div class="flex items-start gap-3 p-2 rounded-xl bg-surface-container/50 border border-white/5 ml-4">
+          <span class="material-symbols-outlined text-[18px] text-cyan-400 shrink-0">train</span>
+          <div class="text-[11px] text-on-surface-variant font-mono">
+            Direct transit on ${startLine} Line from ${startStation.stationName} ➔ ${destStation.stationName} (~18 mins)
+          </div>
+        </div>
+      `;
+    }
+
+    // Destination Station Connected Pandals
+    if (selectedPandalsNearDest.length > 0) {
+      selectedPandalsNearDest.forEach(p => {
+        timelineHtml += `
+          <div class="flex items-start gap-3 p-2.5 rounded-xl bg-yellow-950/30 border border-yellow-400/20 ml-4">
+            <span class="w-6 h-6 rounded-full bg-yellow-400/20 text-yellow-300 flex items-center justify-center text-xs shrink-0">🚶</span>
+            <div class="space-y-0.5">
+              <div class="text-xs font-bold text-yellow-300">🛕 Visit: ${p.name || p.pandalName}</div>
+              <div class="text-[10px] text-on-surface-variant font-mono">📍 ${p.distanceText} walk (${p.walkText}) from ${destStation.stationName} • ~45 min Darshan</div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Final Arrival Step
+    timelineHtml += `
+      <!-- Step 3: Destination -->
+      <div class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container border border-white/5">
+        <span class="w-7 h-7 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 flex items-center justify-center text-xs font-bold shrink-0">★</span>
+        <div class="space-y-0.5">
+          <div class="text-xs font-bold text-white flex items-center gap-2">
+            <span>Alight at Destination: ${destStation.stationName}</span>
+            <span class="px-2 py-0.2 rounded metro-badge-${destLine.toLowerCase()} text-[10px]">${destLine} Line</span>
+          </div>
+          <div class="text-[11px] text-on-surface-variant font-mono">Circuit Complete • Return via same metro network</div>
+        </div>
+      </div>
+    `;
+
+    timelineContainer.innerHTML = timelineHtml;
+  }
+
+  saveMetroRouteToParikrama() {
+    const startSelect = document.getElementById('route-start-station-select');
+    const destSelect = document.getElementById('route-dest-station-select');
+    const daySelect = document.getElementById('route-target-day-select');
+
+    if (!startSelect || !destSelect) return;
+
+    const startStation = this.metroStations.find(s => s.id === startSelect.value);
+    const destStation = this.metroStations.find(s => s.id === destSelect.value);
+    const targetDay = daySelect ? daySelect.value : 'Maha Sasthi';
+
+    if (!startStation || !destStation) {
+      this.showToast('Please select valid start and destination metro stations.');
+      return;
+    }
+
+    // Find or create plan for targetDay
+    let targetPlan = this.plans.find(p => p.day === targetDay);
+    if (!targetPlan) {
+      targetPlan = {
+        id: 'plan_' + Date.now(),
+        name: `Metro Parikrama: ${startStation.stationName} to ${destStation.stationName}`,
+        day: targetDay,
+        createdDate: new Date().toISOString(),
+        items: []
+      };
+      this.plans.push(targetPlan);
+    }
+
+    this.activePlanId = targetPlan.id;
+
+    // Collect selected pandals
+    const selectedPandalIds = this.metroRoutePlanner.selectedPandalIds || [];
+    let addedCount = 0;
+
+    selectedPandalIds.forEach(pId => {
+      const p = this.findPandal(pId);
+      if (p) {
+        const isExisting = targetPlan.items.some(i => i.type === 'pandal' && i.itemId === p.id);
+        if (!isExisting) {
+          targetPlan.items.push({
+            id: 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+            type: 'pandal',
+            itemId: p.id,
+            name: p.name,
+            zone: p.zone || p.location,
+            timeSlot: p.bestTime ? p.bestTime.slice(0, 18) : '06:00 PM - 07:30 PM',
+            distanceFromPrev: `Metro Route (${startStation.stationName} ➔ ${destStation.stationName})`,
+            note: `Metro hopping via ${p.nearestMetro || startStation.stationName}`,
+            coordinates: p.coordinates
+          });
+          addedCount++;
+        }
+      }
+    });
+
+    this.savePlans();
+    this.updateParikramaBadge();
+    this.closeMetroPlannerModal();
+
+    this.showToast(`Saved Metro Route with ${addedCount} pandal stops to "${targetPlan.name}" (${targetDay})! 🎉`);
+
+    // Navigate to Parikrama View
+    this.navigateTo('planned');
+  }
+
+  // ==========================================
   // SMART PERSONALIZED ITINERARY GENERATOR (DAY-AWARE)
   // ==========================================
   generatePersonalizedItinerary(options = {}) {
@@ -3069,7 +4686,7 @@ class SharodiyaApp {
       lines.push(`   └ ${item.notes}`);
     });
 
-    lines.push(`\n✨ Planned with Sharodiya Neo-Festal Companion: http://localhost:3000/#planned`);
+    lines.push(`\n✨ Planned with Sharodiya Durga Puja Companion: http://localhost:3000/#planned`);
 
     const fullText = lines.join('\n');
     if (navigator.clipboard) {
@@ -3299,17 +4916,6 @@ class SharodiyaApp {
 
   // EVENT LISTENERS & CONTROLS
   setupEventListeners() {
-    // 0. Theme Toggle Buttons (Desktop Nav, Mobile Menu, Map Toolbar)
-    document.getElementById('theme-toggle-btn')?.addEventListener('click', () => {
-      this.toggleTheme();
-    });
-    document.getElementById('mobile-theme-toggle-btn')?.addEventListener('click', () => {
-      this.toggleTheme();
-    });
-    document.getElementById('master-map-theme-btn')?.addEventListener('click', () => {
-      this.toggleTheme();
-    });
-
     // 1. Audio Dhak Toggle
     const audioBtn = document.getElementById('dhak-audio-toggle');
     if (audioBtn) {
@@ -3501,13 +5107,13 @@ class SharodiyaApp {
 
         if (mapSearchClear) mapSearchClear.classList.remove('hidden');
 
-        // Match Pandals, Eateries, and Metro stations
+        // Match Pandals and Eateries
         const matchedPandals = this.pandals.filter(p =>
           p.name.toLowerCase().includes(query) ||
           p.zone.toLowerCase().includes(query) ||
           p.theme.toLowerCase().includes(query) ||
-          p.nearestMetro.toLowerCase().includes(query)
-        ).slice(0, 5);
+          (p.nearestMetro && p.nearestMetro.toLowerCase().includes(query))
+        ).slice(0, 6);
 
         const matchedEateries = this.eateries.filter(e =>
           e.name.toLowerCase().includes(query) ||
@@ -3515,14 +5121,9 @@ class SharodiyaApp {
           e.location.toLowerCase().includes(query) ||
           e.outlet.toLowerCase().includes(query) ||
           (e.mustTry && e.mustTry.some(d => d.toLowerCase().includes(query)))
-        ).slice(0, 5);
+        ).slice(0, 6);
 
-        const matchedMetro = this.metroStations.filter(m =>
-          m.name.toLowerCase().includes(query) ||
-          m.landmark.toLowerCase().includes(query)
-        ).slice(0, 4);
-
-        if (matchedPandals.length === 0 && matchedEateries.length === 0 && matchedMetro.length === 0) {
+        if (matchedPandals.length === 0 && matchedEateries.length === 0) {
           mapSearchResults.innerHTML = `
             <div class="p-3.5 text-center text-xs text-on-surface-variant italic">
               No matching locations found for "${query}"
@@ -3543,7 +5144,7 @@ class SharodiyaApp {
               <div class="map-search-item px-3.5 py-2 hover:bg-white/10 cursor-pointer transition-colors flex items-center justify-between" data-type="pandal" data-id="${p.id}">
                 <div>
                   <div class="text-xs font-bold text-white">${p.name}</div>
-                  <div class="text-[10px] text-on-surface-variant font-mono">${p.zone} • Metro: ${p.nearestMetro}</div>
+                  <div class="text-[10px] text-on-surface-variant font-mono">${p.zone}</div>
                 </div>
                 <span class="text-[10px] font-mono text-tertiary font-bold bg-black/40 px-2 py-0.5 rounded">Est. ${p.estYear}</span>
               </div>
@@ -3554,7 +5155,7 @@ class SharodiyaApp {
         if (matchedEateries.length > 0) {
           html += `
             <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-secondary font-bold bg-white/5">
-              🍽️ Iconic Eateries &amp; Cabins
+              🍽️ Iconic Eateries &amp; Food Joints
             </div>
             ${matchedEateries.map(e => `
               <div class="map-search-item px-3.5 py-2 hover:bg-white/10 cursor-pointer transition-colors flex items-center justify-between" data-type="eatery" data-id="${e.id}">
@@ -3563,23 +5164,6 @@ class SharodiyaApp {
                   <div class="text-[10px] text-on-surface-variant font-mono">${e.cuisine} • ${e.avgPrice}</div>
                 </div>
                 <span class="text-[10px] font-mono text-tertiary font-bold bg-black/40 px-2 py-0.5 rounded">★ ${e.rating}</span>
-              </div>
-            `).join('')}
-          `;
-        }
-
-        if (matchedMetro.length > 0) {
-          html += `
-            <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-purple-400 font-bold bg-white/5">
-              🚇 Kolkata Metro Stations
-            </div>
-            ${matchedMetro.map(m => `
-              <div class="map-search-item px-3.5 py-2 hover:bg-white/10 cursor-pointer transition-colors flex items-center justify-between" data-type="metro" data-id="${m.id}">
-                <div>
-                  <div class="text-xs font-bold text-white">${m.name}</div>
-                  <div class="text-[10px] text-on-surface-variant font-mono">${m.line}</div>
-                </div>
-                <span class="material-symbols-outlined text-purple-400 text-[16px]">directions_subway</span>
               </div>
             `).join('')}
           `;
@@ -3602,11 +5186,6 @@ class SharodiyaApp {
               this.focusPandalOnMap(id);
             } else if (type === 'eatery') {
               this.focusEateryOnMap(id);
-            } else if (type === 'metro') {
-              const m = this.metroStations.find(st => st.id === id);
-              if (m && m.coordinates) {
-                this.openOnMasterMap(m.coordinates.lat, m.coordinates.lng, 16, 'metro', m.id);
-              }
             }
           });
         });
@@ -3797,6 +5376,7 @@ class SharodiyaApp {
 
     const openSquadHub = async () => {
       let squadCode = localStorage.getItem('sharodiya_squad_code');
+      const captainName = this.currentUser ? this.currentUser.name : 'You (Captain)';
       if (!squadCode) {
         squadCode = 'SHARODIYA-' + Math.random().toString(36).substring(2, 7).toUpperCase();
         localStorage.setItem('sharodiya_squad_code', squadCode);
@@ -3805,7 +5385,7 @@ class SharodiyaApp {
           body: JSON.stringify({
             name: `Squad ${squadCode}`,
             archetype: this.selectedArchetype,
-            captainName: 'You (Captain)'
+            captainName: captainName
           })
         });
       }
@@ -3814,7 +5394,7 @@ class SharodiyaApp {
       const squad = res?.squad || {
         code: squadCode,
         name: `Squad ${squadCode}`,
-        members: ['You (Captain)'],
+        members: [captainName],
         checkins: []
       };
 
@@ -3881,9 +5461,10 @@ class SharodiyaApp {
         document.getElementById('submit-join-squad-btn')?.addEventListener('click', async () => {
           const codeVal = document.getElementById('join-squad-code-input')?.value?.trim().toUpperCase();
           if (!codeVal) return;
+          const memberName = this.currentUser ? this.currentUser.name : `Friend (${Math.random().toString(36).substring(2, 5)})`;
           const joinRes = await this.apiFetch(`/api/squads/${codeVal}/join`, {
             method: 'POST',
-            body: JSON.stringify({ memberName: `Friend (${Math.random().toString(36).substring(2, 5)})` })
+            body: JSON.stringify({ memberName })
           });
           if (joinRes && joinRes.success) {
             localStorage.setItem('sharodiya_squad_code', codeVal);
@@ -4075,6 +5656,126 @@ class SharodiyaApp {
         }
       });
     }
+
+    // ==========================================
+    // 8. PUJA METRO NETWORK EVENT LISTENERS
+    // ==========================================
+    // 8a. Line Filter Buttons
+    document.querySelectorAll('#metro-line-filters .line-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const line = btn.getAttribute('data-line');
+        this.metroActiveLineFilter = line;
+
+        // Reset styling on all filter buttons
+        document.querySelectorAll('#metro-line-filters .line-filter-btn').forEach(b => {
+          b.className = 'line-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-surface-container text-on-surface-variant hover:text-white border border-white/10 transition-all';
+        });
+
+        // Set active style
+        const activeClassMap = {
+          'all': 'line-filter-btn active-filter-all px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-white text-black shadow-md border border-white/20',
+          'Blue': 'line-filter-btn active-filter-blue px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-[#0057B7] text-white shadow-lg border border-[#0057B7]/50',
+          'Green': 'line-filter-btn active-filter-green px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-[#009A44] text-white shadow-lg border border-[#009A44]/50',
+          'Purple': 'line-filter-btn active-filter-purple px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-[#7F2B87] text-white shadow-lg border border-[#7F2B87]/50',
+          'Orange': 'line-filter-btn active-filter-orange px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-[#FF7300] text-white shadow-lg border border-[#FF7300]/50',
+          'interchange': 'line-filter-btn active-filter-interchange px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 text-[#ffd700] border border-yellow-400/50 shadow-lg'
+        };
+
+        btn.className = activeClassMap[line] || activeClassMap['all'];
+
+        // If currently selected station does not belong to the newly selected line, clear selection
+        if (line !== 'all' && line !== 'interchange' && this.selectedMetroStationId) {
+          const currentStation = this.metroStations.find(s => s.id === this.selectedMetroStationId);
+          if (currentStation) {
+            const belongs = Array.isArray(currentStation.line) ? currentStation.line.includes(line) : currentStation.line === line;
+            if (!belongs) {
+              this.selectedMetroStationId = null;
+              this.renderMetroStationInfoPanel();
+            }
+          }
+        }
+
+        this.updateMetroNetworkMap();
+
+        // Smoothly fit map view to the selected line corridor
+        if (this.metroMap) {
+          const visibleStations = this.metroStations.filter(s => {
+            if (s.operationalStatus !== 'operational') return false;
+            if (line === 'all') return true;
+            if (line === 'interchange') return s.interchange === true;
+            return Array.isArray(s.line) ? s.line.includes(line) : s.line === line;
+          });
+
+          if (visibleStations.length > 0) {
+            const bounds = window.L.latLngBounds(visibleStations.map(s => [s.coordinates.lat, s.coordinates.lng]));
+            this.metroMap.fitBounds(bounds, { padding: [50, 50], animate: true, duration: 0.8 });
+          }
+        }
+      });
+    });
+
+    // 8b. Metro Network Search Input
+    const metroSearchInput = document.getElementById('metro-network-search-input');
+    if (metroSearchInput) {
+      metroSearchInput.addEventListener('input', (e) => {
+        this.metroSearchQuery = e.target.value;
+        this.updateMetroNetworkMap();
+      });
+    }
+
+    // 8c. Toggle Connected Pandals on Metro Map
+    const togglePandalsBtn = document.getElementById('toggle-metro-pandals-btn');
+    const togglePandalsLabel = document.getElementById('toggle-metro-pandals-label');
+    if (togglePandalsBtn) {
+      togglePandalsBtn.addEventListener('click', () => {
+        this.metroShowPandals = !this.metroShowPandals;
+        if (togglePandalsLabel) {
+          togglePandalsLabel.textContent = this.metroShowPandals ? 'Pandals: ON' : 'Pandals: OFF';
+        }
+        if (this.metroShowPandals) {
+          togglePandalsBtn.classList.remove('opacity-50');
+          togglePandalsBtn.classList.add('bg-surface-container', 'text-white');
+        } else {
+          togglePandalsBtn.classList.add('opacity-50');
+          togglePandalsBtn.classList.remove('bg-surface-container', 'text-white');
+        }
+        this.updateMetroNetworkMap();
+      });
+    }
+
+    // 8d. Fit Metro Bounds Button
+    document.getElementById('fit-metro-bounds-btn')?.addEventListener('click', () => {
+      this.fitMetroBounds();
+    });
+
+    // 8e. Open Metro Planner Modal Buttons
+    document.getElementById('open-metro-planner-btn')?.addEventListener('click', () => {
+      this.openMetroPlannerModal(this.selectedMetroStationId);
+    });
+    document.getElementById('floating-mobile-plan-pujo-btn')?.addEventListener('click', () => {
+      this.openMetroPlannerModal(this.selectedMetroStationId);
+    });
+
+    // 8f. Close Metro Planner Modal Buttons
+    document.getElementById('close-metro-planner-modal-btn')?.addEventListener('click', () => {
+      this.closeMetroPlannerModal();
+    });
+    document.getElementById('close-metro-planner-cancel-btn')?.addEventListener('click', () => {
+      this.closeMetroPlannerModal();
+    });
+
+    // 8g. Planner Station Selects Change Listeners
+    document.getElementById('route-start-station-select')?.addEventListener('change', () => {
+      this.updateMetroPlannerRoutePreview();
+    });
+    document.getElementById('route-dest-station-select')?.addEventListener('change', () => {
+      this.updateMetroPlannerRoutePreview();
+    });
+
+    // 8h. Save Metro Route Button
+    document.getElementById('save-metro-route-plan-btn')?.addEventListener('click', () => {
+      this.saveMetroRouteToParikrama();
+    });
   }
 
   showToast(msg) {

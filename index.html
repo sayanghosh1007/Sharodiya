@@ -6,7 +6,7 @@
   <title>Sharodiya - Divine Festive Experience & Pandal Planner</title>
   <meta name="description" content="Immerse yourself in the electric energy of the ultimate Durga Puja. Navigate majestic pandals, curate your gastronomic journey, and orchestrate a flawless celebration."/>
   
-  <!-- Tailwind CSS with customized Sharodiya Neo-Festal Palette (Dark Grey Base) -->
+  <!-- Tailwind CSS with customized Sharodiya Festive Palette (Dark Grey Base) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -75,7 +75,7 @@
         <img alt="Sharodiya Logo" class="w-10 h-10 rounded-full object-contain drop-shadow-[0_0_12px_rgba(255,215,0,0.7)] group-hover:scale-105 transition-transform" src="assets/logo.png"/>
         <div class="flex flex-col">
           <span class="font-headline text-2xl lg:text-3xl text-white font-black tracking-tight leading-none group-hover:text-primary transition-colors">Sharodiya</span>
-          <span class="font-mono text-[10px] text-tertiary tracking-widest uppercase">Neo-Festal 2026</span>
+          <span class="font-mono text-[10px] text-tertiary tracking-widest uppercase">Durga Puja 2026</span>
         </div>
       </a>
 
@@ -89,6 +89,10 @@
           <span class="material-symbols-outlined text-[16px] text-tertiary">map</span>
           <span>Puja Map</span>
         </a>
+        <a href="#metro" data-path="metro" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-cyan-400">subway</span>
+          <span>Puja Metro</span>
+        </a>
         <a href="#planned" data-path="planned" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all flex items-center gap-1.5">
           <span>Planned</span>
           <span id="parikrama-count-badge" class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary-container text-white">5</span>
@@ -97,17 +101,57 @@
 
       <!-- Right Action Controls -->
       <div class="flex items-center gap-2.5 sm:gap-3">
-        <!-- Theme Toggle (Dark / Light) -->
-        <button id="theme-toggle-btn" class="px-3 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold font-mono flex items-center gap-1.5 border border-white/10 shadow-sm transition-all" title="Toggle Dark / Light Theme (Syncs Map)">
-          <span class="material-symbols-outlined text-[18px] text-tertiary theme-icon">dark_mode</span>
-          <span class="theme-label hidden sm:inline">Dark</span>
-        </button>
+        <!-- Auth Nav Container (Logged Out / Logged In State) -->
+        <div id="auth-nav-container" class="relative">
+          <!-- Logged Out View -->
+          <button id="nav-signin-btn" class="px-3.5 sm:px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-white border border-primary/30 hover:border-primary/60 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-md group">
+            <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">account_circle</span>
+            <span>Sign In</span>
+          </button>
 
-        <!-- Dhak Sound Ambient Toggle -->
-        <button id="dhak-audio-toggle" class="px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-tertiary text-xs font-bold font-mono flex items-center gap-2 border border-tertiary/20 shadow-sm transition-all" title="Toggle Bengali Dhak drum rhythm">
-          <span class="material-symbols-outlined text-[18px]">volume_off</span>
-          <span class="audio-label hidden sm:inline">Play Dhak</span>
-        </button>
+          <!-- Logged In User Pill Trigger -->
+          <div id="nav-user-profile" class="hidden relative">
+            <button id="nav-user-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-primary/40 hover:border-primary transition-all text-xs font-semibold text-white group shadow-md" aria-expanded="false">
+              <img id="nav-user-avatar" src="assets/logo.png" alt="Devotee Avatar" class="w-6 h-6 rounded-full object-cover border border-primary/50 shadow-sm" />
+              <span id="nav-user-name" class="max-w-[90px] sm:max-w-[120px] truncate font-medium">Devotee</span>
+              <span class="material-symbols-outlined text-[16px] text-tertiary transition-transform group-hover:translate-y-0.5">expand_more</span>
+            </button>
+
+            <!-- User Dropdown Menu -->
+            <div id="nav-user-dropdown" class="absolute right-0 mt-2 w-64 bg-surface-container-highest/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-2 hidden z-50 transform origin-top-right transition-all">
+              <!-- Dropdown Header -->
+              <div class="p-3 border-b border-white/10 flex items-center gap-3">
+                <img id="dropdown-user-avatar" src="assets/logo.png" alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-primary/60 shadow-md" />
+                <div class="overflow-hidden">
+                  <h4 id="dropdown-user-name" class="text-sm font-bold text-white truncate">Devotee Name</h4>
+                  <p id="dropdown-user-email" class="text-[11px] font-mono text-on-surface-variant truncate">email@example.com</p>
+                  <span id="dropdown-user-archetype" class="inline-block mt-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider">Friends Adda</span>
+                </div>
+              </div>
+
+              <!-- Menu Items -->
+              <div class="py-1.5 space-y-0.5 text-xs">
+                <button id="dropdown-my-plans-btn" class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-white flex items-center gap-2.5 transition-colors">
+                  <span class="material-symbols-outlined text-[18px] text-tertiary">route</span>
+                  <span>My Parikrama Plans</span>
+                </button>
+                <button id="dropdown-my-squad-btn" class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-white flex items-center gap-2.5 transition-colors">
+                  <span class="material-symbols-outlined text-[18px] text-primary">groups</span>
+                  <span>My Squad Hub</span>
+                </button>
+                <button id="dropdown-edit-profile-btn" class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-white flex items-center gap-2.5 transition-colors">
+                  <span class="material-symbols-outlined text-[18px] text-secondary">manage_accounts</span>
+                  <span>Devotee Profile</span>
+                </button>
+                <div class="border-t border-white/10 my-1"></div>
+                <button id="dropdown-signout-btn" class="w-full text-left px-3 py-2 rounded-xl hover:bg-red-500/15 text-red-300 flex items-center gap-2.5 transition-colors font-semibold">
+                  <span class="material-symbols-outlined text-[18px] text-red-400">logout</span>
+                  <span>Sign Out</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Mobile Menu Trigger -->
         <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-full bg-surface-container text-white flex items-center justify-center">
@@ -125,20 +169,33 @@
         <span class="font-headline text-2xl text-white font-bold">Sharodiya</span>
       </div>
       <div class="flex items-center gap-2">
-        <button id="mobile-theme-toggle-btn" class="p-2 rounded-full bg-white/10 text-tertiary flex items-center justify-center" title="Toggle Dark/Light Mode">
-          <span class="material-symbols-outlined theme-icon">dark_mode</span>
-        </button>
         <button id="close-drawer-btn" class="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center">
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
     </div>
+
+    <!-- Mobile Auth Status -->
+    <div id="mobile-auth-section" class="p-3.5 rounded-2xl bg-surface-container border border-white/10 flex items-center justify-between">
+      <div id="mobile-user-info" class="flex items-center gap-3">
+        <img id="mobile-user-avatar" src="assets/logo.png" alt="Avatar" class="w-9 h-9 rounded-full object-cover border border-primary/50" />
+        <div>
+          <h4 id="mobile-user-name" class="text-sm font-bold text-white">Devotee Guest</h4>
+          <span id="mobile-user-status" class="text-[10px] font-mono text-tertiary">Sign in to sync parikramas</span>
+        </div>
+      </div>
+      <button id="mobile-auth-action-btn" class="px-3.5 py-1.5 rounded-full bg-primary text-black font-bold text-xs shadow-md">
+        Sign In
+      </button>
+    </div>
+
     <nav class="flex flex-col space-y-4 text-lg font-semibold">
       <a href="#landing" data-path="landing" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">home</span>Landing (Countdown)</a>
       <a href="#people" data-path="people" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">groups</span>People / Companionship</a>
       <a href="#pandals" data-path="pandals" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">temple_hindu</span>Pandals Radar</a>
       <a href="#eateries" data-path="eateries" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-secondary">restaurant</span>Eateries / Food</a>
       <a href="#map" data-path="map" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">map</span>Puja Map Radar</a>
+      <a href="#metro" data-path="metro" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-cyan-400">subway</span>Puja Metro Network</a>
       <a href="#planned" data-path="planned" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">route</span>Planned / Parikrama</a>
     </nav>
   </div>
@@ -155,177 +212,60 @@
     <!-- VIEW 1: LANDING & COUNTDOWN (STRICT CONTAINER FOR SHIULI PARTICLES) -->
     <div id="view-landing" class="page-view active-view flex flex-col w-full -mt-20">
       
-      <!-- Hero Section with Authentic Stitch Autumn Sky Background -->
-      <section class="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-28 overflow-hidden">
+      <!-- Hero Section with Authentic Stitch Sunset & Kolkata Ghats Background -->
+      <section class="relative w-full min-h-screen lg:min-h-[1024px] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-28 overflow-hidden">
         
-        <!-- Stitch Autumn Sky Background Image -->
-        <img alt="Autumn Sky in Bengal" class="absolute inset-0 w-full h-full z-0 object-cover opacity-90 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY1xA2Gjhcvn217-e_h0fVPj1LZjldsAyCy5PLlbhz6v1HPYaMAnRwHZbIPylOgodDkLO0HrTrtiZohhqoxcMOQewJ_DA4xAKyBJ2o1zXQqZNgFooJ88Oe2FBPhE-TqRi0ecSHg2YP19hwRK70qPjMsgKU0WFNiRzLhM08ZeLFvJtn2x53Hubvk5TNTH5c4nddgPxPTQxbzapaRmUBYO1nWlqfyYL1CBmjVaKE9VDbtOC2DSzkUhh_hSEbi1gcBPEAvw"/>
+        <!-- Stitch Twilight & Hooghly Ghats Background Image -->
+        <img alt="Kolkata sunset over the Hooghly river with Victoria Memorial bathed in warm golden evening light and the illuminated Howrah bridge in the background at twilight during Durga Puja festival" class="absolute inset-0 w-full h-full z-0 object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida/AEtjO1V1z8fruKVG5Z19WETnveLNtERp7a_DDYh4werzp9a7p6ov3iB1yakBeX207n_8UyyUAWF0OPHz6Jv3VYuhvulxNg6SALtASk0uG9FUnu-OuCXrO4iPNizZHkfq38ze6jL0-zg-L5RWpHcd8CZ9JROjNAdYzm21Qgclf5kI7SELLVbndi96QLshH9pHuxvepupL3ndtNsrrpTtDzdSkUVC5cqwGuqgFI4PwjtRP7NdrUe9ANicxODq4p_o"/>
         
         <!-- Falling Shiuli Flower Particles - ONLY ACTIVE ON LANDING PAGE -->
         <div id="particle-container" class="absolute inset-0 w-full h-full pointer-events-none z-[5] overflow-hidden"></div>
 
         <!-- Gradient Scrim for High Contrast & Smooth Blend into Dark Background -->
-        <div class="absolute inset-0 bg-gradient-to-b from-background/20 via-background/65 to-background z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-10 pointer-events-none"></div>
 
         <!-- Hero Ambient Card -->
-        <div class="relative z-20 flex flex-col items-center max-w-4xl mx-auto space-y-8 animate-float">
+        <div class="relative z-20 flex flex-col items-center max-w-4xl mx-auto space-y-7 transition-all duration-1000 opacity-100 translate-y-0" id="hero-card">
           
-          <!-- Overline Badge -->
-          <div class="inline-flex items-center gap-2.5 bg-surface-container-high/60 px-5 py-2 rounded-full backdrop-blur-xl border border-white/10 shadow-lg">
-            <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_10px_rgba(255,215,0,0.9)]"></span>
-            <span class="font-mono text-xs text-tertiary uppercase tracking-widest font-bold">Neo-Festal Edition 2026</span>
-          </div>
-
           <!-- Main Title -->
-          <h1 class="font-headline text-6xl sm:text-8xl lg:text-9xl text-white font-black tracking-tight leading-none drop-shadow-[0_0_35px_rgba(211,16,24,0.4)]">
+          <h1 class="font-headline text-primary tracking-tighter drop-shadow-[0_0_35px_rgba(255,180,171,0.3)] font-black" style="font-size: clamp(64px, 12vw, 140px); line-height: 0.95; text-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 15px rgba(211,16,24,0.6);">
             Sharodiya
           </h1>
 
-          <!-- Tagline -->
-          <p class="font-body text-base sm:text-lg lg:text-xl text-on-surface max-w-2xl leading-relaxed bg-surface/40 p-5 sm:p-6 rounded-2xl backdrop-blur-md border border-white/5">
-            Immerse yourself in the electric energy of the ultimate Durga Puja 2026. Navigate majestic pandals, curate your gastronomic journey, and orchestrate a flawless celebration.
-          </p>
-
-          <!-- Live Countdown Timer (Transparent, Compact) -->
-          <div class="w-full max-w-xl text-center pt-2">
-            <span class="text-[11px] sm:text-xs font-mono text-tertiary uppercase tracking-widest block mb-3 font-bold">Countdown to Durga Puja 2026 (Maha Sasthi)</span>
-            <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
-              <div class="flex flex-col items-center">
-                <span id="timer-days" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-tertiary font-bold leading-none">00</span>
-                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Days</span>
-              </div>
-              <div class="flex flex-col items-center border-l border-white/10">
-                <span id="timer-hours" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-tertiary font-bold leading-none">00</span>
-                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Hours</span>
-              </div>
-              <div class="flex flex-col items-center border-l border-white/10">
-                <span id="timer-minutes" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-tertiary font-bold leading-none">00</span>
-                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Mins</span>
-              </div>
-              <div class="flex flex-col items-center border-l border-white/10">
-                <span id="timer-seconds" class="font-headline text-2xl sm:text-3xl lg:text-4xl text-primary font-bold leading-none">00</span>
-                <span class="font-mono text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-widest mt-1.5 font-semibold">Secs</span>
-              </div>
+          <!-- Live Countdown Timer (White Numbers, Clean Layout Without Background Card / Partitions) -->
+          <div class="flex gap-6 sm:gap-10 mt-4">
+            <div class="flex flex-col items-center">
+              <span id="timer-days" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Days</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span id="timer-hours" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Hours</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span id="timer-minutes" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Mins</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span id="timer-seconds" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Secs</span>
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <!-- Bento Grid Features Section -->
-      <section class="max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 space-y-12">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div class="space-y-3 max-w-xl">
-            <span class="text-xs font-mono text-tertiary uppercase tracking-widest font-bold">Unmatched Festive Experience</span>
-            <h2 class="font-headline text-3xl sm:text-5xl text-white font-bold">
-              Curate Your <span class="text-primary">Divine Experience</span>
-            </h2>
-            <p class="text-sm sm:text-base text-on-surface-variant">Everything you need to master the chaos and revel in the beauty of the festival, unified in one hyper-organized dashboard.</p>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
-          <!-- Bento 1: Pandal Radar (Large Span) -->
-          <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card relative min-h-[380px] p-8 flex flex-col justify-end group cursor-pointer" onclick="window.sharodiyaApp.navigateTo('pandals')">
-            <div class="absolute inset-0 z-0">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM" alt="Pandal Radar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
-            </div>
-            <div class="relative z-10 space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center text-secondary shadow-lg">
-                <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">temple_hindu</span>
-              </div>
-              <h3 class="font-headline text-3xl text-white font-bold">Pandal Radar</h3>
-              <p class="text-sm text-on-surface-variant max-w-lg">Discover 141 top-rated and avant-garde installations across 4 zones of Kolkata (North, South, Central, Salt Lake &amp; New Town). Track crowd levels and transit in real-time.</p>
-              <span class="text-xs font-mono text-tertiary font-bold uppercase tracking-wider inline-flex items-center gap-1">
-                Explore 141 Pandals <span class="material-symbols-outlined text-sm">arrow_forward</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Bento 2: Schedule & Ritual Timings (Interactive Day Selector) -->
-          <div class="md:col-span-4 rounded-3xl glass-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-            <div class="flex items-center justify-between border-b border-white/10 pb-3">
-              <div class="flex items-center gap-2 text-tertiary">
-                <span class="material-symbols-outlined text-[22px]">calendar_today</span>
-                <h3 class="font-headline text-xl font-bold text-white">Schedule</h3>
-              </div>
-              <span class="text-[10px] font-mono text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20 font-bold">Oct 16 - 20, 2026</span>
-            </div>
-
-            <!-- Interactive Day Tabs: Sasthi, Saptami, Ashtami, Navami, Dashami -->
-            <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="schedule-day-tabs">
-              <!-- Dynamically populated in app.js -->
-            </div>
-
-            <!-- Day's Detailed Schedule Timeline -->
-            <div id="ritual-schedule-container" class="space-y-2.5 flex-1 overflow-y-auto max-h-[260px] pr-1">
-              <!-- Dynamically populated with accurate step-by-step rituals -->
-            </div>
-
-            <button onclick="window.sharodiyaApp.openScheduleModal()" class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-tertiary text-xs font-bold font-mono uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5 border border-white/5 shadow-sm">
-              <span class="material-symbols-outlined text-[16px]">menu_book</span>
-              <span>Full 5-Day Ritual Guide</span>
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <button onclick="window.sharodiyaApp.navigateTo('pandals')" class="px-7 py-3.5 rounded-full bg-primary-container hover:bg-primary-container/90 text-white font-bold text-sm tracking-wide shadow-[0_0_20px_rgba(211,16,24,0.5)] hover:shadow-[0_0_30px_rgba(211,16,24,0.8)] transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+              <span class="material-symbols-outlined text-lg">temple_hindu</span>
+              <span>Explore 141 Pandals</span>
             </button>
-          </div>
-
-          <!-- Bento 3: Dedicated Live Puja Map Radar -->
-          <div class="md:col-span-4 rounded-3xl overflow-hidden glass-card relative min-h-[320px] p-8 flex flex-col justify-between group cursor-pointer border border-tertiary/20 hover:border-tertiary/60 transition-all" onclick="window.sharodiyaApp.navigateTo('map')">
-            <div class="absolute inset-0 z-0">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw" alt="Puja Map Radar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-transparent"></div>
-            </div>
-            <div class="relative z-10 flex items-center justify-between">
-              <div class="w-10 h-10 rounded-xl bg-tertiary/20 flex items-center justify-center text-tertiary">
-                <span class="material-symbols-outlined text-2xl">map</span>
-              </div>
-              <span class="px-3 py-1 rounded-full bg-tertiary/20 text-tertiary text-xs font-mono font-bold shadow-md border border-tertiary/30 animate-pulse">
-                Live Geospatial
-              </span>
-            </div>
-            <div class="relative z-10 space-y-2">
-              <h3 class="font-headline text-2xl text-white font-bold">Puja Map Radar</h3>
-              <p class="text-xs text-on-surface-variant">Full-screen geospatial map tracking 141 pandals, 250 eateries, metro stations, and your route trail.</p>
-              <span class="text-xs font-mono text-tertiary font-bold uppercase tracking-wider inline-flex items-center gap-1 pt-1">
-                Open Master Map <span class="material-symbols-outlined text-sm">arrow_forward</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Bento 4: Gastronomy -->
-          <div class="md:col-span-4 rounded-3xl overflow-hidden glass-card relative min-h-[320px] p-8 flex flex-col justify-between group cursor-pointer" onclick="window.sharodiyaApp.navigateTo('eateries')">
-            <div class="absolute inset-0 z-0">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIbc-oEa3jsseS__D_Cb6xAuhJbell3xut44q2WjpxoOs_Jj9N_zFJ8bpcWHgxlxPtpWWCufMJFiQrlmtJ9TAqL1z0X18u399YwZNNTSoRNLUN1sqCl_YLvPK-o2JtItBgJRc0FkEd-Sik9gT3NR5GiV5iR5wViOcjapqf-B3151lwHsmfdd7-8rR6pPPxxd7gQD_D39MHFPPbFSOrrwCOaJ0Xq3WPT4VsxU74UItQGco2KUTcmQ8" alt="Gastronomy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent"></div>
-            </div>
-            <div class="relative z-10 self-end px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-mono font-bold shadow-md border border-secondary/30">
-              250+ Hotspots
-            </div>
-            <div class="relative z-10 space-y-2">
-              <h3 class="font-headline text-2xl text-white font-bold">Gastronomy</h3>
-              <p class="text-xs text-on-surface-variant">From midnight biryani institutions to heritage sweet cabins and 5-star feasts.</p>
-              <span class="text-xs font-mono text-secondary font-bold uppercase tracking-wider inline-flex items-center gap-1 pt-1">
-                Explore Flavours <span class="material-symbols-outlined text-sm">arrow_forward</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Bento 5: Squad & Companionship -->
-          <div class="md:col-span-4 rounded-3xl overflow-hidden glass-card relative min-h-[320px] p-8 flex flex-col justify-between group cursor-pointer" onclick="window.sharodiyaApp.navigateTo('people')">
-            <div class="absolute inset-0 z-0">
-              <div class="absolute inset-0 bg-gradient-to-br from-primary-container/30 via-surface-container to-surface-container-high"></div>
-            </div>
-            <div class="relative z-10 space-y-2">
-              <span class="text-xs font-mono text-tertiary uppercase tracking-widest font-bold">Companionship</span>
-              <h3 class="font-headline text-2xl text-white font-bold">Planning with Squad?</h3>
-              <p class="text-xs text-on-surface-variant">Select a companion archetype to reveal specialized itineraries tailored to your squad.</p>
-            </div>
-            <div class="relative z-10 pt-4">
-              <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold text-white group-hover:bg-white/20 transition-colors inline-flex items-center gap-1.5">
-                Explore Archetypes <span class="material-symbols-outlined text-sm">arrow_forward</span>
-              </span>
-            </div>
+            <button onclick="window.sharodiyaApp.navigateTo('metro')" class="px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-cyan-300 font-bold text-sm tracking-wide border border-cyan-400/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+              <span class="material-symbols-outlined text-lg">subway</span>
+              <span>Puja Metro Radar</span>
+            </button>
+            <button onclick="window.sharodiyaApp.navigateTo('map')" class="px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-secondary font-bold text-sm tracking-wide border border-secondary-container/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+              <span class="material-symbols-outlined text-lg">map</span>
+              <span>Open Master Map</span>
+            </button>
           </div>
 
         </div>
@@ -638,13 +578,8 @@
 
               <button id="layer-toggle-eateries" class="map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-secondary/40 bg-secondary/20 text-white shadow-sm" data-layer="eateries">
                 <span class="material-symbols-outlined text-[16px] text-secondary">restaurant</span>
-                <span>Eateries</span>
+                <span>Food Joints</span>
                 <span class="px-1.5 py-0.2 rounded-full bg-secondary/30 text-[10px] text-white font-mono">250</span>
-              </button>
-
-              <button id="layer-toggle-metro" class="map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-purple-400/40 bg-purple-400/20 text-white shadow-sm" data-layer="metro">
-                <span class="material-symbols-outlined text-[16px] text-purple-400">directions_subway</span>
-                <span>Metro Stations</span>
               </button>
 
               <button id="layer-toggle-trail" class="hidden map-layer-btn active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-tertiary/40 bg-tertiary/20 text-white shadow-sm" data-layer="trail">
@@ -708,7 +643,7 @@
         <div class="absolute top-4 left-4 z-[400] max-w-sm sm:w-80 w-[calc(100%-110px)]">
           <div class="relative shadow-2xl">
             <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-tertiary text-[20px]">search</span>
-            <input id="master-map-search-input" type="text" placeholder="Search any pandal, restaurant, metro..." class="w-full pl-11 pr-9 py-2.5 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-white/20 text-white placeholder:text-on-surface-variant text-xs shadow-2xl focus:outline-none focus:border-primary transition-all"/>
+            <input id="master-map-search-input" type="text" placeholder="Search any pandal or food joint..." class="w-full pl-11 pr-9 py-2.5 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-white/20 text-white placeholder:text-on-surface-variant text-xs shadow-2xl focus:outline-none focus:border-primary transition-all"/>
             <button id="master-map-search-clear" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-white text-xs">
               <span class="material-symbols-outlined text-[16px]">close</span>
             </button>
@@ -718,11 +653,20 @@
           </div>
         </div>
 
+        <!-- Floating Active Pandal Food Focus Indicator Pill -->
+        <div id="map-pandal-food-focus-pill" class="hidden absolute top-4 left-1/2 -translate-x-1/2 z-[400] max-w-md w-auto px-4 py-2 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-secondary/50 shadow-2xl flex items-center gap-3 animate-fadeIn">
+          <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping shrink-0"></span>
+          <div class="text-xs text-white truncate">
+            <span class="text-secondary font-bold" id="map-focused-pandal-name">Pandal</span>
+            <span class="text-on-surface-variant ml-1 font-mono text-[11px]">• Closest Food Joints</span>
+          </div>
+          <button id="map-clear-pandal-focus-btn" class="ml-auto px-2 py-0.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[10px] font-mono font-bold transition-colors shrink-0">
+            Show All
+          </button>
+        </div>
+
         <!-- Floating Map Action Group (Right Side) -->
         <div class="absolute top-4 right-4 z-[400] flex flex-col gap-2">
-          <button id="master-map-theme-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-tertiary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Switch Map Theme (Dark / Light)">
-            <span class="material-symbols-outlined text-[20px] theme-icon">dark_mode</span>
-          </button>
           <button id="master-map-reset-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-white flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Reset View to Kolkata Center">
             <span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
           </button>
@@ -754,6 +698,149 @@
         <!-- The Master OpenStreetMap Leaflet Container -->
         <div id="master-osm-map" class="w-full h-[640px] sm:h-[700px] z-0"></div>
       </section>
+
+    </div>
+
+    <!-- VIEW 3.5: PUJA METRO NETWORK (OFFICIAL KOLKATA METRO TRANSIT & PANDAL DISCOVERY LAYER) -->
+    <div id="view-metro" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 space-y-8 relative">
+
+      <!-- Metro Header Section -->
+      <section class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 relative z-10">
+        <div class="max-w-3xl space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-mono font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span>REAL OPERATIONAL METRO LAYER • PUJOPLAN DISCOVERY</span>
+          </div>
+          <h1 class="font-headline text-3xl sm:text-5xl font-black text-white tracking-tight flex items-center gap-3">
+            <span>Puja Metro Network</span>
+            <span class="text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-surface-container border border-white/10 text-on-surface-variant">48 Operational Stations</span>
+          </h1>
+          <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed">
+            Experience authentic Kolkata Durga Puja hopping powered by genuine operational Kolkata Metro lines. 
+            Select any operational station to discover nearest pandals, walking distance, walking duration, and build your custom multi-line pujo route.
+          </p>
+
+          <!-- Metro Line Quick Stats Chips -->
+          <div class="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-lg metro-badge-blue font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#0057B7]"></span> Blue Line (26)
+            </span>
+            <span class="px-2.5 py-1 rounded-lg metro-badge-green font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#009A44]"></span> Green Line (12)
+            </span>
+            <span class="px-2.5 py-1 rounded-lg metro-badge-purple font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#7F2B87]"></span> Purple Line (7)
+            </span>
+            <span class="px-2.5 py-1 rounded-lg metro-badge-orange font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#FF7300]"></span> Orange Line (5)
+            </span>
+            <span class="px-2.5 py-1 rounded-lg metro-badge-interchange font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#FFD700]"></span> 2 Interchanges
+            </span>
+          </div>
+        </div>
+
+        <!-- Right Quick Actions -->
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <button id="open-metro-planner-btn" class="px-5 py-3 rounded-2xl bg-primary text-black font-bold text-xs flex items-center gap-2 shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:scale-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[18px]">alt_route</span>
+            <span>Plan My Pujo via Metro</span>
+          </button>
+          <button id="fit-metro-bounds-btn" class="px-4 py-3 rounded-2xl bg-surface-container hover:bg-surface-container-high text-white font-bold text-xs border border-white/10 flex items-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-[18px] text-cyan-400">crop_free</span>
+            <span class="hidden sm:inline">Fit Metro View</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Metro Filter & Search Bar -->
+      <section class="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-white/10 shadow-xl space-y-4 relative z-10">
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+          
+          <!-- Line Filter Chips -->
+          <div class="flex flex-wrap items-center gap-2" id="metro-line-filters">
+            <button class="line-filter-btn active-filter-all px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-white text-black shadow-md border border-white/20" data-line="all">
+              <span>All Lines</span>
+              <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-black/10 font-mono">48</span>
+            </button>
+            <button class="line-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-surface-container text-[#5ba3ff] hover:bg-[#0057B7]/20 border border-[#0057B7]/40" data-line="Blue">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#0057B7]"></span>
+              <span>Blue Line</span>
+            </button>
+            <button class="line-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-surface-container text-[#4ade80] hover:bg-[#009A44]/20 border border-[#009A44]/40" data-line="Green">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#009A44]"></span>
+              <span>Green Line</span>
+            </button>
+            <button class="line-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-surface-container text-[#d8b4fe] hover:bg-[#7F2B87]/20 border border-[#7F2B87]/40" data-line="Purple">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#7F2B87]"></span>
+              <span>Purple Line</span>
+            </button>
+            <button class="line-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-surface-container text-[#fdba74] hover:bg-[#FF7300]/20 border border-[#FF7300]/40" data-line="Orange">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#FF7300]"></span>
+              <span>Orange Line</span>
+            </button>
+            <button class="line-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-surface-container text-[#ffd700] hover:bg-yellow-400/20 border border-yellow-400/40" data-line="interchange">
+              <span class="material-symbols-outlined text-[14px]">swap_horiz</span>
+              <span>Interchanges</span>
+            </button>
+          </div>
+
+          <!-- Search Input and Options -->
+          <div class="flex items-center gap-3 flex-1 max-w-md">
+            <div class="relative w-full">
+              <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400 text-lg">search</span>
+              <input id="metro-network-search-input" type="text" placeholder="Search operational station (e.g. Shyambazar, Esplanade)..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-surface-container-high border border-white/10 text-white placeholder:text-on-surface-variant text-xs focus:outline-none focus:border-cyan-400 shadow-inner" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Metro Grid: Desktop 8-Col Map + 4-Col Info Panel / Mobile Stack -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative z-10">
+
+        <!-- Left: Metro Map Canvas (8 Columns) -->
+        <div class="lg:col-span-8 glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
+          
+          <!-- Floating Metro Map Legend Overlay -->
+          <div class="absolute top-4 left-4 z-20 pointer-events-none hidden sm:flex flex-col gap-1.5 p-3 rounded-2xl bg-surface-container-lowest/90 backdrop-blur-md border border-white/15 text-[11px] font-mono shadow-2xl">
+            <span class="text-xs font-bold text-white mb-0.5 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[14px] text-cyan-400">train</span> Kolkata Metro Lines
+            </span>
+            <div class="grid grid-cols-2 gap-x-3 gap-y-1 text-on-surface">
+              <span class="flex items-center gap-1.5"><span class="w-3 h-1.5 rounded-sm bg-[#0057B7]"></span> Blue Line</span>
+              <span class="flex items-center gap-1.5"><span class="w-3 h-1.5 rounded-sm bg-[#009A44]"></span> Green Line</span>
+              <span class="flex items-center gap-1.5"><span class="w-3 h-1.5 rounded-sm bg-[#7F2B87]"></span> Purple Line</span>
+              <span class="flex items-center gap-1.5"><span class="w-3 h-1.5 rounded-sm bg-[#FF7300]"></span> Orange Line</span>
+              <span class="flex items-center gap-1.5 col-span-2"><span class="w-2.5 h-2.5 rounded-full border-2 border-[#0057B7] outline outline-1 outline-[#009A44]"></span> Interchange Station</span>
+            </div>
+          </div>
+
+          <!-- Quick Tip Banner Overlay (Bottom of Map) -->
+          <div class="absolute bottom-4 left-4 right-4 z-20 pointer-events-none flex justify-center">
+            <div class="pointer-events-auto px-4 py-2 rounded-2xl bg-surface-container-lowest/90 backdrop-blur-md border border-white/15 text-xs font-mono text-white shadow-2xl flex items-center gap-2">
+              <span class="material-symbols-outlined text-cyan-400 text-[16px] animate-pulse">touch_app</span>
+              <span id="metro-map-hint-text">Click any station node to inspect nearest puja pandals &amp; walking time.</span>
+            </div>
+          </div>
+
+          <!-- Leaflet Map Canvas for Metro -->
+          <div id="metro-network-osm-map" class="w-full h-[540px] sm:h-[680px] lg:h-[750px] z-0"></div>
+        </div>
+
+        <!-- Right: Station & Nearest Pandals Information Panel (4 Columns) -->
+        <div id="metro-station-info-panel" class="lg:col-span-4 glass-card rounded-3xl p-5 sm:p-6 border border-white/10 shadow-2xl max-h-[750px] overflow-y-auto space-y-6 relative">
+          <!-- Dynamically Rendered by js/app.js -->
+        </div>
+
+      </section>
+
+      <!-- Floating Plan My Pujo Button (Mobile Only) -->
+      <div class="lg:hidden fixed bottom-6 right-6 z-40">
+        <button id="floating-mobile-plan-pujo-btn" class="px-5 py-3.5 rounded-full bg-primary text-black font-bold text-xs shadow-[0_0_25px_rgba(255,215,0,0.6)] flex items-center gap-2 hover:scale-105 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-[20px]">alt_route</span>
+          <span>PLAN MY PUJO</span>
+        </button>
+      </div>
 
     </div>
 
@@ -954,13 +1041,9 @@
       <section class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-4">
         <span class="font-mono text-xs text-tertiary uppercase tracking-[0.2em] font-bold">Personalized Itineraries &amp; Companionship</span>
         <h1 class="font-headline text-4xl sm:text-6xl text-white font-black drop-shadow-[0_0_15px_rgba(255,180,171,0.3)]">Who are you planning with this year?</h1>
-        <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">Curate your neo-festal journey tailored to the dynamics of your group for 2026. Select a companion archetype below or customize your complete personalized itinerary.</p>
+        <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">Curate your festive journey tailored to the dynamics of your group for 2026. Select a companion archetype below or customize your complete personalized itinerary.</p>
         
         <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
-          <button id="open-itinerary-wizard-btn-people" class="px-7 py-3 rounded-full bg-secondary text-black text-xs font-bold shadow-[0_0_20px_rgba(0,224,255,0.4)] inline-flex items-center gap-2 hover:scale-105 transition-transform">
-            <span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
-            Launch Custom Itinerary Builder
-          </button>
           <button id="squad-invite-btn" class="px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-lg inline-flex items-center gap-2 hover:scale-105 transition-transform">
             <span class="material-symbols-outlined text-[18px]">group_add</span>
             Generate Squad Code
@@ -1295,16 +1378,349 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="w-full border-t border-white/10 glass-nav mt-24 py-12 relative z-10">
-    <div class="max-w-container-max mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-      <div class="flex items-center gap-3">
-        <img alt="Sharodiya Logo" class="w-8 h-8 rounded-full object-contain drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" src="assets/logo.png"/>
-        <span class="font-headline text-xl text-white font-bold">Sharodiya</span>
-        <span class="text-xs text-on-surface-variant">© 2026 Durga Puja Neo-Festal Companion • Full-Stack Edition</span>
+  <!-- Kolkata Metro Pujo Route Planner Modal -->
+  <div id="pujo-metro-planner-modal" class="fixed inset-0 z-[88] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto border border-cyan-500/30 shadow-2xl relative p-6 sm:p-8 space-y-6">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300">
+            <span class="material-symbols-outlined text-2xl">subway</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
+              <span>Pujo Metro Route Planner</span>
+            </h3>
+            <p class="text-xs font-mono text-cyan-300">Operational Kolkata Metro Transit • Pandal Hopping Itinerary</p>
+          </div>
+        </div>
+        <button id="close-metro-planner-modal-btn" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
       </div>
-      <div class="flex items-center gap-6 text-xs text-on-surface-variant font-mono">
-        <span>Made with Divine Energy &amp; Cultural Heritage</span>
+
+      <!-- Route Flow Concept Breadcrumb -->
+      <div class="p-3.5 rounded-2xl bg-surface-container border border-white/10 flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold text-on-surface-variant overflow-x-auto gap-2">
+        <span class="text-white flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[16px] text-green-400">trip_origin</span> Start Station</span>
+        <span class="text-white/30 shrink-0">➔</span>
+        <span class="text-cyan-300 flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[16px]">subway</span> Metro Ride</span>
+        <span class="text-white/30 shrink-0">➔</span>
+        <span class="text-tertiary flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[16px]">temple_hindu</span> Puja Pandal</span>
+        <span class="text-white/30 shrink-0">➔</span>
+        <span class="text-primary flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[16px]">directions_walk</span> Walk</span>
+        <span class="text-white/30 shrink-0">➔</span>
+        <span class="text-white flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[16px] text-red-400">location_on</span> Destination</span>
+      </div>
+
+      <!-- Interactive Route Builder Form -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Step 1: Starting Station -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span> 1. Starting Metro Station
+          </label>
+          <select id="route-start-station-select" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-400">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <!-- Step 2: Destination Station -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-red-400"></span> 2. Destination Metro Station
+          </label>
+          <select id="route-dest-station-select" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-400">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Add Intermediate Pandal Stops Section -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">temple_hindu</span> Select Puja Pandals to Visit Along the Route
+          </label>
+          <span class="text-[11px] font-mono text-cyan-300" id="route-available-pandals-count">Select stations above</span>
+        </div>
+
+        <div id="route-pandal-selection-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-48 overflow-y-auto p-1">
+          <!-- Dynamically populated based on start/dest/nearby stations -->
+        </div>
+      </div>
+
+      <!-- Target Day for Parikrama Plan -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-4 rounded-2xl bg-surface-container border border-white/10">
+        <div class="space-y-0.5">
+          <h4 class="text-xs font-bold text-white">Save Route to Parikrama Plan</h4>
+          <p class="text-[11px] text-on-surface-variant">Select the festive puja day to add this metro itinerary to.</p>
+        </div>
+        <select id="route-target-day-select" class="bg-surface-container-high border border-white/15 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-primary">
+          <option value="Maha Sasthi">Maha Sasthi (Oct 16)</option>
+          <option value="Maha Saptami">Maha Saptami (Oct 17)</option>
+          <option value="Maha Asthami">Maha Asthami (Oct 18)</option>
+          <option value="Maha Navami">Maha Navami (Oct 19)</option>
+          <option value="Vijaya Dashami">Vijaya Dashami (Oct 20)</option>
+        </select>
+      </div>
+
+      <!-- Generated Timeline Preview Container -->
+      <div id="route-timeline-preview-container" class="space-y-3">
+        <h4 class="text-xs font-mono uppercase text-tertiary font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">timeline</span> Generated Metro Route Timeline
+        </h4>
+        <div id="route-timeline-steps-list" class="space-y-2 p-4 rounded-2xl bg-surface-container-lowest/80 border border-white/10 font-mono text-xs">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-2 border-t border-white/10">
+        <button id="close-metro-planner-cancel-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-white text-xs font-bold transition-all">
+          Cancel
+        </button>
+        <button id="save-metro-route-plan-btn" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-primary text-black font-bold text-xs shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">bookmark_added</span>
+          <span>Save Route to My Parikrama</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Devotee Authentication Modal -->
+  <div id="auth-modal" class="fixed inset-0 z-[95] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-md w-full max-h-[92vh] overflow-y-auto border border-primary/30 shadow-[0_0_50px_rgba(211,16,24,0.3)] relative p-6 sm:p-8 space-y-6">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <img alt="Sharodiya Logo" class="w-10 h-10 rounded-full object-contain drop-shadow-[0_0_12px_rgba(255,215,0,0.7)]" src="assets/logo.png"/>
+          <div>
+            <h3 class="font-headline text-2xl font-bold text-white flex items-center gap-2">
+              <span id="auth-modal-title">Devotee Gateway</span>
+            </h3>
+            <div class="flex items-center gap-2 mt-0.5">
+              <span class="text-xs font-mono text-tertiary">Sharodiya 2026</span>
+              <span class="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30 font-bold">
+                <span class="material-symbols-outlined text-[12px]">bolt</span> Supabase Auth
+              </span>
+            </div>
+          </div>
+        </div>
+        <button id="close-auth-modal-btn" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Tab Switcher (Sign In / Register) -->
+      <div class="flex rounded-2xl bg-surface-container p-1 border border-white/10 text-xs font-semibold">
+        <button id="auth-tab-signin-btn" class="flex-1 py-2.5 rounded-xl transition-all duration-200 text-white bg-primary shadow-md flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">login</span>
+          <span>Sign In</span>
+        </button>
+        <button id="auth-tab-signup-btn" class="flex-1 py-2.5 rounded-xl transition-all duration-200 text-on-surface-variant hover:text-white flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">person_add</span>
+          <span>Create Account</span>
+        </button>
+      </div>
+
+      <!-- Feedback Alert Banner -->
+      <div id="auth-alert-banner" class="hidden p-3.5 rounded-2xl border text-xs font-semibold items-center gap-2.5">
+        <span id="auth-alert-icon" class="material-symbols-outlined text-[18px]"></span>
+        <span id="auth-alert-message" class="flex-1"></span>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="auth-signin-form" class="space-y-4">
+        <div class="space-y-1.5">
+          <label for="signin-email" class="text-xs font-mono text-on-surface-variant font-bold uppercase flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">mail</span> Email Address
+          </label>
+          <input type="email" id="signin-email" required placeholder="devotee@kolkatapujo.in" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="signin-password" class="text-xs font-mono text-on-surface-variant font-bold uppercase flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">key</span> Password
+          </label>
+          <input type="password" id="signin-password" required placeholder="••••••••" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30" />
+        </div>
+
+        <button type="submit" id="submit-signin-btn" class="w-full py-3 rounded-xl bg-primary text-black font-bold text-xs sm:text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">login</span>
+          <span>Sign In to Sharodiya</span>
+        </button>
+
+        <div class="relative flex py-1 items-center">
+          <div class="flex-grow border-t border-white/10"></div>
+          <span class="flex-shrink mx-3 text-[10px] font-mono uppercase text-on-surface-variant">or continue with</span>
+          <div class="flex-grow border-t border-white/10"></div>
+        </div>
+
+        <!-- Social OAuth (Google) via Supabase -->
+        <button type="button" id="supabase-google-login-btn" class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/15 text-white font-bold text-xs transition-all flex items-center justify-center gap-2.5 shadow-sm">
+          <svg class="w-4 h-4" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Continue with Google (Supabase)</span>
+        </button>
+
+        <button type="button" id="quick-demo-login-btn" class="w-full py-2 rounded-xl bg-surface-container/60 hover:bg-surface-container border border-secondary/30 text-secondary font-semibold text-xs transition-all flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">bolt</span>
+          <span>Quick Demo Devotee (1-Click)</span>
+        </button>
+      </form>
+
+      <!-- Register / Create Account Form -->
+      <form id="auth-signup-form" class="space-y-4 hidden">
+        <div class="space-y-1.5">
+          <label for="signup-name" class="text-xs font-mono text-on-surface-variant font-bold uppercase flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-primary">badge</span> Full Name
+          </label>
+          <input type="text" id="signup-name" required placeholder="e.g. Sourav Sengupta" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="signup-email" class="text-xs font-mono text-on-surface-variant font-bold uppercase flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">mail</span> Email Address
+          </label>
+          <input type="email" id="signup-email" required placeholder="sourav@example.com" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="signup-password" class="text-xs font-mono text-on-surface-variant font-bold uppercase flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">key</span> Password (min. 6 characters)
+          </label>
+          <input type="password" id="signup-password" required minlength="6" placeholder="••••••••" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="signup-archetype" class="text-xs font-mono text-on-surface-variant font-bold uppercase flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-secondary">groups</span> Devotee Persona / Archetype
+          </label>
+          <select id="signup-archetype" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-primary transition-all">
+            <option value="friends">Friends Adda & Night-outs (Youth Vibe)</option>
+            <option value="family">Family & Elders (Comfort & Seating)</option>
+            <option value="foodies">Foodies & Bhog Lovers (Culinary Hopping)</option>
+            <option value="photographers">Visual Seekers & Photographers (Lighting & Art)</option>
+            <option value="heritage">Heritage & Bonedi Bari Enthusiasts (Tradition)</option>
+            <option value="couple">Couple & Peaceful Strolls (Atmospheric)</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-signup-btn" class="w-full py-3 rounded-xl bg-primary text-black font-bold text-xs sm:text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">person_add</span>
+          <span>Create Devotee Account (Supabase)</span>
+        </button>
+      </form>
+
+      <!-- Supabase Cloud Connection Settings (Collapsible) -->
+      <details class="group rounded-2xl bg-surface-container/50 border border-white/10 p-3 text-xs">
+        <summary class="cursor-pointer text-[11px] font-mono font-bold text-emerald-400 flex items-center justify-between list-none">
+          <span class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">bolt</span> Supabase Cloud Connection
+          </span>
+          <span id="supabase-status-badge" class="px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active</span>
+        </summary>
+        <div class="mt-3 space-y-2.5 pt-2 border-t border-white/10 font-mono text-[11px]">
+          <p class="text-[10px] text-on-surface-variant font-sans">Connect your custom Supabase Project (optional):</p>
+          <input id="supabase-custom-url-input" type="url" placeholder="https://your-project.supabase.co" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-3 py-1.5 text-xs text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400" />
+          <input id="supabase-custom-key-input" type="password" placeholder="Supabase Anon Key (ey...)" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-3 py-1.5 text-xs text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-400" />
+          <div class="flex items-center justify-end gap-2 pt-1">
+            <button type="button" id="reset-supabase-keys-btn" class="px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-[10px] text-on-surface-variant">Reset</button>
+            <button type="button" id="save-supabase-keys-btn" class="px-3.5 py-1 rounded-lg bg-emerald-500 text-black font-bold text-[10px] hover:scale-105 transition-transform">Save Keys</button>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- Devotee Profile & Preferences Edit Modal -->
+  <div id="profile-edit-modal" class="fixed inset-0 z-[95] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-md w-full max-h-[92vh] overflow-y-auto border border-secondary/30 shadow-[0_0_50px_rgba(255,215,0,0.2)] relative p-6 sm:p-8 space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined text-2xl">manage_accounts</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-2xl font-bold text-white">Devotee Profile</h3>
+            <p class="text-xs font-mono text-secondary">Customize Your Puja Experience</p>
+          </div>
+        </div>
+        <button id="close-profile-modal-btn" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <form id="profile-edit-form" class="space-y-4">
+        <div class="flex justify-center">
+          <img id="profile-modal-avatar-preview" src="assets/logo.png" alt="Avatar" class="w-20 h-20 rounded-full border-2 border-primary/60 shadow-xl object-cover" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="profile-edit-name" class="text-xs font-mono text-on-surface-variant font-bold uppercase">Devotee Name</label>
+          <input type="text" id="profile-edit-name" required class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-secondary" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="profile-edit-archetype" class="text-xs font-mono text-on-surface-variant font-bold uppercase">Devotee Archetype</label>
+          <select id="profile-edit-archetype" class="w-full bg-surface-container-high border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-secondary">
+            <option value="friends">Friends Adda & Night-outs</option>
+            <option value="family">Family & Elders</option>
+            <option value="foodies">Foodies & Bhog Lovers</option>
+            <option value="photographers">Visual Seekers & Photographers</option>
+            <option value="heritage">Heritage & Bonedi Bari Enthusiasts</option>
+            <option value="couple">Couple & Peaceful Strolls</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-2">
+          <button type="button" id="close-profile-modal-cancel-btn" class="px-5 py-2.5 rounded-xl bg-surface-container text-white text-xs font-bold">Cancel</button>
+          <button type="submit" id="save-profile-btn" class="px-6 py-2.5 rounded-xl bg-secondary text-black font-bold text-xs shadow-lg hover:scale-105 transition-transform flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">save</span>
+            <span>Save Changes</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer (Stitch Layout) -->
+  <footer class="w-full bg-surface-container-lowest border-t border-white/5 py-16 relative z-10">
+    <div class="max-w-container-max mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row justify-between gap-8 items-center">
+      <div class="space-y-2">
+        <div class="flex items-center justify-center md:justify-start gap-3">
+          <img alt="Sharodiya Logo" class="w-9 h-9 rounded-full object-contain drop-shadow-[0_0_10px_rgba(255,215,0,0.7)]" src="assets/logo.png"/>
+          <h3 class="font-headline text-2xl text-primary font-bold">Sharodiya</h3>
+        </div>
+        <p class="font-body text-sm text-on-surface-variant max-w-xs">The ultimate smart companion and planner for your Durga Puja celebration.</p>
+      </div>
+      <div class="flex gap-12 text-sm">
+        <div class="flex flex-col gap-2">
+          <span class="font-mono text-xs text-tertiary uppercase tracking-wider font-bold">Discover</span>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.openScheduleModal()">The Rituals</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.navigateTo('pandals')">Puja Pandals</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.navigateTo('eateries')">250 Eateries</a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span class="font-mono text-xs text-tertiary uppercase tracking-wider font-bold">Connect</span>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.navigateTo('people')">Squad Hub</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.navigateTo('map')">Geospatial Map</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.navigateTo('metro')">Puja Metro Network</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="window.sharodiyaApp.navigateTo('planned')">Parikrama</a>
+        </div>
+      </div>
+      <div class="text-on-surface-variant text-xs font-mono">
+        © 2026 Sharodiya. All rights reserved.
       </div>
     </div>
   </footer>

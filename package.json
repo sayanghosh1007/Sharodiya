@@ -5,11 +5,14 @@
   "description": "Sharodiya - Full-Stack Durga Puja Experience & Parikrama Planner",
   "main": "server/server.js",
   "scripts": {
-    "start": "python server/server.py",
+    "start": "node server/server.js",
+    "dev:node": "node server/server.js",
+    "dev:python": "python server/server.py",
     "dev": "python server/server.py",
-    "test": "python scratch/test_python_server.py"
+    "test": "python scratch/test_application_full_suite.py"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.109.0",
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.22.2"

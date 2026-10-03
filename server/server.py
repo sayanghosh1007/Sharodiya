@@ -95,7 +95,16 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
                 'timestamp': datetime.now().isoformat()
             })
 
-        # 2. Schedule
+        # 1.1 Auth Verify Me
+        if path == '/api/auth/me':
+            auth_header = self.headers.get('Authorization', '')
+            token = auth_header.replace('Bearer ', '').strip() if 'Bearer ' in auth_header else auth_header.strip()
+            user = db.get_user_by_token(token)
+            if not user:
+                return self._send_json_response({'success': False, 'error': 'Authentication required or session expired'}, 401)
+            return self._send_json_response({'success': True, 'user': user})
+
+        # 2. Schedule & Archetypes
         if path == '/api/schedule':
             day_param = query_params.get('day', [None])[0]
             if day_param:
@@ -109,11 +118,18 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
                 'schedule': RITUAL_SCHEDULE
             })
 
+        if path == '/api/archetypes':
+            return self._send_json_response({
+                'success': True,
+                'total': len(COMPANION_ARCHETYPES),
+                'archetypes': COMPANION_ARCHETYPES
+            })
+
         # 3. Pandals List
         if path == '/api/pandals':
             zone = query_params.get('zone', ['all'])[0]
             category = query_params.get('category', ['all'])[0]
-            search = query_params.get('search', [''])[0]
+            search = query_params.get('search', [''])[0] or query_params.get('q', [''])[0]
             sort_by = query_params.get('sort', [''])[0]
 
             results = list(PANDALS_DATA)
@@ -184,7 +200,7 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
         if path == '/api/eateries':
             category = query_params.get('category', ['all'])[0]
             cuisine = query_params.get('cuisine', [''])[0]
-            search = query_params.get('search', [''])[0]
+            search = query_params.get('search', [''])[0] or query_params.get('q', [''])[0]
             featured = query_params.get('featured', [''])[0]
             sort_by = query_params.get('sort', [''])[0]
 
@@ -264,13 +280,17 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
         # 10. Kolkata Metro Stations
         if path == '/api/metro':
             line_param = query_params.get('line', [''])[0]
-            search = query_params.get('search', [''])[0]
+            search = query_params.get('search', [''])[0] or query_params.get('q', [''])[0]
             results = list(METRO_STATIONS_DATA)
             if line_param:
-                results = [m for m in results if line_param.lower() in m.get('line', '').lower()]
+                lp = line_param.lower()
+                if lp == 'interchange':
+                    results = [m for m in results if m.get('interchange') is True]
+                else:
+                    results = [m for m in results if (isinstance(m.get('line'), list) and any(lp in str(x).lower() for x in m['line'])) or (isinstance(m.get('line'), str) and lp in m['line'].lower())]
             if search:
                 q = search.lower().strip()
-                results = [m for m in results if q in m.get('name', '').lower() or q in m.get('landmark', '').lower()]
+                results = [m for m in results if q in m.get('stationName', '').lower() or q in m.get('name', '').lower() or q in m.get('landmark', '').lower() or any(q in p.get('pandalName', '').lower() for p in m.get('nearbyPandals', []))]
             return self._send_json_response({
                 'success': True,
                 'total': len(results),
@@ -336,6 +356,62 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
         body = self._read_json_body()
+
+        # Auth Routes
+        if path == '/api/auth/register':
+            name = (body.get('name') or '').strip()
+            email = (body.get('email') or '').strip()
+            password = body.get('password') or ''
+            archetype = body.get('archetype', 'friends')
+            avatar = body.get('avatar', '')
+
+            if not name or len(name) < 2:
+                return self._send_json_response({'success': False, 'error': 'Please provide a valid name (at least 2 characters).'}, 400)
+            if not email or '@' not in email or '.' not in email:
+                return self._send_json_response({'success': False, 'error': 'Please provide a valid email address.'}, 400)
+            if not password or len(password) < 6:
+                return self._send_json_response({'success': False, 'error': 'Password must be at least 6 characters long.'}, 400)
+
+            try:
+                user = db.create_user({
+                    'name': name,
+                    'email': email,
+                    'password': password,
+                    'archetype': archetype,
+                    'avatar': avatar
+                })
+                token = db.create_session_token(user)
+                return self._send_json_response({
+                    'success': True,
+                    'message': 'Devotee account registered successfully! Welcome to Sharodiya 🌺',
+                    'user': user,
+                    'token': token
+                }, 201)
+            except Exception as e:
+                return self._send_json_response({'success': False, 'error': str(e)}, 400)
+
+        if path == '/api/auth/login':
+            email = (body.get('email') or '').strip()
+            password = body.get('password') or ''
+            if not email or not password:
+                return self._send_json_response({'success': False, 'error': 'Email and password are required.'}, 400)
+            user = db.verify_user_password(email, password)
+            if not user:
+                return self._send_json_response({'success': False, 'error': 'Invalid email or password. Please try again.'}, 401)
+            token = db.create_session_token(user)
+            return self._send_json_response({
+                'success': True,
+                'message': f"Welcome back, {user['name']}! 🪔",
+                'user': user,
+                'token': token
+            })
+
+        if path == '/api/auth/logout':
+            auth_header = self.headers.get('Authorization', '')
+            token = auth_header.replace('Bearer ', '').strip() if 'Bearer ' in auth_header else auth_header.strip()
+            if token:
+                db.invalidate_token(token)
+            return self._send_json_response({'success': True, 'message': 'Signed out successfully.'})
 
         # 0. Real Road Navigation Route POST
         if path == '/api/route':
@@ -693,6 +769,20 @@ class SharodiyaRequestHandler(SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
         body = self._read_json_body()
+
+        # Auth Profile Update
+        if path == '/api/auth/profile':
+            auth_header = self.headers.get('Authorization', '')
+            token = auth_header.replace('Bearer ', '').strip() if 'Bearer ' in auth_header else auth_header.strip()
+            user = db.get_user_by_token(token)
+            if not user:
+                return self._send_json_response({'success': False, 'error': 'Authentication required or session expired'}, 401)
+            updated = db.update_user_profile(user['id'], body)
+            return self._send_json_response({
+                'success': True,
+                'message': 'Profile updated successfully!',
+                'user': updated
+            })
 
         if path.startswith('/api/parikramas/') or path.startswith('/api/plans/'):
             par_id = path.replace('/api/parikramas/', '').replace('/api/plans/', '').strip()

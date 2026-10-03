@@ -1,4 +1,110 @@
 {
+  "users": {
+    "usr_3a120fd3f650": {
+      "id": "usr_3a120fd3f650",
+      "name": "Anirban Mukherjee",
+      "email": "anirban_1791035210@kolkatapujo.in",
+      "salt": "6ad8884566639f395fe28aa9acd46e51",
+      "passwordHash": "52fe8ebf460690701230c576f118ccc84de070385a712d65d7bb1b01d82cd8c0b8bd94324b41501bd2de843074ed4760e5d194f281ddf38c2f80c89d8c9e3608",
+      "archetype": "friends",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Anirban",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T19:16:52.831323",
+      "updatedAt": "2026-10-03T19:16:52.831323"
+    },
+    "usr_3be579d3913d": {
+      "id": "usr_3be579d3913d",
+      "name": "Anirban Mukherjee (VIP Guide)",
+      "email": "anirban_1791035222@kolkatapujo.in",
+      "salt": "549dcedc0e5642207b54ed582c2b2fe7",
+      "passwordHash": "b79122f6bdf3f1e95121df39eb784aed7c66e77ae3c39645aaac3751f59be759886da091854a4e5e00f252889d44d52cd68e6a97796e6e33625e829f9fd9a2b8",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Anirban",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T19:17:04.970245",
+      "updatedAt": "2026-10-03T19:17:09.223075"
+    },
+    "usr_c6dddbc7d43a": {
+      "id": "usr_c6dddbc7d43a",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791035604@kolkatapujo.in",
+      "salt": "3a1d0e643be08f41ab2117711249d2d5",
+      "passwordHash": "c52df07c74345c29031631aa05b5528a741940da96de1f8e01cc79bf4d87c0b13fa1a5fc383fee6aafc04d607a3d0f1a97c4275e264e8c8aadd2dfddd430afc5",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T19:23:27.041720",
+      "updatedAt": "2026-10-03T19:23:33.468811"
+    },
+    "usr_e0cd9e19fe4a": {
+      "id": "usr_e0cd9e19fe4a",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791035985@kolkatapujo.in",
+      "salt": "9346f981b8bf0fb8218d70295801313a",
+      "passwordHash": "f02bcb6a8c833d55f399ec907e96b222952a006277d8e4d0855982fd0457f7802308c71043ca8acfaaf5da04910ac40b5c6f82f15fabbb2b001b951410235a71",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T19:29:47.743831",
+      "updatedAt": "2026-10-03T19:29:54.147011"
+    },
+    "usr_1c19a51a3e31": {
+      "id": "usr_1c19a51a3e31",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791036047@kolkatapujo.in",
+      "salt": "dc5645a782af30f5beb10221d137af66",
+      "passwordHash": "4049e85767908d6d679f1c94602d17049fdccf860c57326356b58f3061f6d76893b536fa3ba75e697665b7935fe4c07e6516b85916739697a6a71544d9b48ad5",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T19:30:49.130498",
+      "updatedAt": "2026-10-03T19:30:55.523227"
+    },
+    "usr_578d79a4c716": {
+      "id": "usr_578d79a4c716",
+      "name": "Shounak Sen (Demo Devotee)",
+      "email": "devotee.kolkata@sharodiya.in",
+      "salt": "61a0fd2a8368e4126ec43a48e21e8e41",
+      "passwordHash": "4f38fc3e8435076a82d3edf1aa647200288127d025835128977c5f7a8718404b820ef71cc5d89770b507f7ee9dcf954dbce83d772b452030d7f99b93cf492782",
+      "archetype": "friends",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=SharodiyaVIP",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T19:33:18.554520",
+      "updatedAt": "2026-10-03T19:33:18.554520"
+    }
+  },
+  "tokens": {
+    "stk_732512d872a1e1dcaf0f8c396e4592e652a9a6f931c385f7": {
+      "userId": "usr_3a120fd3f650",
+      "createdAt": "2026-10-03T19:16:52.940747",
+      "expiresAt": "2026-11-02T19:16:52.940747"
+    },
+    "stk_67e91ff2063876d17cfc68b4d72de4f497ea04c8d26ef6e5": {
+      "userId": "usr_3be579d3913d",
+      "createdAt": "2026-10-03T19:17:05.054495",
+      "expiresAt": "2026-11-02T19:17:05.054495"
+    },
+    "stk_4dbfddde701ef34321f22a5d9cbd5f1afa235d995e187330": {
+      "userId": "usr_c6dddbc7d43a",
+      "createdAt": "2026-10-03T19:23:31.307630",
+      "expiresAt": "2026-11-02T19:23:31.307630"
+    },
+    "stk_28e47b14870ff83d97cfe900a8bbe269dcbfc80e51f8d8f0": {
+      "userId": "usr_e0cd9e19fe4a",
+      "createdAt": "2026-10-03T19:29:51.979203",
+      "expiresAt": "2026-11-02T19:29:51.979203"
+    },
+    "stk_ea3a73e66aa9a89e7e9f36ea3994b4201b85a56b3de19c02": {
+      "userId": "usr_1c19a51a3e31",
+      "createdAt": "2026-10-03T19:30:53.388621",
+      "expiresAt": "2026-11-02T19:30:53.388621"
+    },
+    "stk_2eaf17ef3a1ae445e291745df0a3e8f0ab116402d7269afc": {
+      "userId": "usr_578d79a4c716",
+      "createdAt": "2026-10-03T19:33:18.963549",
+      "expiresAt": "2026-11-02T19:33:18.963549"
+    }
+  },
   "parikramas": {
     "plan_yiyjjrm": {
       "name": "Automated Test Parikrama",
@@ -516,96 +622,6 @@
       "updatedAt": "2026-09-12T20:46:24.325076",
       "createdAt": "2026-09-12T20:11:34.062711"
     },
-    "plan_default_1": {
-      "id": "plan_default_1",
-      "name": "Maha Ashtami Friends Circuit",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [
-        {
-          "id": "gen_p_1789224601498_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club (Lake Town)",
-          "zone": "Lake Town, VIP Road",
-          "timeSlot": "11:00 PM - 12:15 AM",
-          "distanceFromPrev": "0 km (Starting Point)",
-          "duration": "75 mins",
-          "notes": "Theme: Grand Vatican & Venetian Architectural Replica with Chandannagar Gold Lights. Nearest Metro: Belgachia / Ultadanga Station."
-        },
-        {
-          "id": "gen_p_1789224601498_2",
-          "type": "pandal",
-          "itemId": "kumartuli-park-north",
-          "name": "Kumartuli Park",
-          "zone": "Kumartuli, North Kolkata",
-          "timeSlot": "12:35 AM - 01:50 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Sculptural Fusion of Clay, Myth, and Modern Illumination. Nearest Metro: Sovabazar Sutanuti."
-        },
-        {
-          "id": "gen_e_1789224601498_1",
-          "type": "eatery",
-          "itemId": "arsalan-park-circus-flagship",
-          "name": "Arsalan - Flagship (Park Circus 7-Point Crossing)",
-          "zone": "136, 7-Point Crossing, Park Circus",
-          "timeSlot": "02:10 AM - 03:10 AM",
-          "distanceFromPrev": "1.2 km (Transit / Walk)",
-          "duration": "60 mins",
-          "notes": "Food Stop: Must-try Mutton Special Biryani (2 Mutton + 1 Egg + Aloo), Mutton Chaap (\u20b9750 for two)."
-        },
-        {
-          "id": "gen_e_1789224601498_2",
-          "type": "eatery",
-          "itemId": "peter-cat-park-street",
-          "name": "Peter Cat (Park Street Flagship)",
-          "zone": "18A, Park Street, Park Street Area",
-          "timeSlot": "03:25 AM - 04:25 AM",
-          "distanceFromPrev": "1.2 km (Transit / Walk)",
-          "duration": "60 mins",
-          "notes": "Food Stop: Must-try Special Chelo Kebab (Mutton & Chicken), Mixed Grill Sizzler (\u20b91200 for two)."
-        },
-        {
-          "id": "gen_p_1789224601498_3",
-          "type": "pandal",
-          "itemId": "tala-prattoy-north",
-          "name": "Tala Prattoy",
-          "zone": "Tala Park, North Kolkata",
-          "timeSlot": "04:40 AM - 05:55 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Monumental Concept Art & Immersive Spatial Architecture. Nearest Metro: Belgachia / Shyambazar."
-        },
-        {
-          "id": "gen_p_1789224601498_4",
-          "type": "pandal",
-          "itemId": "dum-dum-park-tarun-sangha-north",
-          "name": "Dum Dum Park Tarun Sangha",
-          "zone": "Dum Dum Park",
-          "timeSlot": "06:15 AM - 07:30 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Surrealist Folk Textures & Futuristic Chromatic Lighting. Nearest Metro: Dum Dum / Belgachia."
-        },
-        {
-          "id": "gen_p_1789224601498_5",
-          "type": "pandal",
-          "itemId": "dum-dum-park-tarun-dal-north",
-          "name": "Dum Dum Park Tarun Dal",
-          "zone": "Dum Dum Park Tank 3",
-          "timeSlot": "07:50 AM - 09:05 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Harmonic Geometry & Handcrafted Tribal Sculptures. Nearest Metro: Dum Dum."
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_default_1",
-      "updatedAt": "2026-09-12T20:20:22.396454",
-      "createdAt": "2026-09-12T20:13:26.933872"
-    },
     "plan_85ca4e26": {
       "id": "plan_85ca4e26",
       "name": "Test Python Parikrama",
@@ -704,6 +720,258 @@
       "shareUrl": "/parikrama/plan_1789269158808_etux",
       "updatedAt": "2026-09-13T08:42:38.986290",
       "createdAt": "2026-09-13T08:42:38.986290"
+    },
+    "plan_1791029282128_7hz1": {
+      "id": "plan_1791029282128_7hz1",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791029282128_7hz1",
+      "updatedAt": "2026-10-03T17:38:02.235492",
+      "createdAt": "2026-10-03T17:38:02.235492"
+    },
+    "plan_de96e098": {
+      "id": "plan_de96e098",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_de96e098",
+      "updatedAt": "2026-10-03T17:43:34.268472",
+      "createdAt": "2026-10-03T17:43:34.268472"
+    },
+    "plan_bb8ce2ab": {
+      "id": "plan_bb8ce2ab",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_bb8ce2ab",
+      "updatedAt": "2026-10-03T17:45:16.210110",
+      "createdAt": "2026-10-03T17:45:16.210110"
+    },
+    "plan_de077918": {
+      "id": "plan_de077918",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_de077918",
+      "updatedAt": "2026-10-03T18:21:16.825051",
+      "createdAt": "2026-10-03T18:21:16.825051"
+    },
+    "plan_09dce2fe": {
+      "id": "plan_09dce2fe",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_09dce2fe",
+      "updatedAt": "2026-10-03T18:25:24.206759",
+      "createdAt": "2026-10-03T18:25:24.206759"
+    },
+    "plan_9d27b5ea": {
+      "id": "plan_9d27b5ea",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_9d27b5ea",
+      "updatedAt": "2026-10-03T18:29:05.679682",
+      "createdAt": "2026-10-03T18:29:05.679682"
+    },
+    "plan_b134f6cd": {
+      "id": "plan_b134f6cd",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_b134f6cd",
+      "updatedAt": "2026-10-03T18:43:03.791282",
+      "createdAt": "2026-10-03T18:43:03.791282"
+    },
+    "plan_b0b832cf": {
+      "id": "plan_b0b832cf",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_b0b832cf",
+      "updatedAt": "2026-10-03T19:03:32.210569",
+      "createdAt": "2026-10-03T19:03:32.210569"
+    },
+    "plan_cc9a2b8d": {
+      "id": "plan_cc9a2b8d",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_cc9a2b8d",
+      "updatedAt": "2026-10-03T19:23:10.085655",
+      "createdAt": "2026-10-03T19:23:10.085655"
+    },
+    "plan_fadc32da": {
+      "id": "plan_fadc32da",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_fadc32da",
+      "updatedAt": "2026-10-03T19:29:30.835817",
+      "createdAt": "2026-10-03T19:29:30.835817"
+    },
+    "plan_845c3bf6": {
+      "id": "plan_845c3bf6",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_845c3bf6",
+      "updatedAt": "2026-10-03T19:30:32.276811",
+      "createdAt": "2026-10-03T19:30:32.276811"
     }
   },
   "squads": {
@@ -39112,96 +39380,6 @@
       "updatedAt": "2026-09-12T20:46:24.325076",
       "createdAt": "2026-09-12T20:11:34.062711"
     },
-    "plan_default_1": {
-      "id": "plan_default_1",
-      "name": "Maha Ashtami Friends Circuit",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [
-        {
-          "id": "gen_p_1789224601498_1",
-          "type": "pandal",
-          "itemId": "sreebhumi-sporting-club-lake-town-north",
-          "name": "Sreebhumi Sporting Club (Lake Town)",
-          "zone": "Lake Town, VIP Road",
-          "timeSlot": "11:00 PM - 12:15 AM",
-          "distanceFromPrev": "0 km (Starting Point)",
-          "duration": "75 mins",
-          "notes": "Theme: Grand Vatican & Venetian Architectural Replica with Chandannagar Gold Lights. Nearest Metro: Belgachia / Ultadanga Station."
-        },
-        {
-          "id": "gen_p_1789224601498_2",
-          "type": "pandal",
-          "itemId": "kumartuli-park-north",
-          "name": "Kumartuli Park",
-          "zone": "Kumartuli, North Kolkata",
-          "timeSlot": "12:35 AM - 01:50 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Sculptural Fusion of Clay, Myth, and Modern Illumination. Nearest Metro: Sovabazar Sutanuti."
-        },
-        {
-          "id": "gen_e_1789224601498_1",
-          "type": "eatery",
-          "itemId": "arsalan-park-circus-flagship",
-          "name": "Arsalan - Flagship (Park Circus 7-Point Crossing)",
-          "zone": "136, 7-Point Crossing, Park Circus",
-          "timeSlot": "02:10 AM - 03:10 AM",
-          "distanceFromPrev": "1.2 km (Transit / Walk)",
-          "duration": "60 mins",
-          "notes": "Food Stop: Must-try Mutton Special Biryani (2 Mutton + 1 Egg + Aloo), Mutton Chaap (\u20b9750 for two)."
-        },
-        {
-          "id": "gen_e_1789224601498_2",
-          "type": "eatery",
-          "itemId": "peter-cat-park-street",
-          "name": "Peter Cat (Park Street Flagship)",
-          "zone": "18A, Park Street, Park Street Area",
-          "timeSlot": "03:25 AM - 04:25 AM",
-          "distanceFromPrev": "1.2 km (Transit / Walk)",
-          "duration": "60 mins",
-          "notes": "Food Stop: Must-try Special Chelo Kebab (Mutton & Chicken), Mixed Grill Sizzler (\u20b91200 for two)."
-        },
-        {
-          "id": "gen_p_1789224601498_3",
-          "type": "pandal",
-          "itemId": "tala-prattoy-north",
-          "name": "Tala Prattoy",
-          "zone": "Tala Park, North Kolkata",
-          "timeSlot": "04:40 AM - 05:55 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Monumental Concept Art & Immersive Spatial Architecture. Nearest Metro: Belgachia / Shyambazar."
-        },
-        {
-          "id": "gen_p_1789224601498_4",
-          "type": "pandal",
-          "itemId": "dum-dum-park-tarun-sangha-north",
-          "name": "Dum Dum Park Tarun Sangha",
-          "zone": "Dum Dum Park",
-          "timeSlot": "06:15 AM - 07:30 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Surrealist Folk Textures & Futuristic Chromatic Lighting. Nearest Metro: Dum Dum / Belgachia."
-        },
-        {
-          "id": "gen_p_1789224601498_5",
-          "type": "pandal",
-          "itemId": "dum-dum-park-tarun-dal-north",
-          "name": "Dum Dum Park Tarun Dal",
-          "zone": "Dum Dum Park Tank 3",
-          "timeSlot": "07:50 AM - 09:05 AM",
-          "distanceFromPrev": "1.8 km (Metro / Walk)",
-          "duration": "75 mins",
-          "notes": "Theme: Harmonic Geometry & Handcrafted Tribal Sculptures. Nearest Metro: Dum Dum."
-        }
-      ],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_default_1",
-      "updatedAt": "2026-09-12T20:20:22.396454",
-      "createdAt": "2026-09-12T20:13:26.933872"
-    },
     "plan_85ca4e26": {
       "id": "plan_85ca4e26",
       "name": "Test Python Parikrama",
@@ -39300,6 +39478,258 @@
       "shareUrl": "/parikrama/plan_1789269158808_etux",
       "updatedAt": "2026-09-13T08:42:38.986290",
       "createdAt": "2026-09-13T08:42:38.986290"
+    },
+    "plan_1791029282128_7hz1": {
+      "id": "plan_1791029282128_7hz1",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791029282128_7hz1",
+      "updatedAt": "2026-10-03T17:38:02.235492",
+      "createdAt": "2026-10-03T17:38:02.235492"
+    },
+    "plan_de96e098": {
+      "id": "plan_de96e098",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_de96e098",
+      "updatedAt": "2026-10-03T17:43:34.268472",
+      "createdAt": "2026-10-03T17:43:34.268472"
+    },
+    "plan_bb8ce2ab": {
+      "id": "plan_bb8ce2ab",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_bb8ce2ab",
+      "updatedAt": "2026-10-03T17:45:16.210110",
+      "createdAt": "2026-10-03T17:45:16.210110"
+    },
+    "plan_de077918": {
+      "id": "plan_de077918",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_de077918",
+      "updatedAt": "2026-10-03T18:21:16.825051",
+      "createdAt": "2026-10-03T18:21:16.825051"
+    },
+    "plan_09dce2fe": {
+      "id": "plan_09dce2fe",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_09dce2fe",
+      "updatedAt": "2026-10-03T18:25:24.206759",
+      "createdAt": "2026-10-03T18:25:24.206759"
+    },
+    "plan_9d27b5ea": {
+      "id": "plan_9d27b5ea",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_9d27b5ea",
+      "updatedAt": "2026-10-03T18:29:05.679682",
+      "createdAt": "2026-10-03T18:29:05.679682"
+    },
+    "plan_b134f6cd": {
+      "id": "plan_b134f6cd",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_b134f6cd",
+      "updatedAt": "2026-10-03T18:43:03.791282",
+      "createdAt": "2026-10-03T18:43:03.791282"
+    },
+    "plan_b0b832cf": {
+      "id": "plan_b0b832cf",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_b0b832cf",
+      "updatedAt": "2026-10-03T19:03:32.210569",
+      "createdAt": "2026-10-03T19:03:32.210569"
+    },
+    "plan_cc9a2b8d": {
+      "id": "plan_cc9a2b8d",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_cc9a2b8d",
+      "updatedAt": "2026-10-03T19:23:10.085655",
+      "createdAt": "2026-10-03T19:23:10.085655"
+    },
+    "plan_fadc32da": {
+      "id": "plan_fadc32da",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_fadc32da",
+      "updatedAt": "2026-10-03T19:29:30.835817",
+      "createdAt": "2026-10-03T19:29:30.835817"
+    },
+    "plan_845c3bf6": {
+      "id": "plan_845c3bf6",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_845c3bf6",
+      "updatedAt": "2026-10-03T19:30:32.276811",
+      "createdAt": "2026-10-03T19:30:32.276811"
     }
   }
 }

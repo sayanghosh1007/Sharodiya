@@ -10,6 +10,9 @@ import itineraryRouter from './routes/itinerary.js';
 import parikramasRouter from './routes/parikramas.js';
 import squadsRouter from './routes/squads.js';
 import scheduleRouter from './routes/schedule.js';
+import metroRouter from './routes/metro.js';
+import archetypesRouter from './routes/archetypes.js';
+import authRouter from './routes/auth.js';
 import aiRouter from './routes/ai.js';
 
 dotenv.config();
@@ -35,12 +38,15 @@ app.use((req, res, next) => {
 });
 
 // API Routes
+app.use('/api/auth', authRouter);
 app.use('/api/pandals', pandalsRouter);
 app.use('/api/eateries', eateriesRouter);
 app.use('/api/itinerary', itineraryRouter);
 app.use('/api/parikramas', parikramasRouter);
 app.use('/api/squads', squadsRouter);
 app.use('/api/schedule', scheduleRouter);
+app.use('/api/metro', metroRouter);
+app.use('/api/archetypes', archetypesRouter);
 app.use('/api/ai', aiRouter);
 
 // Health Check

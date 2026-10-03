@@ -1,0 +1,247 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes glow{0%{box-shadow:0 0 5px rgba(211,16,24,0.2);}50%{box-shadow:0 0 20px rgba(211,16,24,0.4);}100%{box-shadow:0 0 5px rgba(211,16,24,0.2);}}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#e5e2e1","tertiary":"#e9c400","on-primary-fixed":"#410002","secondary":"#b9f1ff","on-tertiary-fixed":"#221b00","primary-fixed-dim":"#ffb4ab","secondary-fixed-dim":"#00daf8","tertiary-container":"#c9a900","on-secondary":"#00363f","secondary-container":"#00e0ff","tertiary-fixed-dim":"#e9c400","primary-container":"#d31018","tertiary-fixed":"#ffe16d","error-container":"#93000a","surface-container-high":"#2a2a2a","surface-container-highest":"#353534","secondary-fixed":"#a5eeff","surface-dim":"#131313","surface-container-lowest":"#0e0e0e","on-secondary-container":"#005f6d","inverse-primary":"#c00010","surface-tint":"#ffb4ab","background":"#131313","surface-container":"#201f1f","on-secondary-fixed-variant":"#004e5a","primary-fixed":"#ffdad5","on-primary":"#690004","surface":"#131313","primary":"#ffb4ab","on-secondary-fixed":"#001f25","on-surface":"#e5e2e1","on-error-container":"#ffdad6","on-tertiary":"#3a3000","surface-variant":"#353534","on-surface-variant":"#e7bdb7","inverse-on-surface":"#313030","on-tertiary-fixed-variant":"#544600","outline-variant":"#5d3f3c","surface-bright":"#3a3939","error":"#ffb4ab","on-error":"#690005","on-tertiary-container":"#4c3f00","on-primary-container":"#ffe5e1","on-primary-fixed-variant":"#930009","outline":"#ad8883","surface-container-low":"#1c1b1b","inverse-surface":"#e5e2e1"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{base:"8px","margin-mobile":"20px","container-max":"1280px",gutter:"24px","margin-desktop":"64px"},fontFamily:{"headline-lg-mobile":["Playfair Display"],"button-text":["Hanken Grotesk"],"headline-lg":["Playfair Display"],"body-md":["Hanken Grotesk"],"label-caps":["JetBrains Mono"],"body-lg":["Hanken Grotesk"],"headline-xl":["Playfair Display"]},fontSize:{"headline-lg-mobile":["28px",{lineHeight:"36px",fontWeight:"700"}],"button-text":["14px",{lineHeight:"20px",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-caps":["12px",{lineHeight:"16px",letterSpacing:"0.1em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"headline-xl":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"900"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-background"><header class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl border-b border-white/5"><div class="h-20 max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-4"><img alt="Sharodiya Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(255,180,171,0.5)]" src="https://lh3.googleusercontent.com/aida/AEtjO1W_aBF5hJ6VkadNlQY7Y9nBY6QI26qekuRYJAPJdgaUjBebrQXAZJCmIUqmE9Hmnn5KwQABGe416LgmYXldoD-xZok5Dfu1U5RO98Olu8fDGrgBA2pF91XfeuSUhY2HMFAu_1Hv9klPaC599WoyYNSbspHtOhG5TDEzQB9Er-6TUfueFs9Ljo9QiUVDNbmEIHnpzom_cve0iyvYOL_sbyIFx99jK6dE4RAMGgdEMAipkdDs2hnvxoEQxfvEO55hsq2DTTBy-9q40A"/><span class="font-headline-lg text-headline-lg text-primary tracking-tight">Sharodiya</span></div><nav class="hidden md:flex items-center gap-8" data-active-classes="text-primary border-b-2 border-primary pb-1"><a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-all" data-path="landing" href="#">Landing</a><a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-all" data-path="people" href="#">People</a><a aria-current="page" class="font-button-text transition-all text-primary border-b-2 border-primary pb-1" data-path="pandals" href="#">Pandals</a><a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-all" data-path="eateries" href="#">Eateries</a><a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-all" data-path="planned" href="#">Planned</a></nav><div class="flex items-center gap-6"><button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button><div class="flex items-center gap-4 border-l border-white/10 pl-6"><span class="material-symbols-outlined text-tertiary cursor-pointer hover:scale-110 transition-transform">notifications</span><img alt="Profile" class="w-8 h-8 rounded-full border border-primary/30 object-cover shadow-[0_0_10px_rgba(211,16,24,0.3)]" src="https://lh3.googleusercontent.com/aida/AEtjO1W_aBF5hJ6VkadNlQY7Y9nBY6QI26qekuRYJAPJdgaUjBebrQXAZJCmIUqmE9Hmnn5KwQABGe416LgmYXldoD-xZok5Dfu1U5RO98Olu8fDGrgBA2pF91XfeuSUhY2HMFAu_1Hv9klPaC599WoyYNSbspHtOhG5TDEzQB9Er-6TUfueFs9Ljo9QiUVDNbmEIHnpzom_cve0iyvYOL_sbyIFx99jK6dE4RAMGgdEMAipkdDs2hnvxoEQxfvEO55hsq2DTTBy-9q40A"/></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Background Glows -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]"></div>
+<div class="absolute bottom-[20%] right-[-5%] w-[30%] h-[50%] rounded-full bg-secondary/5 blur-[100px]"></div>
+</div>
+<div class="max-w-container-max w-full mx-auto px-margin-mobile lg:px-margin-desktop py-12 flex flex-col gap-12">
+<!-- Page Header & Filters -->
+<section class="flex flex-col gap-6 relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex flex-col gap-2 max-w-2xl">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest uppercase flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Live Exploration
+          </span>
+<h1 class="font-headline-xl text-headline-xl text-on-background">
+            Discover the <br/><span class="text-primary mix-blend-screen drop-shadow-[0_0_12px_rgba(211,16,24,0.4)]">Divine Energy</span>
+</h1>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap items-center gap-3" id="pandal-filters">
+<button class="group relative px-5 py-2 rounded-full bg-primary text-on-primary shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] shadow-[0_0_15px_rgba(211,16,24,0.4)] transition-all font-button-text text-button-text flex items-center gap-2 filter-btn" data-filter="all">
+<span class="material-symbols-outlined text-[18px]">travel_explore</span>
+            All
+          </button>
+<button class="group relative px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest hover:text-on-background transition-all font-button-text text-button-text flex items-center gap-2 filter-btn" data-filter="popular">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Popular
+          </button>
+<button class="group relative px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest hover:text-on-background transition-all font-button-text text-button-text flex items-center gap-2 filter-btn" data-filter="traditional">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            Traditional
+          </button>
+<button class="group relative px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest hover:text-on-background transition-all font-button-text text-button-text flex items-center gap-2 filter-btn" data-filter="theme">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Theme-based
+          </button>
+</div>
+</div>
+</section>
+<!-- Pandal Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="pandal-grid">
+<!-- Featured Card (Spans 2 columns on large screens) -->
+<article class="pandal-card filter-popular filter-theme group relative flex flex-col rounded-2xl overflow-hidden bg-surface-container-low shadow-2xl shadow-background hover:shadow-[0_10px_40px_rgba(211,16,24,0.15)] transition-all duration-700 lg:col-span-2 min-h-[400px]" data-category="popular theme">
+<div class="absolute inset-0 w-full h-full">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="A hyper-realistic, wide-angle cinematic shot of a majestic modern Durga Puja pandal at night. The structure features glowing red and gold neon accents against a deep obsidian background. Intricate fractal-like traditional mandal patterns are laser-cut into translucent glass panels, creating an electric neo-aesthetic atmosphere. Dense, high-contrast lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMgdvXCBCVU3SkbCPv3THrZSyZIFok9oH218300NNMjS2NXdN_nuVcUwMt4ATLvGW4fVHAd86XbEwFxJWzIcgDjeirWh1SVyBkhNpMgQ2UGu4ftdP8_U9PqhhsHe4iOg-BNks2v_6hEl7fe6Yf8yTfkHBAJsoD2kz41JDjA9GPgZAM32na_UePMvWO-RvO-XqpvUWMy445aZGYnOMd3qKhKUfDygMX75Az59PQ9a3d_XNWCVAqv6tM')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/40 to-transparent lg:block hidden"></div>
+</div>
+<div class="absolute top-6 left-6 bg-surface/40 backdrop-blur-xl px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-background/50">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-[glow_2s_infinite]"></span>
+<span class="font-label-caps text-label-caps text-tertiary">Featured Pandal</span>
+</div>
+<div class="relative z-10 flex flex-col justify-end h-full p-6 lg:p-10 lg:w-2/3 gap-4 mt-auto">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-background mb-2 group-hover:text-primary transition-colors duration-300">Sreebhumi Sporting</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant line-clamp-2">Experience the mesmerizing Vatican City replica, combining divine reverence with unparalleled architectural precision and electric radiance.</p>
+</div>
+<div class="flex items-center gap-4 mt-2">
+<span class="flex items-center gap-1 font-body-md text-body-md text-secondary">
+<span class="material-symbols-outlined text-[20px]">location_on</span> Lake Town
+            </span>
+<span class="flex items-center gap-1 font-body-md text-body-md text-tertiary">
+<span class="material-symbols-outlined text-[20px]">group</span> 50k+ Visitors/day
+            </span>
+</div>
+<div class="flex gap-4 mt-4">
+<button class="px-8 py-3 rounded-xl bg-primary text-on-primary font-button-text text-button-text shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)] hover:shadow-[0_0_20px_rgba(211,16,24,0.6)] transition-all flex items-center justify-center gap-2 active:scale-95">
+<span class="material-symbols-outlined">add_task</span> Add to Plan
+            </button>
+<button class="px-4 py-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-all flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Standard Card 1 -->
+<article class="pandal-card filter-traditional group relative flex flex-col rounded-2xl overflow-hidden bg-surface-container-low shadow-xl shadow-background hover:-translate-y-2 transition-all duration-500" data-category="traditional">
+<div class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A vivid low-angle shot of a traditional Durga Puja idol adorned in heavy gold jewelry and glowing red silk. The lighting is dramatic, high-contrast chiaroscuro with an obsidian dark background, allowing the intense primary red and gold to radiate with a neo-traditional electric vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtBRxhs9ESX11yMZJlDyfMfi72ikwjiYMQj5ci8MCVWUOgy4qfXf7fDsaecsr46wvY1mLXjanrRsdDXFk21Wi53P0dBdwGA1BTRWs_dTTVZCV-5gCF1oXcHJaMCH-zXGNuRBuvQADmx1kjGrPlXQ1RuEzH3Oq6GeMZsCJdLV4doF32XZBsziZ6GwGQidPLPodrvhPw1_YFLhz7SrDVZlURW_UeHKwwGMxmZ5I7tEMOWtPsUV23zHnW')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+</div>
+<div class="p-6 relative z-10 flex flex-col gap-4 flex-grow bg-surface-container-low">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-background group-hover:text-tertiary transition-colors">Ballygunge Cultural</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">map</span> South Kolkata
+              </p>
+</div>
+<div class="bg-surface/50 backdrop-blur-md px-2 py-1 rounded shadow-sm">
+<span class="font-label-caps text-label-caps text-tertiary">Heritage</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 mb-4">A timeless execution of the Ekchala protima, preserving centuries of artistic devotion.</p>
+<button class="mt-auto w-full py-3 rounded-lg bg-surface-container-highest text-primary font-button-text text-button-text hover:bg-primary hover:text-on-primary hover:shadow-[0_0_15px_rgba(211,16,24,0.3)] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span> Plan Visit
+          </button>
+</div>
+</article>
+<!-- Standard Card 2 -->
+<article class="pandal-card filter-popular group relative flex flex-col rounded-2xl overflow-hidden bg-surface-container-low shadow-xl shadow-background hover:-translate-y-2 transition-all duration-500" data-category="popular">
+<div class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-contrast night scene of a bustling Durga Puja pandal entrance. Intense electric blue lighting outlines the intricate gateway structures against a pure black night sky. Neon signage glows brightly, blending cyberpunk aesthetics with traditional Bengali festive architecture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcLJP8K3TXU7pQT3lDcQy6Swv4qcODvw7OkgxxyNEyWBXvs7WKCzz-oZKpmJI8T5IEe58qmf0TOPb7krKsTMZV0Z1pANGpuYsiMo0qNbpuXkypj2sB3DRdDq-TyGAxzAVMO2wTIDGSOuWm-PW1RNJss4f-_iRc0zuZvCqbc50sq_mL0vYhhswSaRKw7dhN6r7dk8Un8bnScHQAq1C9DCXozD2Y8BGQ2_YHU8weOe2SckJN4qGdMQEs')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+</div>
+<div class="p-6 relative z-10 flex flex-col gap-4 flex-grow bg-surface-container-low">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-background group-hover:text-secondary transition-colors">Deshapriya Park</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">map</span> Rashbehari
+              </p>
+</div>
+<div class="bg-surface/50 backdrop-blur-md px-2 py-1 rounded shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">Trending</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 mb-4">Known for massive crowds and scale, featuring monumental installations that dominate the skyline.</p>
+<button class="mt-auto w-full py-3 rounded-lg bg-surface-container-highest text-primary font-button-text text-button-text hover:bg-primary hover:text-on-primary hover:shadow-[0_0_15px_rgba(211,16,24,0.3)] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span> Plan Visit
+          </button>
+</div>
+</article>
+<!-- Interactive Map Block -->
+<article class="lg:col-span-3 bg-surface-container rounded-2xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row my-4">
+<div class="md:w-1/3 p-8 flex flex-col justify-center gap-6 relative z-10 bg-surface-container/90 backdrop-blur-xl">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-[28px]">route</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-background">Curated Trails</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Optimize your pandal hopping with our AI-generated routes based on live crowd data and traffic flow.</p>
+</div>
+<button class="w-fit px-6 py-2 rounded-full bg-secondary text-on-secondary font-button-text text-button-text hover:shadow-[0_0_15px_rgba(0,218,248,0.5)] transition-all">
+             View Live Map
+           </button>
+</div>
+<div class="md:w-2/3 h-64 md:h-auto relative">
+<div class="absolute inset-0 bg-cover bg-center" data-location="Kolkata, West Bengal" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEnYeqRrtphRvjsAxIo-YrpfJ6Oy0imAiMCYSZKsHZL_J8ZkOOhJBAyxqrgJ5Cqnlh2oKp83gut_UEXQQaXSeQZpdQQ59BB0MhZMsA4CMAfH6OvDb_ubWZ_lVE9KLtiXtW87MiMdi5Bn3xYYFxlrggcN-Hzj_aIRdamBFtuxQgSZjuSaQDyVtHGhqYUucDS_Tsu-bga4KysqOjACD1zQUkByCbo5Migs-G07iaKY6j88VQJE3c09Aw')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container via-surface-container/50 to-transparent hidden md:block"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/50 to-transparent block md:hidden"></div>
+<!-- Decorative Map Nodes -->
+<div class="absolute top-[30%] left-[40%] w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(211,16,24,0.8)] animate-pulse"></div>
+<div class="absolute top-[60%] left-[60%] w-3 h-3 bg-tertiary rounded-full shadow-[0_0_15px_rgba(233,196,0,0.8)] animate-[glow_3s_infinite]"></div>
+<div class="absolute top-[45%] left-[75%] w-3 h-3 bg-secondary rounded-full shadow-[0_0_15px_rgba(0,218,248,0.8)] animate-pulse"></div>
+<!-- Route Line SVG overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-50 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]" preserveaspectratio="none">
+<path class="text-on-background" d="M 40% 30% Q 50% 50% 60% 60% T 75% 45%" fill="none" stroke="currentColor" stroke-dasharray="6,6" stroke-width="2"></path>
+</svg>
+</div>
+</article>
+<!-- Standard Card 3 -->
+<article class="pandal-card filter-theme group relative flex flex-col rounded-2xl overflow-hidden bg-surface-container-low shadow-xl shadow-background hover:-translate-y-2 transition-all duration-500" data-category="theme">
+<div class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A dark and moody architectural shot of an abstract thematic Durga Puja pandal. Made entirely of metallic gears and glowing translucent glass panels illuminated by stark white and deep red lights. The aesthetic is industrial neo-gothic, highly detailed and sharp, floating in a sea of pure obsidian darkness." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADZi3dPfKIWVgAfXq5UEqUZuedcuumtO7rvcMWXAoWUjsoKyvdyzWcNs1dHt_VPT86iPaLcMtzWpGQwqVVblycPkl7vLUZktMzj_X5j4A1tVN-cc-dL38FiukjRLoljz_5W3CXB1aN-GsNicEqXh0NZpGM215tu3p_Mc420NmUB4XuKuvHYYitPEhkRQFr_dPV-HRBzKUjnJLzKxQ4QskeqdmH1KJrvaDLpI6rWpO8YztVhLajtx2V')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+</div>
+<div class="p-6 relative z-10 flex flex-col gap-4 flex-grow bg-surface-container-low">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-background group-hover:text-primary transition-colors">Suruchi Sangha</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">map</span> New Alipore
+              </p>
+</div>
+<div class="bg-surface/50 backdrop-blur-md px-2 py-1 rounded shadow-sm">
+<span class="font-label-caps text-label-caps text-primary">Abstract</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 mb-4">A mesmerizing display of abstract mechanical art depicting the cycle of creation and destruction.</p>
+<button class="mt-auto w-full py-3 rounded-lg bg-surface-container-highest text-primary font-button-text text-button-text hover:bg-primary hover:text-on-primary hover:shadow-[0_0_15px_rgba(211,16,24,0.3)] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span> Plan Visit
+          </button>
+</div>
+</article>
+<!-- Standard Card 4 -->
+<article class="pandal-card filter-traditional group relative flex flex-col rounded-2xl overflow-hidden bg-surface-container-low shadow-xl shadow-background hover:-translate-y-2 transition-all duration-500" data-category="traditional">
+<div class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of intricate terracotta artwork on the exterior walls of a Durga Puja pandal. Warm glowing ember-like lights wash over the textured clay panels. The shadows are deeply crushed to pure black, highlighting the rich earthy reds and golds of the traditional aesthetic in a modern hyper-real execution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNZ8Fz3dDPM1BM9vxpYfldW_PKr1O8iGND8lJ3Gy_76tpwNlbE2NOsw9boivEjGK8nQjwvOPJ6HSH2UpygeqqO6heG90-9thsoXMoGG7-CCLtUCX3iXkDevkhSujowFPHehh584iDz6TnPRdHAml3KyrM6gkg1rq5cvC7MsjMfQuzdt86H3UMMPRDZ3010pwsw71eez6h5rKALCDLzHAFDiu6uh3kCFvFOZwXNhYSpFE3vprWeKfM7')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+</div>
+<div class="p-6 relative z-10 flex flex-col gap-4 flex-grow bg-surface-container-low">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-background group-hover:text-tertiary transition-colors">Mudiali Club</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">map</span> Mudiali
+              </p>
+</div>
+<div class="bg-surface/50 backdrop-blur-md px-2 py-1 rounded shadow-sm">
+<span class="font-label-caps text-label-caps text-tertiary">Classic</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 mb-4">Famed for its exquisite Sabeki (traditional) style, adorned with authentic Daker Saaj and spiritual ambiance.</p>
+<button class="mt-auto w-full py-3 rounded-lg bg-surface-container-highest text-primary font-button-text text-button-text hover:bg-primary hover:text-on-primary hover:shadow-[0_0_15px_rgba(211,16,24,0.3)] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span> Plan Visit
+          </button>
+</div>
+</article>
+</section>
+</div>
+</div>
+<script>
+  // Filter functionality micro-interaction
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.pandal-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Handle Active State Styling
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)]', 'shadow-[0_0_15px_rgba(211,16,24,0.4)]');
+          b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        
+        btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)]', 'shadow-[0_0_15px_rgba(211,16,24,0.4)]');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        // Handle Filtering with simple opacity/scale animation
+        cards.forEach(card => {
+          const categories = card.getAttribute('data-category').split(' ');
+          
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300); // Matches standard CSS transition timings
+          }
+        });
+      });
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-white/5 py-16"><div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop text-center md:text-left flex flex-col md:flex-row justify-between gap-8 items-center"><div class="space-y-2"><h3 class="font-headline-lg text-headline-lg text-primary">Sharodiya</h3><p class="font-body-md text-body-md text-on-surface-variant max-w-xs">The ultimate neo-festal planner for your Durga Puja celebration.</p></div><div class="flex gap-12"><div class="flex flex-col gap-2"><span class="font-label-caps text-label-caps text-tertiary uppercase">Discover</span><a class="text-on-surface-variant hover:text-primary" href="#">The Rituals</a><a class="text-on-surface-variant hover:text-primary" href="#">Artisan Spotlight</a></div><div class="flex flex-col gap-2"><span class="font-label-caps text-label-caps text-tertiary uppercase">Connect</span><a class="text-on-surface-variant hover:text-primary" href="#">Join Community</a><a class="text-on-surface-variant hover:text-primary" href="#">Events</a></div></div><div class="text-on-surface-variant font-body-md">© 2024 Sharodiya. All rights reserved.</div></div></footer></body></html>

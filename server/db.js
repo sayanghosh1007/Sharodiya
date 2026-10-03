@@ -1,11 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DB_FILE = path.join(DATA_DIR, 'database.json');
+const AUTH_SECRET = process.env.JWT_SECRET || 'sharodiya_festive_auth_secret_2026';
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
@@ -14,6 +16,8 @@ if (!fs.existsSync(DATA_DIR)) {
 
 // Initial DB Schema
 const DEFAULT_DB = {
+  users: {},
+  tokens: {},
   parikramas: {},
   squads: {},
   crowdReports: {},
@@ -29,7 +33,13 @@ class Database {
     try {
       if (fs.existsSync(DB_FILE)) {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
-        return JSON.parse(raw);
+        const parsed = JSON.parse(raw);
+        return {
+          ...DEFAULT_DB,
+          ...parsed,
+          users: parsed.users || {},
+          tokens: parsed.tokens || {}
+        };
       }
     } catch (err) {
       console.warn('[DB] Failed to load database file, creating fresh default:', err.message);
@@ -188,6 +198,112 @@ class Database {
 
   getReviews(entityId) {
     return this.db.reviews.filter(r => r.entityId === entityId);
+  }
+
+  // --- USER AUTHENTICATION METHODS ---
+  hashPassword(password, salt) {
+    return crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex');
+  }
+
+  createUser({ name, email, password, archetype = 'friends', avatar = '' }) {
+    const normalizedEmail = String(email).toLowerCase().trim();
+    if (this.getUserByEmail(normalizedEmail)) {
+      throw new Error('An account with this email already exists.');
+    }
+    const id = 'usr_' + crypto.randomBytes(6).toString('hex');
+    const salt = crypto.randomBytes(16).toString('hex');
+    const passwordHash = this.hashPassword(password, salt);
+    const now = new Date().toISOString();
+
+    const user = {
+      id,
+      name: name.trim(),
+      email: normalizedEmail,
+      salt,
+      passwordHash,
+      archetype: archetype || 'friends',
+      avatar: avatar || `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(name.trim())}`,
+      savedPlans: [],
+      createdAt: now,
+      updatedAt: now
+    };
+
+    if (!this.db.users) this.db.users = {};
+    this.db.users[id] = user;
+    this.save();
+    return this.sanitizeUser(user);
+  }
+
+  getUserByEmail(email) {
+    if (!email || !this.db.users) return null;
+    const normalized = String(email).toLowerCase().trim();
+    return Object.values(this.db.users).find(u => u.email === normalized) || null;
+  }
+
+  getUserById(id) {
+    if (!id || !this.db.users) return null;
+    return this.db.users[id] || null;
+  }
+
+  verifyUserPassword(email, password) {
+    const user = this.getUserByEmail(email);
+    if (!user) return null;
+    const hash = this.hashPassword(password, user.salt);
+    if (hash !== user.passwordHash) return null;
+    return this.sanitizeUser(user);
+  }
+
+  createSessionToken(user) {
+    const token = 'stk_' + crypto.randomBytes(24).toString('hex');
+    const now = new Date();
+    const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString();
+    if (!this.db.tokens) this.db.tokens = {};
+    this.db.tokens[token] = {
+      userId: user.id,
+      createdAt: now.toISOString(),
+      expiresAt
+    };
+    this.save();
+    return token;
+  }
+
+  getUserByToken(token) {
+    if (!token || !this.db.tokens) return null;
+    const session = this.db.tokens[token];
+    if (!session) return null;
+    if (new Date(session.expiresAt) < new Date()) {
+      delete this.db.tokens[token];
+      this.save();
+      return null;
+    }
+    const user = this.getUserById(session.userId);
+    return user ? this.sanitizeUser(user) : null;
+  }
+
+  invalidateToken(token) {
+    if (token && this.db.tokens && this.db.tokens[token]) {
+      delete this.db.tokens[token];
+      this.save();
+      return true;
+    }
+    return false;
+  }
+
+  updateUserProfile(userId, updates = {}) {
+    const user = this.getUserById(userId);
+    if (!user) return null;
+    if (updates.name) user.name = updates.name.trim();
+    if (updates.archetype) user.archetype = updates.archetype;
+    if (updates.avatar) user.avatar = updates.avatar;
+    user.updatedAt = new Date().toISOString();
+    this.save();
+    return this.sanitizeUser(user);
+  }
+
+  sanitizeUser(user) {
+    if (!user) return null;
+    const { salt, passwordHash, ...safe } = user;
+    return safe;
   }
 }
 
