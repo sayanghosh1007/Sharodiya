@@ -67,7 +67,7 @@
 <body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
 
   <!-- Navigation Header -->
-  <header class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-white/5 transition-all">
+  <header id="app-header" class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-white/5 transition-all">
     <div class="h-20 max-w-container-max mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
       
       <!-- Brand Logo (Sharodiya Divine Emblem) -->
@@ -1514,6 +1514,12 @@
         <button id="close-auth-modal-btn" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
+      </div>
+
+      <!-- Mandatory Auth Gate Banner -->
+      <div id="auth-mandatory-notice" class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs flex items-center gap-2.5 shadow-inner">
+        <span class="material-symbols-outlined text-amber-400 text-[20px] shrink-0">lock</span>
+        <span class="leading-tight font-medium"><strong>Access Restricted:</strong> Devotee sign-in is required to access Kolkata Pandals, Food Radar, and Metro Itineraries.</span>
       </div>
 
       <!-- Tab Switcher (Sign In / Register) -->

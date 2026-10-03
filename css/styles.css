@@ -868,4 +868,22 @@ body {
   }
 }
 
+/* Mandatory Authentication Lock & Shield */
+body.auth-locked #app-header,
+body.auth-locked main,
+body.auth-locked footer {
+  filter: blur(14px) brightness(0.35);
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: filter 0.35s ease, brightness 0.35s ease;
+}
+
+#auth-modal.mandatory-auth #close-auth-modal-btn {
+  display: none !important;
+}
+
+#auth-modal.mandatory-auth {
+  background: rgba(0, 0, 0, 0.88) !important;
+}
+
 

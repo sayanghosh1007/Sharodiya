@@ -298,23 +298,58 @@ class SharodiyaApp {
     }
   }
 
-  openAuthModal(tab = 'signin') {
+  isAuthenticated() {
+    return !!(this.currentUser && this.authToken);
+  }
+
+  requireAuth(actionName = 'access this feature') {
+    if (this.isAuthenticated()) {
+      return true;
+    }
+    this.showToast(`🔒 Sign in is mandatory to ${actionName}.`);
+    this.openAuthModal('signin', true);
+    return false;
+  }
+
+  openAuthModal(tab = 'signin', isMandatory = null) {
     this.authActiveTab = tab;
     this.hideAuthAlert();
     this.switchAuthTab(tab);
 
     const modal = document.getElementById('auth-modal');
+    const closeBtn = document.getElementById('close-auth-modal-btn');
+    const notice = document.getElementById('auth-mandatory-notice');
+    const mandatory = isMandatory !== null ? isMandatory : !this.isAuthenticated();
+
     if (modal) {
+      if (mandatory) {
+        modal.classList.add('mandatory-auth');
+        document.body.classList.add('auth-locked');
+        if (closeBtn) closeBtn.classList.add('hidden');
+        if (notice) notice.classList.remove('hidden');
+      } else {
+        modal.classList.remove('mandatory-auth');
+        if (closeBtn) closeBtn.classList.remove('hidden');
+        if (notice) notice.classList.add('hidden');
+      }
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
   }
 
-  closeAuthModal() {
+  closeAuthModal(force = false) {
+    if (!force && !this.isAuthenticated()) {
+      this.showAuthAlert('Devotee sign-in is mandatory to access Sharodiya. Please sign in or create an account.');
+      return;
+    }
     const modal = document.getElementById('auth-modal');
     if (modal) {
+      modal.classList.remove('mandatory-auth');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+    }
+    if (this.isAuthenticated()) {
+      document.body.classList.remove('auth-locked');
     }
     this.hideAuthAlert();
   }
@@ -390,8 +425,10 @@ class SharodiyaApp {
         if (res.user.archetype) {
           this.selectedArchetype = res.user.archetype;
         }
+        document.body.classList.remove('auth-locked');
         this.updateAuthUI();
-        this.closeAuthModal();
+        this.closeAuthModal(true);
+        this.handleRoute();
         this.showToast(res.message || `Welcome back, ${res.user.name}! 🪔`);
       } else {
         this.showAuthAlert(res?.error || 'Invalid credentials. Please verify your email & password.');
@@ -427,8 +464,10 @@ class SharodiyaApp {
         if (res.user.archetype) {
           this.selectedArchetype = res.user.archetype;
         }
+        document.body.classList.remove('auth-locked');
         this.updateAuthUI();
-        this.closeAuthModal();
+        this.closeAuthModal(true);
+        this.handleRoute();
         this.showToast(res.message || `Welcome to Sharodiya, ${res.user.name}! 🌺`);
       } else {
         this.showAuthAlert(res?.error || 'Registration failed. Please try a different email.');
@@ -439,7 +478,16 @@ class SharodiyaApp {
   }
 
   async handleSignOut() {
-    await this.supabaseAuth.signOut();
+    if (this.supabaseAuth) {
+      try {
+        await this.supabaseAuth.signOut();
+      } catch (e) {}
+    }
+    if (this.authToken) {
+      try {
+        await this.apiFetch('/api/auth/logout', { method: 'POST' });
+      } catch (e) {}
+    }
     this.authToken = null;
     this.currentUser = null;
     localStorage.removeItem('sharodiya_auth_token');
@@ -447,7 +495,9 @@ class SharodiyaApp {
     const dropdown = document.getElementById('nav-user-dropdown');
     if (dropdown) dropdown.classList.add('hidden');
 
+    document.body.classList.add('auth-locked');
     this.updateAuthUI();
+    this.openAuthModal('signin', true);
     this.showToast('🌸 Signed out successfully. Shubho Sharodiya!');
   }
 
@@ -474,8 +524,10 @@ class SharodiyaApp {
       if (res.token) {
         localStorage.setItem('sharodiya_auth_token', res.token);
       }
+      document.body.classList.remove('auth-locked');
       this.updateAuthUI();
-      this.closeAuthModal();
+      this.closeAuthModal(true);
+      this.handleRoute();
       this.showToast(`🪔 Logged in as ${res.user.name}! (Supabase Auth)`);
     } else {
       this.showAuthAlert('Demo login unavailable. Please create an account.');
@@ -484,7 +536,7 @@ class SharodiyaApp {
 
   openProfileEditModal() {
     if (!this.currentUser) {
-      this.openAuthModal('signin');
+      this.openAuthModal('signin', true);
       return;
     }
 
@@ -550,7 +602,7 @@ class SharodiyaApp {
       if (this.currentUser) {
         this.openProfileEditModal();
       } else {
-        this.openAuthModal('signin');
+        this.openAuthModal('signin', true);
       }
     });
 
@@ -593,13 +645,23 @@ class SharodiyaApp {
 
     // 5. Auth Modal Controls
     document.getElementById('close-auth-modal-btn')?.addEventListener('click', () => {
+      if (!this.isAuthenticated()) {
+        this.showAuthAlert('Devotee sign-in is mandatory to access Sharodiya.');
+        return;
+      }
       this.closeAuthModal();
     });
 
     const authModal = document.getElementById('auth-modal');
     if (authModal) {
       authModal.addEventListener('click', (e) => {
-        if (e.target === authModal) this.closeAuthModal();
+        if (e.target === authModal) {
+          if (!this.isAuthenticated()) {
+            this.showAuthAlert('Devotee sign-in is mandatory to access Sharodiya.');
+          } else {
+            this.closeAuthModal();
+          }
+        }
       });
     }
 
@@ -710,13 +772,21 @@ class SharodiyaApp {
     });
   }
 
-  init() {
+  async init() {
     // 0. Initialize & Sync Theme
     this.initTheme();
 
     // 0.1 Initialize Devotee Authentication & Session
-    this.initAuth();
+    await this.initAuth();
     this.setupAuthEventListeners();
+
+    // Check mandatory authentication immediately
+    if (!this.isAuthenticated()) {
+      document.body.classList.add('auth-locked');
+      this.openAuthModal('signin', true);
+    } else {
+      document.body.classList.remove('auth-locked');
+    }
 
     // 1. Initialize Visual Effects (Flower system strictly initialized for landing container)
     try {
@@ -737,8 +807,10 @@ class SharodiyaApp {
     // 5. Setup Event Listeners
     this.setupEventListeners();
 
-    // 6. Handle initial route based on URL hash
-    this.handleRoute();
+    // 6. Handle initial route based on URL hash (if authenticated)
+    if (this.isAuthenticated()) {
+      this.handleRoute();
+    }
 
     // 7. Sync with Full-Stack Backend
     this.syncBackendData();
@@ -1217,6 +1289,11 @@ class SharodiyaApp {
 
   navigateTo(path) {
     if (!path) return;
+    if (!this.isAuthenticated()) {
+      this.showToast('🔒 Please sign in to explore Sharodiya.');
+      this.openAuthModal('signin', true);
+      return;
+    }
     const currentHash = window.location.hash.replace('#', '').trim();
     if (currentHash === path) {
       this.handleRoute();
@@ -1226,6 +1303,13 @@ class SharodiyaApp {
   }
 
   handleRoute() {
+    if (!this.isAuthenticated()) {
+      document.body.classList.add('auth-locked');
+      this.openAuthModal('signin', true);
+      return;
+    }
+    document.body.classList.remove('auth-locked');
+
     const rawHash = window.location.hash.replace('#', '').trim();
     const validViews = ['landing', 'pandals', 'eateries', 'planned', 'people', 'map', 'metro'];
     this.currentView = validViews.includes(rawHash) ? rawHash : 'landing';
@@ -1363,6 +1447,7 @@ class SharodiyaApp {
   }
 
   togglePandalBookmark(id) {
+    if (!this.requireAuth('save pandal to your plan')) return;
     const p = this.findPandal(id);
     if (!p) return;
 
@@ -1668,6 +1753,7 @@ class SharodiyaApp {
 
   // EXACT DETAILS MODAL IMPLEMENTATION
   openPandalModal(id) {
+    if (!this.requireAuth('view pandal details')) return;
     const p = this.findPandal(id);
     if (!p) return;
 
@@ -2603,6 +2689,7 @@ class SharodiyaApp {
 
   // EATERY MODAL IMPLEMENTATION
   openEateryModal(id) {
+    if (!this.requireAuth('view food joint details')) return;
     const eatery = this.eateries.find(e => e.id === id || (e.id && (e.id.startsWith(id) || id.startsWith(e.id))));
     if (!eatery) return;
 
@@ -2773,6 +2860,7 @@ class SharodiyaApp {
   }
 
   toggleEateryBookmark(id) {
+    if (!this.requireAuth('save eatery to your plan')) return;
     const eatery = this.eateries.find(e => e.id === id || (e.id && (e.id.startsWith(id) || id.startsWith(e.id))));
     if (!eatery) return;
 
@@ -3871,6 +3959,7 @@ class SharodiyaApp {
   }
 
   openMetroPlannerModal(preselectedStationId = null) {
+    if (!this.requireAuth('plan puja metro route')) return;
     const modal = document.getElementById('pujo-metro-planner-modal');
     if (!modal) return;
 
