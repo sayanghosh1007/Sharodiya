@@ -4786,259 +4786,70 @@ class SharodiyaApp {
     this.showToast('📋 Itinerary formatted and copied to clipboard! Opening WhatsApp...');
   }
 
-  // PEOPLE VIEW & PLAN CREATOR STUDIO CONTROLLER
-  renderPeopleView() {
-    this.renderPeopleSavedPlans();
-    this.initPeoplePlanForm();
-  }
-
-  // Alias for backward compatibility
+  // SQUAD / COMPANIONSHIP RENDERER
   renderArchetypes() {
-    this.renderPeopleView();
-  }
+    const grid = document.getElementById('archetype-grid');
+    const detailsContainer = document.getElementById('archetype-details');
+    if (!grid) return;
 
-  // Populates the Saved Plans list inside the People view
-  renderPeopleSavedPlans() {
-    const listContainer = document.getElementById('people-saved-plans-list');
-    const badgeEl = document.getElementById('people-saved-plans-badge');
-    if (!listContainer) return;
-
-    if (badgeEl) {
-      badgeEl.textContent = `${this.plans.length} Plan${this.plans.length === 1 ? '' : 's'}`;
-    }
-
-    if (!this.plans || this.plans.length === 0) {
-      listContainer.innerHTML = `
-        <div class="p-6 rounded-2xl bg-surface-container/60 border border-white/5 text-center space-y-2">
-          <span class="material-symbols-outlined text-3xl text-on-surface-variant">playlist_add</span>
-          <p class="text-xs text-on-surface-variant font-medium">No custom plans created yet.</p>
-          <p class="text-[11px] text-on-surface-variant/70">Use the studio on the left to generate or create your first plan!</p>
-        </div>
-      `;
-      return;
-    }
-
-    const activePlan = this.getActivePlan();
-
-    listContainer.innerHTML = this.plans.map(plan => {
-      const isActive = plan.id === activePlan.id;
-      const itemCount = (plan.items || []).length;
-      const pandalCount = (plan.items || []).filter(i => i.type === 'pandal').length;
-      const eateryCount = (plan.items || []).filter(i => i.type === 'eatery').length;
-      const dayLabel = plan.day || 'Maha Sasthi';
+    grid.innerHTML = COMPANION_ARCHETYPES.map(arch => {
+      const isSelected = arch.id === this.selectedArchetype;
 
       return `
-        <div class="p-4 rounded-2xl transition-all duration-300 ${isActive ? 'bg-primary/10 border-2 border-primary/60 shadow-[0_0_20px_rgba(211,16,24,0.25)]' : 'bg-surface-container hover:bg-surface-container-high border border-white/10'} space-y-3">
-          <div class="flex items-start justify-between gap-2">
-            <div class="space-y-1 overflow-hidden">
-              <div class="flex items-center gap-2">
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-secondary/15 text-secondary border border-secondary/30">
-                  ${dayLabel}
-                </span>
-                ${isActive ? `
-                  <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-primary text-black animate-pulse">
-                    ACTIVE
-                  </span>
-                ` : ''}
-              </div>
-              <h4 class="font-headline font-bold text-sm text-white truncate">${plan.name}</h4>
-              <p class="text-[11px] text-on-surface-variant font-mono">
-                ${itemCount} stops (${pandalCount} pandals, ${eateryCount} food joints)
-              </p>
+        <button class="archetype-card group relative flex flex-col w-full text-left glass-card rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-500 hover:-translate-y-2 ${isSelected ? 'border-primary shadow-[0_0_25px_rgba(211,16,24,0.4)]' : ''}" data-archetype="${arch.id}">
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1; color: ${arch.accentHex}">${arch.icon}</span>
             </div>
 
-            <div class="flex items-center gap-1 shrink-0">
-              <button class="people-plan-map-btn w-8 h-8 rounded-xl bg-white/5 hover:bg-white/15 text-secondary flex items-center justify-center transition-colors" data-plan-id="${plan.id}" title="View on Master Map">
-                <span class="material-symbols-outlined text-[18px]">map</span>
-              </button>
-              <button class="people-plan-duplicate-btn w-8 h-8 rounded-xl bg-white/5 hover:bg-white/15 text-tertiary flex items-center justify-center transition-colors" data-plan-id="${plan.id}" title="Duplicate Plan">
-                <span class="material-symbols-outlined text-[18px]">content_copy</span>
-              </button>
-              <button class="people-plan-delete-btn w-8 h-8 rounded-xl bg-white/5 hover:bg-red-500/20 text-red-400 flex items-center justify-center transition-colors" data-plan-id="${plan.id}" title="Delete Plan">
-                <span class="material-symbols-outlined text-[18px]">delete</span>
-              </button>
+            <h3 class="font-headline text-2xl font-bold text-white mb-2">${arch.title}</h3>
+            <p class="text-xs font-mono text-tertiary mb-3">${arch.tagline}</p>
+            <p class="text-sm text-on-surface-variant flex-grow leading-relaxed">${arch.description}</p>
+
+            <div class="mt-6 flex items-center gap-2 text-tertiary font-bold text-xs uppercase tracking-wider">
+              <span>${isSelected ? 'Active Selection' : 'Explore Itinerary'}</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </div>
           </div>
-
-          <div class="flex items-center gap-2 pt-1 border-t border-white/5">
-            ${!isActive ? `
-              <button class="people-plan-activate-btn flex-1 py-1.5 px-3 rounded-xl bg-surface-container-highest hover:bg-primary hover:text-black text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5" data-plan-id="${plan.id}">
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                <span>Set as Active</span>
-              </button>
-            ` : `
-              <span class="flex-1 py-1.5 text-center text-xs font-bold text-primary flex items-center justify-center gap-1">
-                <span class="material-symbols-outlined text-[16px]">verified</span>
-                <span>Currently Selected</span>
-              </span>
-            `}
-            <button class="people-plan-open-planner-btn py-1.5 px-3 rounded-xl bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/30 text-xs font-bold transition-all flex items-center justify-center gap-1" data-plan-id="${plan.id}">
-              <span>Open Planner</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </button>
-          </div>
-        </div>
+        </button>
       `;
     }).join('');
 
-    // Attach Action Handlers
-    listContainer.querySelectorAll('.people-plan-activate-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = btn.getAttribute('data-plan-id');
-        this.activePlanId = id;
-        const p = this.plans.find(x => x.id === id);
-        if (p && p.day) this.currentDay = p.day;
-        this.savePlans();
-        this.renderPeopleSavedPlans();
-        this.renderParikrama();
-        this.showToast(`Switched active plan to "${p?.name}"! ✨`);
+    grid.querySelectorAll('.archetype-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-archetype');
+        this.selectedArchetype = id;
+        this.renderArchetypes();
       });
     });
 
-    listContainer.querySelectorAll('.people-plan-open-planner-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = btn.getAttribute('data-plan-id');
-        this.activePlanId = id;
-        const p = this.plans.find(x => x.id === id);
-        if (p && p.day) this.currentDay = p.day;
-        this.savePlans();
-        this.navigateTo('planned');
-      });
-    });
-
-    listContainer.querySelectorAll('.people-plan-map-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = btn.getAttribute('data-plan-id');
-        this.activePlanId = id;
-        const p = this.plans.find(x => x.id === id);
-        if (p && p.day) this.currentDay = p.day;
-        this.savePlans();
-        this.navigateTo('map');
-      });
-    });
-
-    listContainer.querySelectorAll('.people-plan-duplicate-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = btn.getAttribute('data-plan-id');
-        this.duplicatePlan(id);
-        this.renderPeopleSavedPlans();
-        this.renderParikrama();
-      });
-    });
-
-    listContainer.querySelectorAll('.people-plan-delete-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = btn.getAttribute('data-plan-id');
-        this.deletePlan(id);
-        this.renderPeopleSavedPlans();
-        this.renderParikrama();
-      });
-    });
-  }
-
-  // Initializes the Plan Creator Form inside People view
-  initPeoplePlanForm() {
-    const form = document.getElementById('people-create-plan-form');
-    const blankBtn = document.getElementById('people-blank-plan-btn');
-    if (!form || form.dataset.initialized === 'true') return;
-    form.dataset.initialized = 'true';
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (this.requireSignIn && !this.requireSignIn('create and customize Parikrama plans')) {
-        return;
-      }
-
-      const nameInput = document.getElementById('people-plan-name-input');
-      const daySelect = document.getElementById('people-plan-day-select');
-      const zoneSelect = document.getElementById('people-plan-zone-select');
-      const timeSelect = document.getElementById('people-plan-time-select');
-      const cuisineSelect = document.getElementById('people-plan-cuisine-select');
-      const paceSelect = document.getElementById('people-plan-pace-select');
-
-      const day = daySelect?.value || 'Maha Sasthi';
-      const zone = zoneSelect?.value || 'all';
-      const timeWindow = timeSelect?.value || 'midnight';
-      const cuisine = cuisineSelect?.value || 'biryani';
-      const pace = paceSelect?.value || 'balanced';
-
-      const zoneNameMap = {
-        all: 'Kolkata Corridor',
-        north: 'North Kolkata',
-        south: 'South Kolkata',
-        central: 'Central Circuit',
-        saltlake: 'Salt Lake Circuit'
+    if (detailsContainer) {
+      const active = COMPANION_ARCHETYPES.find(a => a.id === this.selectedArchetype) || COMPANION_ARCHETYPES[0];
+      
+      // Auto-generate realistic personalized itinerary for active archetype
+      const timeWindowMap = {
+        'friends': 'midnight',
+        'family': 'morning',
+        'couple': 'evening',
+        'solo': 'afternoon'
+      };
+      const cuisineMap = {
+        'friends': 'biryani',
+        'family': 'bengali',
+        'couple': 'sweets',
+        'solo': 'street'
       };
 
-      const customName = nameInput?.value?.trim();
-      const planName = customName || `${day} ${zoneNameMap[zone] || 'Circuit'}`;
-
-      // Generate AI curated itinerary
       const result = this.generatePersonalizedItinerary({
-        day,
-        timeWindow,
-        zone,
-        cuisine,
-        pace,
-        archetype: 'friends'
+        archetype: active.id,
+        day: this.getActivePlan().day || this.currentDay || 'Maha Sasthi',
+        timeWindow: timeWindowMap[active.id] || 'midnight',
+        zone: 'all',
+        cuisine: cuisineMap[active.id] || 'biryani',
+        pace: 'balanced'
       });
 
-      // Create new plan and populate items
-      const newPlan = this.createNewPlan(planName, day, true);
-      newPlan.items = (result.items || []).map(item => ({
-        id: item.id,
-        type: item.type,
-        itemId: item.itemId,
-        name: item.name,
-        zone: item.zone,
-        timeSlot: item.timeSlot,
-        distanceFromPrev: item.distanceFromPrev,
-        duration: item.duration,
-        notes: item.notes
-      }));
-
-      this.savePlans();
-      if (nameInput) nameInput.value = '';
-      this.renderPeopleSavedPlans();
-      this.renderParikrama();
-
-      this.showToast(`✨ Successfully created plan "${newPlan.name}" with ${newPlan.items.length} curated stops!`);
-    });
-
-    if (blankBtn) {
-      blankBtn.addEventListener('click', () => {
-        if (this.requireSignIn && !this.requireSignIn('create custom Parikrama plans')) {
-          return;
-        }
-
-        const nameInput = document.getElementById('people-plan-name-input');
-        const daySelect = document.getElementById('people-plan-day-select');
-        const day = daySelect?.value || 'Maha Sasthi';
-        const customName = nameInput?.value?.trim();
-        const planName = customName || `My ${day} Plan`;
-
-        const newPlan = this.createNewPlan(planName, day, true);
-        if (nameInput) nameInput.value = '';
-        this.renderPeopleSavedPlans();
-        this.renderParikrama();
-        this.showToast(`✨ Blank plan "${newPlan.name}" created! Open Pandals to add your stops.`);
-      });
-    }
-  }
-
-  openJoinSquadModal() {
-    const squadInviteBtn = document.getElementById('squad-invite-btn');
-    if (squadInviteBtn) {
-      squadInviteBtn.click();
-      setTimeout(() => {
-        const joinInput = document.getElementById('join-squad-code-input');
-        if (joinInput) joinInput.focus();
-      }, 150);
+      this.renderPersonalizedItinerary(result, detailsContainer, false);
     }
   }
 

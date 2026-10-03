@@ -82,10 +82,7 @@
       <!-- Desktop Nav Links (Matches Stitch Nav Structure) -->
       <nav class="hidden md:flex items-center gap-5 lg:gap-7">
         <a href="#landing" data-path="landing" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">Landing</a>
-        <a href="#people" data-path="people" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all flex items-center gap-1.5">
-          <span class="material-symbols-outlined text-[16px] text-primary">add_circle</span>
-          <span>Create Plan</span>
-        </a>
+        <a href="#people" data-path="people" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">People</a>
         <a href="#pandals" data-path="pandals" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">Pandals</a>
         <a href="#eateries" data-path="eateries" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all">Eateries</a>
         <a href="#map" data-path="map" class="nav-link text-sm font-semibold text-on-surface-variant hover:text-white transition-all flex items-center gap-1.5">
@@ -194,7 +191,7 @@
 
     <nav class="flex flex-col space-y-4 text-lg font-semibold">
       <a href="#landing" data-path="landing" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">home</span>Landing (Countdown)</a>
-      <a href="#people" data-path="people" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">add_circle</span>Create Plan &amp; Squad</a>
+      <a href="#people" data-path="people" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">groups</span>People / Companionship</a>
       <a href="#pandals" data-path="pandals" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-primary">temple_hindu</span>Pandals Radar</a>
       <a href="#eateries" data-path="eateries" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-secondary">restaurant</span>Eateries / Food</a>
       <a href="#map" data-path="map" class="px-4 py-3 rounded-xl hover:bg-white/5 text-white flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">map</span>Puja Map Radar</a>
@@ -1037,195 +1034,32 @@
 
     </div>
 
-    <!-- VIEW 5: PEOPLE / CREATE PLAN STUDIO & SQUAD HUB -->
-    <div id="view-people" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-12 relative overflow-hidden">
+    <!-- VIEW 5: PEOPLE (EXACT STITCH BACKGROUND & LAYOUT) -->
+    <div id="view-people" class="page-view max-w-container-max mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 space-y-12 relative overflow-hidden">
 
-      <!-- Header -->
+      <!-- People Header (From Stitch People Screen) -->
       <section class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-4">
-        <span class="font-mono text-xs text-tertiary uppercase tracking-[0.2em] font-bold flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-          Parikrama Studio &amp; Clan Hub • Durga Puja 2026
-        </span>
-        <h1 class="font-headline text-4xl sm:text-6xl text-white font-black drop-shadow-[0_0_15px_rgba(255,180,171,0.3)]">
-          Create Your <span class="text-primary mix-blend-screen drop-shadow-[0_0_12px_rgba(211,16,24,0.4)]">Puja Plan</span>
-        </h1>
-        <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
-          Design custom Parikrama itineraries for any festive day from Maha Sasthi to Vijaya Dashami. Generate AI-tailored routes by zone, timing, and dining style, or craft custom blank plans to share with your Clan.
-        </p>
+        <span class="font-mono text-xs text-tertiary uppercase tracking-[0.2em] font-bold">Personalized Itineraries &amp; Companionship</span>
+        <h1 class="font-headline text-4xl sm:text-6xl text-white font-black drop-shadow-[0_0_15px_rgba(255,180,171,0.3)]">Who are you planning with this year?</h1>
+        <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">Curate your festive journey tailored to the dynamics of your group for 2026. Select a companion archetype below or customize your complete personalized itinerary.</p>
+        
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <button id="squad-invite-btn" class="px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-lg inline-flex items-center gap-2 hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[18px]">group_add</span>
+            Generate Squad Code
+          </button>
+        </div>
       </section>
 
-      <!-- Main Plan Studio Grid: Creator Form on Left, Active & Saved Plans on Right -->
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Left: Interactive Plan Creator Studio (7 cols) -->
-        <section class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 border border-white/15 shadow-2xl space-y-6">
-          <div class="flex items-center justify-between border-b border-white/10 pb-4">
-            <div class="flex items-center gap-2.5">
-              <div class="w-10 h-10 rounded-2xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined text-2xl">auto_awesome</span>
-              </div>
-              <div>
-                <h3 class="font-headline text-xl sm:text-2xl font-bold text-white">Create New Parikrama Plan</h3>
-                <p class="text-xs text-on-surface-variant">Customize your route parameters and generate instantly</p>
-              </div>
-            </div>
-            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-secondary/15 text-secondary border border-secondary/30">
-              Interactive Studio
-            </span>
-          </div>
+      <!-- Archetypes 4-Card Grid (From Stitch People Screen) -->
+      <section id="archetype-grid" class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <!-- Dynamically rendered by app.js -->
+      </section>
 
-          <form id="people-create-plan-form" class="space-y-5">
-            <!-- 1. Plan Name -->
-            <div class="space-y-2">
-              <label for="people-plan-name-input" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px] text-tertiary">edit_note</span>
-                Plan Name / Title
-              </label>
-              <input id="people-plan-name-input" type="text" placeholder="e.g. North Kolkata Saptami All-Nighter" class="w-full bg-surface-container border border-white/10 rounded-2xl px-4 py-3 text-sm text-white placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-all shadow-inner" />
-            </div>
-
-            <!-- 2. Puja Day Selector -->
-            <div class="space-y-2">
-              <label for="people-plan-day-select" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px] text-tertiary">calendar_month</span>
-                Select Puja Day
-              </label>
-              <select id="people-plan-day-select" class="w-full bg-surface-container border border-white/10 rounded-2xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-secondary transition-all">
-                <option value="Maha Sasthi">Maha Sasthi (Oct 16 - Bodhon &amp; Adhibas)</option>
-                <option value="Maha Saptami">Maha Saptami (Oct 17 - Kola Bou Snan)</option>
-                <option value="Maha Ashtami" selected>Maha Ashtami (Oct 18 - Pushpanjali &amp; Sandhi Puja)</option>
-                <option value="Maha Navami">Maha Navami (Oct 19 - Dhunuchi &amp; Maha Bhog)</option>
-                <option value="Vijaya Dashami">Vijaya Dashami (Oct 20 - Sindoor Khela &amp; Bisarjan)</option>
-              </select>
-            </div>
-
-            <!-- 3. Circuit Zone & Timing Window -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label for="people-plan-zone-select" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] text-tertiary">map</span>
-                  Geographic Zone
-                </label>
-                <select id="people-plan-zone-select" class="w-full bg-surface-container border border-white/10 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-secondary transition-all">
-                  <option value="all" selected>🌐 All Kolkata (Metro Corridor)</option>
-                  <option value="north">North Kolkata (Bagbazar, Sovabazar, Hatibagan)</option>
-                  <option value="south">South Kolkata (Ballygunge, Ekdalia, Deshapriya, Chetla)</option>
-                  <option value="central">Central &amp; East (College Sq, Md Ali Park, Santosh Mitra)</option>
-                  <option value="saltlake">Salt Lake &amp; New Town (Sreebhumi, FD Block)</option>
-                </select>
-              </div>
-
-              <div class="space-y-2">
-                <label for="people-plan-time-select" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
-                  Time &amp; Duration Window
-                </label>
-                <select id="people-plan-time-select" class="w-full bg-surface-container border border-white/10 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-secondary transition-all">
-                  <option value="midnight" selected>🌙 Midnight All-Nighter (11 PM - 5 AM)</option>
-                  <option value="morning">🌅 Morning Devotion (7:30 AM - 12:30 PM)</option>
-                  <option value="afternoon">☀️ Afternoon Culture (1 PM - 5:30 PM)</option>
-                  <option value="evening">🌆 Evening Prime Time (5 PM - 10:30 PM)</option>
-                  <option value="allday">🌟 Full Day Grand Tour (9 AM - 8 PM)</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- 4. Dining Style & Pacing -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label for="people-plan-cuisine-select" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] text-tertiary">restaurant</span>
-                  Food &amp; Dining Style
-                </label>
-                <select id="people-plan-cuisine-select" class="w-full bg-surface-container border border-white/10 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-secondary transition-all">
-                  <option value="biryani" selected>🍗 Midnight Biryani &amp; Mughlai (Arsalan, Royal)</option>
-                  <option value="bengali">🐟 Traditional Bengali (6 Ballygunge, Bhojohori)</option>
-                  <option value="street">🥟 Famous Street Food &amp; Cabins (Mitra Cafe, Golbari)</option>
-                  <option value="sweets">🍯 Sweets &amp; Cafes (Flurys, Nakur, Balaram)</option>
-                  <option value="finedine">🍸 5-Star Luxury Dining (ITC, Taj, JW)</option>
-                </select>
-              </div>
-
-              <div class="space-y-2">
-                <label for="people-plan-pace-select" class="text-xs font-mono uppercase text-on-surface-variant font-bold flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] text-tertiary">speed</span>
-                  Pacing &amp; Stops
-                </label>
-                <select id="people-plan-pace-select" class="w-full bg-surface-container border border-white/10 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-secondary transition-all">
-                  <option value="relaxed">🧘 Relaxed (3-4 Curated Stops)</option>
-                  <option value="balanced" selected>⚖️ Balanced (5-6 Curated Stops)</option>
-                  <option value="intense">⚡ Intense Sprint (8-10 Curated Stops)</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="pt-2 flex flex-col sm:flex-row gap-3">
-              <button type="submit" id="people-generate-plan-btn" class="flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-secondary via-secondary-container to-primary text-black font-bold text-xs sm:text-sm shadow-[0_0_25px_rgba(0,224,255,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-lg">auto_awesome</span>
-                <span>Generate Smart AI Plan</span>
-              </button>
-
-              <button type="button" id="people-blank-plan-btn" class="py-3.5 px-5 rounded-2xl bg-surface-container hover:bg-surface-container-high border border-white/15 text-white font-bold text-xs sm:text-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-lg text-tertiary">add_circle</span>
-                <span>Blank Plan</span>
-              </button>
-            </div>
-          </form>
-        </section>
-
-        <!-- Right: Saved Plans & Squad Hub (5 cols) -->
-        <section class="lg:col-span-5 space-y-6">
-          
-          <!-- Saved Plans Card -->
-          <div class="glass-card rounded-3xl p-6 border border-white/15 shadow-xl space-y-4">
-            <div class="flex items-center justify-between border-b border-white/10 pb-3">
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-tertiary text-xl">folder_special</span>
-                <h3 class="font-headline text-lg font-bold text-white">Your Saved Plans</h3>
-              </div>
-              <span id="people-saved-plans-badge" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-primary/20 text-primary border border-primary/30">
-                0 Plans
-              </span>
-            </div>
-
-            <!-- Plans List Container -->
-            <div id="people-saved-plans-list" class="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-              <!-- Dynamically populated by app.js -->
-            </div>
-          </div>
-
-          <!-- Clan / Squad Collaboration Card -->
-          <div class="glass-card rounded-3xl p-6 border border-white/15 shadow-xl space-y-4">
-            <div class="flex items-center justify-between border-b border-white/10 pb-3">
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-secondary text-xl">groups</span>
-                <h3 class="font-headline text-lg font-bold text-white">Clan &amp; Squad Hub</h3>
-              </div>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-green-500/20 text-green-400 border border-green-500/30">
-                Live Sync
-              </span>
-            </div>
-            
-            <p class="text-xs text-on-surface-variant leading-relaxed">
-              Collaborate on your Parikrama plans with friends and family in real-time. Share your invite code or join a clan.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center gap-2.5 pt-1">
-              <button id="squad-invite-btn" class="w-full sm:w-auto flex-1 px-4 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-md flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform">
-                <span class="material-symbols-outlined text-base text-tertiary">group_add</span>
-                <span>Generate Squad Code</span>
-              </button>
-              <button onclick="window.sharodiyaApp.openJoinSquadModal()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-secondary/15 hover:bg-secondary/25 border border-secondary/30 text-secondary text-xs font-bold shadow-md flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform">
-                <span class="material-symbols-outlined text-base">login</span>
-                <span>Join Clan</span>
-              </button>
-            </div>
-          </div>
-
-        </section>
-
-      </div>
+      <!-- Selected Archetype Detailed Route Preview -->
+      <section id="archetype-details" class="relative z-10">
+        <!-- Dynamically rendered by app.js -->
+      </section>
 
     </div>
 
