@@ -373,7 +373,7 @@ class SharodiyaApp {
       }
       if (signinForm) signinForm.classList.remove('hidden');
       if (signupForm) signupForm.classList.add('hidden');
-      if (modalTitle) modalTitle.textContent = 'Devotee Sign In';
+      if (modalTitle) modalTitle.textContent = 'Person Sign In';
     } else {
       if (signinTabBtn) {
         signinTabBtn.className = 'flex-1 py-2.5 rounded-xl transition-all duration-200 text-on-surface-variant hover:text-white flex items-center justify-center gap-1.5';
@@ -383,7 +383,7 @@ class SharodiyaApp {
       }
       if (signinForm) signinForm.classList.add('hidden');
       if (signupForm) signupForm.classList.remove('hidden');
-      if (modalTitle) modalTitle.textContent = 'Join Devotee Sangha (Supabase)';
+      if (modalTitle) modalTitle.textContent = 'Join Clan (Supabase)';
     }
   }
 
