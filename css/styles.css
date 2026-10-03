@@ -975,11 +975,20 @@ body.auth-locked footer {
     touch-action: manipulation;
   }
 
-  /* Hero adjustments */
+  /* Hero adjustments for mobile */
   #hero-card {
     width: 100% !important;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    max-width: 100% !important;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    box-sizing: border-box;
+  }
+
+  #hero-card h1 {
+    font-size: clamp(2.75rem, 13vw, 7rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.03em !important;
+    word-break: break-word;
   }
 
   /* Pandal & Eatery Cards */

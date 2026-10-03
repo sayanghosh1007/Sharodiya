@@ -68,14 +68,14 @@
 
   <!-- Navigation Header -->
   <header id="app-header" class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-white/5 transition-all">
-    <div class="h-20 max-w-container-max mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <div class="h-16 sm:h-20 max-w-container-max mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between">
       
       <!-- Brand Logo (Sharodiya Divine Emblem) -->
-      <a href="#landing" data-path="landing" class="flex items-center gap-3.5 group">
-        <img alt="Sharodiya Logo" class="w-10 h-10 rounded-full object-contain drop-shadow-[0_0_12px_rgba(255,215,0,0.7)] group-hover:scale-105 transition-transform" src="assets/logo.png"/>
-        <div class="flex flex-col">
-          <span class="font-headline text-2xl lg:text-3xl text-white font-black tracking-tight leading-none group-hover:text-primary transition-colors">Sharodiya</span>
-          <span class="font-mono text-[10px] text-tertiary tracking-widest uppercase">Durga Puja 2026</span>
+      <a href="#landing" data-path="landing" class="flex items-center gap-2.5 sm:gap-3.5 group shrink-0 min-w-0">
+        <img alt="Sharodiya Logo" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-contain drop-shadow-[0_0_12px_rgba(255,215,0,0.7)] group-hover:scale-105 transition-transform shrink-0" src="assets/logo.png"/>
+        <div class="flex flex-col min-w-0">
+          <span class="font-headline text-xl sm:text-2xl lg:text-3xl text-white font-black tracking-tight leading-none group-hover:text-primary transition-colors truncate">Sharodiya</span>
+          <span class="font-mono text-[9px] sm:text-[10px] text-tertiary tracking-widest uppercase truncate">Durga Puja 2026</span>
         </div>
       </a>
 
@@ -100,20 +100,20 @@
       </nav>
 
       <!-- Right Action Controls -->
-      <div class="flex items-center gap-2.5 sm:gap-3">
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <!-- Auth Nav Container (Logged Out / Logged In State) -->
         <div id="auth-nav-container" class="relative">
           <!-- Logged Out View -->
-          <button id="nav-signin-btn" class="px-3.5 sm:px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-white border border-primary/30 hover:border-primary/60 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-md group">
-            <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">account_circle</span>
+          <button id="nav-signin-btn" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-white border border-primary/30 hover:border-primary/60 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-md group">
+            <span class="material-symbols-outlined text-[17px] sm:text-[18px] text-primary group-hover:scale-110 transition-transform">account_circle</span>
             <span>Sign In</span>
           </button>
 
           <!-- Logged In User Pill Trigger -->
           <div id="nav-user-profile" class="hidden relative">
-            <button id="nav-user-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-primary/40 hover:border-primary transition-all text-xs font-semibold text-white group shadow-md" aria-expanded="false">
+            <button id="nav-user-btn" class="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-full bg-surface-container border border-primary/40 hover:border-primary transition-all text-xs font-semibold text-white group shadow-md" aria-expanded="false">
               <img id="nav-user-avatar" src="assets/logo.png" alt="Devotee Avatar" class="w-6 h-6 rounded-full object-cover border border-primary/50 shadow-sm" />
-              <span id="nav-user-name" class="max-w-[90px] sm:max-w-[120px] truncate font-medium">Devotee</span>
+              <span id="nav-user-name" class="max-w-[70px] sm:max-w-[120px] truncate font-medium">Devotee</span>
               <span class="material-symbols-outlined text-[16px] text-tertiary transition-transform group-hover:translate-y-0.5">expand_more</span>
             </button>
 
@@ -154,8 +154,8 @@
         </div>
 
         <!-- Mobile Menu Trigger -->
-        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-full bg-surface-container text-white flex items-center justify-center">
-          <span class="material-symbols-outlined">menu</span>
+        <button id="mobile-menu-btn" class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-white flex items-center justify-center transition-colors border border-white/5">
+          <span class="material-symbols-outlined text-[20px] sm:text-[24px]">menu</span>
         </button>
       </div>
     </div>
@@ -207,13 +207,13 @@
   </div>
 
   <!-- Main Application Content Views -->
-  <main class="w-full min-h-screen pt-20 relative z-10">
+  <main class="w-full min-h-screen pt-16 sm:pt-20 relative z-10">
 
     <!-- VIEW 1: LANDING & COUNTDOWN (STRICT CONTAINER FOR SHIULI PARTICLES) -->
-    <div id="view-landing" class="page-view active-view flex flex-col w-full -mt-20">
+    <div id="view-landing" class="page-view active-view flex flex-col w-full -mt-16 sm:-mt-20">
       
       <!-- Hero Section with Authentic Stitch Sunset & Kolkata Ghats Background -->
-      <section class="relative w-full min-h-screen lg:min-h-[1024px] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-28 overflow-hidden">
+      <section class="relative w-full min-h-[92vh] sm:min-h-screen lg:min-h-[1024px] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
         
         <!-- Stitch Twilight & Hooghly Ghats Background Image -->
         <img alt="Kolkata sunset over the Hooghly river with Victoria Memorial bathed in warm golden evening light and the illuminated Howrah bridge in the background at twilight during Durga Puja festival" class="absolute inset-0 w-full h-full z-0 object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida/AEtjO1V1z8fruKVG5Z19WETnveLNtERp7a_DDYh4werzp9a7p6ov3iB1yakBeX207n_8UyyUAWF0OPHz6Jv3VYuhvulxNg6SALtASk0uG9FUnu-OuCXrO4iPNizZHkfq38ze6jL0-zg-L5RWpHcd8CZ9JROjNAdYzm21Qgclf5kI7SELLVbndi96QLshH9pHuxvepupL3ndtNsrrpTtDzdSkUVC5cqwGuqgFI4PwjtRP7NdrUe9ANicxODq4p_o"/>
@@ -225,45 +225,62 @@
         <div class="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-10 pointer-events-none"></div>
 
         <!-- Hero Ambient Card -->
-        <div class="relative z-20 flex flex-col items-center max-w-4xl mx-auto space-y-7 transition-all duration-1000 opacity-100 translate-y-0" id="hero-card">
+        <div class="relative z-20 flex flex-col items-center max-w-4xl mx-auto space-y-4 sm:space-y-6 transition-all duration-1000 opacity-100 translate-y-0 w-full" id="hero-card">
           
-          <!-- Main Title -->
-          <h1 class="font-headline text-primary tracking-tighter drop-shadow-[0_0_35px_rgba(255,180,171,0.3)] font-black" style="font-size: clamp(64px, 12vw, 140px); line-height: 0.95; text-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 15px rgba(211,16,24,0.6);">
-            Sharodiya
-          </h1>
+          <!-- Hero Divine Emblem Logo for Mobile & Desktop -->
+          <div class="relative flex items-center justify-center animate-float">
+            <div class="absolute -inset-3 bg-gradient-to-r from-primary/30 via-tertiary/20 to-primary/30 rounded-full blur-xl opacity-80 pointer-events-none"></div>
+            <img src="assets/logo.png" alt="Sharodiya Durga Puja Emblem" class="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full object-contain drop-shadow-[0_0_24px_rgba(255,215,0,0.85)] border-2 border-primary/50 p-1.5 bg-black/40 backdrop-blur-md" />
+          </div>
+
+          <!-- Festival Tagline / Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-high/80 border border-primary/40 backdrop-blur-md shadow-lg">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="font-mono text-[10px] sm:text-xs text-primary font-bold tracking-widest uppercase">Durga Puja 2026 • Mahotsav</span>
+          </div>
+
+          <!-- Main Title & Subtitle -->
+          <div class="space-y-2">
+            <h1 class="font-headline text-primary tracking-tighter drop-shadow-[0_0_35px_rgba(255,180,171,0.3)] font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl" style="line-height: 0.95; text-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 15px rgba(211,16,24,0.6);">
+              Sharodiya
+            </h1>
+            <p class="font-body text-xs sm:text-base text-white/80 font-medium max-w-sm sm:max-w-md mx-auto tracking-wide drop-shadow px-2">
+              Kolkata's Definitive Durga Puja Parikrama & Heritage Guide
+            </p>
+          </div>
 
           <!-- Live Countdown Timer (Responsive 4-col grid that scales cleanly from 320px to 4K) -->
-          <div class="grid grid-cols-4 gap-2 sm:gap-6 lg:gap-10 max-w-xs sm:max-w-md lg:max-w-xl mx-auto w-full mt-4">
-            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+          <div class="grid grid-cols-4 gap-2 sm:gap-6 lg:gap-10 max-w-xs sm:max-w-md lg:max-w-xl mx-auto w-full mt-2 sm:mt-4">
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/35 backdrop-blur-md border border-white/10 shadow-lg">
               <span id="timer-days" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
               <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Days</span>
             </div>
-            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/35 backdrop-blur-md border border-white/10 shadow-lg">
               <span id="timer-hours" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
               <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Hours</span>
             </div>
-            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/35 backdrop-blur-md border border-white/10 shadow-lg">
               <span id="timer-minutes" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
               <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Mins</span>
             </div>
-            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/35 backdrop-blur-md border border-white/10 shadow-lg">
               <span id="timer-seconds" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
               <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Secs</span>
             </div>
           </div>
 
           <!-- Quick Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto px-4">
-            <button onclick="window.sharodiyaApp.navigateTo('pandals')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-primary-container hover:bg-primary-container/90 text-white font-bold text-sm tracking-wide shadow-[0_0_20px_rgba(211,16,24,0.5)] hover:shadow-[0_0_30px_rgba(211,16,24,0.8)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
-              <span class="material-symbols-outlined text-lg">temple_hindu</span>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto px-2 sm:px-4">
+            <button onclick="window.sharodiyaApp.navigateTo('pandals')" class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-primary-container hover:bg-primary-container/90 text-white font-bold text-xs sm:text-sm tracking-wide shadow-[0_0_20px_rgba(211,16,24,0.5)] hover:shadow-[0_0_30px_rgba(211,16,24,0.8)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
+              <span class="material-symbols-outlined text-base sm:text-lg">temple_hindu</span>
               <span>Explore 141 Pandals</span>
             </button>
-            <button onclick="window.sharodiyaApp.navigateTo('metro')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-cyan-300 font-bold text-sm tracking-wide border border-cyan-400/40 shadow-lg backdrop-blur-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
-              <span class="material-symbols-outlined text-lg">subway</span>
+            <button onclick="window.sharodiyaApp.navigateTo('metro')" class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-cyan-300 font-bold text-xs sm:text-sm tracking-wide border border-cyan-400/40 shadow-lg backdrop-blur-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
+              <span class="material-symbols-outlined text-base sm:text-lg">subway</span>
               <span>Puja Metro Radar</span>
             </button>
-            <button onclick="window.sharodiyaApp.navigateTo('map')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-secondary font-bold text-sm tracking-wide border border-secondary-container/40 shadow-lg backdrop-blur-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
-              <span class="material-symbols-outlined text-lg">map</span>
+            <button onclick="window.sharodiyaApp.navigateTo('map')" class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-secondary font-bold text-xs sm:text-sm tracking-wide border border-secondary-container/40 shadow-lg backdrop-blur-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
+              <span class="material-symbols-outlined text-base sm:text-lg">map</span>
               <span>Open Master Map</span>
             </button>
           </div>
