@@ -577,10 +577,9 @@ class SharodiyaApp {
 
       if (res && res.success && res.user) {
         this.currentUser = res.user;
-        this.selectedArchetype = archetype;
         this.updateAuthUI();
         this.closeProfileEditModal();
-        this.showToast('✨ Devotee profile updated in Supabase successfully!');
+        this.showToast('✨ Profile updated successfully!');
       } else {
         this.showToast(`Error: ${res?.error || 'Could not update profile'}`);
       }
@@ -767,7 +766,7 @@ class SharodiyaApp {
     document.getElementById('profile-edit-form')?.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('profile-edit-name')?.value?.trim();
-      const archetype = document.getElementById('profile-edit-archetype')?.value;
+      const archetype = this.currentUser?.archetype || 'friends';
       this.handleProfileUpdate(name, archetype);
     });
   }

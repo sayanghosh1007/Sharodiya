@@ -131,6 +131,18 @@
       "savedPlans": [],
       "createdAt": "2026-10-03T21:13:00.487615",
       "updatedAt": "2026-10-03T21:13:06.914081"
+    },
+    "usr_657950b1125b": {
+      "id": "usr_657950b1125b",
+      "name": "Tanmay Ganguly (Kolkata VIP Guide)",
+      "email": "devotee_1791042581@kolkatapujo.in",
+      "salt": "243c0d34970e6bb6ff60c2088cc4f0df",
+      "passwordHash": "ef66c2778fb35a0910eb69bb8c50c5c72e67ab4df5fe19b745de6d3d8cd346af70900dd5ee95b722c0fb5f3a57832644acbe3f66059327ce2b6b497a2dce560a",
+      "archetype": "photographers",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Tanmay",
+      "savedPlans": [],
+      "createdAt": "2026-10-03T21:19:43.984754",
+      "updatedAt": "2026-10-03T21:19:50.387256"
     }
   },
   "tokens": {
@@ -183,6 +195,16 @@
       "userId": "usr_f440946a9307",
       "createdAt": "2026-10-03T21:13:04.763439",
       "expiresAt": "2026-11-02T21:13:04.763439"
+    },
+    "stk_f6ffcac2c3afe11a1791be3f4332c72a9ec65c89522963b0": {
+      "userId": "usr_2c5a1f139664",
+      "createdAt": "2026-10-03T21:14:03.888226",
+      "expiresAt": "2026-11-02T21:14:03.888226"
+    },
+    "stk_a067b0e63df078315f547e7bd1041c027ea1da3bd30aff25": {
+      "userId": "usr_657950b1125b",
+      "createdAt": "2026-10-03T21:19:48.258447",
+      "expiresAt": "2026-11-02T21:19:48.258447"
     }
   },
   "parikramas": {
@@ -801,18 +823,6 @@
       "updatedAt": "2026-09-13T08:42:38.986290",
       "createdAt": "2026-09-13T08:42:38.986290"
     },
-    "plan_1791029282128_7hz1": {
-      "id": "plan_1791029282128_7hz1",
-      "name": "My Maha Sasthi Plan",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791029282128_7hz1",
-      "updatedAt": "2026-10-03T17:38:02.235492",
-      "createdAt": "2026-10-03T17:38:02.235492"
-    },
     "plan_de96e098": {
       "id": "plan_de96e098",
       "name": "Automated Test Suite Parikrama",
@@ -1148,6 +1158,54 @@
       "shareUrl": "/parikrama/plan_c4d1c6da",
       "updatedAt": "2026-10-03T21:12:43.688279",
       "createdAt": "2026-10-03T21:12:43.688279"
+    },
+    "plan_1791042321396_3gvp": {
+      "id": "plan_1791042321396_3gvp",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791042321396_3gvp",
+      "updatedAt": "2026-10-03T21:15:21.400825",
+      "createdAt": "2026-10-03T21:15:21.400825"
+    },
+    "plan_1791042482284_b9k4": {
+      "id": "plan_1791042482284_b9k4",
+      "name": "Maha Sasthi - Family Circuit",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791042482284_b9k4",
+      "updatedAt": "2026-10-03T21:18:02.288911",
+      "createdAt": "2026-10-03T21:18:02.288911"
+    },
+    "plan_b89236e6": {
+      "id": "plan_b89236e6",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_b89236e6",
+      "updatedAt": "2026-10-03T21:19:27.075787",
+      "createdAt": "2026-10-03T21:19:27.075787"
     }
   },
   "squads": {
@@ -39655,18 +39713,6 @@
       "updatedAt": "2026-09-13T08:42:38.986290",
       "createdAt": "2026-09-13T08:42:38.986290"
     },
-    "plan_1791029282128_7hz1": {
-      "id": "plan_1791029282128_7hz1",
-      "name": "My Maha Sasthi Plan",
-      "day": "Maha Sasthi",
-      "squad": "friends",
-      "items": [],
-      "description": "",
-      "createdBy": "Devotee",
-      "shareUrl": "/parikrama/plan_1791029282128_7hz1",
-      "updatedAt": "2026-10-03T17:38:02.235492",
-      "createdAt": "2026-10-03T17:38:02.235492"
-    },
     "plan_de96e098": {
       "id": "plan_de96e098",
       "name": "Automated Test Suite Parikrama",
@@ -40002,6 +40048,54 @@
       "shareUrl": "/parikrama/plan_c4d1c6da",
       "updatedAt": "2026-10-03T21:12:43.688279",
       "createdAt": "2026-10-03T21:12:43.688279"
+    },
+    "plan_1791042321396_3gvp": {
+      "id": "plan_1791042321396_3gvp",
+      "name": "My Maha Sasthi Plan",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791042321396_3gvp",
+      "updatedAt": "2026-10-03T21:15:21.400825",
+      "createdAt": "2026-10-03T21:15:21.400825"
+    },
+    "plan_1791042482284_b9k4": {
+      "id": "plan_1791042482284_b9k4",
+      "name": "Maha Sasthi - Family Circuit",
+      "day": "Maha Sasthi",
+      "squad": "friends",
+      "items": [],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_1791042482284_b9k4",
+      "updatedAt": "2026-10-03T21:18:02.288911",
+      "createdAt": "2026-10-03T21:18:02.288911"
+    },
+    "plan_b89236e6": {
+      "id": "plan_b89236e6",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_b89236e6",
+      "updatedAt": "2026-10-03T21:19:27.075787",
+      "createdAt": "2026-10-03T21:19:27.075787"
     }
   }
 }
