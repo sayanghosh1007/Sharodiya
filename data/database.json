@@ -953,6 +953,30 @@
       "shareUrl": "/parikrama/plan_4940a6ee",
       "updatedAt": "2026-10-04T00:29:33.378245",
       "createdAt": "2026-10-04T00:29:33.378245"
+    },
+    "plan_46c9c0a8": {
+      "id": "plan_46c9c0a8",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_46c9c0a8",
+      "updatedAt": "2026-10-04T00:48:06.742044",
+      "createdAt": "2026-10-04T00:48:06.742044"
     }
   },
   "squads": {
@@ -39711,6 +39735,30 @@
       "shareUrl": "/parikrama/plan_4940a6ee",
       "updatedAt": "2026-10-04T00:29:33.378245",
       "createdAt": "2026-10-04T00:29:33.378245"
+    },
+    "plan_46c9c0a8": {
+      "id": "plan_46c9c0a8",
+      "name": "Automated Test Suite Parikrama",
+      "day": "Maha Saptami",
+      "squad": "family",
+      "items": [
+        {
+          "id": "test_item_1",
+          "type": "pandal",
+          "itemId": "sreebhumi-sporting-club-lake-town-north",
+          "name": "Sreebhumi Sporting Club",
+          "timeSlot": "06:00 PM - 07:30 PM",
+          "coordinates": {
+            "lat": 22.5975,
+            "lng": 88.4011
+          }
+        }
+      ],
+      "description": "",
+      "createdBy": "Devotee",
+      "shareUrl": "/parikrama/plan_46c9c0a8",
+      "updatedAt": "2026-10-04T00:48:06.742044",
+      "createdAt": "2026-10-04T00:48:06.742044"
     }
   }
 }

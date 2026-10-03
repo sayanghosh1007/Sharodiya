@@ -886,4 +886,124 @@ body.auth-locked footer {
   background: rgba(0, 0, 0, 0.88) !important;
 }
 
+/* ==========================================
+   MOBILE-FIRST RESPONSIVE ALIGNMENT & NAVIGATION
+   ========================================== */
+
+/* Utility for hiding scrollbars on smooth touch-swipeable pill rows */
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Mobile Safe Area Inset Support */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Fixed Mobile Bottom Navigation Bar */
+#mobile-bottom-nav {
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.75), 0 -1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.mobile-nav-item {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-nav-item:active {
+  transform: scale(0.92);
+}
+
+.mobile-nav-item.active {
+  color: #ffd700 !important;
+}
+
+.mobile-nav-item.active .material-symbols-outlined {
+  color: #ffb4ab !important;
+  filter: drop-shadow(0 0 10px rgba(255, 180, 171, 0.7));
+}
+
+.mobile-nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #ffb4ab;
+  box-shadow: 0 0 8px rgba(255, 180, 171, 0.8);
+}
+
+/* Mobile-Specific Breakpoints & Overrides (< 768px) */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 5.5rem !important; /* Prevents content from colliding with bottom nav */
+  }
+
+  /* Map Container Heights for Phone Screens */
+  #master-osm-map {
+    height: 480px !important;
+    min-height: 400px !important;
+  }
+
+  #metro-network-osm-map {
+    height: 440px !important;
+    min-height: 380px !important;
+  }
+
+  #metro-station-info-panel {
+    max-height: 520px !important;
+  }
+
+  /* Prevent iOS Safari 16px Auto-Zoom on form input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Touch Target minimums for high accessibility */
+  button, a, input, select {
+    touch-action: manipulation;
+  }
+
+  /* Hero adjustments */
+  #hero-card {
+    width: 100% !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Pandal & Eatery Cards */
+  .pandal-card, .eatery-card {
+    border-radius: 1.25rem !important;
+  }
+
+  /* Ensure Leaflet zoom controls don't overlap with floating search on mobile */
+  .leaflet-control-zoom {
+    display: none !important;
+  }
+}
+
+/* Extra Small Phones (< 480px) */
+@media (max-width: 480px) {
+  .page-view {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .glass-card {
+    padding: 1.15rem !important;
+  }
+}
+
+
 

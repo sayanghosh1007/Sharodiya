@@ -1322,9 +1322,15 @@ class SharodiyaApp {
 
   updateParikramaBadge() {
     const badge = document.getElementById('parikrama-count-badge');
+    const mobileBadge = document.getElementById('mobile-parikrama-count-badge');
+    const count = this.parikrama.length;
     if (badge) {
-      badge.textContent = this.parikrama.length;
-      badge.style.display = this.parikrama.length > 0 ? 'inline-flex' : 'none';
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
+    if (mobileBadge) {
+      mobileBadge.textContent = count;
+      mobileBadge.style.display = count > 0 ? 'inline-flex' : 'none';
     }
   }
 

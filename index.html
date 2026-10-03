@@ -232,37 +232,37 @@
             Sharodiya
           </h1>
 
-          <!-- Live Countdown Timer (White Numbers, Clean Layout Without Background Card / Partitions) -->
-          <div class="flex gap-6 sm:gap-10 mt-4">
-            <div class="flex flex-col items-center">
-              <span id="timer-days" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
-              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Days</span>
+          <!-- Live Countdown Timer (Responsive 4-col grid that scales cleanly from 320px to 4K) -->
+          <div class="grid grid-cols-4 gap-2 sm:gap-6 lg:gap-10 max-w-xs sm:max-w-md lg:max-w-xl mx-auto w-full mt-4">
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+              <span id="timer-days" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Days</span>
             </div>
-            <div class="flex flex-col items-center">
-              <span id="timer-hours" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
-              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Hours</span>
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+              <span id="timer-hours" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Hours</span>
             </div>
-            <div class="flex flex-col items-center">
-              <span id="timer-minutes" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
-              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Mins</span>
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+              <span id="timer-minutes" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Mins</span>
             </div>
-            <div class="flex flex-col items-center">
-              <span id="timer-seconds" class="font-headline text-3xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
-              <span class="font-mono text-[10px] sm:text-xs text-on-surface uppercase tracking-widest mt-2 font-semibold">Secs</span>
+            <div class="flex flex-col items-center p-2 sm:p-3 rounded-2xl bg-black/25 backdrop-blur-sm border border-white/5">
+              <span id="timer-seconds" class="font-headline text-2xl sm:text-5xl lg:text-6xl text-white font-bold leading-none drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">00</span>
+              <span class="font-mono text-[9px] sm:text-xs text-on-surface uppercase tracking-widest mt-1.5 font-semibold">Secs</span>
             </div>
           </div>
 
           <!-- Quick Action Buttons -->
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <button onclick="window.sharodiyaApp.navigateTo('pandals')" class="px-7 py-3.5 rounded-full bg-primary-container hover:bg-primary-container/90 text-white font-bold text-sm tracking-wide shadow-[0_0_20px_rgba(211,16,24,0.5)] hover:shadow-[0_0_30px_rgba(211,16,24,0.8)] transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto px-4">
+            <button onclick="window.sharodiyaApp.navigateTo('pandals')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-primary-container hover:bg-primary-container/90 text-white font-bold text-sm tracking-wide shadow-[0_0_20px_rgba(211,16,24,0.5)] hover:shadow-[0_0_30px_rgba(211,16,24,0.8)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
               <span class="material-symbols-outlined text-lg">temple_hindu</span>
               <span>Explore 141 Pandals</span>
             </button>
-            <button onclick="window.sharodiyaApp.navigateTo('metro')" class="px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-cyan-300 font-bold text-sm tracking-wide border border-cyan-400/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+            <button onclick="window.sharodiyaApp.navigateTo('metro')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-cyan-300 font-bold text-sm tracking-wide border border-cyan-400/40 shadow-lg backdrop-blur-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
               <span class="material-symbols-outlined text-lg">subway</span>
               <span>Puja Metro Radar</span>
             </button>
-            <button onclick="window.sharodiyaApp.navigateTo('map')" class="px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-secondary font-bold text-sm tracking-wide border border-secondary-container/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+            <button onclick="window.sharodiyaApp.navigateTo('map')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-surface-container/80 hover:bg-surface-container text-secondary font-bold text-sm tracking-wide border border-secondary-container/40 shadow-lg backdrop-blur-md transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:scale-95">
               <span class="material-symbols-outlined text-lg">map</span>
               <span>Open Master Map</span>
             </button>
@@ -306,7 +306,7 @@
         <!-- ZONE SELECTOR TABS (Covers all 141 Pandals across 4 Zones) -->
         <div class="space-y-2">
           <span class="text-[11px] font-mono uppercase tracking-widest text-on-surface-variant font-semibold">Select Region / Zone</span>
-          <div class="flex items-center gap-2.5 overflow-x-auto pb-2" id="pandal-zone-filters">
+          <div class="flex items-center gap-2.5 overflow-x-auto pb-2 no-scrollbar" id="pandal-zone-filters">
             <button class="zone-filter-btn px-5 py-2.5 rounded-full zone-btn-active-all text-xs font-bold flex items-center gap-2 whitespace-nowrap transition-all" data-zone="all">
               <span class="material-symbols-outlined text-[16px]">travel_explore</span>
               All Zones <span class="px-2 py-0.5 rounded-full bg-black/20 text-[10px]">141</span>
@@ -328,7 +328,7 @@
 
         <!-- Category Filter Chips -->
         <div class="flex flex-wrap items-center justify-between gap-4 pt-1 border-t border-white/5">
-          <div class="flex flex-wrap items-center gap-2.5" id="pandal-filters">
+          <div class="flex flex-nowrap sm:flex-wrap items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar w-full sm:w-auto" id="pandal-filters">
             <button class="filter-btn px-4 py-1.5 rounded-full bg-primary text-black text-xs font-bold transition-all" data-filter="all">
               All Types
             </button>
@@ -414,8 +414,8 @@
           </div>
 
           <!-- Category Chips Carousel -->
-          <div class="w-full md:w-auto flex-1 overflow-x-auto pb-2 md:pb-0 z-10" id="eatery-category-bar">
-            <div class="flex flex-wrap gap-2.5 md:justify-end">
+          <div class="w-full md:w-auto flex-1 overflow-x-auto pb-2 md:pb-0 z-10 no-scrollbar" id="eatery-category-bar">
+            <div class="flex flex-nowrap md:flex-wrap gap-2.5 md:justify-end">
               <button class="eatery-category-btn px-4 py-2.5 rounded-full border-2 border-white bg-white/15 text-white text-xs font-bold transition-all whitespace-nowrap shadow-[0_0_15px_rgba(255,255,255,0.25)]" data-category="all">
                 All Flavours
               </button>
@@ -592,7 +592,7 @@
           <!-- Zone Quick Selector -->
           <div class="space-y-1.5" id="master-map-zone-filters-container">
             <span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest font-semibold block">Focus Region / Zone</span>
-            <div class="flex items-center gap-2 overflow-x-auto pb-1" id="master-map-zone-filters">
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" id="master-map-zone-filters">
               <button class="map-zone-btn px-3.5 py-1.5 rounded-full bg-primary text-black text-xs font-bold transition-all whitespace-nowrap" data-zone="all">
                 🌐 All Kolkata
               </button>
@@ -640,10 +640,10 @@
       <section class="rounded-3xl overflow-hidden bg-surface-container-low border border-white/10 shadow-2xl relative">
         
         <!-- Floating Live Map Search & Autocomplete -->
-        <div class="absolute top-4 left-4 z-[400] max-w-sm sm:w-80 w-[calc(100%-110px)]">
+        <div class="absolute top-3 sm:top-4 left-3 sm:left-4 z-[400] max-w-sm sm:w-80 w-[calc(100%-110px)]">
           <div class="relative shadow-2xl">
             <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-tertiary text-[20px]">search</span>
-            <input id="master-map-search-input" type="text" placeholder="Search any pandal or food joint..." class="w-full pl-11 pr-9 py-2.5 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-white/20 text-white placeholder:text-on-surface-variant text-xs shadow-2xl focus:outline-none focus:border-primary transition-all"/>
+            <input id="master-map-search-input" type="text" placeholder="Search pandal or food joint..." class="w-full pl-11 pr-9 py-2.5 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-white/20 text-white placeholder:text-on-surface-variant text-xs shadow-2xl focus:outline-none focus:border-primary transition-all"/>
             <button id="master-map-search-clear" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-white text-xs">
               <span class="material-symbols-outlined text-[16px]">close</span>
             </button>
@@ -654,7 +654,7 @@
         </div>
 
         <!-- Floating Active Pandal Food Focus Indicator Pill -->
-        <div id="map-pandal-food-focus-pill" class="hidden absolute top-4 left-1/2 -translate-x-1/2 z-[400] max-w-md w-auto px-4 py-2 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-secondary/50 shadow-2xl flex items-center gap-3 animate-fadeIn">
+        <div id="map-pandal-food-focus-pill" class="hidden absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-[400] max-w-md w-auto px-4 py-2 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-secondary/50 shadow-2xl flex items-center gap-3 animate-fadeIn">
           <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping shrink-0"></span>
           <div class="text-xs text-white truncate">
             <span class="text-secondary font-bold" id="map-focused-pandal-name">Pandal</span>
@@ -666,20 +666,20 @@
         </div>
 
         <!-- Floating Map Action Group (Right Side) -->
-        <div class="absolute top-4 right-4 z-[400] flex flex-col gap-2">
-          <button id="master-map-reset-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-white flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Reset View to Kolkata Center">
+        <div class="absolute top-3 sm:top-4 right-3 sm:right-4 z-[400] flex flex-col gap-2">
+          <button id="master-map-reset-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-white flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105 active:scale-95" title="Reset View to Kolkata Center">
             <span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
           </button>
-          <button id="master-map-trail-zoom-btn" class="hidden w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-tertiary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Zoom to Fit Parikrama Stops">
+          <button id="master-map-trail-zoom-btn" class="hidden w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-tertiary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105 active:scale-95" title="Zoom to Fit Parikrama Stops">
             <span class="material-symbols-outlined text-[20px]">route</span>
           </button>
-          <button id="master-map-fullscreen-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-secondary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105" title="Toggle Fullscreen">
+          <button id="master-map-fullscreen-btn" class="w-10 h-10 rounded-2xl bg-surface-container-high/90 backdrop-blur-md hover:bg-surface-container-highest text-secondary flex items-center justify-center border border-white/15 shadow-xl transition-transform hover:scale-105 active:scale-95" title="Toggle Fullscreen">
             <span class="material-symbols-outlined text-[20px]">fullscreen</span>
           </button>
         </div>
 
         <!-- Floating Legend & Real Road Route Stats Pill -->
-        <div class="absolute bottom-4 left-4 right-4 z-[400] flex flex-wrap items-center justify-between gap-3 pointer-events-none">
+        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 z-[400] flex flex-wrap items-center justify-between gap-3 pointer-events-none">
           <div class="pointer-events-auto hidden sm:flex items-center gap-3 px-4 py-2 rounded-2xl bg-surface-container-high/90 backdrop-blur-md border border-white/10 text-[11px] font-mono shadow-2xl">
             <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> South Pandal</span>
             <span class="flex items-center gap-1.5 text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span> North Pandal</span>
@@ -689,14 +689,14 @@
           </div>
 
           <!-- Dynamic Real Road Route Stats Badge -->
-          <div id="master-map-road-stats" class="pointer-events-auto flex items-center gap-2 px-4 py-2 rounded-2xl bg-primary-container/90 text-white backdrop-blur-md border border-white/20 text-xs font-mono font-bold shadow-2xl transition-all">
+          <div id="master-map-road-stats" class="pointer-events-auto flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-primary-container/90 text-white backdrop-blur-md border border-white/20 text-[11px] sm:text-xs font-mono font-bold shadow-2xl transition-all">
             <span class="material-symbols-outlined text-[16px] text-tertiary animate-pulse">alt_route</span>
-            <span id="master-map-road-stats-text">🛣️ Street-Level Road Navigation</span>
+            <span id="master-map-road-stats-text">🛣️ Street Navigation</span>
           </div>
         </div>
 
         <!-- The Master OpenStreetMap Leaflet Container -->
-        <div id="master-osm-map" class="w-full h-[640px] sm:h-[700px] z-0"></div>
+        <div id="master-osm-map" class="w-full h-[480px] sm:h-[640px] lg:h-[700px] z-0"></div>
       </section>
 
     </div>
@@ -741,14 +741,14 @@
         </div>
 
         <!-- Right Quick Actions -->
-        <div class="flex flex-wrap items-center gap-3 shrink-0">
-          <button id="open-metro-planner-btn" class="px-5 py-3 rounded-2xl bg-primary text-black font-bold text-xs flex items-center gap-2 shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:scale-105 active:scale-95 transition-all">
+        <div class="flex flex-wrap items-center gap-3 shrink-0 w-full sm:w-auto">
+          <button id="open-metro-planner-btn" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-primary text-black font-bold text-xs flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:scale-105 active:scale-95 transition-all">
             <span class="material-symbols-outlined text-[18px]">alt_route</span>
             <span>Plan My Pujo via Metro</span>
           </button>
-          <button id="fit-metro-bounds-btn" class="px-4 py-3 rounded-2xl bg-surface-container hover:bg-surface-container-high text-white font-bold text-xs border border-white/10 flex items-center gap-1.5 transition-all">
+          <button id="fit-metro-bounds-btn" class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-surface-container hover:bg-surface-container-high text-white font-bold text-xs border border-white/10 flex items-center justify-center gap-1.5 transition-all">
             <span class="material-symbols-outlined text-[18px] text-cyan-400">crop_free</span>
-            <span class="hidden sm:inline">Fit Metro View</span>
+            <span>Fit Metro View</span>
           </button>
         </div>
       </section>
@@ -758,7 +758,7 @@
         <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           
           <!-- Line Filter Chips -->
-          <div class="flex flex-wrap items-center gap-2" id="metro-line-filters">
+          <div class="flex flex-nowrap md:flex-wrap items-center gap-2 overflow-x-auto pb-1 no-scrollbar" id="metro-line-filters">
             <button class="line-filter-btn active-filter-all px-3.5 py-2 rounded-xl text-xs font-bold font-mono flex items-center gap-1.5 bg-white text-black shadow-md border border-white/20" data-line="all">
               <span>All Lines</span>
               <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-black/10 font-mono">48</span>
@@ -858,52 +858,54 @@
           <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed">Create and manage multiple distinct plans for any day of Durga Puja 2026. Tailor separate circuits for morning pushpanjali, family feasts, and midnight squad hopping.</p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3 no-print">
+        <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 no-print w-full sm:w-auto">
           <!-- View Route On Map Button (Enters Plan Route Map Mode) -->
-          <button id="view-plan-on-map-btn" class="px-5 py-3 rounded-full bg-secondary text-black font-bold text-xs flex items-center gap-2 shadow-[0_0_15px_rgba(0,224,255,0.3)] hover:scale-105 active:scale-95 transition-all">
+          <button id="view-plan-on-map-btn" class="w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-secondary text-black font-bold text-xs flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(0,224,255,0.3)] hover:scale-105 active:scale-95 transition-all">
             <span class="material-symbols-outlined text-[18px]">map</span>
-            <span>View Route on Map</span>
+            <span>View Map</span>
           </button>
 
           <!-- Prominent Save Plan Button -->
-          <button id="save-plan-btn" class="px-6 py-3 rounded-full bg-primary text-black font-bold text-xs flex items-center gap-2 shadow-[0_2px_15px_rgba(255,180,171,0.4)] hover:scale-105 active:scale-95 transition-all">
+          <button id="save-plan-btn" class="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-primary text-black font-bold text-xs flex items-center justify-center gap-1.5 shadow-[0_2px_15px_rgba(255,180,171,0.4)] hover:scale-105 active:scale-95 transition-all">
             <span class="material-symbols-outlined text-[18px]">save</span>
             <span id="save-plan-btn-text">Save Plan</span>
           </button>
 
           <!-- Create New Plan Button -->
-          <button id="create-new-plan-btn" class="px-5 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white font-bold text-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+          <button id="create-new-plan-btn" class="w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95">
             <span class="material-symbols-outlined text-[18px] text-secondary">add_circle</span>
             <span>New Plan</span>
           </button>
 
           <!-- All Plans Overview Modal Trigger -->
-          <button id="open-all-plans-modal-btn" class="px-5 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-tertiary/30 text-tertiary font-bold text-xs flex items-center gap-2 transition-all hover:scale-105">
+          <button id="open-all-plans-modal-btn" class="w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-tertiary/30 text-tertiary font-bold text-xs flex items-center justify-center gap-1.5 transition-all hover:scale-105">
             <span class="material-symbols-outlined text-[18px]">folder_open</span>
             <span>All Plans (<span id="total-plans-count">1</span>)</span>
           </button>
 
           <!-- Share Parikrama -->
-          <button id="share-parikrama-btn" class="px-5 py-3 rounded-full bg-primary-container text-white font-bold text-xs flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
-            <span class="material-symbols-outlined text-[18px]">share</span> Share
+          <button id="share-parikrama-btn" class="w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-primary-container text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[18px]">share</span>
+            <span>Share</span>
           </button>
 
           <!-- Print / Export -->
-          <button id="print-parikrama-btn" class="px-5 py-3 rounded-full glass-card hover:bg-white/10 text-white font-bold text-xs border border-white/10 transition-all flex items-center gap-2">
-            <span class="material-symbols-outlined text-[18px]">print</span> Print / PDF
+          <button id="print-parikrama-btn" class="w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-full glass-card hover:bg-white/10 text-white font-bold text-xs border border-white/10 transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px]">print</span>
+            <span>Print</span>
           </button>
         </div>
       </section>
 
       <!-- Active Plan Management Card & Day Assignment (Default: No Day Selected) -->
-      <section class="glass-card rounded-3xl p-6 sm:p-7 border border-white/10 space-y-6 relative shadow-2xl no-print">
+      <section class="glass-card rounded-3xl p-5 sm:p-7 border border-white/10 space-y-6 relative shadow-2xl no-print">
         
         <!-- Row 1: Plan Switcher, Editable Plan Name & Quick Actions -->
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 pb-5 border-b border-white/10">
           <div class="flex flex-col sm:flex-row sm:items-center gap-3.5 flex-1">
             <div class="space-y-1">
               <label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant font-bold block">Switch Active Plan</label>
-              <select id="plan-selector-dropdown" class="bg-surface-container-high border border-white/15 rounded-xl px-3.5 py-2 text-xs text-white font-semibold focus:outline-none focus:border-primary transition-all max-w-xs">
+              <select id="plan-selector-dropdown" class="w-full sm:w-auto bg-surface-container-high border border-white/15 rounded-xl px-3.5 py-2 text-xs text-white font-semibold focus:outline-none focus:border-primary transition-all max-w-xs">
                 <!-- Dynamically populated -->
               </select>
             </div>
@@ -948,7 +950,7 @@
           </div>
 
           <!-- Day Selection Buttons (Maha Sasthi selected by default) -->
-          <div id="parikrama-days-bar" class="flex flex-wrap items-center gap-2 pt-1">
+          <div id="parikrama-days-bar" class="flex flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto pb-1 no-scrollbar pt-1">
             <button class="day-assign-btn px-4 py-2 rounded-full bg-primary text-black font-bold text-xs whitespace-nowrap transition-all border border-primary shadow-md" data-day="Maha Sasthi">
               Maha Sasthi (Oct 16)
             </button>
@@ -1043,14 +1045,14 @@
         <h1 class="font-headline text-4xl sm:text-6xl text-white font-black drop-shadow-[0_0_15px_rgba(255,180,171,0.3)]">Who are you planning with this year?</h1>
         <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">Curate your festive journey tailored to the dynamics of your group for 2026. Select a companion archetype below or customize your complete personalized itinerary.</p>
         
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
-          <button id="people-create-manual-plan-btn" class="px-6 py-3 rounded-full bg-primary text-black font-bold text-xs shadow-[0_0_20px_rgba(255,215,0,0.4)] inline-flex items-center gap-2 hover:scale-105 active:scale-95 transition-all">
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto px-4">
+          <button id="people-create-manual-plan-btn" class="w-full sm:w-auto px-6 py-3 rounded-full bg-primary text-black font-bold text-xs shadow-[0_0_20px_rgba(255,215,0,0.4)] inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all">
             <span class="material-symbols-outlined text-[18px]">add_circle</span>
-            Create Manual Plan
+            <span>Create Manual Plan</span>
           </button>
-          <button id="squad-invite-btn" class="px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-lg inline-flex items-center gap-2 hover:scale-105 transition-transform">
+          <button id="squad-invite-btn" class="w-full sm:w-auto px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high border border-white/10 text-white text-xs font-bold shadow-lg inline-flex items-center justify-center gap-2 hover:scale-105 transition-transform">
             <span class="material-symbols-outlined text-[18px]">group_add</span>
-            Generate Squad Code
+            <span>Generate Squad Code</span>
           </button>
         </div>
       </section>
@@ -1743,6 +1745,35 @@
       </div>
     </div>
   </div>
+
+  <!-- Fixed Mobile Bottom Navigation Bar (< md screens) -->
+  <nav id="mobile-bottom-nav" class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-highest/95 backdrop-blur-2xl border-t border-white/10 md:hidden flex items-center justify-around py-2 px-1 safe-bottom shadow-[0_-10px_30px_rgba(0,0,0,0.6)]" aria-label="Mobile Navigation">
+    <a href="#landing" data-path="landing" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-semibold text-on-surface-variant transition-colors hover:text-white group">
+      <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">home</span>
+      <span class="tracking-tight mt-0.5">Home</span>
+    </a>
+    <a href="#pandals" data-path="pandals" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-semibold text-on-surface-variant transition-colors hover:text-white group">
+      <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">temple_hindu</span>
+      <span class="tracking-tight mt-0.5">Pandals</span>
+    </a>
+    <a href="#eateries" data-path="eateries" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-semibold text-on-surface-variant transition-colors hover:text-white group">
+      <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">restaurant</span>
+      <span class="tracking-tight mt-0.5">Food</span>
+    </a>
+    <a href="#map" data-path="map" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-semibold text-on-surface-variant transition-colors hover:text-white group">
+      <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">map</span>
+      <span class="tracking-tight mt-0.5">Map</span>
+    </a>
+    <a href="#metro" data-path="metro" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-semibold text-on-surface-variant transition-colors hover:text-white group">
+      <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">subway</span>
+      <span class="tracking-tight mt-0.5">Metro</span>
+    </a>
+    <a href="#planned" data-path="planned" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-semibold text-on-surface-variant transition-colors hover:text-white group relative">
+      <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">route</span>
+      <span class="tracking-tight mt-0.5">Plan</span>
+      <span id="mobile-parikrama-count-badge" class="absolute top-0 right-3.5 px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-primary-container text-white" style="display: none;">0</span>
+    </a>
+  </nav>
 
   <!-- Footer (Stitch Layout) -->
   <footer class="w-full bg-surface-container-lowest border-t border-white/5 py-16 relative z-10">
