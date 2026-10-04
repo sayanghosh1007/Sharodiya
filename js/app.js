@@ -746,20 +746,7 @@ class SharodiyaApp {
       this.handleSignUp(name, email, password, archetype);
     });
 
-    document.getElementById('quick-demo-login-btn')?.addEventListener('click', () => {
-      this.quickDemoLogin();
-    });
-
-    // 6.1 Supabase Social OAuth (Google)
-    document.getElementById('supabase-google-login-btn')?.addEventListener('click', async () => {
-      try {
-        await this.supabaseAuth.signInWithOAuth('google');
-      } catch (err) {
-        this.showAuthAlert(err.message || 'Supabase Google OAuth requires configuring custom project keys below.');
-      }
-    });
-
-    // 6.2 Supabase Custom Project Configuration
+    // 6.1 Supabase Custom Project Configuration
     const supabaseUrlInput = document.getElementById('supabase-custom-url-input');
     const supabaseKeyInput = document.getElementById('supabase-custom-key-input');
     const saveSupabaseBtn = document.getElementById('save-supabase-keys-btn');
