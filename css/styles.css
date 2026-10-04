@@ -809,6 +809,11 @@ body {
 }
 
 /* Animated Flowing Dashed Connector Line between Pandal and Nearest Eateries */
+.pandal-food-connector-glow {
+  opacity: 0.35;
+  filter: drop-shadow(0 0 6px rgba(0, 224, 255, 0.7));
+}
+
 .pandal-food-connector-line {
   stroke-dasharray: 6, 6;
   animation: foodLineDash 1.2s linear infinite;

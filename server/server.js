@@ -14,6 +14,7 @@ import metroRouter from './routes/metro.js';
 import archetypesRouter from './routes/archetypes.js';
 import authRouter from './routes/auth.js';
 import aiRouter from './routes/ai.js';
+import routeRouter from './routes/route.js';
 
 dotenv.config();
 
@@ -48,6 +49,7 @@ app.use('/api/schedule', scheduleRouter);
 app.use('/api/metro', metroRouter);
 app.use('/api/archetypes', archetypesRouter);
 app.use('/api/ai', aiRouter);
+app.use('/api/route', routeRouter);
 
 // Health Check
 app.get('/api/health', (req, res) => {
