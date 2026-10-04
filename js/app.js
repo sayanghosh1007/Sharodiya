@@ -3509,9 +3509,6 @@ class SharodiyaApp {
 
     try {
       this.metroTileLayer = window.L.tileLayer(osmTileUrl, {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        minZoom: 11,
-        maxZoom: 19,
         crossOrigin: true
       });
       this.metroTileLayer.addTo(this.metroMap);
@@ -3525,76 +3522,73 @@ class SharodiyaApp {
     if (!this.metroMap || !this.metroLayers.lines) return;
     this.metroLayers.lines.clearLayers();
 
-    // Official Real Operational Kolkata Metro Track Geometry
+    // Official Real Operational Kolkata Metro Track Geometry (Exact Geodesic Station Alignment)
     const METRO_LINE_TRACKS = {
       Blue: [
         [22.6534, 88.3575], // Dakshineswar
         [22.6417, 88.3688], // Baranagar
-        [22.6391, 88.3892], // Noapara
-        [22.6212, 88.3934], // Dum Dum
-        [22.6062, 88.3846], // Belgachia
-        [22.6015, 88.3712], // Shyambazar
-        [22.5974, 88.3662], // Shobhabazar Sutanuti
-        [22.5855, 88.3601], // Girish Park
-        [22.5802, 88.3608], // Mahatma Gandhi Road
-        [22.5694, 88.3582], // Central
-        [22.5658, 88.3551], // Chandni Chowk
-        [22.5639, 88.3516], // Esplanade (Interchange)
-        [22.5521, 88.3508], // Park Street
-        [22.5457, 88.3496], // Maidan
-        [22.5367, 88.3477], // Rabindra Sadan
-        [22.5312, 88.3468], // Netaji Bhavan
-        [22.5238, 88.3466], // Jatin Das Park
-        [22.5175, 88.3462], // Kalighat
-        [22.5085, 88.3461], // Rabindra Sarobar
-        [22.4975, 88.3458], // Mahanayak Uttam Kumar
-        [22.4871, 88.3467], // Netaji
-        [22.4764, 88.3533], // Masterda Surya Sen
-        [22.4719, 88.3615], // Gitanjali
-        [22.4665, 88.3752], // Kavi Nazrul
-        [22.4632, 88.3871], // Shahid Khudiram
-        [22.4722, 88.3986]  // Kavi Subhash (Interchange)
+        [22.6375, 88.3888], // Noapara
+        [22.6217, 88.3934], // Dum Dum
+        [22.6067, 88.3850], // Belgachia
+        [22.6022, 88.3711], // Shyambazar
+        [22.5982, 88.3662], // Shobhabazar Sutanuti
+        [22.5857, 88.3607], // Girish Park
+        [22.5815, 88.3605], // Mahatma Gandhi Road
+        [22.5684, 88.3607], // Central
+        [22.5658, 88.3562], // Chandni Chowk
+        [22.5639, 88.3516], // Esplanade (Interchange with Green Line)
+        [22.5539, 88.3513], // Park Street
+        [22.5463, 88.3496], // Maidan
+        [22.5401, 88.3483], // Rabindra Sadan
+        [22.5350, 88.3477], // Netaji Bhavan
+        [22.5273, 88.3471], // Jatin Das Park
+        [22.5186, 88.3458], // Kalighat
+        [22.5085, 88.3457], // Rabindra Sarobar
+        [22.4988, 88.3454], // Mahanayak Uttam Kumar
+        [22.4891, 88.3468], // Netaji
+        [22.4789, 88.3503], // Masterda Surya Sen
+        [22.4705, 88.3572], // Gitanjali
+        [22.4632, 88.3697], // Kavi Nazrul
+        [22.4630, 88.3842], // Shahid Khudiram
+        [22.4634, 88.3976]  // Kavi Subhash (Interchange with Orange Line)
       ],
-      Green_West: [
-        [22.5878, 88.3283], // Howrah Maidan
-        [22.5842, 88.3411], // Howrah Railway Station
-        [22.5728, 88.3472], // Mahakaran
-        [22.5639, 88.3516]  // Esplanade (Interchange)
-      ],
-      Green_East: [
-        [22.5672, 88.3718], // Sealdah
-        [22.5714, 88.3912], // Phoolbagan
-        [22.5718, 88.4042], // Salt Lake Stadium
-        [22.5772, 88.4069], // Bengal Chemical
-        [22.5861, 88.4093], // City Centre
-        [22.5889, 88.4167], // Central Park
-        [22.5833, 88.4239], // Karunamoyee
-        [22.5806, 88.4319]  // Salt Lake Sector V
+      Green: [
+        [22.5878, 88.3308], // Howrah Maidan
+        [22.5855, 88.3426], // Howrah Railway Station
+        [22.5714, 88.3486], // Mahakaran
+        [22.5639, 88.3516], // Esplanade (Interchange with Blue Line)
+        [22.5675, 88.3712], // Sealdah (Direct Corridor Connection to Esplanade)
+        [22.5714, 88.3905], // Phoolbagan
+        [22.5694, 88.4057], // Salt Lake Stadium
+        [22.5768, 88.4019], // Bengal Chemical
+        [22.5898, 88.4069], // City Centre
+        [22.5901, 88.4137], // Central Park
+        [22.5867, 88.4208], // Karunamoyee
+        [22.5802, 88.4357]  // Salt Lake Sector V
       ],
       Purple: [
-        [22.4502, 88.3056], // Joka
-        [22.4638, 88.3082], // Thakurpukur
-        [22.4761, 88.3117], // Sakherbazar
-        [22.4892, 88.3164], // Behala Chowrasta
-        [22.4989, 88.3211], // Behala Bazar
-        [22.5108, 88.3242], // Taratala
-        [22.5186, 88.3267]  // Majerhat
+        [22.4497, 88.3039], // Joka
+        [22.4619, 88.3082], // Thakurpukur
+        [22.4754, 88.3128], // Sakherbazar
+        [22.4867, 88.3168], // Behala Chowrasta
+        [22.4972, 88.3204], // Behala Bazar
+        [22.5118, 88.3242], // Taratala
+        [22.5205, 88.3283]  // Majerhat
       ],
       Orange: [
-        [22.4722, 88.3986], // Kavi Subhash (Interchange)
-        [22.4852, 88.3989], // Satyajit Ray
-        [22.4965, 88.3995], // Jyotirindra Nandy
-        [22.5062, 88.4001], // Kavi Sukanta
-        [22.5147, 88.4008]  // Hemanta Mukhopadhyay (Ruby)
+        [22.4634, 88.3976], // Kavi Subhash (Interchange with Blue Line)
+        [22.4795, 88.3989], // Satyajit Ray
+        [22.4950, 88.4005], // Jyotirindra Nandi
+        [22.5065, 88.4018], // Kavi Sukanta
+        [22.5161, 88.4032]  // Hemanta Mukhopadhyay (Ruby Crossing)
       ]
     };
 
     let LINE_CONFIG = [
-      { key: 'Blue', coords: METRO_LINE_TRACKS.Blue, color: '#0057B7', name: 'Blue Line (North-South Corridor)' },
-      { key: 'Green', coords: METRO_LINE_TRACKS.Green_West, color: '#009A44', name: 'Green Line (Howrah Maidan - Esplanade Under-River)' },
-      { key: 'Green', coords: METRO_LINE_TRACKS.Green_East, color: '#009A44', name: 'Green Line (Sealdah - Salt Lake Sector V)' },
-      { key: 'Purple', coords: METRO_LINE_TRACKS.Purple, color: '#7F2B87', name: 'Purple Line (Joka - Majerhat Corridor)' },
-      { key: 'Orange', coords: METRO_LINE_TRACKS.Orange, color: '#FF7300', name: 'Orange Line (Kavi Subhash - Ruby Corridor)' }
+      { key: 'Blue', coords: METRO_LINE_TRACKS.Blue, color: '#0057B7', name: 'Blue Line (Dakshineswar ↔ Kavi Subhash North-South Corridor)' },
+      { key: 'Green', coords: METRO_LINE_TRACKS.Green, color: '#009A44', name: 'Green Line (Howrah Maidan ↔ Esplanade ↔ Sealdah ↔ Salt Lake Sector V)' },
+      { key: 'Purple', coords: METRO_LINE_TRACKS.Purple, color: '#7F2B87', name: 'Purple Line (Joka ↔ Majerhat Corridor)' },
+      { key: 'Orange', coords: METRO_LINE_TRACKS.Orange, color: '#FF7300', name: 'Orange Line (Kavi Subhash ↔ Hemanta Mukhopadhyay Ruby Corridor)' }
     ];
 
     // Filter tracks: When any line is selected, all others disappear
@@ -3678,9 +3672,10 @@ class SharodiyaApp {
       let markerClass = 'metro-station-node';
 
       if (isInterchange) {
-        const interchangeTypeClass = st.id.includes('kavi-subhash') ? 'metro-interchange-node-orange' : '';
+        const isOrange = Array.isArray(st.line) && st.line.includes('Orange');
+        const interchangeTypeClass = isOrange ? 'metro-interchange-node-orange' : 'metro-interchange-node-green';
         markerClass = `metro-interchange-node ${interchangeTypeClass} ${isSelected ? 'selected-station-node' : ''}`;
-        iconHtml = `<div class="${markerClass}" title="${st.stationName} (Interchange)">
+        iconHtml = `<div class="${markerClass}" title="${st.stationName} (Metro Interchange Hub)">
           <span class="material-symbols-outlined text-[15px] text-yellow-300 font-bold">swap_horiz</span>
         </div>`;
       } else {
@@ -3803,9 +3798,10 @@ class SharodiyaApp {
                 </div>
                 <div class="flex flex-wrap gap-1.5">
                   <button onclick="window.sharodiyaApp.selectMetroStation('metro-shyambazar')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Shyambazar</button>
-                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-shobhabazar-sutanuti')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Shobhabazar</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-shobhabazar')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Shobhabazar</button>
                   <button onclick="window.sharodiyaApp.selectMetroStation('metro-kalighat')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#0057B7]/30 text-white text-[11px] font-mono transition-colors">Kalighat</button>
                   <button onclick="window.sharodiyaApp.selectMetroStation('metro-esplanade')" class="px-2.5 py-1 rounded-lg bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-300 text-[11px] font-mono font-bold transition-colors">⚡ Esplanade</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-kavi-subhash')" class="px-2.5 py-1 rounded-lg bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-300 text-[11px] font-mono font-bold transition-colors">⚡ Kavi Subhash</button>
                 </div>
               </div>
 
@@ -3816,9 +3812,10 @@ class SharodiyaApp {
                   <span class="font-mono text-[10px] bg-[#009A44]/20 px-2 py-0.5 rounded-full">${greenStations} Stations</span>
                 </div>
                 <div class="flex flex-wrap gap-1.5">
-                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-howrah-railway-station')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Howrah Rly Stn</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-howrah')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Howrah Rly Stn</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-esplanade')" class="px-2.5 py-1 rounded-lg bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-300 text-[11px] font-mono font-bold transition-colors">⚡ Esplanade</button>
                   <button onclick="window.sharodiyaApp.selectMetroStation('metro-sealdah')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Sealdah</button>
-                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-salt-lake-sector-v')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Sector V</button>
+                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-sector-v')" class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-[#009A44]/30 text-white text-[11px] font-mono transition-colors">Sector V</button>
                 </div>
               </div>
 
@@ -3830,7 +3827,10 @@ class SharodiyaApp {
                 </div>
                 <div class="p-3 rounded-2xl bg-surface-container border border-[#FF7300]/40 space-y-2">
                   <div class="font-bold text-[#fdba74] flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#FF7300]"></span> Orange Line</div>
-                  <button onclick="window.sharodiyaApp.selectMetroStation('metro-hemanta-mukhopadhyay-ruby')" class="w-full text-left px-2 py-1 rounded-lg bg-surface-container-high text-white text-[11px] font-mono hover:bg-[#FF7300]/30 transition-colors truncate">Ruby Crossing</button>
+                  <div class="flex flex-col gap-1">
+                    <button onclick="window.sharodiyaApp.selectMetroStation('metro-kavi-subhash')" class="w-full text-left px-2 py-1 rounded-lg bg-yellow-400/20 text-yellow-300 text-[11px] font-mono font-bold hover:bg-yellow-400/30 transition-colors truncate">⚡ Kavi Subhash</button>
+                    <button onclick="window.sharodiyaApp.selectMetroStation('metro-hemanta-mukhopadhyay')" class="w-full text-left px-2 py-1 rounded-lg bg-surface-container-high text-white text-[11px] font-mono hover:bg-[#FF7300]/30 transition-colors truncate">Ruby Crossing</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3855,17 +3855,29 @@ class SharodiyaApp {
     let lineBadgesHtml = '';
     if (isInterchange) {
       const lines = Array.isArray(station.interchangeLines || station.line) ? (station.interchangeLines || station.line) : ['Blue', 'Green'];
+      const isOrangeTransfer = lines.includes('Orange');
+      const transferGradient = isOrangeTransfer
+        ? 'bg-gradient-to-r from-blue-900/40 via-orange-900/30 to-yellow-900/30 border-orange-400/50'
+        : 'bg-gradient-to-r from-blue-900/40 via-green-900/30 to-yellow-900/30 border-yellow-400/50';
+      
+      const connectionDescription = station.id === 'metro-esplanade'
+        ? 'Seamless Interconnect Hub linking North-South Blue Line (Dakshineswar ↔ Kavi Subhash) with East-West Green Line (Howrah Maidan ↔ Sealdah ↔ Salt Lake Sector V).'
+        : 'Key Junction linking North-South Blue Line (Dakshineswar ↔ Kavi Subhash) with EM Bypass Orange Line (Kavi Subhash ↔ Ruby Crossing).';
+
       lineBadgesHtml = `
-        <div class="p-3 rounded-2xl bg-gradient-to-r from-blue-900/40 via-green-900/30 to-yellow-900/30 border border-yellow-400/50 space-y-1.5">
+        <div class="p-3.5 rounded-2xl ${transferGradient} border space-y-2">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono font-bold text-yellow-300 flex items-center gap-1.5">
               <span class="material-symbols-outlined text-[16px]">swap_horiz</span>
-              METRO INTERCHANGE
+              METRO INTERCHANGE HUB
             </span>
             <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-yellow-400/20 text-yellow-300 border border-yellow-400/40">Dual Line Transfer</span>
           </div>
           <div class="text-xs font-bold text-white flex items-center gap-2">
-            ${lines.map(l => `<span class="px-2 py-0.5 rounded-lg metro-badge-${l.toLowerCase()} font-mono font-bold">${l} Line</span>`).join('<span class="text-yellow-400">↔</span>')}
+            ${lines.map(l => `<span class="px-2.5 py-1 rounded-lg metro-badge-${l.toLowerCase()} font-mono font-bold">${l} Line</span>`).join('<span class="text-yellow-400 font-bold">↔</span>')}
+          </div>
+          <div class="text-[11px] text-on-surface-variant font-mono leading-tight">
+            ${connectionDescription}
           </div>
         </div>
       `;

@@ -687,16 +687,22 @@ body {
   outline: 3px solid #009A44;
   outline-offset: 1.5px;
   box-shadow: 0 0 16px rgba(0, 224, 255, 0.6), 0 4px 10px rgba(0, 0, 0, 0.7);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
   cursor: pointer;
 }
 .metro-interchange-node:hover {
   transform: scale(1.35);
   z-index: 1300 !important;
 }
+.metro-interchange-node-green {
+  border-color: #0057B7 !important;
+  outline-color: #009A44 !important;
+  box-shadow: 0 0 20px rgba(0, 154, 68, 0.6), 0 4px 10px rgba(0, 0, 0, 0.8);
+}
 .metro-interchange-node-orange {
   border-color: #0057B7 !important;
   outline-color: #FF7300 !important;
+  box-shadow: 0 0 20px rgba(255, 115, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* Separate Distinct Puja Pandal Marker on Metro Map */
